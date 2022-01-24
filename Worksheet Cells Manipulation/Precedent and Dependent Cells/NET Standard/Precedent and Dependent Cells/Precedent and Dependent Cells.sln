@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Precedent and Dependent Cells", "Precedent and Dependent Cells\Precedent and Dependent Cells.csproj", "{5478CA14-4F8D-474D-9A29-F74FB9EF397A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5478CA14-4F8D-474D-9A29-F74FB9EF397A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5478CA14-4F8D-474D-9A29-F74FB9EF397A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5478CA14-4F8D-474D-9A29-F74FB9EF397A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5478CA14-4F8D-474D-9A29-F74FB9EF397A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2629860F-D1AA-4AA9-A0B8-3CAE900D2A13}
+	EndGlobalSection
+EndGlobal
