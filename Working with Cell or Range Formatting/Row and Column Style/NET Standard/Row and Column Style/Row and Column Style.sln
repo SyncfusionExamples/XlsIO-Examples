@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Row and Column Style", "Row and Column Style\Row and Column Style.csproj", "{0E25FB58-C33F-4D00-A3BC-F4B25DAE62D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E25FB58-C33F-4D00-A3BC-F4B25DAE62D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E25FB58-C33F-4D00-A3BC-F4B25DAE62D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E25FB58-C33F-4D00-A3BC-F4B25DAE62D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E25FB58-C33F-4D00-A3BC-F4B25DAE62D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36085A36-924F-447F-A275-3CA3EEA8BCB1}
+	EndGlobalSection
+EndGlobal
