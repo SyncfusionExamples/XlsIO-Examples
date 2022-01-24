@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combination Filter", "Combination Filter\Combination Filter.csproj", "{D575134B-A9DA-4366-B977-D7AFEA35FBF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D575134B-A9DA-4366-B977-D7AFEA35FBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D575134B-A9DA-4366-B977-D7AFEA35FBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D575134B-A9DA-4366-B977-D7AFEA35FBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D575134B-A9DA-4366-B977-D7AFEA35FBF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C570D76-06FB-4D15-8223-CBFC8C021DD0}
+	EndGlobalSection
+EndGlobal
