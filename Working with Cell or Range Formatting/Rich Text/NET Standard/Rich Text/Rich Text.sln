@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rich Text", "Rich Text\Rich Text.csproj", "{27C1E851-9635-4C56-AF2F-8AE0496CC7AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27C1E851-9635-4C56-AF2F-8AE0496CC7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C1E851-9635-4C56-AF2F-8AE0496CC7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C1E851-9635-4C56-AF2F-8AE0496CC7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C1E851-9635-4C56-AF2F-8AE0496CC7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26BF5800-C663-4ADA-B076-30FA60531C47}
+	EndGlobalSection
+EndGlobal
