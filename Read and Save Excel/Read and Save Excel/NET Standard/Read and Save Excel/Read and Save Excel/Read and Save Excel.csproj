@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Open_Save_and_Close_Excel</RootNamespace>
+    <RootNamespace>Read and Save Excel</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

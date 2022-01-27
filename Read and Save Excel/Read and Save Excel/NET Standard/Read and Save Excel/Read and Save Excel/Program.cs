@@ -1,7 +1,7 @@
 ﻿using Syncfusion.XlsIO;
 using System.IO;
 
-namespace Open_Save_and_Close_Excel
+namespace Read_and_Save_Excel
 {
     class Program
     {
@@ -19,9 +19,12 @@ namespace Open_Save_and_Close_Excel
             //Set the version of the workbook
             workbook.Version = ExcelVersion.Xlsx;
 
+            //Set a value in Excel cell
+            workbook.Worksheets[0].Range["A2"].Value = "Hello World";
+
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream("OpenandSave.xlsx", FileMode.Create, FileAccess.Write);
+            FileStream outputStream = new FileStream("ReadandSaveExcel.xlsx", FileMode.Create, FileAccess.Write);
             workbook.SaveAs(outputStream);            
             #endregion
 
@@ -38,7 +41,7 @@ namespace Open_Save_and_Close_Excel
             excelEngine.Dispose();
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("OpenandSave.xlsx")
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandSaveExcel.xlsx")
             {
                 UseShellExecute = true
             };
