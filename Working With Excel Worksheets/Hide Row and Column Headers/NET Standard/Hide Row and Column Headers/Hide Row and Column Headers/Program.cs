@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
 
-namespace Hide_Row_Column_Headers
+namespace Hide_Row_and_Column_Headers
 {
     class Program
     {
@@ -22,7 +22,7 @@ namespace Hide_Row_Column_Headers
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("HideRowColumnHeaders.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("HideRowandColumnHeaders.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -30,7 +30,7 @@ namespace Hide_Row_Column_Headers
                 outputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("HideRowColumnHeaders.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("HideRowandColumnHeaders.xlsx")
                 {
                     UseShellExecute = true
                 };
