@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
 
-namespace Create_Access_Remove_Worksheet
+namespace Create_Worksheet
 {
     class Program
     {
@@ -21,22 +21,9 @@ namespace Create_Access_Remove_Worksheet
                 IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
                 #endregion
 
-                #region  Access
-                //Accessing via index
-                IWorksheet sheet = workbook.Worksheets[0];
-
-                //Accessing via sheet name
-                IWorksheet NamedSheet = workbook.Worksheets["Sample"];
-                #endregion
-
-                #region Remove
-                //Removing the sheet
-                workbook.Worksheets[0].Remove();
-                #endregion
-
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CreateAccessRemove.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("CreateWorksheet.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -44,7 +31,7 @@ namespace Create_Access_Remove_Worksheet
                 outputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CreateAccessRemove.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CreateWorksheet.xlsx")
                 {
                     UseShellExecute = true
                 };
