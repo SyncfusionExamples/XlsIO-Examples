@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
 
-namespace Open_Save_CSV
+namespace Read_and_Save_CSV
 {
     class Program
     {
@@ -13,7 +13,7 @@ namespace Open_Save_CSV
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 FileStream inputStream = new FileStream("../../../InputTemplate.csv", FileMode.Open, FileAccess.Read);
 
-                #region Open CSV
+                #region Read CSV
                 //Open the Tab delimited CSV file
                 IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
                 #endregion
@@ -22,7 +22,7 @@ namespace Open_Save_CSV
 
                 #region Save CSV
                 //Saving the workbook
-                FileStream outputStream = new FileStream("OpenandSaveCSV.csv", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("ReadandSaveCSV.csv", FileMode.Create, FileAccess.Write);
                 worksheet.SaveAs(outputStream, ",");
                 #endregion
 
@@ -31,7 +31,7 @@ namespace Open_Save_CSV
                 inputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("OpenandSaveCSV.csv")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandSaveCSV.csv")
                 {
                     UseShellExecute = true
                 };
