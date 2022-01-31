@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Read and Save Excel", "Read and Save Excel\Read and Save Excel.csproj", "{AAEDFC24-300B-4516-AAC0-2F12FD288805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Read and Edit Excel", "Read and Edit Excel\Read and Edit Excel.csproj", "{AAEDFC24-300B-4516-AAC0-2F12FD288805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

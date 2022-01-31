@@ -1,7 +1,7 @@
 ﻿using Syncfusion.XlsIO;
 using System.IO;
 
-namespace Read_and_Save_Excel
+namespace Read_and_Edit_Excel
 {
     class Program
     {
@@ -19,12 +19,14 @@ namespace Read_and_Save_Excel
             //Set the version of the workbook
             workbook.Version = ExcelVersion.Xlsx;
 
+            #region Edit
             //Set a value in Excel cell
             workbook.Worksheets[0].Range["A2"].Value = "Hello World";
+            #endregion
 
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream("ReadandSaveExcel.xlsx", FileMode.Create, FileAccess.Write);
+            FileStream outputStream = new FileStream("ReadandEditExcel.xlsx", FileMode.Create, FileAccess.Write);
             workbook.SaveAs(outputStream);            
             #endregion
 
@@ -41,7 +43,7 @@ namespace Read_and_Save_Excel
             excelEngine.Dispose();
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandSaveExcel.xlsx")
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandEditExcel.xlsx")
             {
                 UseShellExecute = true
             };
