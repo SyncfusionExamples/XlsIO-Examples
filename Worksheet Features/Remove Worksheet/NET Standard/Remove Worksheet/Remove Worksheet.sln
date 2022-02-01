@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remove Worksheet", "Remove Worksheet\Remove Worksheet.csproj", "{46C1820C-C68A-4014-A1C8-A6C217B56162}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46C1820C-C68A-4014-A1C8-A6C217B56162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C1820C-C68A-4014-A1C8-A6C217B56162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C1820C-C68A-4014-A1C8-A6C217B56162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C1820C-C68A-4014-A1C8-A6C217B56162}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65107F51-489A-4D57-84EF-722132944830}
+	EndGlobalSection
+EndGlobal
