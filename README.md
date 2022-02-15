@@ -38,7 +38,7 @@ Syncfusion Essential XlsIO supports .xls, .xlsx, .xlsm, .xlsb, .xltm, .xltx, .xl
 ## Resources
 
 * **Product page:** [Syncfusion Excel Framework](https://www.syncfusion.com/excel-framework/net-core?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
-* **Documentation:** [Syncfusion Excel Library] (https://help.syncfusion.com/file-formats/xlsio/overview?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
+* **Documentation:** [Syncfusion Excel Library](https://help.syncfusion.com/file-formats/xlsio/overview?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
 * **Online Demos:** [Online Demos](https://ej2.syncfusion.com/aspnetcore/XlsIO/Create#/material?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
 * **Blog:** [Syncfusion Excel library - Blog](https://www.syncfusion.com/blogs/category/xlsio?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
 * **Knowledge Base:** [Syncfusion Excel library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/xlsio?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)
