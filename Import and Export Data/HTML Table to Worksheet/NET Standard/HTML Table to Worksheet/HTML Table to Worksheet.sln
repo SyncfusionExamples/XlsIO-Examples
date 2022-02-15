@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML Table to Worksheet", "HTML Table to Worksheet\HTML Table to Worksheet.csproj", "{BD7E27B3-6CB7-46E6-A726-A8F7F3EF0614}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD7E27B3-6CB7-46E6-A726-A8F7F3EF0614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD7E27B3-6CB7-46E6-A726-A8F7F3EF0614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD7E27B3-6CB7-46E6-A726-A8F7F3EF0614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD7E27B3-6CB7-46E6-A726-A8F7F3EF0614}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2EA4DD8-0F28-4C8C-9E0C-7D429D38F7C6}
+	EndGlobalSection
+EndGlobal
