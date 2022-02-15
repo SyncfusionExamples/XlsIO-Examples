@@ -1,15 +1,11 @@
 [Syncfusion Essential XlsIO](https://www.syncfusion.com/excel-framework/net-core?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) is a high-performance and feature-rich .NET Excel framework to work with Microsoft Excel documents. This framework has an Excel creation and editing library that allows you to create, read, and edit Microsoft Excel files in any .NET application. It offers an Excel-inspired Spreadsheet UI control to create, edit, view, and format Excel documents. Its powerful conversion APIs make it easy to convert Excel files to PDF, images, and more.
 
 ## Key features
-• Easily [import and export](https://help.syncfusion.com/file-formats/xlsio/working-with-data?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) data from/to common business objects.
-
-• Performs quick [evaluation](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) with 400+ functions.
-
-• Imports data into a customized format using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
-
-• Create and edit all [chart](https://help.syncfusion.com/file-formats/xlsio/working-with-charts?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) types including Excel 2016 charts.
-
-• Cell [data validations](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) can be applied with operators, alert messages, custom formulas, and drop-down lists.
+* Easily [import and export](https://help.syncfusion.com/file-formats/xlsio/working-with-data?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) data from/to common business objects.
+* Performs quick [evaluation](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) with 400+ functions.
+* Imports data into a customized format using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
+* Create and edit all [chart](https://help.syncfusion.com/file-formats/xlsio/working-with-charts?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) types including Excel 2016 charts.
+* Cell [data validations](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) can be applied with operators, alert messages, custom formulas, and drop-down lists.
 
 • Highlights important cells by [conditional formats](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
 
