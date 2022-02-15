@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delete Named Range", "Delete Named Range\Delete Named Range.csproj", "{24D11B6C-4992-4A23-BD2B-5A0EB7139ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24D11B6C-4992-4A23-BD2B-5A0EB7139ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D11B6C-4992-4A23-BD2B-5A0EB7139ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D11B6C-4992-4A23-BD2B-5A0EB7139ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D11B6C-4992-4A23-BD2B-5A0EB7139ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D49B320-AF72-4F69-BDF9-6B3C9661E819}
+	EndGlobalSection
+EndGlobal
