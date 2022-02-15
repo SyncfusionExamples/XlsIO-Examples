@@ -2,26 +2,43 @@
 
 ## Key features
 • Easily [import and export](https://help.syncfusion.com/file-formats/xlsio/working-with-data?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) data from/to common business objects.
+
 • Performs quick [evaluation](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) with 400+ functions.
+
 • Imports data into a customized format using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
+
 • Create and edit all [chart](https://help.syncfusion.com/file-formats/xlsio/working-with-charts?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) types including Excel 2016 charts.
+
 • Cell [data validations](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) can be applied with operators, alert messages, custom formulas, and drop-down lists.
+
 • Highlights important cells by [conditional formats](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
+
 • Performs various [cell-level operations](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) like resizing, hide or unhide, insert or delete, group and ungroup, and so on.
+
 • Supports various [formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-cell-or-range-formatting?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) like number formats, text alignments, font settings, border settings, color settings, rich-text, and so on.
+
 • Supports applying built-in styles and custom styles to cells.
+
 • [Sorts](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-sorting?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) data based on cell value, cell color, and font color.
+
 • [Filters](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-filtering?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) data based on cell value, cell color, icons, and so on.
+
 • Create and edit the [auto shapes, comments, text boxes, combo boxes, check boxes, and option buttons](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples).
+
 • Enables [page settings](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#page-setup-settings?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) like orientation, paper size, scaling, margins, print titles, header and footer, and so on.
 
 ## Compatible Microsoft Excel Versions
 
 • Microsoft Excel 97-2003
+
 • Microsoft Excel 2007
+
 • Microsoft Excel 2010
+
 • Microsoft Excel 2013
+
 • Microsoft Excel 2016
+
 • Microsoft Excel 2019
 
 ## Supported File Formats
@@ -31,8 +48,11 @@ Syncfusion Essential XlsIO supports .xls, .xlsx, .xlsm, .xlsb, .xltm, .xltx, .xl
 ## How to run the examples
 
 • Download this project to a location in your disk.
+
 • Open the solution file using Visual Studio.
+
 • Rebuild the solution to install the required NuGet packages.
+
 • Run the application.
 
 ## Resources
@@ -54,6 +74,7 @@ Syncfusion Essential XlsIO supports .xls, .xlsx, .xlsm, .xlsb, .xltm, .xltx, .xl
 ## Support and feedback
 
 • For any other queries, reach our [Syncfusion support team](https://www.syncfusion.com/support/directtrac/incidents/newincident?utm_source=github&utm_medium=listing&utm_campaign=github-xlsio-examples) or post the queries through the [community forums](https://www.syncfusion.com/forums?utm_source=github&utm_medium=listing&utm_campaign=github-xlsio-examples).
+
 • Request new feature through [Syncfusion feedback portal](https://www.syncfusion.com/feedback?utm_source=github&utm_medium=listing&utm_campaign=github-xlsio-examples).
 
 ## License
