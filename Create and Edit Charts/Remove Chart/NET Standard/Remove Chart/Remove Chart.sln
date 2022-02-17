@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remove Chart", "Remove Chart\Remove Chart.csproj", "{B50975B9-E55D-455F-8B35-4EB307551F39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B50975B9-E55D-455F-8B35-4EB307551F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50975B9-E55D-455F-8B35-4EB307551F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50975B9-E55D-455F-8B35-4EB307551F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50975B9-E55D-455F-8B35-4EB307551F39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {084BB8C1-A251-4322-8DF6-8E86FA3C65D8}
+	EndGlobalSection
+EndGlobal

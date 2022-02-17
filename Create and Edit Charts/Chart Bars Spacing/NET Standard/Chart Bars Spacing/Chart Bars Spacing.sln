@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chart Bars Spacing", "Chart Bars Spacing\Chart Bars Spacing.csproj", "{0188FBCC-2304-4A12-873C-6D89B315968A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0188FBCC-2304-4A12-873C-6D89B315968A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0188FBCC-2304-4A12-873C-6D89B315968A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0188FBCC-2304-4A12-873C-6D89B315968A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0188FBCC-2304-4A12-873C-6D89B315968A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C1CB08D-955B-4C5C-9B01-EB442EB3E43B}
+	EndGlobalSection
+EndGlobal
