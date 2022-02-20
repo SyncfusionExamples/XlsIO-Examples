@@ -15,8 +15,9 @@ namespace Create_Table
                 FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
-
-                IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+                
+                //Create for the given data
+                IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C5"]);
 
                 #region Save
                 //Saving the workbook
