@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Position and Resize Picture", "Position and Resize Picture\Position and Resize Picture.csproj", "{0BAA1207-863E-48DB-AB64-9AEB3F51D36C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BAA1207-863E-48DB-AB64-9AEB3F51D36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BAA1207-863E-48DB-AB64-9AEB3F51D36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BAA1207-863E-48DB-AB64-9AEB3F51D36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BAA1207-863E-48DB-AB64-9AEB3F51D36C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C29771A-7EE1-4A02-9760-B23333EA535A}
+	EndGlobalSection
+EndGlobal
