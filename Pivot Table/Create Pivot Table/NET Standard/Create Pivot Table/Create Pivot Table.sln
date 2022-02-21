@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create Pivot Table", "Create Pivot Table\Create Pivot Table.csproj", "{12CCCFB7-281A-4B84-9331-A25399B46563}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12CCCFB7-281A-4B84-9331-A25399B46563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CCCFB7-281A-4B84-9331-A25399B46563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CCCFB7-281A-4B84-9331-A25399B46563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CCCFB7-281A-4B84-9331-A25399B46563}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D515FA0-D500-438F-9CC1-06FB25187202}
+	EndGlobalSection
+EndGlobal
