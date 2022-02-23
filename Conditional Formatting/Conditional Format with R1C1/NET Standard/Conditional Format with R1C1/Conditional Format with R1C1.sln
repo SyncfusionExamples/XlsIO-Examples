@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conditional Format with R1C1", "Conditional Format with R1C1\Conditional Format with R1C1.csproj", "{0E7EDEC5-9BB9-4B70-962B-A5279169A253}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E7EDEC5-9BB9-4B70-962B-A5279169A253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7EDEC5-9BB9-4B70-962B-A5279169A253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7EDEC5-9BB9-4B70-962B-A5279169A253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7EDEC5-9BB9-4B70-962B-A5279169A253}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4A49992-E639-4F37-989A-DC6B87B68D80}
+	EndGlobalSection
+EndGlobal
