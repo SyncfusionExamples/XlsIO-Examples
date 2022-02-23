@@ -24,7 +24,7 @@ namespace Insert_Column
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("InsertTable.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("InsertTableColumn.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -33,7 +33,7 @@ namespace Insert_Column
                 outputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("InsertTable.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("InsertTableColumn.xlsx")
                 {
                     UseShellExecute = true
                 };

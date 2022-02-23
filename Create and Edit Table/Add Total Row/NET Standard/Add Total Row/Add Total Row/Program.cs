@@ -27,7 +27,7 @@ namespace Add_Total_Row
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("FormatTable.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("AddTotalRow.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -36,7 +36,7 @@ namespace Add_Total_Row
                 outputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("FormatTable.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("AddTotalRow.xlsx")
                 {
                     UseShellExecute = true
                 };
