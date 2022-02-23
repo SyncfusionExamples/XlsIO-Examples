@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add Picture", "Add Picture\Add Picture.csproj", "{7BBA66D5-01DA-4562-9784-DB0D4F046449}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BBA66D5-01DA-4562-9784-DB0D4F046449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBA66D5-01DA-4562-9784-DB0D4F046449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBA66D5-01DA-4562-9784-DB0D4F046449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBA66D5-01DA-4562-9784-DB0D4F046449}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D415D5CD-CE2F-4575-A825-AE5986D785A8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Above and Below Standard Deviation", "Above and Below Standard Deviation\Above and Below Standard Deviation.csproj", "{C69F5B03-A75B-4F42-957C-0466BAEE014D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C69F5B03-A75B-4F42-957C-0466BAEE014D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69F5B03-A75B-4F42-957C-0466BAEE014D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69F5B03-A75B-4F42-957C-0466BAEE014D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69F5B03-A75B-4F42-957C-0466BAEE014D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47765FFC-B845-431A-B2E6-C42117740870}
+	EndGlobalSection
+EndGlobal

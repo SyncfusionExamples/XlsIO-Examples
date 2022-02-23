@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Top To Bottom Percent", "Top To Bottom Percent\Top To Bottom Percent.csproj", "{2BDB8626-5C2D-4611-8037-D6A038BDCD6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BDB8626-5C2D-4611-8037-D6A038BDCD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDB8626-5C2D-4611-8037-D6A038BDCD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDB8626-5C2D-4611-8037-D6A038BDCD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDB8626-5C2D-4611-8037-D6A038BDCD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {863C2142-6AE3-41E3-9216-CE08C24F3F86}
+	EndGlobalSection
+EndGlobal
