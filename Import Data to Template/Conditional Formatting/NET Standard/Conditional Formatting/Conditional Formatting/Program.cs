@@ -121,7 +121,7 @@ namespace Conditional_Formatting
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("TemplateMarker.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("ConditionalFormatting.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -130,7 +130,7 @@ namespace Conditional_Formatting
                 inputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("TemplateMarker.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ConditionalFormatting.xlsx")
                 {
                     UseShellExecute = true
                 };

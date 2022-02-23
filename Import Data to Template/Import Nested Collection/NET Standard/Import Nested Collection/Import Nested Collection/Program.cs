@@ -28,7 +28,7 @@ namespace Import_Nested_Collection
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("TemplateMarker.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("ImportNestedCollection.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -37,7 +37,7 @@ namespace Import_Nested_Collection
                 inputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("TemplateMarker.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportNestedCollection.xlsx")
                 {
                     UseShellExecute = true
                 };
