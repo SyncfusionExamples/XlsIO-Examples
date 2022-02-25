@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automatic Layout", "Automatic Layout\Automatic Layout.csproj", "{AACEBEA4-830D-4974-9928-A9647F948439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AACEBEA4-830D-4974-9928-A9647F948439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACEBEA4-830D-4974-9928-A9647F948439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACEBEA4-830D-4974-9928-A9647F948439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACEBEA4-830D-4974-9928-A9647F948439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5001468-111A-4EAB-B232-9C324A30F3B8}
+	EndGlobalSection
+EndGlobal
