@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Show or Hide Comment", "Show or Hide Comment\Show or Hide Comment.csproj", "{DD08C373-0862-4186-9C22-B9FA4737B9DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD08C373-0862-4186-9C22-B9FA4737B9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD08C373-0862-4186-9C22-B9FA4737B9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD08C373-0862-4186-9C22-B9FA4737B9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD08C373-0862-4186-9C22-B9FA4737B9DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5246A1F-129F-4AA9-BAD6-769E4E40066C}
+	EndGlobalSection
+EndGlobal
