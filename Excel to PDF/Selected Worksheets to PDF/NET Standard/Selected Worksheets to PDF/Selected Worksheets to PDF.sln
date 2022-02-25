@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selected Worksheets to PDF", "Selected Worksheets to PDF\Selected Worksheets to PDF.csproj", "{3961E199-2DD7-42CE-A142-D24D0567533D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3961E199-2DD7-42CE-A142-D24D0567533D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3961E199-2DD7-42CE-A142-D24D0567533D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3961E199-2DD7-42CE-A142-D24D0567533D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3961E199-2DD7-42CE-A142-D24D0567533D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FA61407-F8A1-4559-A47C-94C87E632587}
+	EndGlobalSection
+EndGlobal
