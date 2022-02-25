@@ -32,8 +32,7 @@ namespace Create_Excel
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-
-                application.DefaultVersion = ExcelVersion.Excel2016;
+                application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Create a workbook
                 IWorkbook workbook = application.Workbooks.Create(1);
