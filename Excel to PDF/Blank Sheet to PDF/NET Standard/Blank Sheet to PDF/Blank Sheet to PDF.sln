@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blank Sheet to PDF", "Blank Sheet to PDF\Blank Sheet to PDF.csproj", "{7F16D803-1567-4DD4-BF31-C0C370752CC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F16D803-1567-4DD4-BF31-C0C370752CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F16D803-1567-4DD4-BF31-C0C370752CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F16D803-1567-4DD4-BF31-C0C370752CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F16D803-1567-4DD4-BF31-C0C370752CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D82E2AA1-E8FB-4BB2-A8E6-1A592334D3B3}
+	EndGlobalSection
+EndGlobal

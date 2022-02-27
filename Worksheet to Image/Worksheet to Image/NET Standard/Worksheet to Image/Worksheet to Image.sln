@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worksheet to Image", "Worksheet to Image\Worksheet to Image.csproj", "{261189C3-15CF-4E31-8CA2-1F6CB85BA5BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{261189C3-15CF-4E31-8CA2-1F6CB85BA5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261189C3-15CF-4E31-8CA2-1F6CB85BA5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261189C3-15CF-4E31-8CA2-1F6CB85BA5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261189C3-15CF-4E31-8CA2-1F6CB85BA5BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D79E090C-1017-4F60-94D9-5A5A38FD9FBE}
+	EndGlobalSection
+EndGlobal

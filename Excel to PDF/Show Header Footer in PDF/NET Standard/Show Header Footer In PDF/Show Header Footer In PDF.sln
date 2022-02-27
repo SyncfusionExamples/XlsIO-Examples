@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Show Header Footer In PDF", "Show Header Footer In PDF\Show Header Footer In PDF.csproj", "{843CB1AF-0554-4987-B998-3366B4AD1B73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{843CB1AF-0554-4987-B998-3366B4AD1B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843CB1AF-0554-4987-B998-3366B4AD1B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843CB1AF-0554-4987-B998-3366B4AD1B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843CB1AF-0554-4987-B998-3366B4AD1B73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2FE0A7E-5BD9-4D0B-A442-0B3F70A61F5D}
+	EndGlobalSection
+EndGlobal
