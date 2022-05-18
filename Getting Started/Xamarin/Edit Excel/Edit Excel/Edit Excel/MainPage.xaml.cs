@@ -46,5 +46,5 @@ namespace Edit_Excel
 				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("EditExcel.xlsx", "application/msexcel", stream);
 			}
 		}
-    }
+	}
 }
