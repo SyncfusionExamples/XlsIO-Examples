@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{D73769FB-757B-45B3-9136-CD6C363DFDF9}</ProjectGuid>
+    <ProjectGuid>{B0E89EC7-00B0-4F3F-A8BE-1D5E83E7609B}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Create_Excel.UWP</RootNamespace>
@@ -151,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Create Excel\Create Excel.csproj">
-      <Project>{E034BA3F-BA35-40FD-A045-447F75E7539F}</Project>
+      <Project>{0035D04B-9107-4AEF-AD46-1709714843DA}</Project>
       <Name>Create Excel</Name>
     </ProjectReference>
   </ItemGroup>

@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="5b41284b-e40b-41eb-904f-8cb3325ee7f9"
-    Publisher="CN=ed5e2388-85db-4f76-9d86-26169bca116c"
+    Name="6d6b5bc4-35b0-4724-bb25-4699668c8075"
+    Publisher="CN=05857180-6b8f-4363-9a81-541ffe72c543"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Create_Excel.UWP</DisplayName>
-    <PublisherDisplayName>ed5e2388-85db-4f76-9d86-26169bca116c</PublisherDisplayName>
+    <PublisherDisplayName>05857180-6b8f-4363-9a81-541ffe72c543</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

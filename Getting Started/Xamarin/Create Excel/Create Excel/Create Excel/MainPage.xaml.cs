@@ -11,14 +11,14 @@ using System.IO;
 
 namespace Create_Excel
 {
-    public partial class MainPage : ContentPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-        void OnButtonClicked(object sender, EventArgs e)
-        {
+	public partial class MainPage : ContentPage
+	{
+		public MainPage()
+		{
+			InitializeComponent();
+		}
+		void OnButtonClicked(object sender, EventArgs e)
+		{
 			//Create an instance of ExcelEngine.
 			using (ExcelEngine excelEngine = new ExcelEngine())
 			{
@@ -204,5 +204,5 @@ namespace Create_Excel
 				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CreateExcel.xlsx", "application/msexcel", stream);
 			}
 		}
-    }
+	}
 }
