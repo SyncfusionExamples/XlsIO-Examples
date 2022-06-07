@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{812C73DF-2C41-47F5-B250-89F91C8FDD3D}</ProjectGuid>
+    <ProjectGuid>{949E4EDF-1626-4917-A331-5C180D7AEEA5}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Edit_Excel.UWP</RootNamespace>
@@ -151,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Edit Excel\Edit Excel.csproj">
-      <Project>{223983BA-A815-4047-9879-1DD475C3E335}</Project>
+      <Project>{0E6525B0-58AB-4B12-B64C-9C92DCA9E236}</Project>
       <Name>Edit Excel</Name>
     </ProjectReference>
   </ItemGroup>
