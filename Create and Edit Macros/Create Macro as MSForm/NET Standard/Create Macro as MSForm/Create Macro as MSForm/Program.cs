@@ -23,7 +23,7 @@ namespace Create_Macro_as_MSForm
                 IVbaModules vbaModules = project.Modules;
 
                 //Opening form module existing workbook
-                FileStream input = new FileStream(@"..\..\..\Data\InputTemplate.xls", FileMode.Open, FileAccess.ReadWrite);
+                FileStream input = new FileStream("../../../Data/InputTemplate.xls", FileMode.Open, FileAccess.ReadWrite);
                 IWorkbook newBook = application.Workbooks.Open(input);
 
                 IVbaProject newProject = newBook.VbaProject;

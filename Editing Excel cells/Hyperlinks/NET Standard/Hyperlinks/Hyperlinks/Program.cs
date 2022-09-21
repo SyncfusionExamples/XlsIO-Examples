@@ -30,14 +30,14 @@ namespace Hyperlinks
                 //Creating a Hyperlink for Opening Files using type as File
                 IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
                 hyperlink2.Type = ExcelHyperLinkType.File;
-                hyperlink2.Address = @"C:\Program files";
+                hyperlink2.Address = "C:/Program files";
                 hyperlink2.ScreenTip = "File path";
                 hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
                 //Creating a Hyperlink for Opening Files using type as Unc
                 IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
                 hyperlink3.Type = ExcelHyperLinkType.Unc;
-                hyperlink3.Address = @"C:\Documents and Settings";
+                hyperlink3.Address = "C:/Documents and Settings";
                 hyperlink3.ScreenTip = "Click here for files";
                 hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 

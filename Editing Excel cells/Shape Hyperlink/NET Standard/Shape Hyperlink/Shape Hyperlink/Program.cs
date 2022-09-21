@@ -27,7 +27,7 @@ namespace Shape_Hyperlink
                 IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 7, "../../../Image.png");
                 hyperlink = worksheet.HyperLinks.Add(picture);
                 hyperlink.Type = ExcelHyperLinkType.Unc;
-                hyperlink.Address = "C:\\Documents and Settings";
+                hyperlink.Address = "C://Documents and Settings";
                 hyperlink.ScreenTip = "Click here for files";
 				#endregion
 
