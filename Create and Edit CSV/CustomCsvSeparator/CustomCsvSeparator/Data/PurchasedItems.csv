@@ -1,0 +1,50 @@
+Date,Weekday,Region,Employee,Item, Units , Unit Cost , Total 
+15-Dec-21,Wednesday,Central,Jones,Pen Set,700, $1.99 ," $1,393.00 "
+16-Dec-21,Thursday,West,Kivell,Binder,85, $19.99 ," $1,699.15 "
+17-Dec-21,Friday,Central,Howard,Pen & Pencil,62, $4.99 , $309.38 
+18-Dec-21,Saturday,East,Gill,Pen,58, $19.99 ," $1,159.42 "
+19-Dec-21,Sunday,East,Anderson,Binder,10, $4.99 , $49.90 
+20-Dec-21,Monday,East,Anderson,Pen Set,19, $2.99 , $56.81 
+21-Dec-21,Tuesday,East,Anderson,Pen Set,6, $1.99 , $11.94 
+22-Dec-21,Wednesday,Central,Howard,Pen & Pencil,10, $4.99 , $49.90 
+23-Dec-21,Thursday,West,Wilson,Paper,39, $1.99 , $77.61 
+24-Dec-21,Friday,West,Wilson,Binder,1, $8.99 , $8.99 
+25-Dec-21,Saturday,West,Wilson,Pen & Pencil,80, $4.99 , $399.20 
+26-Dec-21,Sunday,West,Wilson,Binder,51, $1.99 , $101.49 
+27-Dec-21,Monday,West,Wilson,Binder,10, $19.99 , $199.90 
+28-Dec-21,Tuesday,West,Wilson,Pen Set,15, $4.99 , $74.85 
+29-Dec-21,Wednesday,West,Wilson,Desk,31, $125.00 ," $3,875.00 "
+30-Dec-21,Thursday,Central,Jones,Pen Set,46, $15.99 , $735.54 
+31-Dec-21,Friday,West,Kivell,Binder,61, $8.99 , $548.39 
+1-Jan-22,Saturday,Central,Jones,Pen,90, $8.99 , $809.10 
+2-Jan-22,Sunday,East,Parent,Pen,43, $19.99 , $859.57 
+3-Jan-22,Monday,West,Kivell,Pen Set,32, $4.99 , $159.68 
+4-Jan-22,Tuesday,West,Smith,Pen Set,37, $1.29 , $47.73 
+5-Jan-22,Wednesday,East,Parent,Pen Set,26, $15.99 , $415.74 
+6-Jan-22,Thursday,East,Gill,Binder,79, $8.99 , $710.21 
+7-Jan-22,Friday,West,Smith,Pen Set,72, $15.00 ," $1,080.00 "
+8-Jan-22,Saturday,Central,Jones,Pen Set,27, $4.99 , $134.73 
+9-Jan-22,Sunday,Central,Jones,Binder,5, $19.99 , $99.95 
+10-Jan-22,Monday,Central,Howard,Pen Set,59, $4.99 , $294.41 
+11-Jan-22,Tuesday,East,Gill,Pen Set,41, $1.99 , $81.59 
+12-Jan-22,Wednesday,Central,Howard,Pen,85, $4.99 , $424.15 
+13-Jan-22,Thursday,East,Gill,Pen Set,61, $1.29 , $78.69 
+14-Jan-22,Friday,East,Gill,Binder,9, $8.99 , $80.91 
+15-Jan-22,Saturday,West,Kivell,Desk,52, $125.00 ," $6,500.00 "
+16-Jan-22,Sunday,Central,Jones,Pen Set,75, $4.99 , $374.25 
+17-Jan-22,Monday,West,Kivell,Pen Set,97, $12.49 ," $1,211.53 "
+18-Jan-22,Tuesday,West,Kivell,Pen Set,86, $23.95 ," $2,059.70 "
+19-Jan-22,Wednesday,West,Smith,Desk,8, $275.00 ," $2,200.00 "
+20-Jan-22,Thursday,East,Gill,Pen Set,90, $1.29 , $116.10 
+21-Jan-22,Friday,West,Smith,Pen,33, $1.99 , $65.67 
+22-Jan-22,Saturday,West,Smith,Binder,53, $19.99 ," $1,059.47 "
+23-Jan-22,Sunday,East,Gill,Pen Set,25, $1.29 , $32.25 
+24-Jan-22,Monday,Central,Howard,Binder,87, $4.99 , $434.13 
+25-Jan-22,Tuesday,Central,Howard,Binder,95, $19.99 ," $1,899.05 "
+26-Jan-22,Wednesday,East,Gill,Binder,68, $4.99 , $339.32 
+27-Jan-22,Thursday,East,Gill,Binder,19, $4.99 , $94.81 
+28-Jan-22,Friday,East,Gill,File Folder,19, $5.99 , $113.81 
+29-Jan-22,Saturday,East,Gill,File Folder,19, $5.99 , $113.81 
+30-Jan-22,Sunday,East,Gill,Binder,19, $4.99 , $94.81 
+31-Jan-22,Monday,East,Gill,Binder,19, $4.99 , $94.81 
+1-Feb-22,Tuesday,East,Gill,Binder,19, $4.99 , $94.81 
