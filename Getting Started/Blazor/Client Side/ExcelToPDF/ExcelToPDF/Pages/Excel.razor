@@ -1,0 +1,47 @@
+﻿@page "/Excel"
+@using Syncfusion.XlsIO;
+@using Syncfusion.XlsIORenderer;
+@using Syncfusion.Pdf;
+@using Syncfusion.Drawing;
+@using System.IO;
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+
+<h2>Syncfusion Excel library (Essential XlsIO)</h2>
+<p>Syncfusion Excel library (Essential XlsIO)  is a Blazor Excel library used to create, read, edit, and convert Excel files in your applications without Microsoft Office dependencies. Also converts Excel to PDF.</p>
+<button class="btn btn-primary" @onclick="@ExcelToPDF">Excel To PDF</button>
+
+@code {
+    /// <summary>
+    /// Convert an Excel document to PDF
+    /// </summary>
+    async void ExcelToPDF()
+    {
+        //Create an instance of ExcelEngine
+        using (ExcelEngine excelEngine = new ExcelEngine())
+        {
+            IApplication application = excelEngine.Excel;
+            application.DefaultVersion = ExcelVersion.Xlsx;
+
+            //Load the Excel document
+            Stream fileStream = await client.GetStreamAsync("sample-data/InputTemplate.xlsx");
+            IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+            //Initialize XlsIORenderer
+            XlsIORenderer renderer = new XlsIORenderer();
+
+            //Convert Excel document into PDF document
+            PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+            //Initialize MemoryStream
+            using (MemoryStream stream = new MemoryStream())
+            {
+                //Save the created PDF document to MemoryStream
+                pdfDocument.Save(stream);
+
+                //Download the pdf file
+                await JS.SaveAs("ExcelToPDF.pdf", stream.ToArray());
+            }
+        }
+    }
+}
