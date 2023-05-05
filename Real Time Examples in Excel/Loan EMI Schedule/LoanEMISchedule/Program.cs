@@ -1,7 +1,7 @@
 ﻿using Syncfusion.XlsIO;
-using Syncfusion.XlsIO.Implementation;
 using System;
 using System.IO;
+using System.Threading;
 
 namespace LoanEMISchedule
 {
@@ -13,11 +13,11 @@ namespace LoanEMISchedule
         // Fields to store the loan details
         private string m_BankName;
         private string m_CustomerName;
-        private string m_AccountNumber;
-        private string m_Tenure;
-        private string m_InterestRate;
-        private string m_LoanAmount;
-        private string m_BorrowedDate;
+        private long m_AccountNumber;
+        private int m_Tenure;
+        private double m_InterestRate;
+        private long m_LoanAmount;
+        private DateTime m_BorrowedDate;
 
         /// <summary>
         /// The entry point of the program.
@@ -30,13 +30,13 @@ namespace LoanEMISchedule
 
             // Create EMISchedule instance and generate loan schedule
             EMISchedule emiSchedule = new EMISchedule();
-            emiSchedule.GenerateLoanSchedule();
+            emiSchedule.GenerateLoanEMISchedule();
         }
 
         /// <summary>
         /// Generates the loan schedule Excel document
         /// </summary>
-        private void GenerateLoanSchedule()
+        private void GenerateLoanEMISchedule()
         {
             // Initialize Excel Engine
             using (ExcelEngine excelEngine = new ExcelEngine())
@@ -51,25 +51,14 @@ namespace LoanEMISchedule
                 // Get loan details from user
                 GetLoanDetails();
 
-                // Fill loan details in worksheet
-                FillLoanDetails(sheet);
+                // Calculate EMI
+                CalculateEMI(sheet, m_BankName, m_AccountNumber, m_CustomerName, m_InterestRate, m_LoanAmount, m_Tenure, m_BorrowedDate);
 
-                // Add names for cells for easy referencing
-                AddNamesForCells(workbook, sheet);
-
-                // Calculate EMIs
-                EMICalculation(sheet);
-
-                // Apply cell styles
-                ApplyCellStyles(sheet);
-
-                // Enable sheet calculations
-                sheet.EnableSheetCalculations();
-
-                // Display EMI amount
+                // Display the EMI amount
                 Console.WriteLine("Your EMI amount is.." + sheet["F10"].DisplayText);
 
                 // Save workbook and close stream
+                Directory.CreateDirectory("../../../GeneratedOutput");
                 FileStream generatedExcel = new FileStream("../../../GeneratedOutput/Loan EMI Schedule.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.Version = ExcelVersion.Xlsx;
                 workbook.SaveAs(generatedExcel);
@@ -84,104 +73,104 @@ namespace LoanEMISchedule
         /// </summary>
         private void GetLoanDetails()
         {
-            Console.WriteLine("Enter the Bank name..");
-            m_BankName = Console.ReadLine();
-            Console.WriteLine("Enter the Customer Name..");
-            m_CustomerName = Console.ReadLine();
-            Console.WriteLine("Enter the Account Number..");
-            m_AccountNumber = Console.ReadLine();
-            Console.WriteLine("Enter the Tenure in months..");
-            m_Tenure = Console.ReadLine();
-            Console.WriteLine("Enter the Interest Rate per annum..");
-            m_InterestRate = Console.ReadLine() + "%";
-            Console.WriteLine("Enter the Loan Amount..");
-            m_LoanAmount = Console.ReadLine();
-            Console.WriteLine("Enter the Borrowed Date in the format MM-dd-yyyy..");
-            m_BorrowedDate = Console.ReadLine();
-            string[] dateValue = m_BorrowedDate.Split('-');
-            DateTime formatDate = new DateTime(int.Parse(dateValue[2]), int.Parse(dateValue[0]), int.Parse(dateValue[1]));
-            m_BorrowedDate = formatDate.ToString(System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat);
-        }
+            try
+            {
+                Console.WriteLine("Enter the Bank name..");
+                m_BankName = Console.ReadLine();
 
-        /// <summary>
-        /// Fills the loan details in the worksheet.
-        /// </summary>
-        /// <param name="sheet">The worksheet to fill with the loan details.</param>
-        private void FillLoanDetails(IWorksheet worksheet)
-        {
-            worksheet["A1"].Value = m_BankName;
+                Console.WriteLine("Enter the Customer Name..");
+                m_CustomerName = Console.ReadLine();
 
-            worksheet["A4"].Value = "Loan EMI Schedule";
+                Console.WriteLine("Enter the Account Number..");
+                m_AccountNumber = long.Parse(Console.ReadLine());
 
-            worksheet["A6"].Value = "Customer Name";
-            worksheet["A8"].Value = "Account Number";
-            worksheet["A10"].Value = "Tenure in months";
-            worksheet["A12"].Value = "Interest";
+                Console.WriteLine("Enter the Tenure in months..");
+                m_Tenure = int.Parse(Console.ReadLine());
 
-            worksheet["B6"].Value = m_CustomerName;
-            worksheet["B8"].Value = m_AccountNumber;
-            worksheet["B10"].Value = m_Tenure;
-            worksheet["B12"].Value = m_InterestRate;
+                Console.WriteLine("Enter the Interest Rate per annum..");
+                m_InterestRate = double.Parse(Console.ReadLine());
 
-            worksheet["E6"].Value = "Loan Amount";
-            worksheet["E8"].Value = "Frequency";
-            worksheet["E10"].Value = "EMI Amount";
-            worksheet["E12"].Value = "Borrowed Date";
+                Console.WriteLine("Enter the Loan Amount..");
+                m_LoanAmount = long.Parse(Console.ReadLine());
 
-            worksheet["F6"].Value = m_LoanAmount;
-            worksheet["F8"].Value = "Monthly";
+                Console.WriteLine("Enter the Borrowed Date in the format MM-dd-yyyy..");
+                string date = Console.ReadLine();
+                string[] dateValue = date.Split('-');
+                m_BorrowedDate = new DateTime(int.Parse(dateValue[2]), int.Parse(dateValue[0]), int.Parse(dateValue[1]));
 
-            worksheet["F12"].Value = m_BorrowedDate; 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Please enter valid input  " + ex.ToString());
+                GetLoanDetails();
+            }
 
-            worksheet["A15"].Value = "Payment No.";
-            worksheet["B15"].Value = "Date";
-            worksheet["C15"].Value = "Payment";
-            worksheet["D15"].Value = "Principle";
-            worksheet["E15"].Value = "Interest";
-            worksheet["F15"].Value = "Outstanding Principle";
-        }
-
-        private void AddNamesForCells(IWorkbook workbook, IWorksheet sheet)
-        {
-            workbook.Names.Add("Interest", sheet["B12"]);
-            workbook.Names.Add("Tenure", sheet["B10"]);
-            workbook.Names.Add("LoanAmount", sheet["F6"]);
-            workbook.Names.Add("BorrowedDate", sheet["F12"]);
         }
         /// <summary>
         /// Calculate EMI and generate EMI schedule
         /// </summary>
         /// <param name="sheet">Worksheet</param>
-        private void EMICalculation(IWorksheet sheet)
+        private static void CalculateEMI(IWorksheet sheet, string bankName, long accountNumber, string customerName, double interestRate, long loanAmount, int tenureInMonths, DateTime borrowedDate)
         {
-            sheet["F10"].Value = "=-PMT(Interest/12,Tenure, LoanAmount)";
+            sheet["A1"].Value = bankName;
 
-            int totalEMIs = int.Parse(sheet["B10"].Value);
+            sheet["A4"].Value = "Loan EMI Schedule";
 
-            sheet["A16"].Value = "1";
-            sheet["B16"].Value = "=EDATE(BorrowedDate,1)";
-            sheet["C16"].Value = sheet["F10"].Value;
-            sheet["D16"].Value = "=$C16-$E16";
-            sheet["E16"].Value = "=(Interest/12 * LoanAmount)";
-            sheet["F16"].Value = "=LoanAmount-D16";
+            sheet["A6"].Value = "Customer Name";
+            sheet["A8"].Value = "Account Number";
+            sheet["A10"].Value = "Tenure in months";
+            sheet["A12"].Value = "Interest";
 
-            sheet["A17"].Value = "=$A16 + 1";
-            sheet["B17"].Value = "=EDATE($B16, 1)";
-            sheet["C17"].Value = sheet["F10"].Value;
-            sheet["D17"].Value = "=$C17-$E17";
-            sheet["E17"].Value = "=(Interest/12 * $F16)";
-            sheet["F17"].Value = "=$F16-$D17";
+            sheet["B6"].Text = customerName;
+            sheet["B8"].Number = accountNumber;
+            sheet["B10"].Number = tenureInMonths;
+            sheet["B12"].Number = interestRate/100;
 
-            IRange source = sheet["A17:F17"];
-            IRange destination = sheet["A18:F18"];
+            sheet["E6"].Value = "Loan Amount";
+            sheet["E8"].Value = "Frequency";
+            sheet["E10"].Value = "EMI Amount";
+            sheet["E12"].Value = "Borrowed Date";
 
-            int count = totalEMIs - 2;
-            while (count > 0)
+            sheet["F6"].Number = loanAmount;
+            sheet["F8"].Value = "Monthly";
+            sheet["F12"].DateTime = borrowedDate;
+
+            sheet["A15"].Value = "Payment No.";
+            sheet["B15"].Value = "Date";
+            sheet["C15"].Value = "Payment";
+            sheet["D15"].Value = "Principle";
+            sheet["E15"].Value = "Interest";
+            sheet["F15"].Value = "Outstanding Principle";
+
+            sheet.Workbook.Names.Add("Interest", sheet["B12"]);
+            sheet.Workbook.Names.Add("Tenure", sheet["B10"]);
+            sheet.Workbook.Names.Add("LoanAmount", sheet["F6"]);
+            sheet.Workbook.Names.Add("BorrowedDate", sheet["F12"]);
+
+            sheet["F10"].Formula = "=-PMT(Interest/12,Tenure, LoanAmount)";
+
+            sheet.EnableSheetCalculations();
+
+            double emi = double.Parse(sheet["F10"].CalculatedValue.ToString());
+
+            double balance = loanAmount;
+
+            double totalInterestPaid = 0;
+
+            for (int i = 1; i <= tenureInMonths; i++)
             {
-                source.CopyTo(destination);
-                source = sheet[source.Row + 1, source.Column, source.LastRow + 1, source.LastColumn];
-                destination = sheet[destination.Row + 1, destination.Column, destination.LastRow + 1, destination.LastColumn];
-                count--;
+                double interest = balance * (interestRate/100)/12;
+                double principal = emi - interest;
+                balance -= principal;
+
+                totalInterestPaid += interest;
+
+                sheet[15 + i, 1].Number = i;
+                sheet[15 + i, 2].Formula = "=EDATE(BorrowedDate," + i + ")";
+                sheet[15 + i, 3].Number = emi;
+                sheet[15 + i, 4].Number = principal;
+                sheet[15 + i, 5].Number = interest;
+                sheet[15 + i, 6].Number = balance;
             }
 
             IRange used = sheet.UsedRange;
@@ -196,20 +185,14 @@ namespace LoanEMISchedule
             sheet[used.LastRow + 4, 4, used.LastRow + 4, 5].CellStyle.Font.Bold = true;
             sheet[used.LastRow + 4, 4, used.LastRow + 4, 5].Value = "Total Amount";
 
-            sheet[used.LastRow + 2, 6, used.LastRow + 2, 6].Value = "=SUM(D16:D" + (16 + totalEMIs - 1) + ")";
+            sheet[used.LastRow + 2, 6, used.LastRow + 2, 6].Number = loanAmount;
             sheet[used.LastRow + 2, 6, used.LastRow + 2, 6].NumberFormat = "$#,###.00";
-            sheet[used.LastRow + 3, 6, used.LastRow + 3, 6].Value = "=SUM(E16:E" + (16 + totalEMIs - 1) + ")";
+            sheet[used.LastRow + 3, 6, used.LastRow + 3, 6].Number = totalInterestPaid;
             sheet[used.LastRow + 3, 6, used.LastRow + 3, 6].NumberFormat = "$#,###.00";
-            sheet[used.LastRow + 4, 6, used.LastRow + 4, 6].Value = "=SUM(C16:C" + (16 + totalEMIs - 1) + ")";
+            sheet[used.LastRow + 4, 6, used.LastRow + 4, 6].Number = totalInterestPaid + loanAmount;
             sheet[used.LastRow + 4, 6, used.LastRow + 4, 6].NumberFormat = "$#,###.00";
 
-        }
-        /// <summary>
-        /// Apply cell styles
-        /// </summary>
-        /// <param name="sheet">Worksheet</param>
-        private void ApplyCellStyles(IWorksheet sheet)
-        {
+            //Apply styles to the cells
             sheet.IsGridLinesVisible = false;
 
             sheet["A1:F2"].Merge();
@@ -229,15 +212,18 @@ namespace LoanEMISchedule
             sheet["F6"].NumberFormat = "$#,###.00";
             sheet["F10"].NumberFormat = "$#,###.00";
 
+            sheet["B12"].NumberFormat = "0.0%";
+            sheet["F12"].NumberFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
+
             sheet["A15:F15"].CellStyle.Font.Bold = true;
             sheet["A15:F15"].WrapText = true;
             sheet["A15:F15"].RowHeight = 31;           
 
             sheet.UsedRange.ColumnWidth = 15.5;
 
-            IRange used = sheet.UsedRange;
+            used = sheet.UsedRange;
 
-            sheet[16,2, used.LastRow - 4, 2].NumberFormat = System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            sheet[16,2, used.LastRow - 4, 2].NumberFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
             sheet[16, 3, used.LastRow - 4, 6].NumberFormat = "$#,###.00";
 
             sheet[15, 1, 15, 6].BorderAround(ExcelLineStyle.Thin);
@@ -249,7 +235,7 @@ namespace LoanEMISchedule
 
             sheet[16, 1, used.LastRow, 6].RowHeight = 24;
             sheet[1, 1, used.LastRow, 6].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-            sheet[1, 1, used.LastRow, 6].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+            sheet[1, 1, used.LastRow, 6].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;            
         }
     }
 }
