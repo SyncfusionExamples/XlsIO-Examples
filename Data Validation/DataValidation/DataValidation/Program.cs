@@ -1,7 +1,6 @@
 ﻿
 using Syncfusion.XlsIO;
 using static System.Net.Mime.MediaTypeNames;
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -71,15 +70,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 
     //Adding time validation
-    IDataValidation formulaValidation = sheet.Range["C15"].DataValidation;
+    IDataValidation formulaValidation = sheet.Range["C17"].DataValidation;
     sheet.Range["B17"].Text = "Enter a negative number";
-    timeValidation.AllowType = ExcelDataType.Formula;
-    timeValidation.FirstFormula = "=C15 < 0";
-    timeValidation.ShowErrorBox = true;
-    timeValidation.ErrorBoxText = "Enter only negative numbers";
-    timeValidation.ErrorBoxTitle = "ERROR";
-    timeValidation.PromptBoxText = "Formula validation";
-    timeValidation.ShowPromptBox = true;
+    formulaValidation.AllowType = ExcelDataType.Formula;
+    formulaValidation.FirstFormula = "=C17 < 0";
+    formulaValidation.ShowErrorBox = true;
+    formulaValidation.ErrorBoxText = "Enter only negative numbers";
+    formulaValidation.ErrorBoxTitle = "ERROR";
+    formulaValidation.PromptBoxText = "Formula validation";
+    formulaValidation.ShowPromptBox = true;
 
     sheet.Range["B2:C2"].Merge();
 
