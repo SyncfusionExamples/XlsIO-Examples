@@ -1,7 +1,6 @@
 ﻿
 using Syncfusion.XlsIO;
 using static System.Net.Mime.MediaTypeNames;
-
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
@@ -61,8 +60,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     sheet.Range["B15"].Text = "Enter a time between 10:00 AM to 12:00 PM";
     timeValidation.AllowType = ExcelDataType.Time;
     timeValidation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
-    timeValidation.FirstFormula = "10";
-    timeValidation.SecondFormula = "12";
+    timeValidation.FirstFormula = "10:00";
+    timeValidation.SecondFormula = "12:00";
     timeValidation.ShowErrorBox = true;
     timeValidation.ErrorBoxText = "Enter the time between 10 to 12 ";
     timeValidation.ErrorBoxTitle = "ERROR";
@@ -71,15 +70,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 
     //Adding time validation
-    IDataValidation formulaValidation = sheet.Range["C15"].DataValidation;
+    IDataValidation formulaValidation = sheet.Range["C17"].DataValidation;
     sheet.Range["B17"].Text = "Enter a negative number";
-    timeValidation.AllowType = ExcelDataType.Formula;
-    timeValidation.FirstFormula = "=C15 < 0";
-    timeValidation.ShowErrorBox = true;
-    timeValidation.ErrorBoxText = "Enter only negative numbers";
-    timeValidation.ErrorBoxTitle = "ERROR";
-    timeValidation.PromptBoxText = "Formula validation";
-    timeValidation.ShowPromptBox = true;
+    formulaValidation.AllowType = ExcelDataType.Formula;
+    formulaValidation.FirstFormula = "=C17 < 0";
+    formulaValidation.ShowErrorBox = true;
+    formulaValidation.ErrorBoxText = "Enter only negative numbers";
+    formulaValidation.ErrorBoxTitle = "ERROR";
+    formulaValidation.PromptBoxText = "Formula validation";
+    formulaValidation.ShowPromptBox = true;
 
     sheet.Range["B2:C2"].Merge();
 
