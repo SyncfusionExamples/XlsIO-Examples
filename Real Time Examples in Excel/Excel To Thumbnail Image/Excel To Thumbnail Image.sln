@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33513.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excel To Thumbnail Image", "Excel To Thumbnail Image\Excel To Thumbnail Image.csproj", "{40357E15-2E82-4E6C-9501-6BE095EEB722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40357E15-2E82-4E6C-9501-6BE095EEB722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40357E15-2E82-4E6C-9501-6BE095EEB722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40357E15-2E82-4E6C-9501-6BE095EEB722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40357E15-2E82-4E6C-9501-6BE095EEB722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38AB5DF7-3343-4550-BD1E-5F293A0C913D}
+	EndGlobalSection
+EndGlobal
