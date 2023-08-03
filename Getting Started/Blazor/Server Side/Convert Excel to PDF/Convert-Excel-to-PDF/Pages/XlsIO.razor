@@ -1,0 +1,20 @@
+﻿@page "/xlsio"
+@using Convert_Excel_to_PDF;
+@inject Convert_Excel_to_PDF.Data.ExcelService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion XlsIO library </h2>
+<p>Syncfusion XlsIO library is used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertExceltoPDF">Convert Excel to PDF</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Convert Excel to PDF and download the PDF document
+    /// </summary>
+    protected async void ConvertExceltoPDF()
+    {
+        documentStream = service.ConvertExceltoPDF();
+        await JS.SaveAs("Sample.pdf", documentStream.ToArray());
+    }
+}
