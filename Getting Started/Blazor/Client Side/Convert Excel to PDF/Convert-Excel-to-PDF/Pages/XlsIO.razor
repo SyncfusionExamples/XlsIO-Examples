@@ -1,0 +1,43 @@
+﻿@page "/xlsio"
+@using Syncfusion.XlsIO
+@using Syncfusion.Pdf
+@using Syncfusion.XlsIORenderer
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+
+<h2>Syncfusion XlsIO library</h2>
+<p>Syncfusion Web Blazor XlsIO library used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ExcelToPDF">Convert Excel to PDF</button>
+
+@functions {
+    async void ExcelToPDF()
+    {
+        using (ExcelEngine excelEngine = new ExcelEngine())
+        {
+            IApplication application = excelEngine.Excel;
+
+            using (Stream inputStream = await client.GetStreamAsync("Data/InputTemplate.xlsx"))
+            {
+                // Open the workbook.
+                IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+                // Instantiate the Excel to PDF renderer.
+                XlsIORenderer renderer = new XlsIORenderer();
+
+                //Convert Excel document into PDF document
+                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+                //Create the MemoryStream to save the converted PDF.
+                MemoryStream pdfStream = new MemoryStream();
+
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+
+                //Download PDF file in the browser.
+                await JS.SaveAs("Output.pdf", pdfStream.ToArray());
+
+            }
+        }
+    }
+}
