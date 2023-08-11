@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Create_Excel_to_Image": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7029",
+      "launchBrowser": false
+    }
+  }
+}
