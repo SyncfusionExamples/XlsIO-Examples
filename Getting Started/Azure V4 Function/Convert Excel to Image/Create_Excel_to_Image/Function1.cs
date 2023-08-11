@@ -36,9 +36,6 @@ namespace Create_Excel_to_Image
                 IWorkbook workbook = application.Workbooks.Open(excelStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Initialize XlsIO renderer.
-                application.XlsIORenderer = new XlsIORenderer();
-
                 //Create the MemoryStream to save the image.      
                 MemoryStream imageStream = new MemoryStream();
 
