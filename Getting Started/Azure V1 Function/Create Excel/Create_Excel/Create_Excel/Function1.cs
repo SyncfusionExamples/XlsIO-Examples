@@ -210,7 +210,7 @@ namespace Create_Excel
                 //Set the content type as Excel document mime type.
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/excel");
 
-                //Return the response with output PDF document stream.
+                //Return the response with output Excel document stream.
                 return response;
             }
         }
