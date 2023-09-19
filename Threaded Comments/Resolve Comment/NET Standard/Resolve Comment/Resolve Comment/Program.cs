@@ -18,14 +18,11 @@ namespace Resolve_Comment
 
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Add Threaded Comment
-                IThreadedComment threadedComment = worksheet.Range["H16"].AddThreadedComment("What is the reason for the higher total amount of \"desk\"  in the west region?", "User1", DateTime.Now);
-
-                //Add Reply to the Threaded Comment
-                threadedComment.AddReply("The unit cost of desk is higher compared to other items in the west region. As a result, the total amount is elevated.", "User2", DateTime.Now);
+                //Access the collection of threaded comments in the worksheet
+                IThreadedComments threadedComments = worksheet.ThreadedComments;
 
                 //Mark as Resolved
-                threadedComment.IsResolved = true;
+                threadedComments[0].IsResolved = true;
 
                 #region Save
                 //Saving the workbook
