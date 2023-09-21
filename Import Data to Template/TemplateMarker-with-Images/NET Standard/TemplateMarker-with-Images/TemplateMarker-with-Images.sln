@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMarker-with-Images", "TemplateMarker-with-Images\TemplateMarker-with-Images.csproj", "{1D018CD6-7EBA-4029-823A-4F0AF68F65DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D018CD6-7EBA-4029-823A-4F0AF68F65DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D018CD6-7EBA-4029-823A-4F0AF68F65DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D018CD6-7EBA-4029-823A-4F0AF68F65DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D018CD6-7EBA-4029-823A-4F0AF68F65DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E860E6F-4174-44B5-95BE-E59855F7C89E}
+	EndGlobalSection
+EndGlobal
