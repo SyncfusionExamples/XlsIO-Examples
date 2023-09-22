@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    Html.BeginForm("TemplateMarker_with_Insert_Rows", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Create Document for Rows" style="width:300px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
+}
+<div style="height: 20px;"></div>
+@{
+    Html.BeginForm("TemplateMarker_with_Insert_Columns", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Create Document for Columns" style="width:300px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
+}
