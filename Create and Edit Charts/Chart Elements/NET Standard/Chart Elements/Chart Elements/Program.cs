@@ -118,10 +118,10 @@ namespace Chart_Elements
                 chart1.ChartTitleArea.Layout.ManualLayout.Left = 0.26;
 
                 //Manually resizing axis title area
-                chart1.PrimaryValueAxis.TitleArea.Layout.Left = 0.04;
-                chart1.PrimaryValueAxis.TitleArea.Layout.Top = 0.34;
-                chart1.PrimaryCategoryAxis.TitleArea.Layout.Left = 0.38;
-                chart1.PrimaryCategoryAxis.TitleArea.Layout.Top = 0.95;
+                chart1.PrimaryValueAxis.TitleArea.Layout.ManualLayout.Left = 0.04;
+                chart1.PrimaryValueAxis.TitleArea.Layout.ManualLayout.Top = 0.34;
+                chart1.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Left = 0.38;
+                chart1.PrimaryCategoryAxis.TitleArea.Layout.ManualLayout.Top = 0.95;
 
                 //Manually resizing data label area
                 chart1.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
