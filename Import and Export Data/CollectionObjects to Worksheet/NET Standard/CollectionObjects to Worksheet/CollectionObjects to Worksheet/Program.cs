@@ -56,8 +56,9 @@ namespace CollectionObjects_to_Worksheet
     {
         [DisplayNameAttribute("Sales Person Name")]
         public string SalesPerson { get; set; }
-        [Bindable(false)]
+        [DisplayFormat(DataFormatString = "$#,###.00")]
         public string SalesJanJun { get; set; }
+        [DisplayFormat(DataFormatString = "$#,###.00")]
         public string SalesJulDec { get; set; }
 
         public Customer(string name, string janToJun, string julToDec)
