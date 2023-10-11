@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-Excel-to-PDF", "Convert-Excel-to-PDF\Convert-Excel-to-PDF.csproj", "{35079D1C-422A-48FE-B150-23BBAC13BB3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35079D1C-422A-48FE-B150-23BBAC13BB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35079D1C-422A-48FE-B150-23BBAC13BB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35079D1C-422A-48FE-B150-23BBAC13BB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35079D1C-422A-48FE-B150-23BBAC13BB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242C9AAD-E4C9-433F-B032-AF674C1AC1C1}
+	EndGlobalSection
+EndGlobal
