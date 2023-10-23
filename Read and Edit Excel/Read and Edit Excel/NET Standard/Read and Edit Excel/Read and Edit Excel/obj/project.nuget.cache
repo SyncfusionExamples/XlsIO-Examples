@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "6c9WFGX7c5CMjOrp2DdzEBHkdk2n9lpmOVXh6BehfvBUaZqURkhOBvZwU+aSiqtxpzv0SuIfZ5sur+rv89AOTA==",
+  "success": true,
+  "projectFilePath": "F:\\Dev\\XlsIO-Examples\\Read and Edit Excel\\Read and Edit Excel\\NET Standard\\Read and Edit Excel\\Read and Edit Excel\\Read and Edit Excel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DickB\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\DickB\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\DickB\\.nuget\\packages\\syncfusion.compression.net\\19.4.0.38\\syncfusion.compression.net.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\DickB\\.nuget\\packages\\syncfusion.licensing\\19.4.0.38\\syncfusion.licensing.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\DickB\\.nuget\\packages\\syncfusion.xlsio.net\\19.4.0.38\\syncfusion.xlsio.net.19.4.0.38.nupkg.sha512"
+  ],
+  "logs": []
+}
