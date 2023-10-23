@@ -27,9 +27,6 @@ namespace CSV_To_JSON
                 //Active worksheet
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Custom range
-                IRange range = worksheet.Range["A2:A5"];
-
                 //Save the workbook to a JSON file
                 workbook.SaveAsJson("WorkbookToJSON.json");
             }
