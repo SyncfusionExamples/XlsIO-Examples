@@ -23,7 +23,7 @@ namespace IncomeTaxEmailDistribution
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string panColumnId = panColumnIdTxtBox.Text.Trim('"');
+            string tinColumnId = panColumnIdTxtBox.Text.Trim('"');
 
             string emailColumnId = emailColumnIdTxtBox.Text.Trim('"');
 
@@ -60,22 +60,25 @@ namespace IncomeTaxEmailDistribution
 
                 int startRow = used.Row + 1;
                 int endRow = used.LastRow;
+                int statusColumn = used.LastColumn + 1;
+
 
                 for(int row = startRow;row <= endRow;row++)
                 {
-                    if (worksheet.Range[row, 10].Value == "Sent")
+                    //Check the automation status of the tax payer report
+                    if (worksheet.Range[row, statusColumn].Value == "Sent")
                     {
                         continue;
                     }
 
                     //Converting the Column Id to Column Index
-                    IRange panRange = worksheet[panColumnId + row.ToString()];
+                    IRange tinRange = worksheet[tinColumnId + row.ToString()];
 
-                    string panID = worksheet.Range[row, panRange.Column].Value;
+                    string tinID = worksheet.Range[row, tinRange.Column].Value;
 
-                    if(string.IsNullOrEmpty(panID))
+                    if(string.IsNullOrEmpty(tinID))
                     {
-                        worksheet[row, 10].Value = "PAN not found";
+                        worksheet[row, statusColumn].Value = "TIN not found";
                         continue;
                     }
                     
@@ -83,19 +86,19 @@ namespace IncomeTaxEmailDistribution
 
                     string emailId = worksheet.Range[row, emailRange.Column].Value;
 
-                    string partAPath = partAPathFiles.Where(x => x.Contains(panID + "_")).FirstOrDefault();
+                    string partAPath = partAPathFiles.Where(x => x.Contains(tinID + "_")).FirstOrDefault();
 
                     if (partAPath == null)
                     {
-                        worksheet[row, 10].Value = "Part A File not found";
+                        worksheet[row, statusColumn].Value = "Part A File not found";
                         continue;
                     }
                     
-                    string partBPath = partBPathFiles.Where(x => x.Contains(panID + "_")).FirstOrDefault();
+                    string partBPath = partBPathFiles.Where(x => x.Contains(tinID + "_")).FirstOrDefault();
 
                     if (partBPath == null)
                     {
-                        worksheet[row, 10].Value = "Part B File not found";
+                        worksheet[row, statusColumn].Value = "Part B File not found";
                         continue;
                     }
                     try
@@ -109,14 +112,16 @@ namespace IncomeTaxEmailDistribution
 
                         SendEMail(from, emailId, subject, mailBody, partAPath, partBPath);
 
-                        worksheet[row, 10].Value = "Sent";
+                        worksheet[row, statusColumn].Value = "Sent";
                     }
                     catch(Exception ex){
-                        worksheet[row, 10].Value = ex.ToString();
+                        worksheet[row, statusColumn].Value = ex.ToString();
                     }
                 }
 
                 Thread.Sleep(1000);
+
+                // Saving the Workbook containing successful and failed records
 
                 string filePath = Path.GetFileNameWithoutExtension(excelFilePath) + "_Updated_" + DateTime.Now.ToString().Replace(":", "-") + Path.GetExtension(excelFilePath); 
                
@@ -149,6 +154,40 @@ namespace IncomeTaxEmailDistribution
                 client.Port = 587;
                 client.EnableSsl = true;
                 client.Send(emailMessage);                
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.openFileDialog1.ShowDialog();
+            // if a file is selected
+            if (result == DialogResult.OK)
+            {
+                // Set the selected file URL to the textbox
+                this.excelPathTxtBox.Text = this.openFileDialog1.FileName;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = this.folderBrowserDialog1.ShowDialog();
+            // if a file is selected
+            if (result == DialogResult.OK)
+            {
+                // Set the selected file URL to the textbox
+                this.partAPathTxtBox.Text = this.folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = this.folderBrowserDialog1.ShowDialog();
+            // if a file is selected
+            if (result == DialogResult.OK)
+            {
+                // Set the selected file URL to the textbox
+                this.partBPathTxtBox.Text = this.folderBrowserDialog1.SelectedPath;
             }
         }
     }
