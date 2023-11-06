@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-Excel-to-PDF": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

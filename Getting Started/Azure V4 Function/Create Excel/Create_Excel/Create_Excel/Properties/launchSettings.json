@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Create_Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7079",
+      "launchBrowser": false
+    }
+  }
+}

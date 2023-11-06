@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Edit Excel": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    Html.BeginForm("TemplateMarker", "Home", FormMethod.Get);
+    {
+        <div>
+            <h2>Excel (XlsIO) Library</h2>
+            <p>Template markers are special symbols used to export data from a data source to a predefined Excel template. When exporting data from the data source, it will be placed in a worksheet based on the position of the markers.</p>
+            <p>Click the 'Export Data' button to export data from a data source into a worksheet using template markers.</p>
+            <button class="btn btn-primary">Export Data</button>
+        </div>
+    }
+    Html.EndForm();
+}

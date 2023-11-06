@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-Excel-to-PDF (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Convert-Excel-to-PDF (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
