@@ -15,19 +15,19 @@ namespace Convert_Excel_to_Image
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Please enter your AWS Access Key ID :");
-            //string awsAccessKeyID = Console.ReadLine();
-            //Console.WriteLine("Please enter your AWS Secret Access Key :");
-            //string awsSecretAccessKey = Console.ReadLine();
-            //Console.WriteLine("Please enter your Function Name :");
-            //string functionName = Console.ReadLine();
+            Console.WriteLine("Please enter your AWS Access Key ID :");
+            string awsAccessKeyID = Console.ReadLine();
+            Console.WriteLine("Please enter your AWS Secret Access Key :");
+            string awsSecretAccessKey = Console.ReadLine();
+            Console.WriteLine("Please enter your Function Name :");
+            string functionName = Console.ReadLine();
             //Create a new AmazonLambdaClient
-            AmazonLambdaClient client = new AmazonLambdaClient("AKIASCRGFNWJG7YOODPF", "DCpxuodscr3ZaVvwmwBPfQR6fo5oe3HX66VRTSkp", RegionEndpoint.USEast1);
+            AmazonLambdaClient client = new AmazonLambdaClient(awsAccessKeyID, awsSecretAccessKey, RegionEndpoint.USEast1);
 
             //Create new InvokeRequest with published function name.
             InvokeRequest invoke = new InvokeRequest
             {
-                FunctionName = "Function",
+                FunctionName = functionName,
                 InvocationType = InvocationType.RequestResponse,
                 Payload = "\"Test\""
             };
