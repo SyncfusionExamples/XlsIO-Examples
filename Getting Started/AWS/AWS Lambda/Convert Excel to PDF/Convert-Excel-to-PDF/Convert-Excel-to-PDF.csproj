@@ -11,11 +11,23 @@
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="InputTemplate.xlsx" />
+    <None Remove="Data\arial.ttf" />
+    <None Remove="Data\calibri.ttf" />
+    <None Remove="Data\InputTemplate.xlsx" />
+    <None Remove="Data\times.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="InputTemplate.xlsx">
+    <EmbeddedResource Include="Data\arial.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\calibri.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\InputTemplate.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\times.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
