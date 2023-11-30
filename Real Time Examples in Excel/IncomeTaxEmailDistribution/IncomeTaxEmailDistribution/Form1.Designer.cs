@@ -53,7 +53,7 @@
             this.EmailSendButton.Name = "EmailSendButton";
             this.EmailSendButton.Size = new System.Drawing.Size(140, 42);
             this.EmailSendButton.TabIndex = 0;
-            this.EmailSendButton.Text = "Send Mails";
+            this.EmailSendButton.Text = "Send Emails";
             this.EmailSendButton.UseVisualStyleBackColor = true;
             this.EmailSendButton.Click += new System.EventHandler(this.button1_Click);
             // 
