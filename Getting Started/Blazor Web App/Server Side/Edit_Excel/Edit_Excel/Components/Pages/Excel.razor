@@ -1,0 +1,23 @@
+﻿@rendermode InteractiveServer
+@page "/excel"
+@using System.IO;
+@using Edit_Excel;
+@inject Edit_Excel.Components.Data.ExcelSercive service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion Excel library (Essential XlsIO)</h2>
+<p>Syncfusion Excel library (Essential XlsIO)  is a Blazor Excel library used to create, read, edit, and convert Excel files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@EditDocument">Edit Document</button>
+
+@code {
+    MemoryStream excelStream;
+
+    /// <summary>
+    /// Edit and download the Excel document
+    /// </summary>
+    protected async void EditDocument()
+    {
+        excelStream = service.EditExcel();
+        await JS.SaveAs("Sample.xlsx", excelStream.ToArray());
+    }
+}
