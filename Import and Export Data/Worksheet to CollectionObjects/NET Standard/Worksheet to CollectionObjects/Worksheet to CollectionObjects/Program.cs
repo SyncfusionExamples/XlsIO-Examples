@@ -26,7 +26,9 @@ namespace Worksheet_to_CollectionObjects
         }
         public class Report
         {
+            [DisplayNameAttribute("Sales Person Name")]
             public string SalesPerson { get; set; }
+            [Bindable(false)]
             public string SalesJanJun { get; set; }
             public string SalesJulDec { get; set; }
 
