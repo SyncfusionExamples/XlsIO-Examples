@@ -1,7 +1,8 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace PageSetup
+namespace PrintTitleRows
 {
     class Program
     {
@@ -10,7 +11,7 @@ namespace PageSetup
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Excel2013;
+                application.DefaultVersion = ExcelVersion.Xlsx;
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet sheet = workbook.Worksheets[0];
 
@@ -23,22 +24,14 @@ namespace PageSetup
                 }
 
                 #region PageSetup Settings
-                //Set Horizontal Page Breaks
-                sheet.HPageBreaks.Add(sheet.Range["A5"]);
-                //Set Vertical Page Breaks
-                sheet.VPageBreaks.Add(sheet.Range["B5"]);
+                //Sets the rows to be repeated at the top of each page
+                sheet.PageSetup.PrintTitleRows = "A1:AX1";
 
-                //Set print title
-                sheet.PageSetup.PrintTitleColumns = "$B:$E";
-                sheet.PageSetup.PrintTitleRows = "$2:$5";
-
-                //Set Page Orientation as Portrait or Landscape
-                sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
                 #endregion
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PageSetup-Settings.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream("PrintTitleRows.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -46,7 +39,7 @@ namespace PageSetup
                 outputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("PageSetup-Settings.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("PrintTitleRows.xlsx")
                 {
                     UseShellExecute = true
                 };
