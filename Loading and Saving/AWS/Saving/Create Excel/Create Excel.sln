@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create Excel", "Create Excel\Create Excel.csproj", "{8ADC5365-2DDE-44C0-8CB1-05388AF28858}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ADC5365-2DDE-44C0-8CB1-05388AF28858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADC5365-2DDE-44C0-8CB1-05388AF28858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADC5365-2DDE-44C0-8CB1-05388AF28858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADC5365-2DDE-44C0-8CB1-05388AF28858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {763DCEDF-676B-48CA-A4D6-EFEFBC628B9C}
+	EndGlobalSection
+EndGlobal
