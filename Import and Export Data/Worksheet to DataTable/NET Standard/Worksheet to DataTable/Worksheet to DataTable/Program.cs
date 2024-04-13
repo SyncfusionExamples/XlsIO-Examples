@@ -17,7 +17,7 @@ namespace Worksheet_to_DataTable
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Read data from the worksheet and Export to the DataTable
-                DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);                
+                DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.ComputedFormulaValues);                
 
                 //Dispose streams
                 inputStream.Dispose();
