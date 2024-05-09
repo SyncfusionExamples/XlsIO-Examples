@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adding-Fallback-Image-for-SVG", "Adding-Fallback-Image-for-SVG\Adding-Fallback-Image-for-SVG.csproj", "{80D27D00-1582-46FC-966E-58B0131F030E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80D27D00-1582-46FC-966E-58B0131F030E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D27D00-1582-46FC-966E-58B0131F030E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D27D00-1582-46FC-966E-58B0131F030E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D27D00-1582-46FC-966E-58B0131F030E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAF80E3F-0CD0-4218-9A64-EBC6457337EB}
+	EndGlobalSection
+EndGlobal
