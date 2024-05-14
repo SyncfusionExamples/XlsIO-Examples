@@ -1,0 +1,12 @@
+NameValue;AddressValue;CityValue; "{
+  "Information": "",
+  "InformationHistoryFixed": "",
+  "customerNotes": [],
+  "bookingNotes": []
+}"
+Ramesh;3street;Newyork;"{
+  "Information": "Sample Information",
+  "InformationHistoryFixed": "Sample History",
+  "customerNotes": ["Note 1", "Note 2"],
+  "bookingNotes": ["Booking 1", "Booking 2"]
+}"
