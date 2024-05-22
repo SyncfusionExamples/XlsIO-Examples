@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icon Sets", "Icon Sets\Icon Sets.csproj", "{5C96807B-A148-4C73-BA0B-D1811E51F922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C96807B-A148-4C73-BA0B-D1811E51F922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C96807B-A148-4C73-BA0B-D1811E51F922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C96807B-A148-4C73-BA0B-D1811E51F922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C96807B-A148-4C73-BA0B-D1811E51F922}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1FF0723-755A-4BD7-B192-9B03F57E571E}
+	EndGlobalSection
+EndGlobal
