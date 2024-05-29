@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
+using Syncfusion.XlsIO.Implementation.Collections;
 
 namespace Top_to_Bottom_Rank
 {
@@ -16,21 +17,44 @@ namespace Top_to_Bottom_Rank
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Applying conditional formatting to "N6:N35".
-                IConditionalFormats formats = worksheet.Range["N6:N35"].ConditionalFormats;
-                IConditionalFormat format = formats.AddCondition();
+                IConditionalFormats conditionalFormats1 = worksheet.Range["N6:N35"].ConditionalFormats;
+                IConditionalFormat conditionalFormat1 = conditionalFormats1.AddCondition();
 
                 //Applying top or bottom rule in the conditional formatting.
-                format.FormatType = ExcelCFType.TopBottom;
-                ITopBottom topBottom = format.TopBottom;
+                conditionalFormat1.FormatType = ExcelCFType.TopBottom;
+                ITopBottom topBottom1 = conditionalFormat1.TopBottom;
 
                 //Set type as Top for TopBottom rule.
-                topBottom.Type = ExcelCFTopBottomType.Top;
+                topBottom1.Type = ExcelCFTopBottomType.Top;
 
                 //Set rank value for the TopBottom rule.
-                topBottom.Rank = 10;
+                topBottom1.Rank = 10;
 
-                //Set color for Conditional Formattting.
-                format.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(51, 153, 102);
+                //Set solid color conditional formatting for TopBottom rule.
+                conditionalFormat1.FillPattern = ExcelPattern.Solid;
+                conditionalFormat1.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(51, 153, 102);
+
+
+                //Applying conditional formatting to "M6:M35".
+                IConditionalFormats conditionalFormats2 = worksheet.Range["M6:M35"].ConditionalFormats;
+                IConditionalFormat conditionalFormat2 = conditionalFormats2.AddCondition();
+
+                //Applying top or bottom rule in the conditional formatting.
+                conditionalFormat2.FormatType = ExcelCFType.TopBottom;
+                ITopBottom topBottom2 = conditionalFormat2.TopBottom;
+
+                //Set type as Top for TopBottom rule.
+                topBottom2.Type = ExcelCFTopBottomType.Top;
+
+                //Set rank value for the TopBottom rule.
+                topBottom2.Rank = 10;
+
+                //Set gradient color conditional formatting for TopBottom rule.
+                conditionalFormat2.FillPattern = ExcelPattern.Gradient;
+                conditionalFormat2.BackColorRGB = Syncfusion.Drawing.Color.FromArgb(130, 60, 12);
+                conditionalFormat2.ColorRGB = Syncfusion.Drawing.Color.FromArgb(255, 255, 0);
+                conditionalFormat2.GradientStyle = ExcelGradientStyle.Horizontal;
+                conditionalFormat2.GradientVariant = ExcelGradientVariants.ShadingVariants_1;
 
                 #region Save
                 //Saving the workbook
