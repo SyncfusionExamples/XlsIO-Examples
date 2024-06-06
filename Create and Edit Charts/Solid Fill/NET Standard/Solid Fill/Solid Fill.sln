@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid Fill", "Solid Fill\Solid Fill.csproj", "{165C4B1E-B14E-43CA-8A3F-3D681612D453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{165C4B1E-B14E-43CA-8A3F-3D681612D453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165C4B1E-B14E-43CA-8A3F-3D681612D453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165C4B1E-B14E-43CA-8A3F-3D681612D453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165C4B1E-B14E-43CA-8A3F-3D681612D453}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85BCD0B2-04D3-4845-A63E-A6D46B85A58E}
+	EndGlobalSection
+EndGlobal

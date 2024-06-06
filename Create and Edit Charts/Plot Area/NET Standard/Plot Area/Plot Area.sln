@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plot Area", "Plot Area\Plot Area.csproj", "{DA427696-0B97-437D-856F-D701EE1C0BD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA427696-0B97-437D-856F-D701EE1C0BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA427696-0B97-437D-856F-D701EE1C0BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA427696-0B97-437D-856F-D701EE1C0BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA427696-0B97-437D-856F-D701EE1C0BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE74A8DA-1C66-4B62-B4AA-54DDB04AE49F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿using Syncfusion.XlsIO;
+using Syncfusion.Drawing;
+
+namespace Data_Labels
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Xlsx;
+                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorksheet worksheet = workbook.Worksheets[0];
+                IChartShape chart = worksheet.Charts[0];
+
+                //Add the datalabel
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+                //Add the datalabel from the range of cells
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = worksheet["I1:I5"];
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+                //Set the color
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Black;
+
+                //Set the font
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri";
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.Size = 10;
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.FontName = "calibri";
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.Bold = true;
+
+                //Set the position
+                chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+                chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+
+                //Saving the workbook as stream
+                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAs(outputStream);
+
+                //Dispose streams
+                outputStream.Dispose();
+                inputStream.Dispose();
+
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
+                {
+                    UseShellExecute = true
+                };
+                process.Start();
+            }
+        }
+    }
+}

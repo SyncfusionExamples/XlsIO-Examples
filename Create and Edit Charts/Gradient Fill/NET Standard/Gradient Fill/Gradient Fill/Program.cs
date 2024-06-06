@@ -5,7 +5,7 @@ using Syncfusion.XlsIO.Implementation.Shapes;
 using Syncfusion.Drawing;
 using Syncfusion.XlsIO.Implementation;
 
-namespace Create_Chart
+namespace Gradient_Fill
 {
     class Program
     {
@@ -17,29 +17,26 @@ namespace Create_Chart
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-                IWorksheet sheet = workbook.Worksheets[0];
+                IWorksheet worksheet = workbook.Worksheets[0];
+                IChart chart = worksheet.Charts[0];
 
-                //Create a Chart
-                IChartShape chart = sheet.Charts.Add();
-
-                //Set Chart Type
-                chart.ChartType = ExcelChartType.Column_Clustered;
-
-                //Set data range in the worksheet
-                chart.DataRange = sheet.Range["A1:C6"];
-                chart.IsSeriesInRows = false;
-
-                //Get Serie
+                //Get data serie
                 IChartSerie serie1 = chart.Series[0];
                 IChartSerie serie2 = chart.Series[1];
 
-                //Set Datalabels
-                serie1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-                serie2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-                serie1.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
-                serie2.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+                //Set gradient fill to chart area
+                IChartFrameFormat chartArea = chart.ChartArea;
+                chartArea.Fill.FillType = ExcelFillType.Gradient;                
+                chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+                chartArea.Fill.ForeColor = Color.White;
 
-                //Gradient fill for serie1
+                //Set gradient fill to plot area
+                IChartFrameFormat plotArea = chart.PlotArea;
+                plotArea.Fill.FillType = ExcelFillType.Gradient;
+                plotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+                plotArea.Fill.ForeColor = Color.White;
+
+                //Set Gradient fill to series
                 ChartFillImpl chartFillImpl1 = serie1.SerieFormat.Fill as ChartFillImpl;
                 chartFillImpl1.FillType = ExcelFillType.Gradient;
                 chartFillImpl1.GradientColorType = ExcelGradientColor.MultiColor;
@@ -50,7 +47,6 @@ namespace Create_Chart
                 chartFillImpl1.GradientStops.Add(gradientStopImpl1);
                 chartFillImpl1.GradientStops.Add(gradientStopImpl2);
 
-                //Gradient fill for serie2
                 ChartFillImpl chartFillImpl2 = serie2.SerieFormat.Fill as ChartFillImpl;
                 chartFillImpl2.FillType = ExcelFillType.Gradient;
                 chartFillImpl2.GradientColorType = ExcelGradientColor.MultiColor;
@@ -61,28 +57,16 @@ namespace Create_Chart
                 chartFillImpl2.GradientStops.Add(gradientStopImpl3);
                 chartFillImpl2.GradientStops.Add(gradientStopImpl4);
 
-                //Set Legend
-                chart.HasLegend = true;
-                chart.Legend.Position = ExcelLegendPosition.Bottom;
-
-                //Positioning the chart in the worksheet
-                chart.TopRow = 8;
-                chart.LeftColumn = 1;
-                chart.BottomRow = 23;
-                chart.RightColumn = 8;
-
-                #region Save
-                //Saving the workbook
-                FileStream outputStream = new FileStream("GradientFill.xlsx", FileMode.Create, FileAccess.Write);
+                //Saving the workbook as stream
+                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
-                #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("GradientFill.xlsx")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
                 {
                     UseShellExecute = true
                 };
