@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Copy Cell Range", "Copy Cell Range\Copy Cell Range.csproj", "{C398916A-1FDF-4E58-B8D6-C2202E6F256B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C398916A-1FDF-4E58-B8D6-C2202E6F256B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C398916A-1FDF-4E58-B8D6-C2202E6F256B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C398916A-1FDF-4E58-B8D6-C2202E6F256B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C398916A-1FDF-4E58-B8D6-C2202E6F256B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EF84B9C-BAAB-4764-90AC-2A1FA884749F}
+	EndGlobalSection
+EndGlobal

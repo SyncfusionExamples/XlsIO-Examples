@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freeze Columns", "Freeze Columns\Freeze Columns.csproj", "{27C4878B-4CAC-4766-A5BC-AD1AC2D66F91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27C4878B-4CAC-4766-A5BC-AD1AC2D66F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C4878B-4CAC-4766-A5BC-AD1AC2D66F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C4878B-4CAC-4766-A5BC-AD1AC2D66F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C4878B-4CAC-4766-A5BC-AD1AC2D66F91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62D43A62-9AFA-4707-B78C-B481D9B338E5}
+	EndGlobalSection
+EndGlobal
