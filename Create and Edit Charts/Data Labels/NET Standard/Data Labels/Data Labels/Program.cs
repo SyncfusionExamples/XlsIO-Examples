@@ -1,5 +1,6 @@
 ﻿using Syncfusion.XlsIO;
 using Syncfusion.Drawing;
+using Syncfusion.XlsIO.Implementation.Charts;
 
 namespace Data_Labels
 {
@@ -39,6 +40,10 @@ namespace Data_Labels
                 //Set the position
                 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
                 chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Outside;
+
+                //Set the number format
+                IChartDataLabels dataLabel = chart.Series[0].DataPoints.DefaultDataPoint.DataLabels;
+                (dataLabel as ChartDataLabelsImpl).NumberFormat = "#,##0.00";
 
                 //Saving the workbook as stream
                 FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
