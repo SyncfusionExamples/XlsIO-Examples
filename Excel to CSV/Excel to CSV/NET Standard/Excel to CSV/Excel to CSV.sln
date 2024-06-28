@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel to CSV", "Excel to CSV\Excel to CSV.csproj", "{16F98412-CD0B-4377-BE6F-2C4DE24835BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16F98412-CD0B-4377-BE6F-2C4DE24835BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F98412-CD0B-4377-BE6F-2C4DE24835BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F98412-CD0B-4377-BE6F-2C4DE24835BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F98412-CD0B-4377-BE6F-2C4DE24835BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5C802DB-1770-49E0-9C86-89217E5C75EC}
+	EndGlobalSection
+EndGlobal
