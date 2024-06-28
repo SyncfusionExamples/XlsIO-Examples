@@ -1,8 +1,8 @@
 ﻿using Syncfusion.XlsIO;
 
-namespace Excel_to_CSV
+namespace TSV_to_Excel
 {
-    class program
+    class Program
     {
         public static void Main(string[] args)
         {
@@ -10,19 +10,21 @@ namespace Excel_to_CSV
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
 
-                //Saving the workbook as streams
-                FileStream outputStream = new FileStream("Sample.csv", FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream, ",");
+                //Open the TSV file
+                FileStream inputStream = new FileStream("../../../Data/InputTemplate.tsv", FileMode.Open, FileAccess.Read);
+                IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+
+                //Save the workbook
+                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAs(outputStream);
 
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Sample.csv")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
                 {
                     UseShellExecute = true
                 };

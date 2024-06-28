@@ -1,6 +1,6 @@
 ﻿using Syncfusion.XlsIO;
 
-namespace Excel_to_CSV
+namespace Excel_to_TSV
 {
     class program
     {
@@ -10,19 +10,16 @@ namespace Excel_to_CSV
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
+
                 FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
-                //Saving the workbook as streams
-                FileStream outputStream = new FileStream("Sample.csv", FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream, ",");
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
+                //Save the workbook in CSV format with tab(\t) as delimiter
+                FileStream outputStream = new FileStream("Output.tsv", FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAs(outputStream, "\t");
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Sample.csv")
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.tsv")
                 {
                     UseShellExecute = true
                 };
