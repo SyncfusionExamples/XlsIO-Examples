@@ -12,14 +12,13 @@ namespace CSV_to_Excel
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 FileStream inputStream = new FileStream("../../../Data/InputTemplate.csv", FileMode.Open, FileAccess.Read);
 
-                //Open the Tab delimited CSV file
-                IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+                //Open the CSV file
+                IWorkbook workbook = application.Workbooks.Open(inputStream, ",");
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Saving the workbook as stream
                 FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
-                int ram = worksheet.Range.LastColumn;
 
                 //Dispose streams
                 outputStream.Dispose();
