@@ -89,6 +89,13 @@ namespace Custom_Chart
                 chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
                 chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
 
+                //Set data label from the range of cells
+                serieOne.DataPoints.DefaultDataPoint.DataLabels.ValueFromCellsRange = sheet["B4:B6"];
+                serieOne.DataPoints.DefaultDataPoint.DataLabels.IsValueFromCells = true;
+
+                //Set the position of the data label
+                serieOne.DataPoints.DefaultDataPoint.DataLabels.Position = ExcelDataLabelPosition.Inside;
+
                 //Set legend properties
                 chart.Legend.Position = ExcelLegendPosition.Bottom;
                 chart.Legend.IsVerticalLegend = false;
