@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Read Excel using SFUploader", "Read Excel using SFUploader\Read Excel using SFUploader.csproj", "{DCE0DD47-3BDA-4B5D-AFBA-2AA9E8C9F63B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE0DD47-3BDA-4B5D-AFBA-2AA9E8C9F63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE0DD47-3BDA-4B5D-AFBA-2AA9E8C9F63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE0DD47-3BDA-4B5D-AFBA-2AA9E8C9F63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE0DD47-3BDA-4B5D-AFBA-2AA9E8C9F63B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B3C60C4-7E9C-4A93-B0CE-EC92D6A0CA55}
+	EndGlobalSection
+EndGlobal

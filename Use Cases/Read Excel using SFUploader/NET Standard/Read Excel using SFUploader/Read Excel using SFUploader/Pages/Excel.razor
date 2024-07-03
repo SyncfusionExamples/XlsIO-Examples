@@ -1,0 +1,58 @@
+﻿@page "/Excel"
+@using Syncfusion.XlsIO;
+@using Syncfusion.Drawing;
+@using Syncfusion.Blazor.Inputs
+@using System.IO;
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion Excel library (Essential XlsIO)</h2>
+<p>Syncfusion Excel library (Essential XlsIO)  is a Blazor Excel library used to create, read, edit, and convert Excel files in your applications without Microsoft Office dependencies.</p>
+<SfUploader AutoUpload="true">
+    <UploaderEvents ValueChange="@OnChange"></UploaderEvents>
+</SfUploader>
+
+@code {
+    private async Task OnChange(UploadChangeEventArgs args)
+    {
+        try
+        {
+            foreach (var file in args.Files)
+            {
+                var path = @"" + file.FileInfo.Name;
+                FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+                await file.File.OpenReadStream(long.MaxValue).CopyToAsync(filestream);
+                filestream.Position = 0;
+                await ReadExcel(filestream);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    // Read an Excel document
+    async Task ReadExcel(FileStream fileStream)
+    {
+        //Create an instance of ExcelEngine
+        using (ExcelEngine excelEngine = new ExcelEngine())
+        {
+            IApplication application = excelEngine.Excel;
+            application.DefaultVersion = ExcelVersion.Xlsx;
+            IWorkbook workbook = application.Workbooks.Open(fileStream);
+            IWorksheet worksheet = workbook.Worksheets[0];
+
+            //Read a cell value from the uploaded document
+            string value = worksheet.Range["A3"].Value;
+
+            //Save the wokrbook as a stream
+            using (MemoryStream stream = new MemoryStream())
+            {
+                workbook.SaveAs(stream);
+
+                //Download the Excel document in the browser
+                await JS.SaveAs("Output.xlsx", stream.ToArray());
+            }
+        }
+    }
+}
