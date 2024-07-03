@@ -19,6 +19,7 @@ namespace Global_Style
                 worksheet.Range["A1"].Text = "CustomerID";
                 worksheet.Range["B1"].Text = "CompanyName";
                 worksheet.Range["C1"].Text = "ContactName";
+                worksheet.Range["D1"].Text = "TotalSales (in USD)";
                 worksheet.Range["A2"].Text = "ALFKI";
                 worksheet.Range["A3"].Text = "ANATR";
                 worksheet.Range["A4"].Text = "BONAP";
@@ -31,6 +32,10 @@ namespace Global_Style
                 worksheet.Range["C3"].Text = "Ana Trujillo";
                 worksheet.Range["C4"].Text = "Laurence Lebihan";
                 worksheet.Range["C5"].Text = "Victoria Ashworth";
+                worksheet.Range["D2"].Number = 15000.107;
+                worksheet.Range["D3"].Number = 27000.208;
+                worksheet.Range["D4"].Number = 18700.256;
+                worksheet.Range["D5"].Number = 25000.450;
 
                 #region Global Style
                 //Formatting
@@ -60,10 +65,18 @@ namespace Global_Style
                 bodyStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
                 bodyStyle.EndUpdate();
 
+                //Defining number format style
+                IStyle numberformatStyle = workbook.Styles.Add("NumberFormatStyle");
+                numberformatStyle.BeginUpdate();
+                numberformatStyle.NumberFormat = "0.00";
+                numberformatStyle.EndUpdate();
+
                 //Apply Header style
                 worksheet.Rows[0].CellStyle = headerStyle;
                 //Apply Body Style
                 worksheet.Range["A2:C5"].CellStyle = bodyStyle;
+                //Apply Number Format style
+                worksheet.Range["D2:D5"].CellStyle = numberformatStyle;
                 #endregion
 
                 //Auto-fit the columns
