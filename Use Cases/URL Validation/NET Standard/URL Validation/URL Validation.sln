@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URL Validation", "URL Validation\URL Validation.csproj", "{21D0DE4C-292D-49AC-97EB-A31B92219C4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21D0DE4C-292D-49AC-97EB-A31B92219C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D0DE4C-292D-49AC-97EB-A31B92219C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D0DE4C-292D-49AC-97EB-A31B92219C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D0DE4C-292D-49AC-97EB-A31B92219C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20A67F31-A0B2-456D-B945-419215D92E71}
+	EndGlobalSection
+EndGlobal
