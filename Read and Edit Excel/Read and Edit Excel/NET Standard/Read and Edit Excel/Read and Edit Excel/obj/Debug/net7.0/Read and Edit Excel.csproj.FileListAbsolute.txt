@@ -1,0 +1,21 @@
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Read and Edit Excel.exe
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Read and Edit Excel.deps.json
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Read and Edit Excel.runtimeconfig.json
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Read and Edit Excel.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Read and Edit Excel.pdb
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Syncfusion.Compression.NET.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Syncfusion.Licensing.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\Syncfusion.XlsIO.NET.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.csproj.AssemblyReference.cache
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.GeneratedMSBuildEditorConfig.editorconfig
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.AssemblyInfoInputs.cache
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.AssemblyInfo.cs
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.csproj.CoreCompileInputs.cache
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.sourcelink.json
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.csproj.CopyComplete
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\refint\Read and Edit Excel.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.pdb
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\Read and Edit Excel.genruntimeconfig.cache
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\obj\Debug\net7.0\ref\Read and Edit Excel.dll
+F:\Dev\XlsIO-Examples\Read and Edit Excel\Read and Edit Excel\NET Standard\Read and Edit Excel\Read and Edit Excel\bin\Debug\net7.0\InputTemplate.xlsx

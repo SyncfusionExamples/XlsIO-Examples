@@ -2,12 +2,18 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Read and Edit Excel</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.XlsIO.NET" Version="19.4.0.38" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InputTemplate.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
