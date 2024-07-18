@@ -1,13 +1,7 @@
-﻿using Edit_Excel.Models;
+using Edit_Excel.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Syncfusion.XlsIO;
-using System.IO;
+using System.Diagnostics;
 
 namespace Edit_Excel.Controllers
 {
@@ -18,11 +12,6 @@ namespace Edit_Excel.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
         public IActionResult EditDocument()
         {
@@ -53,9 +42,13 @@ namespace Edit_Excel.Controllers
 
                 //Download the Excel file in the browser
                 FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/excel");
-                fileStreamResult.FileDownloadName = "EditExcel.xlsx";
+                fileStreamResult.FileDownloadName = "Output.xlsx";
                 return fileStreamResult;
             }
+        }
+        public IActionResult Index()
+        {
+            return View();
         }
 
         public IActionResult Privacy()
