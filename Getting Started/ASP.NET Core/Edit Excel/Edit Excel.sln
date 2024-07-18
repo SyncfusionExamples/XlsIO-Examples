@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edit Excel", "Edit Excel\Edit Excel.csproj", "{1812DD47-B59E-4D8C-9BD2-2155BEF0BEF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edit Excel", "Edit Excel\Edit Excel.csproj", "{92BD1F54-534F-47E0-9DA2-5C411F5B6498}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1812DD47-B59E-4D8C-9BD2-2155BEF0BEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1812DD47-B59E-4D8C-9BD2-2155BEF0BEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1812DD47-B59E-4D8C-9BD2-2155BEF0BEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1812DD47-B59E-4D8C-9BD2-2155BEF0BEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BD1F54-534F-47E0-9DA2-5C411F5B6498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BD1F54-534F-47E0-9DA2-5C411F5B6498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BD1F54-534F-47E0-9DA2-5C411F5B6498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BD1F54-534F-47E0-9DA2-5C411F5B6498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9E1E4D9D-1B2D-4102-9256-D1A3C581C9A8}
+		SolutionGuid = {9245A14D-A921-4ADD-8E31-03A60152BCD9}
 	EndGlobalSection
 EndGlobal

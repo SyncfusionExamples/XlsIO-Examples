@@ -1,7 +1,6 @@
-﻿using Convert_Excel_to_PDF.Models;
+using Convert_Excel_to_PDF.Models;
 using Microsoft.AspNetCore.Mvc;
 using Syncfusion.Pdf;
-using Syncfusion.Pdf.Graphics;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 using System.Diagnostics;
@@ -21,7 +20,7 @@ namespace Convert_Excel_to_PDF.Controllers
         {
             return View();
         }
-        public IActionResult ConvertExcelToPdf()
+        public IActionResult ConvertExceltoPDF()
         {
             //Create an instance of ExcelEngine
             using (ExcelEngine excelEngine = new ExcelEngine())
@@ -50,7 +49,6 @@ namespace Convert_Excel_to_PDF.Controllers
                 return File(pdfStream, "application/pdf", "Sample.pdf");
             }
         }
-
         public IActionResult Privacy()
         {
             return View();

@@ -1,16 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-@{
-    Html.BeginForm("ConvertExcelToPdf", "Home", FormMethod.Get);
+﻿@{Html.BeginForm("ConvertExceltoPDF", "Home", FormMethod.Get);
     {
         <div>
-            <input type="submit" value="Convert Excel to PDF" style="width:160px;height:27px" />
+            <input type="submit" value="Convert Excel to PDF" style="width:170px;height:27px" />
         </div>
     }
     Html.EndForm();
