@@ -1,12 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-@{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
+    Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
     {
-        <div>
-            <input type="submit" value="Create Document" style="width:150px;height:27px" />
-        </div>
+                   <div>
+                       <input type="submit" value="Create Document" style="width:150px;height:27px" />
+                   </div>
     }
     Html.EndForm();
 }
