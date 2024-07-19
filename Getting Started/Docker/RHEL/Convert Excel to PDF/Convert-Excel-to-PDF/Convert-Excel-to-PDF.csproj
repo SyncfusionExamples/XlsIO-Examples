@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.5" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="23.1.36" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

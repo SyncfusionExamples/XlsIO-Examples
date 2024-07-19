@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIO.NET" Version="23.1.36" />
+    <PackageReference Include="Syncfusion.XlsIO.NET" Version="*" />
   </ItemGroup>
 
 </Project>

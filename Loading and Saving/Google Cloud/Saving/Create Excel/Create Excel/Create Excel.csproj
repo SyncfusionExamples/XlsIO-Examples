@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Storage.V1" Version="4.10.0" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

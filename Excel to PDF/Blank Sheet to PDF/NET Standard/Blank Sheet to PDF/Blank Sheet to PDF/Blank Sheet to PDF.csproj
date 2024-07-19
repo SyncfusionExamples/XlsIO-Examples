@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="*" />
   </ItemGroup>
 
 </Project>

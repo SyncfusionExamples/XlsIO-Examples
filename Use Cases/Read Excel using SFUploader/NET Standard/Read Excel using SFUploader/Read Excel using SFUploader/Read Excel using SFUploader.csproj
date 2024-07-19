@@ -9,9 +9,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
-    <PackageReference Include="Syncfusion.Blazor.Inputs" Version="26.1.40" />
-    <PackageReference Include="Syncfusion.Blazor.Themes" Version="26.1.40" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="26.1.40" />
+    <PackageReference Include="Syncfusion.Blazor.Inputs" Version="*" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="*" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

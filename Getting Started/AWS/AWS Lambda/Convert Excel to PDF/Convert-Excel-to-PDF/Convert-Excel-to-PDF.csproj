@@ -23,6 +23,6 @@
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.3.1" />
     <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="7.3.0" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="23.1.42" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 </Project>
