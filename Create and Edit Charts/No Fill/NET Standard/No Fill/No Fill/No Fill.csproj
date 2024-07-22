@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>No_Fill</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="25.2.4" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

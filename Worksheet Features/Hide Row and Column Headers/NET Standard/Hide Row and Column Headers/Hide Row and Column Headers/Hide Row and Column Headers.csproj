@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Hide Row and Column Headers</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIO.NET" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.XlsIO.NET" Version="*" />
   </ItemGroup>
 
 </Project>

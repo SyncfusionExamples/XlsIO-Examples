@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Convert_Excel_to_PDF</RootNamespace>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="22.2.8" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

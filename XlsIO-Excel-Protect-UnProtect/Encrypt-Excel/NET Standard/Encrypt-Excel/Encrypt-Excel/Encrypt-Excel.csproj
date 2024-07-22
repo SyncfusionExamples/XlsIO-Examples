@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Encrypt_Excel</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="19.2.0.55" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

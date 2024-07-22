@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="22.2.8" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
