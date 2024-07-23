@@ -51,7 +51,7 @@ namespace Image_to_Gif
                         }
 
                         //Create an animated GIF
-                        collection.Write(@"..\..\..\Output\animated.gif");
+                        collection.Write(@"Output.gif");
                     }
                 }
             }
