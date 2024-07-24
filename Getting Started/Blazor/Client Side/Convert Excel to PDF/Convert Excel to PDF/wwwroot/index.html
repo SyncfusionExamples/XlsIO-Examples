@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ExcelToPDF</title>
+    <title>Convert Excel to PDF</title>
     <base href="/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="ExcelToPDF.styles.css" rel="stylesheet" />
+    <link href="Convert Excel to PDF.styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -29,7 +29,6 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script type="text/javascript">
         function saveAsFile(filename, bytesBase64) {
-
             if (navigator.msSaveBlob) {
                 //Download document in Edge browser
                 var data = window.atob(bytesBase64);
