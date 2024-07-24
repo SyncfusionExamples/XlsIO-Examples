@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33103.201
+VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelToImage", "ExcelToImage\ExcelToImage.csproj", "{32E5A078-296E-474C-95FA-4B54DD3B3019}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelToImage", "ExcelToImage\ExcelToImage.csproj", "{43CA67BB-5EE8-4788-A007-30798B2C1FCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32E5A078-296E-474C-95FA-4B54DD3B3019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32E5A078-296E-474C-95FA-4B54DD3B3019}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32E5A078-296E-474C-95FA-4B54DD3B3019}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32E5A078-296E-474C-95FA-4B54DD3B3019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CA67BB-5EE8-4788-A007-30798B2C1FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CA67BB-5EE8-4788-A007-30798B2C1FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CA67BB-5EE8-4788-A007-30798B2C1FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CA67BB-5EE8-4788-A007-30798B2C1FCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {75B88226-FA8E-4044-89A5-E3908ACD4A99}
+		SolutionGuid = {203F0DDB-A7A6-4067-A38D-AF95BFAA485D}
 	EndGlobalSection
 EndGlobal
