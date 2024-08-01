@@ -17,42 +17,34 @@ namespace Edit_Excel.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            try
+            using (ExcelEngine excelEngine = new ExcelEngine())
             {
-                //Retrieve the document from DropBox
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Xlsx;
+
+                //Download the document from DropBox
                 MemoryStream stream = await GetDocumentFromDropBox();
 
                 //Set the position as '0'
                 stream.Position = 0;
 
-                using (ExcelEngine excelEngine = new ExcelEngine())
-                {
-                    IApplication application = excelEngine.Excel;
-                    application.DefaultVersion = ExcelVersion.Xlsx;
+                //Load the downloaded document
+                IWorkbook workbook = application.Workbooks.Open(stream);
 
-                    //Load the downloaded document
-                    IWorkbook workbook = application.Workbooks.Open(stream);
+                IWorksheet worksheet = workbook.Worksheets[0];
+                worksheet.Range["A3"].Text = "Hello world";
 
-                    IWorksheet worksheet = workbook.Worksheets[0];
-                    worksheet.Range["A3"].Text = "Hello world";
+                //Saving the Excel to the MemoryStream 
+                MemoryStream outputStream = new MemoryStream();
+                workbook.SaveAs(outputStream);
 
-                    //Saving the Excel to the MemoryStream 
-                    MemoryStream outputStream = new MemoryStream();
-                    workbook.SaveAs(outputStream);
+                //Set the position as '0'
+                outputStream.Position = 0;
 
-                    //Set the position as '0'
-                    outputStream.Position = 0;
-
-                    //Download the Excel file in the browser
-                    FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/excel");
-                    fileStreamResult.FileDownloadName = "EditExcel.xlsx";
-                    return fileStreamResult;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return Content("Error occurred while processing the file.");
+                //Download the Excel file in the browser
+                FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/excel");
+                fileStreamResult.FileDownloadName = "EditExcel.xlsx";
+                return fileStreamResult;
             }
         }
 

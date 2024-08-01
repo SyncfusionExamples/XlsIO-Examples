@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dropbox.Api" Version="7.0.0" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="26.2.7" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
