@@ -54,7 +54,7 @@ namespace Edit_Excel.Controllers
         public async Task<MemoryStream> GetDocumentFromGoogleDrive()
         {
             //Define the path to the service account key file
-            string pathtoserviceaccountkey = "Your_service_account_key_path";
+            string serviceAccountKeyPath = "Your_service_account_key_path";
 
             //Specify the FileID of the file to download
             string fileID = "Your_file_id"; 
@@ -62,7 +62,7 @@ namespace Edit_Excel.Controllers
             try
             {
                 //Authenticate the Google Drive API access using the service account key
-                GoogleCredential credential = GoogleCredential.FromFile(pathtoserviceaccountkey).CreateScoped(DriveService.ScopeConstants.Drive);
+                GoogleCredential credential = GoogleCredential.FromFile(serviceAccountKeyPath).CreateScoped(DriveService.ScopeConstants.Drive);
 
                 //Create the Google Drive service
                 DriveService service = new DriveService(new BaseClientService.Initializer()
