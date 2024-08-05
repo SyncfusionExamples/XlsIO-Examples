@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.68.0.3490" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="26.2.7" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
