@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert Column", "Insert Column\Insert Column.csproj", "{289F24DC-0167-4E6F-BAB9-6DF86041FDB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289F24DC-0167-4E6F-BAB9-6DF86041FDB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289F24DC-0167-4E6F-BAB9-6DF86041FDB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289F24DC-0167-4E6F-BAB9-6DF86041FDB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289F24DC-0167-4E6F-BAB9-6DF86041FDB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF62EE5E-47A8-4538-957E-E89EEF70ED84}
+	EndGlobalSection
+EndGlobal

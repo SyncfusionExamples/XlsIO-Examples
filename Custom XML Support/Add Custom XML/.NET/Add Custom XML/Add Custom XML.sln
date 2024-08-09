@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add Custom XML", "Add Custom XML\Add Custom XML.csproj", "{DB052A76-2F96-4A1B-BEED-D0D693CAB33C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB052A76-2F96-4A1B-BEED-D0D693CAB33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB052A76-2F96-4A1B-BEED-D0D693CAB33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB052A76-2F96-4A1B-BEED-D0D693CAB33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB052A76-2F96-4A1B-BEED-D0D693CAB33C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C27AC8AA-AFD9-46C2-B020-1F3A6285DDE3}
+	EndGlobalSection
+EndGlobal

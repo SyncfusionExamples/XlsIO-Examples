@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSalesDetails xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SalesDetails>
+    <SalesPerson>Andy Bernard</SalesPerson>
+    <SalesJanJune>45000</SalesJanJune>
+    <SalesJulyDec>58000</SalesJulyDec>
+    <Change>29</Change>
+    <ImageText>Man1.jpg</ImageText>
+  </SalesDetails>
+  <SalesDetails>
+    <SalesPerson>Jim Halpert</SalesPerson>
+    <SalesJanJune>34000</SalesJanJune>
+    <SalesJulyDec>65000</SalesJulyDec>
+    <Change>91</Change>
+    <ImageText>Man2.png</ImageText>
+  </SalesDetails>
+  <SalesDetails>
+    <SalesPerson>Karen Fillippelli</SalesPerson>
+    <SalesJanJune>75000</SalesJanJune>
+    <SalesJulyDec>64000</SalesJulyDec>
+    <Change>-15</Change>
+    <ImageText>Woman1.jpg</ImageText>
+  </SalesDetails>
+  <SalesDetails>
+    <SalesPerson>Phyllis Lapin</SalesPerson>
+    <SalesJanJune>56500</SalesJanJune>
+    <SalesJulyDec>33600</SalesJulyDec>
+    <Change>-40</Change>
+    <ImageText>Woman2.png</ImageText>
+  </SalesDetails>
+  <SalesDetails>
+    <SalesPerson>Mario Pontes</SalesPerson>
+    <SalesJanJune>46500</SalesJanJune>
+    <SalesJulyDec>52000</SalesJulyDec>
+    <Change>12</Change>
+    <ImageText>Man8.png</ImageText>
+  </SalesDetails>
+</ArrayOfSalesDetails>
