@@ -216,7 +216,7 @@ namespace Create_Excel.Controllers
             //Define the access token for authentication
             var accessToken = "Access_Token";
 
-            //Define the file path in Dropbox where the file should be saved. For ex: "/Template.docx"
+            //Define the file path in Dropbox where the file should be saved. For ex: "/Template.xlsx"
             var filePathInDropbox = "FilePath";
 
             try
