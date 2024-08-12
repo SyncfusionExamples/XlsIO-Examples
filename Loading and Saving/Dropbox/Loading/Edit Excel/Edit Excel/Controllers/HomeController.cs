@@ -56,7 +56,7 @@ namespace Edit_Excel.Controllers
             //Define the access token for authentication with the Dropbox API
             var accessToken = "Access_Token";
 
-            //Define the file path in Dropbox where the file is located. For ex: "/Template.docx"
+            //Define the file path in Dropbox where the file is located. For ex: "/Template.xlsx"
             var filePathInDropbox = "FilePath";
 
             try

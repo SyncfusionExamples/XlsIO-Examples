@@ -1,10 +1,14 @@
 using Create_Excel.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using Dropbox.Api.Files;
-using Dropbox.Api;
-using Syncfusion.XlsIO;
+using Microsoft.Graph.Models;
+using Microsoft.Identity.Client;
+using Newtonsoft.Json;
 using Syncfusion.Drawing;
+using Syncfusion.XlsIO;
+using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Create_Excel.Controllers
 {
@@ -15,11 +19,6 @@ namespace Create_Excel.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
         public async Task<IActionResult> CreateDocument()
         {
@@ -201,41 +200,74 @@ namespace Create_Excel.Controllers
                 //Set the position as '0'
                 stream.Position = 0;
 
-                //Upload the document to Dropbox
-                await UploadDocumentToDropBox(stream);
+                //Upload the document to OneDrive
+                await UploadDocumentToOneDrive(stream);
 
-                return Ok("Excel document uploaded to DropBox Storage.");
+                return Ok("Excel document uploaded to OneDrive cloud Storage.");
             }
         }
 
         /// <summary>
-        /// Upload file to Dropbox
+        /// Upload file to OneDrive
         /// </summary>
-        public async Task<MemoryStream> UploadDocumentToDropBox(MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToOneDrive(MemoryStream stream)
         {
-            //Define the access token for authentication
-            var accessToken = "Access_Token";
+            //Replace with your application (client) ID, tenant ID, and secret
+            string clientId = "your-client-id";
+            string tenantId = "your-tenant-id";
+            string clientSecret = "your-client-secret";
 
-            //Define the file path in Dropbox where the file should be saved. For ex: "/Template.xlsx"
-            var filePathInDropbox = "FilePath";
+            //Replace with the user ID (email address) whose OneDrive you want to access
+            string userId = "user@example.com";
 
-            try
+            //Replace with the OneDrive file path where you want to save the file For ex: "/Template.xlsx"
+            string filePath = "FilePath";
+
+            //Initialize the MSAL client
+            var confidentialClientApplication = ConfidentialClientApplicationBuilder
+                .Create(clientId)
+                .WithClientSecret(clientSecret)
+                .WithAuthority(new Uri($"https://login.microsoftonline.com/{tenantId}"))
+                .Build();
+
+            //Acquire an access token
+            string[] scopes = { "https://graph.microsoft.com/.default" };
+            var authenticationResult = await confidentialClientApplication
+                .AcquireTokenForClient(scopes)
+                .ExecuteAsync();
+
+            //Create an HTTP client with the access token
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", authenticationResult.AccessToken);
+
+            //Upload the file to OneDrive
+            var content = new StreamContent(stream);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+            //Construct the OneDrive upload URL using user ID and file path
+            var uploadUrl = $"https://graph.microsoft.com/v1.0/users/{userId}/drive/root:{filePath}:/content";
+
+            using (var response = await httpClient.PutAsync(uploadUrl, content))
             {
-                //Create a new DropboxClient instance using the provided access token
-                using (var dbx = new DropboxClient(accessToken))
+                if (response.IsSuccessStatusCode)
                 {
-                    //Upload the file to Dropbox
-                    var uploadResult =await dbx.Files.UploadAsync(filePathInDropbox, WriteMode.Overwrite.Instance, body: new MemoryStream(stream.ToArray()));
+                    Console.WriteLine("File uploaded successfully.");
                 }
-                Console.WriteLine("Upload completed successfully");
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error uploading document to DropBox: {ex.Message}");
+                else
+                {
+                    Console.WriteLine($"Failed to upload file. Status code: {response.StatusCode}");
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error details: {responseBody}");
+                }
             }
             return stream;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
