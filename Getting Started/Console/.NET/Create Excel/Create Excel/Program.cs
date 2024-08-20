@@ -180,15 +180,10 @@ namespace Create_Excel
                 worksheet.Range["A15:A23"].RowHeight = 18;
 
                 //Saving the Excel to the Stream 
-                FileStream stream = new FileStream("CreateExcel.xlsx", FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(stream);
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CreateExcel.xlsx")
+                using (FileStream stream = new FileStream("../../../Output/Output.xlsx", FileMode.Create, FileAccess.Write))
                 {
-                    UseShellExecute = true
-                };
-                process.Start();
+                    workbook.SaveAs(stream);
+                }
             }
         }
     }
