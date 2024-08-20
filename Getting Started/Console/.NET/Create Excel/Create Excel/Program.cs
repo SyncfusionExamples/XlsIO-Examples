@@ -19,7 +19,7 @@ namespace Create_Excel
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Adding a picture
-                FileStream imageStream = new FileStream("../../../Data/AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/AdventureCycles-Logo.png"), FileMode.Open, FileAccess.Read);
                 IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream, 20, 20);
 
                 //Disable gridlines in the worksheet
@@ -180,7 +180,7 @@ namespace Create_Excel
                 worksheet.Range["A15:A23"].RowHeight = 18;
 
                 //Saving the Excel to the Stream 
-                using (FileStream stream = new FileStream("../../../Output/Output.xlsx", FileMode.Create, FileAccess.Write))
+                using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.Write))
                 {
                     workbook.SaveAs(stream);
                 }
