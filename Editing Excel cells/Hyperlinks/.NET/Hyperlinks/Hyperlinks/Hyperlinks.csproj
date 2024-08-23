@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.XlsIO.NET" Version="*" />
+	<None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

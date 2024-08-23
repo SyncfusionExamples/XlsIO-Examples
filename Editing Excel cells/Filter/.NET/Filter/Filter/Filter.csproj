@@ -7,6 +7,14 @@
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.XlsIO.NET" Version="*" />
+	<None Update="Data\InputTemplate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  <None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+   </None>
   </ItemGroup>
+  
+  
 
 </Project>
