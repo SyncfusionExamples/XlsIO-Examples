@@ -10,7 +10,7 @@ namespace PivotTable
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-                FileStream fileStream = new FileStream("../../../Data/SalesReport.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/SalesReport.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -50,3 +50,4 @@ namespace PivotTable
         }
     }
 }
+

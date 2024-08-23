@@ -12,7 +12,7 @@ namespace ReadOnly
             {
                 IApplication application = excelEngine.Excel;
 				application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputData.xlsx", FileMode.Open, FileAccess.ReadWrite);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputData.xlsx"), FileMode.Open, FileAccess.ReadWrite);
 
                 //Open Excel
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
@@ -29,14 +29,8 @@ namespace ReadOnly
                 //Dispose streams
                 outputStream.Dispose();
 				inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadOnly.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

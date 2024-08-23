@@ -10,7 +10,7 @@ namespace Find
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream fileStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -39,13 +39,6 @@ namespace Find
                 FileStream stream = new FileStream("Find.xlsx", FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
                 stream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Find.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }

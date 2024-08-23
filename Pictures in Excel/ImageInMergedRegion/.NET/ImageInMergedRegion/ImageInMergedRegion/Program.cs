@@ -12,7 +12,7 @@ namespace ImageInMergedRegion
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -24,9 +24,9 @@ namespace ImageInMergedRegion
 
                 //Get the images
                 string[] image = new string[3];
-                image[0] = "../../../Data/Picture1.png";
-                image[1] = "../../../Data/Picture2.png";
-                image[2] = "../../../Data/Picture3.png";
+                image[0] = Path.GetFullPath(@"Data/Picture1.png");
+                image[1] = Path.GetFullPath(@"Data/Picture2.png");
+                image[2] = Path.GetFullPath(@"Data/Picture3.png");
 
                 //Insert images
                 int i = 0;
@@ -50,14 +50,8 @@ namespace ImageInMergedRegion
                 outputStream.Dispose();
                 inputStream.Dispose();
 
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImageInMergedRegion.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
-
             }
         }
     }
 }
+

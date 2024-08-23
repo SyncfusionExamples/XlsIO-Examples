@@ -15,7 +15,7 @@ namespace Add_Picture
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Adding a picture
-                FileStream imageStream = new FileStream("../../../Data/Image.png", FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.Read);
                 IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream);
 
                 #region Save
@@ -27,14 +27,8 @@ namespace Add_Picture
                 //Dispose streams
                 outputStream.Dispose();
                 imageStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("AddPicture.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

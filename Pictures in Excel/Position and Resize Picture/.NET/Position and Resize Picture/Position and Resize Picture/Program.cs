@@ -15,7 +15,7 @@ namespace Position_and_Resize_Picture
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Adding a picture
-                FileStream imageStream = new FileStream("../../../Data/Image.png", FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.Read);
                 IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream);
 
                 //Positioning a Picture
@@ -35,14 +35,8 @@ namespace Position_and_Resize_Picture
                 //Dispose streams
                 outputStream.Dispose();
                 imageStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ResizePicture.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

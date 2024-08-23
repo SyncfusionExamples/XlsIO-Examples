@@ -11,7 +11,7 @@ namespace Copy_Cell_Range
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream sourceStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(sourceStream);
 
                 IWorksheet sourceWorksheet = workbook.Worksheets[0];
@@ -30,13 +30,6 @@ namespace Copy_Cell_Range
                 //Dispose streams
                 outputStream.Dispose();
                 sourceStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }

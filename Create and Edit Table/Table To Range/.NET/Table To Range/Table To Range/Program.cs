@@ -14,7 +14,7 @@ namespace Table_To_Range
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/Sample.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
                 //Initialize XlsIO renderer
@@ -54,3 +54,4 @@ namespace Table_To_Range
         }
     }
 }
+

@@ -16,7 +16,7 @@ namespace Convert_CSV_with_JSON_to_Excel
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Loads an CSV file
-                FileStream fileStream = new FileStream(@"../../../Data/InputTemplate.csv", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(@Path.GetFullPath(@"Data/InputTemplate.csv"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream, ";");
                 IWorksheet worksheet = workbook.Worksheets[0];
 

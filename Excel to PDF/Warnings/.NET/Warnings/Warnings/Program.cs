@@ -14,7 +14,7 @@ namespace Warnings
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 //Open the Excel document to convert.
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
                 //Initialize warning class to capture warnings during the conversion.
@@ -43,13 +43,6 @@ namespace Warnings
 
                     //Dispose streams
                     outputStream.Dispose();
-
-                    System.Diagnostics.Process process = new System.Diagnostics.Process();
-                    process.StartInfo = new System.Diagnostics.ProcessStartInfo("ExceltoPDF.pdf")
-                    {
-                        UseShellExecute = true
-                    };
-                    process.Start();
                 }
                 inputStream.Dispose();
             }
@@ -68,3 +61,4 @@ namespace Warnings
         public bool Cancel { get; set; }
     }
 }
+

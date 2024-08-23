@@ -25,7 +25,7 @@ namespace Header_and_Footer
 
                 //Adding text with formatting and image to page footers
                 worksheet.PageSetup.LeftFooter = "&B &18 &K0000FF Left Footer";
-                FileStream imageStream = new FileStream("../../../Data/image.jpg", FileMode.Open);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/image.jpg"), FileMode.Open);
                 worksheet.PageSetup.CenterFooter = "&G";
                 worksheet.PageSetup.CenterFooterImage = Image.FromStream(imageStream);
                 worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
@@ -34,14 +34,8 @@ namespace Header_and_Footer
                 FileStream stream = new FileStream("Output.xlsx", FileMode.Create);
                 workbook.SaveAs(stream);
                 stream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

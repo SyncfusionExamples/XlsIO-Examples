@@ -19,7 +19,7 @@ namespace Add_Custom_XML
                 ICustomXmlPart customXmlPart = workbook.CustomXmlparts.Add("SD10003"); 
 
                 //Add XmlData to CustomXmlPart
-                byte[] xmlData = File.ReadAllBytes("../../../Data/InputTemplate.xml");
+                byte[] xmlData = File.ReadAllBytes(Path.GetFullPath(@"Data/InputTemplate.xml"));
                 customXmlPart.Data = xmlData;
 
                 #region Save
@@ -32,13 +32,8 @@ namespace Add_Custom_XML
                 outputStream.Dispose();
 
                 //Open default JSON
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CreateCustomXML.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

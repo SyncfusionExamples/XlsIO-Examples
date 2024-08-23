@@ -13,7 +13,7 @@ namespace Excel_To_Thumbnail_Image
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet sheet = workbook.Worksheets[0];
 
@@ -32,13 +32,7 @@ namespace Excel_To_Thumbnail_Image
                 thumbnail.Save("Image.png", System.Drawing.Imaging.ImageFormat.Png);
 
             }
-
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("Image.png")
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
+

@@ -11,7 +11,7 @@ namespace ExcelToPDF
             string filePath = "../../../Data/Invoice.xlsx";
             Stream inputExcelData = File.OpenRead(filePath);
             Stream outputPDFData = ConvertExcelToPDF(inputExcelData);
-            File.WriteAllBytes("../../../Output/Invoice.pdf", ((MemoryStream)outputPDFData).ToArray());
+            File.WriteAllBytes(Path.GetFullPath(@"Output/Invoice.pdf"), ((MemoryStream)outputPDFData).ToArray());
         }
 
         static Stream ConvertExcelToPDF(Stream inputExcelData)

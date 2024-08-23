@@ -12,7 +12,7 @@ namespace Picture_Hyperlink_in_Chart
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -23,7 +23,7 @@ namespace Picture_Hyperlink_in_Chart
                 chart.IsSeriesInRows = false;
 
                 //Getting an image from the stream
-                FileStream imageStream = new FileStream("../../../Data/Image.png", FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.Read);
                 Image image = Image.FromStream(imageStream);
 
                 //Adding picture on the chart
@@ -46,14 +46,8 @@ namespace Picture_Hyperlink_in_Chart
                 outputStream.Dispose();
                 inputStream.Dispose();
                 imageStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Chart.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

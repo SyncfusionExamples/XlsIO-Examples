@@ -14,7 +14,7 @@ namespace Image_to_Gif
                 application.DefaultVersion = ExcelVersion.Excel2013;
                 
                 //Load an input template
-                using(FileStream file = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read))
+                using(FileStream file = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read))
                 {
                     IWorkbook workbook = application.Workbooks.Open(file);
 
@@ -58,3 +58,4 @@ namespace Image_to_Gif
         }
     }
 }
+

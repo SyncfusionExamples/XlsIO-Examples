@@ -14,8 +14,8 @@ namespace Add_SVG_Picture
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                FileStream svgStream = new FileStream("../../../Data/Image.svg", FileMode.Open);
-                FileStream pngStream = new FileStream("../../../Data/Image.png", FileMode.Open);
+                FileStream svgStream = new FileStream(Path.GetFullPath(@"Data/Image.svg"), FileMode.Open);
+                FileStream pngStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open);
 
                 //Add svg image with given svg and png streams
                 worksheet.Pictures.AddPicture(1, 1, svgStream, pngStream);
@@ -30,14 +30,8 @@ namespace Add_SVG_Picture
                 outputStream.Dispose();
                 svgStream.Dispose();
                 pngStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("SVGImage.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

@@ -12,7 +12,7 @@ namespace Picture_Fill
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
                 IChart chart = worksheet.Charts[0];
@@ -22,9 +22,9 @@ namespace Picture_Fill
                 IChartSerie serie2 = chart.Series[1];
 
                 //Getting an image from the stream
-                FileStream imageStream1 = new FileStream("../../../Data/Image1.jpg", FileMode.Open, FileAccess.Read);
+                FileStream imageStream1 = new FileStream(Path.GetFullPath(@"Data/Image1.jpg"), FileMode.Open, FileAccess.Read);
                 Image image1 = Image.FromStream(imageStream1);
-                FileStream imageStream2 = new FileStream("../../../Data/Image2.jpg", FileMode.Open, FileAccess.Read);
+                FileStream imageStream2 = new FileStream(Path.GetFullPath(@"Data/Image2.jpg"), FileMode.Open, FileAccess.Read);
                 Image image2 = Image.FromStream(imageStream2);
 
                 //Set picture fill to chart area
@@ -46,14 +46,8 @@ namespace Picture_Fill
                 imageStream1.Dispose();
                 imageStream2.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
