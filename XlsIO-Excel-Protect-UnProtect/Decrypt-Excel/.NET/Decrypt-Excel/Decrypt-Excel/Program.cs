@@ -12,7 +12,7 @@ namespace Decrypt_Excel
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/EncryptedWorkbook.xlsx", FileMode.Open, FileAccess.ReadWrite);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/EncryptedWorkbook.xlsx"), FileMode.Open, FileAccess.ReadWrite);
 				
                 //Open encrypted Excel document with password
                 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, false, "syncfusion");
@@ -30,14 +30,8 @@ namespace Decrypt_Excel
                 //Dispose streams
                 outputStream.Dispose();
 				inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("DecryptedWorkbook.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

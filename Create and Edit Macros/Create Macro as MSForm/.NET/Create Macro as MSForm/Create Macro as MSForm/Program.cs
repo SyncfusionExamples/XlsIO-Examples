@@ -23,7 +23,7 @@ namespace Create_Macro_as_MSForm
                 IVbaModules vbaModules = project.Modules;
 
                 //Opening form module existing workbook
-                FileStream input = new FileStream("../../../Data/InputTemplate.xls", FileMode.Open, FileAccess.ReadWrite);
+                FileStream input = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xls"), FileMode.Open, FileAccess.ReadWrite);
                 IWorkbook newBook = application.Workbooks.Open(input);
 
                 IVbaProject newProject = newBook.VbaProject;
@@ -49,14 +49,8 @@ namespace Create_Macro_as_MSForm
                 //Dispose streams
                 input.Dispose();
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("MacroAsMSForm.xlsm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

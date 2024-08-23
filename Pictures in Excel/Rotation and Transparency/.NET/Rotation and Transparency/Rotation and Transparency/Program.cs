@@ -16,11 +16,11 @@ namespace Rotation_and_Transparency
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load an existing Excel file into IWorkbook
-                FileStream inputStream = new FileStream("../../../Data/Sample.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                Image image = Image.FromFile("../../../Data/image.png");
+                Image image = Image.FromFile(Path.GetFullPath(@"Data/image.png"));
                 Bitmap bitmap = new Bitmap(image);
                 bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 bitmap.MakeTransparent(Color.Black);
@@ -38,14 +38,8 @@ namespace Rotation_and_Transparency
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

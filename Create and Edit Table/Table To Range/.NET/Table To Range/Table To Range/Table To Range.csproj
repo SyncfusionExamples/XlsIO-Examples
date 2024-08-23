@@ -10,4 +10,11 @@
     <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
+

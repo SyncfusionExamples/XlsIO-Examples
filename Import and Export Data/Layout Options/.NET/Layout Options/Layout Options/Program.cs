@@ -51,13 +51,6 @@ namespace Layout_Options
 
             //Dispose streams
             outputStream.Dispose();
-
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportData.xlsx")
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
         //Helper method to load data from XML file and add them in collections. 
         private static IList<Brand> GetVehicleDetails()
@@ -65,7 +58,7 @@ namespace Layout_Options
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            FileStream stream = new FileStream("../../../Data/ExportData.xml", FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream(Path.GetFullPath(@"Data/ExportData.xml"), FileMode.Open, FileAccess.Read);
             TextReader textReader = new StreamReader(stream);
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 
@@ -211,3 +204,4 @@ namespace Layout_Options
         public string ModelName { get; set; }
     }
 }
+

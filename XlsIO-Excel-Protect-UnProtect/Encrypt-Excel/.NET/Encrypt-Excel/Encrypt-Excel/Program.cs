@@ -12,7 +12,7 @@ namespace Encrypt_Excel
             {
                 IApplication application = excelEngine.Excel;
 				application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputExcel.xlsx", FileMode.Open, FileAccess.ReadWrite);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputExcel.xlsx"), FileMode.Open, FileAccess.ReadWrite);
 
                 //Open Excel
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
@@ -30,14 +30,8 @@ namespace Encrypt_Excel
                 //Dispose streams
                 outputStream.Dispose();
 				inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("EncryptedWorkbook.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

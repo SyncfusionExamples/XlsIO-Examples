@@ -25,7 +25,7 @@ namespace ExcelTable
 
                 AddExcelTable("Table1", worksheet.UsedRange);
                 
-                string fileName = "../../../Output/SalesReport.xlsx";
+                string fileName = Path.GetFullPath(@"Output/SalesReport.xlsx");
 
                 //Saving the workbook as stream
                 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
@@ -51,3 +51,4 @@ namespace ExcelTable
         }
     }
 }
+

@@ -16,7 +16,7 @@ namespace Ranges_into_TwoDimensionalArray
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Loads an existing workbook
-                FileStream fileStream = new FileStream(@"../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(@Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 

@@ -13,7 +13,7 @@ namespace Import_Nested_Collection
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -35,13 +35,6 @@ namespace Import_Nested_Collection
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportNestedCollection.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         //Get sales Report class
@@ -102,4 +95,5 @@ namespace Import_Nested_Collection
         }
     }
 }
+
 

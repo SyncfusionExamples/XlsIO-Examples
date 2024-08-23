@@ -13,10 +13,10 @@ namespace Multiple_Excel_to_PDF
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream1 = new FileStream("../../../Data/Template1.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream1 = new FileStream(Path.GetFullPath(@"Data/Template1.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook1 = application.Workbooks.Open(inputStream1);
 
-                FileStream inputStream2 = new FileStream("../../../Data/Template2.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream2 = new FileStream(Path.GetFullPath(@"Data/Template2.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook2 = application.Workbooks.Open(inputStream2);
 
                 //Initialize XlsIORenderer
@@ -44,14 +44,8 @@ namespace Multiple_Excel_to_PDF
                 outputStream.Dispose();
                 inputStream1.Dispose();
                 inputStream2.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("MultipleExcelToPDF.pdf")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+

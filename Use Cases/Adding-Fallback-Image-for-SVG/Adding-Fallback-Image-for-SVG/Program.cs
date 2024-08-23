@@ -15,7 +15,7 @@ namespace Adding_Fallback_Image_For_SVG
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Loads an svg image stream
-                FileStream svgStream = new FileStream(@"../../../Data/Image.svg", FileMode.Open);
+                FileStream svgStream = new FileStream(@Path.GetFullPath(@"Data/Image.svg"), FileMode.Open);
 
                 //Convert svg stream to png stream
                 Stream pngStream = ConvertSvgStreamToPngStream(svgStream);

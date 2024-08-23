@@ -12,7 +12,7 @@ namespace CsvToExcel
             {
                 IApplication application = excelEngine.Excel;
                 
-                FileStream inputStream = new FileStream(@"../../../Data/PurchasedItems.csv", FileMode.Open,FileAccess.ReadWrite);
+                FileStream inputStream = new FileStream(@Path.GetFullPath(@"Data/PurchasedItems.csv"), FileMode.Open,FileAccess.ReadWrite);
 
                 //Opening CSV document with Comma separator
                 IWorkbook workbook = application.Workbooks.Open(inputStream, ",");
@@ -35,3 +35,4 @@ namespace CsvToExcel
         }
     }
 }
+

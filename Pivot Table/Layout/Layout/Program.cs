@@ -9,7 +9,7 @@ namespace Layout
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-                FileStream fileStream = new FileStream("../../../Data/PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/PivotTable.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
                 IWorksheet worksheet = workbook.Worksheets[1];
 
@@ -22,13 +22,6 @@ namespace Layout
                 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
                 stream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("PivotTable_Layout.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
