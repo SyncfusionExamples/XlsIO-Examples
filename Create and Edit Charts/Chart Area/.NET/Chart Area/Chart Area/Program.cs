@@ -31,7 +31,7 @@ namespace Chart_Area
                 chartArea.Fill.ForeColor = Color.White;
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams

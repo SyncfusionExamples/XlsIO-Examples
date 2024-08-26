@@ -15,7 +15,7 @@ namespace Excel_to_TSV
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
                 //Save the workbook in CSV format with tab(\t) as delimiter
-                FileStream outputStream = new FileStream("Output.tsv", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.tsv"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream, "\t");
             }
         }

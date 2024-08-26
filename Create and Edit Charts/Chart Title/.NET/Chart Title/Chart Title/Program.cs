@@ -30,7 +30,7 @@ namespace Chart_Title
                 chart.ChartTitleArea.Layout.Left = 20;
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
                 outputStream.Dispose();
                 inputStream.Dispose();
