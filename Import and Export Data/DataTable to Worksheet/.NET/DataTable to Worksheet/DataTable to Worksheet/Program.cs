@@ -25,19 +25,12 @@ namespace DataTable_to_Worksheet
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ImportDataTable.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportDataTable.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportDataTable.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         private static DataTable SampleDataTable()
@@ -60,3 +53,7 @@ namespace DataTable_to_Worksheet
         }
     }
 }
+
+
+
+

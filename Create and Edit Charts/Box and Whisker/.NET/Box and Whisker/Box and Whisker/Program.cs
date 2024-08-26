@@ -57,7 +57,7 @@ namespace Box_and_Whisker
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("BoxandWhisker.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/BoxandWhisker.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -68,4 +68,8 @@ namespace Box_and_Whisker
         }
     }
 }
+
+
+
+
 

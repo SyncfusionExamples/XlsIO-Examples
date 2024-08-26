@@ -41,7 +41,7 @@ namespace Waterfall
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Waterfall.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Waterfall.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -52,4 +52,8 @@ namespace Waterfall
         }
     }
 }
+
+
+
+
 

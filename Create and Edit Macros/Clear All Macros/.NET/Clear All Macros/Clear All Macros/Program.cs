@@ -27,7 +27,7 @@ namespace Clear_All_Macros
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ClearAllMacro.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ClearAllMacro.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 
@@ -38,4 +38,8 @@ namespace Clear_All_Macros
         }
     }
 }
+
+
+
+
 

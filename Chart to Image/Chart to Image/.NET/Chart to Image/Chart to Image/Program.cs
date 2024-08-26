@@ -27,7 +27,7 @@ namespace Chart_to_Image
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Image.png", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Image.png"), FileMode.Create, FileAccess.Write);
                 chart.SaveAsImage(outputStream);
                 #endregion
 
@@ -38,4 +38,8 @@ namespace Chart_to_Image
         }
     }
 }
+
+
+
+
 

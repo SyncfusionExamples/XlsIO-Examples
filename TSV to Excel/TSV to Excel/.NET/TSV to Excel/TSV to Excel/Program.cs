@@ -16,7 +16,7 @@ namespace TSV_to_Excel
                 IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
 
                 //Save the workbook
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
@@ -26,3 +26,7 @@ namespace TSV_to_Excel
         }
     }
 }
+
+
+
+

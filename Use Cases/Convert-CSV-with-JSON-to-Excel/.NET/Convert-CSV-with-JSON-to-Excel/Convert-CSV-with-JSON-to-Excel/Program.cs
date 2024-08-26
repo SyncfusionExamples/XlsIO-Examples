@@ -91,9 +91,13 @@ namespace Convert_CSV_with_JSON_to_Excel
 
                 worksheet.UsedRange.WrapText = false;
                 worksheet.UsedRange.AutofitColumns();
-                FileStream outputStream = new FileStream("output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
             }
         }
     }
 }
+
+
+
+

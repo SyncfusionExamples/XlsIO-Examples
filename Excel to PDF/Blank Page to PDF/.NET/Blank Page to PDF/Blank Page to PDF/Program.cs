@@ -30,7 +30,7 @@ namespace Blank_Page_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("BlankPageToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/BlankPageToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -41,4 +41,8 @@ namespace Blank_Page_to_PDF
         }
     }
 }
+
+
+
+
 

@@ -23,7 +23,7 @@ namespace Skip_Macro_and_Save
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("SkipMacroAndSave.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SkipMacroAndSave.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsXLS);
                 #endregion
 
@@ -34,4 +34,8 @@ namespace Skip_Macro_and_Save
         }
     }
 }
+
+
+
+
 

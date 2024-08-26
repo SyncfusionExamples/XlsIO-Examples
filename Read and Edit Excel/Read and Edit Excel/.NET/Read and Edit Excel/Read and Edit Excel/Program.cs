@@ -26,7 +26,7 @@ namespace Read_and_Edit_Excel
 
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream("ReadandEditExcel.xlsx", FileMode.Create, FileAccess.Write);
+            FileStream outputStream = new FileStream(Path.GetFullPath("Output/ReadandEditExcel.xlsx"), FileMode.Create, FileAccess.Write);
             workbook.SaveAs(outputStream);            
             #endregion
 
@@ -41,13 +41,10 @@ namespace Read_and_Edit_Excel
 
             //Dispose the instance of ExcelEngine
             excelEngine.Dispose();
-
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandEditExcel.xlsx")
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
+
+
+
+

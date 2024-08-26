@@ -41,7 +41,7 @@ namespace Pareto
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Pareto.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Pareto.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -52,4 +52,8 @@ namespace Pareto
         }
     }
 }
+
+
+
+
 

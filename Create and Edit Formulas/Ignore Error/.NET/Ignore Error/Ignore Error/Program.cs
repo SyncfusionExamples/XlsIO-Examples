@@ -20,7 +20,7 @@ namespace Ignore_Error
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("FormulaAuditing.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/FormulaAuditing.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -30,4 +30,8 @@ namespace Ignore_Error
         }
     }
 }
+
+
+
+
 

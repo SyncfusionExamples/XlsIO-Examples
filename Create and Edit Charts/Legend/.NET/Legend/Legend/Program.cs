@@ -48,7 +48,7 @@ namespace Legend
                 chart.Legend.IncludeInLayout = true;
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
                 outputStream.Dispose();
                 inputStream.Dispose();
@@ -56,3 +56,7 @@ namespace Legend
         }
     }
 }
+
+
+
+

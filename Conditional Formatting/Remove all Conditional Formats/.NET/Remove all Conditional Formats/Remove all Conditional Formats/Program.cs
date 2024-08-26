@@ -20,7 +20,7 @@ namespace Remove_all_Conditional_Formats
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("RemoveAll.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RemoveAll.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -31,4 +31,8 @@ namespace Remove_all_Conditional_Formats
         }
     }
 }
+
+
+
+
 

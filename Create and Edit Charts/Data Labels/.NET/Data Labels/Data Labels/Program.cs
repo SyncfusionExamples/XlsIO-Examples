@@ -46,7 +46,7 @@ namespace Data_Labels
                 (dataLabel as ChartDataLabelsImpl).NumberFormat = "#,##0.00";
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
@@ -56,3 +56,7 @@ namespace Data_Labels
         }
     }
 }
+
+
+
+

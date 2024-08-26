@@ -21,19 +21,12 @@ namespace Import_with_Hyperlink
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ImportData.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportData.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportData.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         //Gets a list of company details
@@ -94,3 +87,7 @@ namespace Import_with_Hyperlink
         public Hyperlink Link { get; set; }
     }
 }
+
+
+
+

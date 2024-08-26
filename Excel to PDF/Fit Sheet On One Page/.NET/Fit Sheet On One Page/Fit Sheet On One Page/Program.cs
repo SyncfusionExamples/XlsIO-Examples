@@ -30,7 +30,7 @@ namespace Fit_Sheet_On_One_Page
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("FitSheetOnOnePage.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/FitSheetOnOnePage.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -41,4 +41,8 @@ namespace Fit_Sheet_On_One_Page
         }
     }
 }
+
+
+
+
 

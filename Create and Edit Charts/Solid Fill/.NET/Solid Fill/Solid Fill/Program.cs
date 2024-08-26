@@ -43,7 +43,7 @@ namespace Solid_Fill
                 chartFillImpl2.ForeColor = Color.FromArgb(143, 170, 220); ;
 
                 //Saving the workbook as streams
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
@@ -53,3 +53,7 @@ namespace Solid_Fill
         }
     }
 }
+
+
+
+

@@ -41,7 +41,7 @@ namespace Expand_or_Collapse_Pivot_Rows
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ExpandOrCollapse.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ExpandOrCollapse.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -52,4 +52,8 @@ namespace Expand_or_Collapse_Pivot_Rows
         }
     }
 }
+
+
+
+
 

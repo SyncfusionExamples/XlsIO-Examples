@@ -14,7 +14,7 @@ namespace Excel_to_CSV
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
                 //Saving the workbook as streams
-                FileStream outputStream = new FileStream("Sample.csv", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Sample.csv"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream, ",");
 
                 //Dispose streams
@@ -24,3 +24,7 @@ namespace Excel_to_CSV
         }
     }
 }
+
+
+
+

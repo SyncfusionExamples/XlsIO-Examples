@@ -34,7 +34,7 @@ namespace Plot_Area
                 chartPlotArea.Layout.Left = 5;
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
@@ -44,3 +44,7 @@ namespace Plot_Area
         }
     }
 }
+
+
+
+

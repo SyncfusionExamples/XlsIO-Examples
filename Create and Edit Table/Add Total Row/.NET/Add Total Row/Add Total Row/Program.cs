@@ -27,7 +27,7 @@ namespace Add_Total_Row
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AddTotalRow.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AddTotalRow.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -38,4 +38,8 @@ namespace Add_Total_Row
         }
     }
 }
+
+
+
+
 

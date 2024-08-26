@@ -23,7 +23,7 @@ namespace UnProtectWorkbook
 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("UnProtectedWorkbook.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/UnProtectedWorkbook.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -34,4 +34,8 @@ namespace UnProtectWorkbook
         }
     }
 }
+
+
+
+
 

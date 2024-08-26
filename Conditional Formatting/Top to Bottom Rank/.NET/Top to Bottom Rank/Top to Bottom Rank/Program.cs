@@ -34,7 +34,7 @@ namespace Top_to_Bottom_Rank
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("TopToBottomRank.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/TopToBottomRank.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -45,4 +45,8 @@ namespace Top_to_Bottom_Rank
         }
     }
 }
+
+
+
+
 

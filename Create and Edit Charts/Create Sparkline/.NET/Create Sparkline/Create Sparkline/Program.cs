@@ -31,7 +31,7 @@ namespace Create_Sparkline
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Sparklines.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Sparklines.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -42,4 +42,8 @@ namespace Create_Sparkline
         }
     }
 }
+
+
+
+
 

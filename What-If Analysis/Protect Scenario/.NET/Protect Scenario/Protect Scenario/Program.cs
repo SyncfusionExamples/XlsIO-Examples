@@ -31,7 +31,7 @@ namespace Protect_Scenario
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ProtectScenario.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ProtectScenario.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -42,3 +42,7 @@ namespace Protect_Scenario
         }
     }
 }
+
+
+
+

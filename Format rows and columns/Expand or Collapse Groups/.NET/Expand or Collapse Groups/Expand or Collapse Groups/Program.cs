@@ -37,20 +37,13 @@ namespace Expand_or_Collapse_Groups
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ExpandGroups.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ExpandGroups.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ExpandGroups.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         public void CollapseGroups()
@@ -75,21 +68,18 @@ namespace Expand_or_Collapse_Groups
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CollapseGroups.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CollapseGroups.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CollapseGroups.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

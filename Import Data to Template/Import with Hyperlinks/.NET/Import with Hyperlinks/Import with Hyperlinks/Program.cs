@@ -28,7 +28,7 @@ namespace Import_with_Hyperlinks
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("HyperlinkWithMarker.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/HyperlinkWithMarker.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -95,4 +95,8 @@ namespace Import_with_Hyperlinks
         }
     }
 }
+
+
+
+
 

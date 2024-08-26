@@ -30,7 +30,7 @@ namespace PDF_Conformance
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PDFConformance.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PDFConformance.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -41,4 +41,8 @@ namespace PDF_Conformance
         }
     }
 }
+
+
+
+
 

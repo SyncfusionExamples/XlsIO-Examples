@@ -37,7 +37,7 @@ namespace Warnings
                 {
                     #region Save
                     //Saving the workbook
-                    FileStream outputStream = new FileStream("ExceltoPDF.pdf", FileMode.Create, FileAccess.Write);
+                    FileStream outputStream = new FileStream(Path.GetFullPath("Output/ExceltoPDF.pdf"), FileMode.Create, FileAccess.Write);
                     pdfDocument.Save(outputStream);
                     #endregion
 
@@ -61,4 +61,8 @@ namespace Warnings
         public bool Cancel { get; set; }
     }
 }
+
+
+
+
 

@@ -23,7 +23,7 @@ namespace ProtectWorksheet
                 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ProtectedSheet.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ProtectedSheet.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -34,4 +34,8 @@ namespace ProtectWorksheet
         }
     }
 }
+
+
+
+
 

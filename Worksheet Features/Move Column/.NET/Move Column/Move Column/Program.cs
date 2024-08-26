@@ -24,7 +24,7 @@ namespace Move_Column
                 source.EntireColumn.MoveTo(destination);
 
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
@@ -33,4 +33,8 @@ namespace Move_Column
         }
     }
 }
+
+
+
+
 

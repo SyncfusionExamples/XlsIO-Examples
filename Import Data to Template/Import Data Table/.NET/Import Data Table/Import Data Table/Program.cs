@@ -42,7 +42,7 @@ namespace Import_Data_Table
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ImportDataTable.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportDataTable.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -53,4 +53,8 @@ namespace Import_Data_Table
         }
     }
 }
+
+
+
+
 

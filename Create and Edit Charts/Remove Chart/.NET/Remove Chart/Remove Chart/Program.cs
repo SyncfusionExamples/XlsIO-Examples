@@ -21,7 +21,7 @@ namespace Remove_Chart
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Chart.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -32,4 +32,8 @@ namespace Remove_Chart
         }
     }
 }
+
+
+
+
 

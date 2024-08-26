@@ -30,7 +30,7 @@ namespace Custom_Scaling
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CustomScaling.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CustomScaling.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -41,4 +41,8 @@ namespace Custom_Scaling
         }
     }
 }
+
+
+
+
 

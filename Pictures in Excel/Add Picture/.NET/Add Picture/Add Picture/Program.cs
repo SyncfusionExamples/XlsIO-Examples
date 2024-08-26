@@ -20,7 +20,7 @@ namespace Add_Picture
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AddPicture.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AddPicture.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -31,4 +31,8 @@ namespace Add_Picture
         }
     }
 }
+
+
+
+
 

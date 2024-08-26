@@ -30,7 +30,7 @@ namespace Embed_Fonts_in_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("EmbedFonts.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/EmbedFonts.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -41,4 +41,8 @@ namespace Embed_Fonts_in_PDF
         }
     }
 }
+
+
+
+
 

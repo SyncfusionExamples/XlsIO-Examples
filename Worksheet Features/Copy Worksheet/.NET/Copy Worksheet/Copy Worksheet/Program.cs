@@ -26,7 +26,7 @@ namespace Copy_Worksheet
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CopyWorksheet.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CopyWorksheet.xlsx"), FileMode.Create, FileAccess.Write);
                 destinationWorkbook.SaveAs(outputStream);
                 #endregion
 
@@ -34,14 +34,11 @@ namespace Copy_Worksheet
                 outputStream.Dispose();
                 destinationStream.Dispose();
                 sourceStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CopyWorksheet.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

@@ -32,7 +32,7 @@ namespace Above_and_Below_Average
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AboveAndBelowAverage.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AboveAndBelowAverage.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -43,4 +43,8 @@ namespace Above_and_Below_Average
         }
     }
 }
+
+
+
+
 

@@ -34,7 +34,7 @@ namespace Create_Pivot_Chart
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PivotChart.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotChart.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -45,4 +45,8 @@ namespace Create_Pivot_Chart
         }
     }
 }
+
+
+
+
 

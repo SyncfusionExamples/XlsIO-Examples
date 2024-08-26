@@ -26,7 +26,7 @@ namespace Resolve_Comment
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ResolveComment.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ResolveComment.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -36,3 +36,7 @@ namespace Resolve_Comment
         }
     }
 }
+
+
+
+

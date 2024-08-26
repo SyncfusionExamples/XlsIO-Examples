@@ -42,7 +42,7 @@ namespace Create_Macro_as_MSForm
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MacroAsMSForm.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MacroAsMSForm.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 
@@ -53,4 +53,8 @@ namespace Create_Macro_as_MSForm
         }
     }
 }
+
+
+
+
 

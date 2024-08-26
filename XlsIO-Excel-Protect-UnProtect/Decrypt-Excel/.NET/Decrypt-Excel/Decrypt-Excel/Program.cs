@@ -23,7 +23,7 @@ namespace Decrypt_Excel
 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("DecryptedWorkbook.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/DecryptedWorkbook.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -34,4 +34,8 @@ namespace Decrypt_Excel
         }
     }
 }
+
+
+
+
 

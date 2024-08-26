@@ -34,21 +34,18 @@ namespace Create_Macro_as_Class
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MacroAsClass.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MacroAsClass.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("MacroAsClass.xlsm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
 
         }
     }
 }
+
+
+
+

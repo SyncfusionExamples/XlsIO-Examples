@@ -29,20 +29,17 @@ namespace Save_as_Stream
 
                 #region Save
                 //Saving the workbook Macro in XLTM format
-                FileStream outputStream = new FileStream("SaveAsStream.xltm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SaveAsStream.xltm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacroTemplate);
                 #endregion
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("SaveAsStream.xltm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

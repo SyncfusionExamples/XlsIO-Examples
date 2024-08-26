@@ -24,7 +24,7 @@ namespace Add_Custom_XML
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CreateCustomXML.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CreateCustomXML.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -36,4 +36,8 @@ namespace Add_Custom_XML
         }
     }
 }
+
+
+
+
 

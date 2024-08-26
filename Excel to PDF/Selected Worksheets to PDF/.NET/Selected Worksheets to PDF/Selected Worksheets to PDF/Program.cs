@@ -41,7 +41,7 @@ namespace Selected_Worksheets_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("SelectedSheetsToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SelectedSheetsToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 newDocument.Save(outputStream);
                 #endregion
 
@@ -52,4 +52,8 @@ namespace Selected_Worksheets_to_PDF
         }
     }
 }
+
+
+
+
 

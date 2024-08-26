@@ -21,7 +21,7 @@ namespace Range_to_JSON_without_Schema
 
                 #region save as JSON
                 //Saves the workbook to a JSON filestream, as schema by default
-                FileStream outputStream = new FileStream("Excel-Range-To-JSON-filestream-without-schema.json", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Excel-Range-To-JSON-filestream-without-schema.json"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAsJson(outputStream, range, false);
                 #endregion
 
@@ -36,4 +36,8 @@ namespace Range_to_JSON_without_Schema
         }
     }
 }
+
+
+
+
 

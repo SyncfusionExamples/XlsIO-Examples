@@ -25,7 +25,7 @@ namespace Worksheet_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("WorksheetToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/WorksheetToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
@@ -36,4 +36,8 @@ namespace Worksheet_to_PDF
         }
     }
 }
+
+
+
+
 

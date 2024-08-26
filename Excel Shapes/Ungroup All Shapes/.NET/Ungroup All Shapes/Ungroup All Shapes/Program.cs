@@ -23,7 +23,7 @@ namespace Ungroup_All_Shapes
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("UngroupAllShapes.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/UngroupAllShapes.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -33,4 +33,8 @@ namespace Ungroup_All_Shapes
         }
     }
 }
+
+
+
+
 
