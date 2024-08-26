@@ -35,15 +35,10 @@ namespace Worksheet_to_JSON_with_Schema
                 //Open default JSON
 
                 //Open JSON with Schema
-                System.Diagnostics.Process process1 = new System.Diagnostics.Process();
-                process1.StartInfo = new System.Diagnostics.ProcessStartInfo("Excel-Worksheet-To-JSON-filestream-as-schema.json")
-                {
-                    UseShellExecute = true
-                };
-                process1.Start();
                 #endregion
             }
         }
     }
 }
+
 
