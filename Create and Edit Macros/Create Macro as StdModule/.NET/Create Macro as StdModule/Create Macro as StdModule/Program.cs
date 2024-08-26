@@ -36,14 +36,11 @@ namespace Create_Macro_as_StdModule
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("MacroAsStdModule.xlsm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

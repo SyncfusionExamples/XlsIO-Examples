@@ -29,14 +29,11 @@ namespace Create_Worksheet
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CreateWorksheet.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

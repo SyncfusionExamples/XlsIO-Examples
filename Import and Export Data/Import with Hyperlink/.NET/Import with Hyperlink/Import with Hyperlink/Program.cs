@@ -27,13 +27,6 @@ namespace Import_with_Hyperlink
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportData.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         //Gets a list of company details
@@ -94,3 +87,7 @@ namespace Import_with_Hyperlink
         public Hyperlink Link { get; set; }
     }
 }
+
+
+
+

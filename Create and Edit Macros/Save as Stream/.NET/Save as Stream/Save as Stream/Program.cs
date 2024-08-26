@@ -35,14 +35,11 @@ namespace Save_as_Stream
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("SaveAsStream.xltm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

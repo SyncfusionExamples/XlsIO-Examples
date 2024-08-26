@@ -27,14 +27,11 @@ namespace Array_to_Worksheet
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ArrayToWorksheet.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

@@ -40,14 +40,11 @@ namespace Autofit_Rows_and_Columns
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("AutofitRowsandColumns.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

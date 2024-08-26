@@ -34,14 +34,11 @@ namespace Copy_Worksheet
                 outputStream.Dispose();
                 destinationStream.Dispose();
                 sourceStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CopyWorksheet.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

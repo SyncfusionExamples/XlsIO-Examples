@@ -41,13 +41,10 @@ namespace Read_and_Edit_Excel
 
             //Dispose the instance of ExcelEngine
             excelEngine.Dispose();
-
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("ReadandEditExcel.xlsx")
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
+
+
+
+

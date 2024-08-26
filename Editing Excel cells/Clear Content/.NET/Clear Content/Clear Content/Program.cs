@@ -30,14 +30,11 @@ namespace Clear_Content
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ClearContent.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

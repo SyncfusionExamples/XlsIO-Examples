@@ -44,13 +44,6 @@ namespace Expand_or_Collapse_Groups
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ExpandGroups.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         public void CollapseGroups()
@@ -82,14 +75,11 @@ namespace Expand_or_Collapse_Groups
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("CollapseGroups.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

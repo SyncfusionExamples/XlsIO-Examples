@@ -41,3 +41,7 @@ namespace Remove_Sparklines
     }
 }
 
+
+
+
+

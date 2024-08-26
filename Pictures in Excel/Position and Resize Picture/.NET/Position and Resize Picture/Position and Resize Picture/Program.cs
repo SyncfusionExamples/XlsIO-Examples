@@ -40,3 +40,7 @@ namespace Position_and_Resize_Picture
     }
 }
 
+
+
+
+

@@ -34,14 +34,11 @@ namespace Ungroup_Rows_and_Columns
                 //Dispose streams
                 outputStream.Dispose();
                 inputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("UngroupRowsandColumns.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
 }
+
+
+
+

@@ -32,13 +32,6 @@ namespace DataColumn_to_Worksheet
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportDataColumn.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         private static DataTable SampleDataTable()
@@ -61,3 +54,7 @@ namespace DataColumn_to_Worksheet
         }
     }
 }
+
+
+
+

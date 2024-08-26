@@ -40,15 +40,12 @@ namespace Create_Macro_as_Class
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("MacroAsClass.xlsm")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
 
         }
     }
 }
+
+
+
+

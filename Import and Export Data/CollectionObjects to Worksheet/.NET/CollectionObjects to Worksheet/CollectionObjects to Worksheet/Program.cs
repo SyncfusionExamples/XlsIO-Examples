@@ -30,13 +30,6 @@ namespace CollectionObjects_to_Worksheet
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportCollectionObjects.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         //Gets a list of sales reports
@@ -68,3 +61,7 @@ namespace CollectionObjects_to_Worksheet
         }
     }
 }
+
+
+
+

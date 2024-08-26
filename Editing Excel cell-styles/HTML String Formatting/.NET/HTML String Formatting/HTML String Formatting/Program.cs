@@ -23,11 +23,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Dispose streams
     outputStream.Dispose();
-
-    System.Diagnostics.Process process = new System.Diagnostics.Process();
-    process.StartInfo = new System.Diagnostics.ProcessStartInfo("HTMLString.xlsx")
-    {
-        UseShellExecute = true
-    };
-    process.Start();
 }
+
+
+
+

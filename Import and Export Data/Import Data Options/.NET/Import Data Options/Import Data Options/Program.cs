@@ -34,13 +34,6 @@ namespace Import_Data_Options
 
                 //Dispose streams
                 outputStream.Dispose();
-
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("ImportDataOptions.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
         //Gets a list of sales reports
@@ -71,3 +64,7 @@ namespace Import_Data_Options
         }
     }
 }
+
+
+
+

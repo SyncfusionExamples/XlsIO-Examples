@@ -29,13 +29,6 @@ namespace Insert_Rows_with_Merged_Cells
                 outputStream.Dispose();
                 inputStream.Dispose();
 
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo("InsertRowswithMergedCells.xlsx")
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
-
             }
         }
 
@@ -58,3 +51,7 @@ namespace Insert_Rows_with_Merged_Cells
         }
     }
 }
+
+
+
+
