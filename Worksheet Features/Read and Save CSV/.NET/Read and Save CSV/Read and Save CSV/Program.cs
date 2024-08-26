@@ -22,7 +22,7 @@ namespace Read_and_Save_CSV
 
                 #region Save CSV
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ReadandSaveCSV.csv", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ReadandSaveCSV.csv"), FileMode.Create, FileAccess.Write);
                 worksheet.SaveAs(outputStream, ",");
                 #endregion
 

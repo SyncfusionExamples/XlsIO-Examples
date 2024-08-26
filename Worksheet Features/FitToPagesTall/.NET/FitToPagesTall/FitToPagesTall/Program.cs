@@ -31,7 +31,7 @@ namespace FitToPagesTall
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("FitToPagesTall.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/FitToPagesTall.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

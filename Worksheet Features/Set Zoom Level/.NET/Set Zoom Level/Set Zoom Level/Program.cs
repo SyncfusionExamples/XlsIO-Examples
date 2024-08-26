@@ -22,7 +22,7 @@ namespace Set_Zoom_Level
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("SetZoomLevel.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SetZoomLevel.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

@@ -24,7 +24,7 @@ namespace Hide_Worksheet_Tabs
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("HideWorksheetTabs.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/HideWorksheetTabs.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

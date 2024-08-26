@@ -25,7 +25,7 @@ namespace Iteration
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Iteration.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Iteration.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

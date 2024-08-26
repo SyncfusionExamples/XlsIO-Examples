@@ -33,7 +33,7 @@ namespace Custom_Filter
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CustomFilter.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CustomFilter.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

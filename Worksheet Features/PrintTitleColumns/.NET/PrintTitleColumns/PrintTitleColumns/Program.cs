@@ -31,7 +31,7 @@ namespace PrintTitleColumns
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PrintTitleColumns.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PrintTitleColumns.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

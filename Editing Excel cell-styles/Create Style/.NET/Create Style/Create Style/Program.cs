@@ -25,7 +25,7 @@ namespace Create_Style
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CreateStyle.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CreateStyle.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

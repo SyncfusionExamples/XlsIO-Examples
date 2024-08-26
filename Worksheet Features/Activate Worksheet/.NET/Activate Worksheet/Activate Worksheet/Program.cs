@@ -23,7 +23,7 @@ namespace Activate_Worksheet
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ActivateWorksheet.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ActivateWorksheet.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

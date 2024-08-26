@@ -22,7 +22,7 @@ namespace Copy_Workbook
                 destinationWorkbook = sourceWorkbook.Clone();
                
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 destinationWorkbook.SaveAs(outputStream);
 
                 //Dispose streams

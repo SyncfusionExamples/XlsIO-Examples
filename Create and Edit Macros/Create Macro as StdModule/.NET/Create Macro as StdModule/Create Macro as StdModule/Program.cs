@@ -30,7 +30,7 @@ namespace Create_Macro_as_StdModule
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MacroAsStdModule.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MacroAsStdModule.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 

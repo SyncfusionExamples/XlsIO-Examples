@@ -43,7 +43,7 @@ namespace Sort_On_Cell_Values
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("SortOnValues.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SortOnValues.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

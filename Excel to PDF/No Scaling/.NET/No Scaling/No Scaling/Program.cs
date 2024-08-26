@@ -30,7 +30,7 @@ namespace No_Scaling
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("NoScaling.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/NoScaling.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

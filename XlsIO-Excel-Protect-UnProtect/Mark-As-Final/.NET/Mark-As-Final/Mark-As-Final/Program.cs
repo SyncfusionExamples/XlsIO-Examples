@@ -20,7 +20,7 @@ namespace Mark_As_Final
 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MarkAsFinal.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MarkAsFinal.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

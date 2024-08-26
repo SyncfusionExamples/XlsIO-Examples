@@ -33,7 +33,7 @@ namespace Edit_Macro
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("EditMacro.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/EditMacro.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 

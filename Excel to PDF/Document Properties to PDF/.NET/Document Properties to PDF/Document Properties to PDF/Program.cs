@@ -30,7 +30,7 @@ namespace Document_Properties_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("DocumentProperties.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/DocumentProperties.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

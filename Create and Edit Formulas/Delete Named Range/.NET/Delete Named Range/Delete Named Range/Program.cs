@@ -26,7 +26,7 @@ namespace Delete_Named_Range
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("DeleteNamedRange.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/DeleteNamedRange.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

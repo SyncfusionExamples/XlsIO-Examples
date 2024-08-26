@@ -38,7 +38,7 @@ namespace Picture_Fill
                 serie2.SerieFormat.Fill.UserPicture(image2, "Image");
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
        
                 //Dispose streams

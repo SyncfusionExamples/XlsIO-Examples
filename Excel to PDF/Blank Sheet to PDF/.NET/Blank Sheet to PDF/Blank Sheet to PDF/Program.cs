@@ -30,7 +30,7 @@ namespace Blank_Sheet_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("BlankSheetToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/BlankSheetToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

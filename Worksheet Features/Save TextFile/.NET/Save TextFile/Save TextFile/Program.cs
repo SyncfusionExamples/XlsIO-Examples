@@ -17,7 +17,7 @@ namespace Save_TextFile
 
                 #region Save as text file
                 //Saving the workbook
-                FileStream outputStream = new FileStream("TextFile.txt", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/TextFile.txt"), FileMode.Create, FileAccess.Write);
                 worksheet.SaveAs(outputStream, " ");
                 #endregion
 

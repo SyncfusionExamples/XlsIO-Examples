@@ -37,7 +37,7 @@ namespace Expand_or_Collapse_Groups
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ExpandGroups.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ExpandGroups.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 
@@ -75,7 +75,7 @@ namespace Expand_or_Collapse_Groups
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CollapseGroups.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CollapseGroups.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

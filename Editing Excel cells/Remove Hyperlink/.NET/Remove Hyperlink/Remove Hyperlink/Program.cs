@@ -22,7 +22,7 @@ namespace Remove_Hyperlink
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("RemoveHyperlink.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RemoveHyperlink.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

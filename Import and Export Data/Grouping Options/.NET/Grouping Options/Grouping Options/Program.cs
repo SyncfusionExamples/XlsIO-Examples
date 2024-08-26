@@ -52,7 +52,7 @@ namespace Grouping_Options
 
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream("ImportData.xlsx", FileMode.Create, FileAccess.Write);
+            FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportData.xlsx"), FileMode.Create, FileAccess.Write);
             workbook.SaveAs(outputStream);
             #endregion
 

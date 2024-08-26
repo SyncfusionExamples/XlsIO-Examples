@@ -26,7 +26,7 @@ namespace Access_Used_Range
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AccessUsedRange.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AccessUsedRange.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

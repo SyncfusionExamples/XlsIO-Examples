@@ -51,7 +51,7 @@ namespace Hyperlinks
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Hyperlinks.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Hyperlinks.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

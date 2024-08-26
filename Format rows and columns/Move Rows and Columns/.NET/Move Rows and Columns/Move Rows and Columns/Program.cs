@@ -27,7 +27,7 @@ namespace Move_Rows_and_Columns
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MoveRowsandColumns.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MoveRowsandColumns.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

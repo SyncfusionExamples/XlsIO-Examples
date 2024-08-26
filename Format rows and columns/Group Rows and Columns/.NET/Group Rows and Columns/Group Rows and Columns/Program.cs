@@ -29,7 +29,7 @@ namespace Group_Rows_and_Columns
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("GroupRowsandColumns.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/GroupRowsandColumns.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

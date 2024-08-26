@@ -30,7 +30,7 @@ namespace Automatic_Layout
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Automatic.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Automatic.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

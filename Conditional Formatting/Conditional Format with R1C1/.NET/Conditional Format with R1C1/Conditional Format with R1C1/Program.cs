@@ -22,7 +22,7 @@ namespace Conditional_Format_with_R1C1
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ConditionalFormat.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ConditionalFormat.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

@@ -30,7 +30,7 @@ namespace Create_Macro_as_Document
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MacroAsDocument.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MacroAsDocument.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 

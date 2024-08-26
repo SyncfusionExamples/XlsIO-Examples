@@ -31,7 +31,7 @@ namespace Hide_Scenario
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("HideScenario.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/HideScenario.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

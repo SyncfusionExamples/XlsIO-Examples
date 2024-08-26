@@ -30,7 +30,7 @@ namespace Bookmarks_in_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("BookmarksInPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/BookmarksInPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

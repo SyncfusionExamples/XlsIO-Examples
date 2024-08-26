@@ -95,7 +95,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     sheet.UsedRange.AutofitRows();
 
     //Saving the workbook
-    FileStream outputStream = new FileStream("DataValidation.xlsx", FileMode.Create, FileAccess.Write);
+    FileStream outputStream = new FileStream(Path.GetFullPath("Output/DataValidation.xlsx"), FileMode.Create, FileAccess.Write);
     workbook.SaveAs(outputStream);
     outputStream.Dispose();
 }

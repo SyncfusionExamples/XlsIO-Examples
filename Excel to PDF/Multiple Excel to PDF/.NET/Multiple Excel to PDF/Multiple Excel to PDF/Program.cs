@@ -36,7 +36,7 @@ namespace Multiple_Excel_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("MultipleExcelToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MultipleExcelToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 newDocument.Save(outputStream);
                 #endregion
 

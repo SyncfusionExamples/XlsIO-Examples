@@ -23,7 +23,7 @@ namespace ProtectWorkbook
 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ProtectedWorkbook.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ProtectedWorkbook.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

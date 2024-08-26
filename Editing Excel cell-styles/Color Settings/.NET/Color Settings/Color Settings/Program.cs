@@ -27,7 +27,7 @@ namespace Color_Settings
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ColorSettings.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ColorSettings.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

@@ -30,7 +30,7 @@ namespace PrintArea
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PrintArea.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PrintArea.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

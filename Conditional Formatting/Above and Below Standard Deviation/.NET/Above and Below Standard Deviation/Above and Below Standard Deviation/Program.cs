@@ -35,7 +35,7 @@ namespace Above_and_Below_Standard_Deviation
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AboveAndBelowStandardDeviation.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AboveAndBelowStandardDeviation.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

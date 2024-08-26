@@ -30,7 +30,7 @@ namespace Quality_Image_in_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("QualityImageInPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/QualityImageInPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

@@ -32,7 +32,7 @@ namespace Number_Validation
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("NumberValidation.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/NumberValidation.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

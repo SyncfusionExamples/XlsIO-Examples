@@ -40,7 +40,7 @@ namespace Create_Scenarios
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CreateScenarios.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CreateScenarios.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

@@ -34,7 +34,7 @@ namespace Set_Template_Marker
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("TemplateMarker.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/TemplateMarker.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

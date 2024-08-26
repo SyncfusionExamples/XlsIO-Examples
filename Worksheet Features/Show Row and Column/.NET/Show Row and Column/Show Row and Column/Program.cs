@@ -21,7 +21,7 @@ namespace Show_Row_and_Column
                 worksheet.ShowColumn(2, true);
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams

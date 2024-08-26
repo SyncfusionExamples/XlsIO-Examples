@@ -31,7 +31,7 @@ namespace Rotation_and_Transparency
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

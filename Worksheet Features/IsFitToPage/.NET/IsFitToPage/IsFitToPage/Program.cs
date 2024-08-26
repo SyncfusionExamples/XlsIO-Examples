@@ -30,7 +30,7 @@ namespace IsFitToPage
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("IsFitToPage.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/IsFitToPage.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

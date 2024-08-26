@@ -29,7 +29,7 @@ namespace Remove_Sparklines
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("RemoveSparklines.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RemoveSparklines.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

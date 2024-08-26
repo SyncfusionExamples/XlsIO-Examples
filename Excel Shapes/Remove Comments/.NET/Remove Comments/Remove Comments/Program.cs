@@ -20,7 +20,7 @@ namespace Remove_Comments
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("RemoveComments.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RemoveComments.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

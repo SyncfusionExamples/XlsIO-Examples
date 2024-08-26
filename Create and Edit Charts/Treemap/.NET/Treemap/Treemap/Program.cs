@@ -35,7 +35,7 @@ namespace Treemap
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Treemap.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Treemap.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

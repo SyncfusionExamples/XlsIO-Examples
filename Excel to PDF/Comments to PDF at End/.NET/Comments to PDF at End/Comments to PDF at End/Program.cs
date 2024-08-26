@@ -28,7 +28,7 @@ namespace Comments_to_PDF_at_End
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CommentsToPDFAtEnd.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CommentsToPDFAtEnd.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

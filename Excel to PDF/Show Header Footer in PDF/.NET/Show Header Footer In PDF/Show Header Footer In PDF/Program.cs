@@ -33,7 +33,7 @@ namespace Show_Header_Footer_In_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("HeaderFooterInPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/HeaderFooterInPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

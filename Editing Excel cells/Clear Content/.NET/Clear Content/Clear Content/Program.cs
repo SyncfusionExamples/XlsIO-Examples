@@ -23,7 +23,7 @@ namespace Clear_Content
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ClearContent.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ClearContent.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

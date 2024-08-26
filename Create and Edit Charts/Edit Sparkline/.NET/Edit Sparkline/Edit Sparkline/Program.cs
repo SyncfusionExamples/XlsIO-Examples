@@ -26,7 +26,7 @@ namespace Edit_Sparkline
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("EditSparklines.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/EditSparklines.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

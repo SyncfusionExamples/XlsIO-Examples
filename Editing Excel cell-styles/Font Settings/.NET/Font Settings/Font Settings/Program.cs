@@ -49,7 +49,7 @@ namespace Font_Settings
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("FontSettings.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/FontSettings.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

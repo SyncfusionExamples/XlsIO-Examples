@@ -24,7 +24,7 @@ namespace Copy_Cell_Range
                 source.CopyTo(destination);
                 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams

@@ -31,7 +31,7 @@ namespace Custom_Paper_Size
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("CustomPaperSize.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CustomPaperSize.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 

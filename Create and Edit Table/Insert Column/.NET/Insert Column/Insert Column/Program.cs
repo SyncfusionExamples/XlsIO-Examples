@@ -24,7 +24,7 @@ namespace Insert_Column
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("InsertTableColumn.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/InsertTableColumn.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

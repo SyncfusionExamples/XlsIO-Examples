@@ -72,7 +72,7 @@ namespace Advanced_Conditional_Formats
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("AdvancedCF.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AdvancedCF.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

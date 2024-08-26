@@ -28,7 +28,7 @@ namespace Remove_Macro_with_Index
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("RemoveMacroWithIndex.xlsm", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RemoveMacroWithIndex.xlsm"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream, ExcelSaveType.SaveAsMacro);
                 #endregion
 

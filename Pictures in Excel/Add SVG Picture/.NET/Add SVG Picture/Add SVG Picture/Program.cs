@@ -22,7 +22,7 @@ namespace Add_SVG_Picture
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("SVGImage.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SVGImage.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

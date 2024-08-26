@@ -21,7 +21,7 @@ namespace Hide_Row_and_Column
                 worksheet.HideColumn(2);
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams

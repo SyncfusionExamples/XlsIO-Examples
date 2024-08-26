@@ -22,7 +22,7 @@ namespace Sort_Top_to_Bottom
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PivotSort.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotSort.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

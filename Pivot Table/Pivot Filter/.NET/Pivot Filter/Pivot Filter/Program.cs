@@ -53,7 +53,7 @@ namespace Pivot_Filter
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("PivotFilter.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotFilter.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

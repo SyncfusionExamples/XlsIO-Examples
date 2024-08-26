@@ -131,7 +131,7 @@ namespace Chart_Elements
                 chart1.ChartArea.Fill.Transparency = 0.5;
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Chart.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
                 #endregion
 

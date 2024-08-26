@@ -30,7 +30,7 @@ namespace Complex_Script_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream("ComplexScriptToPDF.pdf", FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ComplexScriptToPDF.pdf"), FileMode.Create, FileAccess.Write);
                 pdfDocument.Save(outputStream);
                 #endregion
 
