@@ -24,7 +24,7 @@ namespace Shape_Hyperlink
                 hyperlink = worksheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
 
                 //Adding hyperlink to picture
-                IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 7, "../../../Image.png");
+                IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 7, Path.GetFullPath(@"Data/Image.png"));
                 hyperlink = worksheet.HyperLinks.Add(picture);
                 hyperlink.Type = ExcelHyperLinkType.Unc;
                 hyperlink.Address = "C://Documents and Settings";

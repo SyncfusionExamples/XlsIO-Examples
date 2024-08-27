@@ -18,7 +18,7 @@ namespace Workbook_to_JSON_without_Schema
 
                 #region save as JSON
                 //Saves the workbook to a JSON file without schema
-                FileStream outputStream = new FileStream("Workbook-To-JSON-without-schema.json", FileMode.Create);
+                FileStream outputStream = new FileStream("Output/Workbook-To-JSON-without-schema.json", FileMode.Create);
                 workbook.SaveAsJson(outputStream,false);
                 #endregion
 

@@ -1,4 +1,5 @@
 ﻿using Syncfusion.XlsIO;
+using System.IO;
 
 namespace Find
 {
@@ -36,7 +37,7 @@ namespace Find
                 IRange[] result7 = worksheet.FindAll("5", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
                 //Saving the workbook as stream
-                FileStream stream = new FileStream("Find.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream = new FileStream(Path.GetFullPath(@"Output/Find.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
                 stream.Dispose();
             }

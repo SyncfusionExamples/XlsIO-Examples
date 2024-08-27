@@ -19,7 +19,7 @@ namespace CustomCsvSeparator
 
                 
                 //Saving the CSV data with separator as ";"
-                FileStream outputStream = new FileStream(@"PurchasedItems.csv", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream("Output/PurchasedItems.csv", FileMode.Create, FileAccess.ReadWrite);
 
                 workbook.SaveAs(outputStream, ";");
             }

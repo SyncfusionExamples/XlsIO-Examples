@@ -25,7 +25,7 @@ namespace Range_to_JSON_with_Schema
                 workbook.SaveAsJson(outputStream, range);
 
                 //Saves the workbook to a JSON filestream as schema
-                FileStream stream1 = new FileStream("Excel-Range-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream1 = new FileStream("Output/Excel-Range-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAsJson(stream1, range, true);
                 #endregion
 

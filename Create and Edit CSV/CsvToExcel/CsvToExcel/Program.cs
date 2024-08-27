@@ -28,7 +28,7 @@ namespace CsvToExcel
                 filter.AddTextFilter("Wednesday");
 
                 //Saving the CSV data as Excel
-                FileStream outputStream = new FileStream(@"PurchasedItems.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream("Output/PurchasedItems.xlsx", FileMode.Create, FileAccess.ReadWrite);
 
                 workbook.SaveAs(outputStream);
             }
