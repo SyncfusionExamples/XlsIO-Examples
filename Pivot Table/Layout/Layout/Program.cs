@@ -1,4 +1,5 @@
 ﻿using Syncfusion.XlsIO;
+using Syncfusion.XlsIO.Implementation.PivotTables;
 
 namespace Layout
 {
@@ -19,7 +20,7 @@ namespace Layout
 
                 string fileName = "PivotTable_Layout.xlsx";
                 //Saving the workbook as stream
-                FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream = new FileStream(Path.GetFullPath(@"Output/PivotTable_Layout.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
                 stream.Dispose();
             }

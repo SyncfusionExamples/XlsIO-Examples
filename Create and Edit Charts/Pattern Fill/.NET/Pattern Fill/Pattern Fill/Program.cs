@@ -1,7 +1,6 @@
 ﻿using Syncfusion.XlsIO;
 using Syncfusion.XlsIO.Implementation.Charts;
 using Syncfusion.Drawing;
-using static System.Net.Mime.MediaTypeNames;
 using Image = Syncfusion.Drawing.Image;
 
 namespace Pattern_Fill

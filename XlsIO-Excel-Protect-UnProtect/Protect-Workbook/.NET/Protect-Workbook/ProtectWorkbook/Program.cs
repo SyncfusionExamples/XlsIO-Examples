@@ -18,6 +18,7 @@ namespace ProtectWorkbook
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
+                workbook.Unprotect();
                 //Protect workbook with password
                 workbook.Protect(true, true, "syncfusion");
 				

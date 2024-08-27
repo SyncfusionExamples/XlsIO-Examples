@@ -2,7 +2,6 @@
 using Syncfusion.XlsIO.Implementation.Collections;
 using Syncfusion.XlsIO.Implementation;
 using Syncfusion.XlsIO.Interfaces;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Copy_Column
 {

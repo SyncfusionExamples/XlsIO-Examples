@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PrintTitleRows
 {

@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
 using System;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Apply_Scenario
 {
@@ -35,7 +34,7 @@ namespace Apply_Scenario
                     newSheet.Name = scenarios[pos].Name;
 
                     //Saving the new workbook as a stream
-                    using (FileStream stream = new FileStream(scenarios[pos].Name + ".xlsx", FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/" + scenarios[pos].Name + ".xlsx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         newBook.SaveAs(stream);
                     }

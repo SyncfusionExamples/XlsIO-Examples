@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Syncfusion.XlsIO;
-using static System.Net.Mime.MediaTypeNames;
+
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {

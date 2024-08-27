@@ -31,7 +31,7 @@ namespace Header_and_Footer
                 worksheet.PageSetup.RightFooter = "&P &K0000FF Right Footer";
 
                 //Saving the workbook as stream
-                FileStream stream = new FileStream("Output.xlsx", FileMode.Create);
+                FileStream stream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create);
                 workbook.SaveAs(stream);
                 stream.Dispose();
             }
