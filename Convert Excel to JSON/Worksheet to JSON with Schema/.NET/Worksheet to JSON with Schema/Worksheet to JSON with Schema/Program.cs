@@ -18,11 +18,11 @@ namespace Worksheet_to_JSON_with_Schema
 
                 #region save as JSON
                 //Saves the workbook to a JSON filestream, as schema by default
-                FileStream outputStream = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema-default.json", FileMode.Create);
+                FileStream outputStream = new FileStream("Output/Excel-Worksheet-To-JSON-filestream-as-schema-default.json", FileMode.Create);
                 workbook.SaveAsJson(outputStream, worksheet);
 
                 //Saves the workbook to a JSON filestream as schema
-                FileStream stream1 = new FileStream("Excel-Worksheet-To-JSON-filestream-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream1 = new FileStream("Output/Excel-Worksheet-To-JSON-filestream-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAsJson(stream1, worksheet, true);
                 #endregion
 

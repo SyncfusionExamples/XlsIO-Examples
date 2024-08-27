@@ -18,7 +18,7 @@ namespace ExcelToCSV
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
                 //Saving the Excel data as CSV
-                FileStream outputStream = new FileStream(@"PurchasedItems.csv", FileMode.Create, FileAccess.ReadWrite);
+                FileStream outputStream = new FileStream("Output/PurchasedItems.csv", FileMode.Create, FileAccess.ReadWrite);
 
 
                 workbook.SaveAs(outputStream,",");

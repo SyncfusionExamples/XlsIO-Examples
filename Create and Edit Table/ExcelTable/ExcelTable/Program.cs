@@ -19,7 +19,7 @@ namespace ExcelTable
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream fileStream = new FileStream("../../../Data/SalesReport.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/SalesReport.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
                 IWorksheet worksheet = workbook.Worksheets[0];
 

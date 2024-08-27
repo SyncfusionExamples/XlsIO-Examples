@@ -1,4 +1,5 @@
 ﻿using Syncfusion.XlsIO;
+using System.IO;
 
 namespace Replace
 {
@@ -30,7 +31,7 @@ namespace Replace
                 worksheet.Replace("Central", new string[] { "Central", "East" }, true);
 
                 //Saving the workbook as stream
-                FileStream stream = new FileStream("Replace.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream = new FileStream(Path.GetFullPath("Output/Replace.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.Version = ExcelVersion.Xlsx;
                 workbook.SaveAs(stream);
                 stream.Dispose();

@@ -22,7 +22,7 @@ namespace Workbook_to_JSON_with_Schema
                 workbook.SaveAsJson(outputStream);
 
                 //Saves the workbook to a JSON filestream as schema
-                FileStream stream1 = new FileStream("Excel-Workbook-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream1 = new FileStream("Output/Excel-Workbook-To-JSON-as-schema.json", FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAsJson(stream1, true);
                 #endregion
 

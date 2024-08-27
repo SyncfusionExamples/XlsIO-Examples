@@ -75,7 +75,7 @@ namespace Format_Series
                 chart.BottomRow = 25;
 
                 //Saving the workbook as stream
-                FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream stream = new FileStream("Output/Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(stream);
 
                 //Dispose streams
