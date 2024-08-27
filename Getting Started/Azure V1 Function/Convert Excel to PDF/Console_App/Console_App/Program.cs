@@ -2,7 +2,7 @@
 //Reads the template Excel document.
 using System.Net;
 
-FileStream excelStream = new FileStream("../../../Sample.xlsx", FileMode.Open, FileAccess.Read);
+FileStream excelStream = new FileStream(Path.GetFullPath(@"Data/Sample.xlsx"), FileMode.Open, FileAccess.Read);
 excelStream.Position = 0;
 
 //Saves the Excel document in memory stream.
@@ -46,6 +46,7 @@ catch (Exception ex)
 {
     throw;
 }
+
 
 
 

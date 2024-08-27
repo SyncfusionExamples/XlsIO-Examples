@@ -13,7 +13,7 @@ namespace Insert_Rows_with_Merged_Cells
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream inputStream = new FileStream("../../../InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -51,6 +51,7 @@ namespace Insert_Rows_with_Merged_Cells
         }
     }
 }
+
 
 
 

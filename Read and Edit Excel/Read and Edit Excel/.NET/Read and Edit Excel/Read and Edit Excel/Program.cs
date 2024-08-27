@@ -12,7 +12,7 @@ namespace Read_and_Edit_Excel
 
             #region Open
             //Loads or open an existing workbook through Open method of IWorkbook
-            FileStream inputStream = new FileStream("../../../InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+            FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
             IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
             #endregion
 
@@ -44,6 +44,7 @@ namespace Read_and_Edit_Excel
         }
     }
 }
+
 
 
 

@@ -11,7 +11,7 @@ namespace Read_and_Save_CSV
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../InputTemplate.csv", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.csv"), FileMode.Open, FileAccess.Read);
 
                 #region Read CSV
                 //Open the Tab delimited CSV file
@@ -33,6 +33,7 @@ namespace Read_and_Save_CSV
         }
     }
 }
+
 
 
 

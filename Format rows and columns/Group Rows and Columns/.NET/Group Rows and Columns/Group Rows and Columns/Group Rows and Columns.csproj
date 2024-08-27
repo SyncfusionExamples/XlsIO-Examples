@@ -16,5 +16,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
+
 

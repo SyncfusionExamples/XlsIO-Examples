@@ -2,7 +2,7 @@
 //Reads the template Excel document.
 using System.Net;
 
-FileStream imageStream = new FileStream("../../../AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read);
+FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/AdventureCycles-Logo.png"), FileMode.Open, FileAccess.Read);
 imageStream.Position = 0;
 
 //Saves the Excel document in memory stream.
@@ -42,6 +42,7 @@ catch (Exception ex)
 {
     throw;
 }
+
 
 
 

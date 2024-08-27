@@ -21,7 +21,7 @@ namespace Expand_or_Collapse_Groups
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../InputTemplate - To Expand.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate - To Expand.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -52,7 +52,7 @@ namespace Expand_or_Collapse_Groups
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../InputTemplate - To Collapse.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate - To Collapse.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -79,6 +79,7 @@ namespace Expand_or_Collapse_Groups
         }
     }
 }
+
 
 
 

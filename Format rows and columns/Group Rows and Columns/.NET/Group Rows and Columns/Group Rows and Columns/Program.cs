@@ -11,7 +11,7 @@ namespace Group_Rows_and_Columns
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("../../../InputTemplate - ToGroup.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate - ToGroup.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -40,6 +40,7 @@ namespace Group_Rows_and_Columns
         }
     }
 }
+
 
 
 

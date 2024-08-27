@@ -12,10 +12,10 @@ namespace Copy_Worksheet
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream sourceStream = new FileStream("../../../SourceTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook sourceWorkbook = application.Workbooks.Open(sourceStream);
 
-                FileStream destinationStream = new FileStream("../../../DestinationTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream destinationStream = new FileStream(Path.GetFullPath(@"Data/DestinationTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook destinationWorkbook = application.Workbooks.Open(destinationStream);
 
                 #region Copy Worksheet
@@ -38,6 +38,7 @@ namespace Copy_Worksheet
         }
     }
 }
+
 
 
 
