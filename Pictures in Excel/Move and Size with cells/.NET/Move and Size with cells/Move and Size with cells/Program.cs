@@ -29,7 +29,7 @@ namespace Move_and_Size_with_cells
                 worksheet.HideColumn(5);
 
                 //Saving the workbook as stream
-                FileStream OutputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                FileStream OutputStream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
                 workbook.SaveAs(OutputStream);
 
                 //Dispose streams

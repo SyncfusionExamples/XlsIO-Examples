@@ -1,6 +1,5 @@
 ﻿using Syncfusion.XlsIO;
 using Syncfusion.Drawing;
-using static System.Net.Mime.MediaTypeNames;
 using System.Drawing;
 
 namespace Axis

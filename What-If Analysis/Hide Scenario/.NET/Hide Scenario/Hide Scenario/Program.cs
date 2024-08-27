@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using Syncfusion.XlsIO;
 using System;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Hide_Scenario
 {
