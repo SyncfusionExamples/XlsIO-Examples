@@ -35,6 +35,9 @@ namespace Legend
                 //Set the color
                 chart.Legend.TextArea.Color = ExcelKnownColors.Pink;
 
+                //Set the background color
+                chart.Legend.FrameFormat.Fill.ForeColorIndex = ExcelKnownColors.Yellow;
+
                 //Set the font
                 chart.Legend.TextArea.Bold = true;
                 chart.Legend.TextArea.FontName = "Times New Roman";
