@@ -12,13 +12,16 @@ namespace Comment
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 IWorkbook workbook = application.Workbooks.Create(1);
-                IWorksheet sheet = workbook.Worksheets[0];
+                IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Adding comments to a cell
-                sheet.Range["A1"].AddComment().Text = "Comments";
+                worksheet.Range["A1"].AddComment().Text = "Comments";
+
+                //Adding comments with author to a cell
+                worksheet.Range["A3"].AddComment().Text = worksheet.Range["A3"].Comment.Author;
 
                 //Add Rich Text Comments
-                IRange range = sheet.Range["A6"];
+                IRange range = worksheet.Range["A6"];
                 range.AddComment().RichText.Text = "RichText";
                 IRichTextString richText = range.Comment.RichText;
 
