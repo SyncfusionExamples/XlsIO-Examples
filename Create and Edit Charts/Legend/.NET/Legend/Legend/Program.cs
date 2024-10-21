@@ -45,7 +45,7 @@ namespace Legend
                 chart.Legend.TextArea.Strikethrough = false;
 
                 //Remove the legend
-                chart.Legend.LegendEntries[0].IsDeleted = true;
+                chart.Legend.LegendEntries[0].Delete();
 
                 //Set Legend without overlapping the chart
                 chart.Legend.IncludeInLayout = true;
