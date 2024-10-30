@@ -35,6 +35,9 @@ namespace Legend
                 //Set the color
                 chart.Legend.TextArea.Color = ExcelKnownColors.Pink;
 
+                //Set the background color
+                chart.Legend.FrameFormat.Fill.ForeColorIndex = ExcelKnownColors.Yellow;
+
                 //Set the font
                 chart.Legend.TextArea.Bold = true;
                 chart.Legend.TextArea.FontName = "Times New Roman";
@@ -42,7 +45,7 @@ namespace Legend
                 chart.Legend.TextArea.Strikethrough = false;
 
                 //Remove the legend
-                chart.Legend.LegendEntries[0].IsDeleted = true;
+                chart.Legend.LegendEntries[0].Delete();
 
                 //Set Legend without overlapping the chart
                 chart.Legend.IncludeInLayout = true;
