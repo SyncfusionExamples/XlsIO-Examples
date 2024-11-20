@@ -17,7 +17,7 @@ namespace CSV_to_Excel
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Saving the workbook as stream
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
+                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CSV to Excel.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
