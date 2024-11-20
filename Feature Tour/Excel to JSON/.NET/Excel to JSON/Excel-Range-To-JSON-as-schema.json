@@ -1,0 +1,1588 @@
+{
+  "Sheet1": [
+    {
+      "Categories": [
+        {
+          "Category": "Category",
+          "Category Detail": "Category Detail"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Title(s)",
+          "Firm Name": "Firm Name",
+          "Client": "Client"
+        }
+      ],
+      "Awards": "Award"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "3 Self-Promotion",
+          "Category Detail": "All media (Collateral, Video, DR, etc.)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Tower of Babel Box 'o Schlock '08",
+          "Firm Name": "Tower of Babel",
+          "Client": "Self (Tower of Babel)"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "3 Self-Promotion",
+          "Category Detail": "All media (Collateral, Video, DR, etc.)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "The 12 Bad Habits of Marketing Vendors",
+          "Firm Name": "The Great Society",
+          "Client": "The Great Society"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "3 Self-Promotion",
+          "Category Detail": "All media (Collateral, Video, DR, etc.)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Howitzer",
+          "Firm Name": "The Great Society",
+          "Client": "The Great Society"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "4D Sales Material",
+          "Category Detail": "Point of Sale"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "St-Germain 50ml Counter Top Display",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cooper Spirits International"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "5C Out of Home",
+          "Category Detail": "Miscellaneous: cinema ads, fleet graphics, murals, etc"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Gymnastics Chalk-Drawing",
+          "Firm Name": "Rogue Design Group",
+          "Client": "The Children's Gym"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9A Television",
+          "Category Detail": "Single, Prod Budget $50K/under"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Running's #1 Superfans - Superfans set the pace",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9A Television",
+          "Category Detail": "Single, Prod Budget $50K/under"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Silentâ - MusicFest NW 2008",
+          "Firm Name": "MathDept",
+          "Client": "MFNW / Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Tips",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "CareerBuilder.com"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Two In One",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Pro Strength II - TV Doctor",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Lord Brian",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "I Need Love Seriously",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Tony Stewart Swagger - Escalator",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Fate",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9B Television",
+          "Category Detail": "Single, Prod Budget $50,001/over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Heist",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Coca-Cola"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9C Television",
+          "Category Detail": "Series (3+), Prod Budget $50K/under "
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Running's #1 Superfans",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9D Television",
+          "Category Detail": "Series (3+), Prod Budget $50,001/over "
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Lord Brian; I Need Love Seriously; Tony Stewart Swagger - Escalator",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9D Television",
+          "Category Detail": "Series (3+), Prod Budget $50,001/over "
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Doorbell, Cougar, Appearances",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Oregon Lottery"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "9H Television",
+          "Category Detail": "Single, Animation Prod Budget $140K/Over"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Coke: Hidden Formula",
+          "Firm Name": "Bent Image Lab",
+          "Client": "Coca Cola Company"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11A Interactive",
+          "Category Detail": "Advertising/Websites"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Nike Golf Vapor",
+          "Firm Name": "Summit Projects",
+          "Client": "Nike, Inc. | Nike Golf"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11A Interactive",
+          "Category Detail": "Advertising/Websites"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Nike Golf Victory Red",
+          "Firm Name": "Summit Projects",
+          "Client": "Nike, Inc. | Nike Golf"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11A Interactive",
+          "Category Detail": "Advertising/Websites"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "The Girl Effect",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Nike Foundation"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11D Interactive",
+          "Category Detail": "Online Viral Campaign"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Must Drink More Milk",
+          "Firm Name": "Bent Image Lab",
+          "Client": "BC Dairy Foundation"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Your Wallet",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11J Interactive",
+          "Category Detail": "Self Promotion"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Planned Parenthood viral song",
+          "Firm Name": "Leopold Ketel & Partners",
+          "Client": "Planned Parenthood"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Columbia Sportswear In-Store Interactive & Digital Media",
+          "Firm Name": "Columbia Sportswear Company",
+          "Client": "Columbia Sportswear"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11N Interactive",
+          "Category Detail": "Entertainment, Miscellaneous"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Oregon Millionaires Campaign",
+          "Firm Name": "Pop Art, Inc.",
+          "Client": "Oregon State Lottery"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Made in China",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Helmet",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13A Corporate Identity",
+          "Category Detail": "Logo"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Workbench Law Logo",
+          "Firm Name": "Sockeye Creative",
+          "Client": "Workbench Law"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Joanna Priestley Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Joanna Priestley"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Sartorial Minutiae Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "David Maddocks Co./Sandstrom Partners"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "14F Company Literature",
+          "Category Detail": "Series of Company Literature (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Image Pressworks Control Freaks Kit",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Image Pressworks"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "15B Poster",
+          "Category Detail": "Series of #15 (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "2008 Doug Fir, Series",
+          "Firm Name": "NEMO",
+          "Client": "Doug Fir"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Raven Mad",
+          "Firm Name": "R/West",
+          "Client": "Bridgeport"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Session Black",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Full Sail Brewing Co."
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Cranium Party Playoff Game",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cranium"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Dunk Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Nike Sportswear Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "212 Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "20A Misc. Collateral",
+          "Category Detail": "Greeting Cards/ Postcards (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "St-Germain Postcards",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cooper Spirits International"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "22A Integrated Campaign",
+          "Category Detail": "Advertising, Design, Interactive, Out of Home, etc"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Me",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Best In Show"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11J Interactive",
+          "Category Detail": "Self Promotion"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Planned Parenthood viral song",
+          "Firm Name": "Leopold Ketel & Partners",
+          "Client": "Planned Parenthood"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Columbia Sportswear In-Store Interactive & Digital Media",
+          "Firm Name": "Columbia Sportswear Company",
+          "Client": "Columbia Sportswear"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "22A Integrated Campaign",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Me",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Best In Show"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11J Interactive",
+          "Category Detail": "Self Promotion"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Planned Parenthood viral song",
+          "Firm Name": "Leopold Ketel & Partners",
+          "Client": "Planned Parenthood"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Columbia Sportswear In-Store Interactive & Digital Media",
+          "Firm Name": "Columbia Sportswear Company",
+          "Client": "Columbia Sportswear"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11N Interactive",
+          "Category Detail": "Entertainment, Miscellaneous"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Oregon Millionaires Campaign",
+          "Firm Name": "Pop Art, Inc.",
+          "Client": "Oregon State Lottery"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Made in China",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Helmet",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13A Corporate Identity",
+          "Category Detail": "Logo"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Workbench Law Logo",
+          "Firm Name": "Sockeye Creative",
+          "Client": "Workbench Law"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Joanna Priestley Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Joanna Priestley"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Sartorial Minutiae Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "David Maddocks Co./Sandstrom Partners"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "14F Company Literature",
+          "Category Detail": "Series of Company Literature (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Image Pressworks Control Freaks Kit",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Image Pressworks"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "15B Poster",
+          "Category Detail": "Series of #15 (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "2008 Doug Fir, Series",
+          "Firm Name": "NEMO",
+          "Client": "Doug Fir"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Raven Mad",
+          "Firm Name": "R/West",
+          "Client": "Bridgeport"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Session Black",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Full Sail Brewing Co."
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Cranium Party Playoff Game",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cranium"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Dunk Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Nike Sportswear Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "212 Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "20A Misc. Collateral",
+          "Category Detail": "Greeting Cards/ Postcards (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "St-Germain Postcards",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cooper Spirits International"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "22A Integrated Campaign",
+          "Category Detail": "Advertising, Design, Interactive, Out of Home, etc"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Me",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Best In Show"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "22A Integrated Campaign",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Me",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Best In Show"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11J Interactive",
+          "Category Detail": "Self Promotion"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Planned Parenthood viral song",
+          "Firm Name": "Leopold Ketel & Partners",
+          "Client": "Planned Parenthood"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Body Collective",
+          "Firm Name": "Second Story Interactive Studios",
+          "Client": "Portland Art Museum"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11L Interactive",
+          "Category Detail": "Advertising/Kiosks"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Columbia Sportswear In-Store Interactive & Digital Media",
+          "Firm Name": "Columbia Sportswear Company",
+          "Client": "Columbia Sportswear"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11N Interactive",
+          "Category Detail": "Entertainment, Miscellaneous"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Oregon Millionaires Campaign",
+          "Firm Name": "Pop Art, Inc.",
+          "Client": "Oregon State Lottery"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Made in China",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "12A Public Service Division",
+          "Category Detail": "Collateral Material"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Don't Vote - Helmet",
+          "Firm Name": "Borders Perrin Norrander",
+          "Client": "Willamette Week"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13A Corporate Identity",
+          "Category Detail": "Logo"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Workbench Law Logo",
+          "Firm Name": "Sockeye Creative",
+          "Client": "Workbench Law"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Joanna Priestley Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Joanna Priestley"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "13B Corporate Identity",
+          "Category Detail": "Business Paper Series"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Sartorial Minutiae Identity",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "David Maddocks Co./Sandstrom Partners"
+        }
+      ],
+      "Awards": "Rosey"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "14F Company Literature",
+          "Category Detail": "Series of Company Literature (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Image Pressworks Control Freaks Kit",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Image Pressworks"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "15B Poster",
+          "Category Detail": "Series of #15 (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "2008 Doug Fir, Series",
+          "Firm Name": "NEMO",
+          "Client": "Doug Fir"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Raven Mad",
+          "Firm Name": "R/West",
+          "Client": "Bridgeport"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Session Black",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Full Sail Brewing Co."
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "16A Packaging",
+          "Category Detail": "Single"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Cranium Party Playoff Game",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cranium"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Dunk Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Nike Sportswear Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "17A Books",
+          "Category Detail": "Entire Book"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "212 Recap Book",
+          "Firm Name": "Opolis Design",
+          "Client": "Nike"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "20A Misc. Collateral",
+          "Category Detail": "Greeting Cards/ Postcards (limit of 5)"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "St-Germain Postcards",
+          "Firm Name": "Sandstrom Partners",
+          "Client": "Cooper Spirits International"
+        }
+      ],
+      "Awards": "Excellence"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "22A Integrated Campaign",
+          "Category Detail": "Advertising, Design, Interactive, Out of Home, etc"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Swaggerize Me",
+          "Firm Name": "Wieden+Kennedy",
+          "Client": "Old Spice"
+        }
+      ],
+      "Awards": "Best In Show"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11E Interactive",
+          "Category Detail": "Microsites/Landing Pages"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "runningsuperfans.com",
+          "Firm Name": "The Great Society",
+          "Client": "Brooks Running"
+        }
+      ],
+      "Awards": "Merit"
+    },
+    {
+      "Categories": [
+        {
+          "Category": "11J Interactive",
+          "Category Detail": "Self Promotion"
+        }
+      ],
+      "Titles": [
+        {
+          "Title(s)": "Planned Parenthood viral song",
+          "Firm Name": "Leopold Ketel & Partners",
+          "Client": "Planned Parenthood"
+        }
+      ],
+      "Awards": "Merit"
+    }
+  ]
+}
