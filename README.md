@@ -62,5 +62,5 @@ ___
 
 [sales@syncfusion.com](mailto:sales@syncfusion.com?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) | [www.syncfusion.com](https://www.syncfusion.com?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) | Toll Free: 1-888-9 DOTNET
 
-Copyright 2021 Syncfusion, Inc. All Rights Reserved. The Syncfusion Essential Studio license and copyright applies to this distribution.
+Copyright 2021 Syncfusion, Inc. All Rights Reserved. The Syncfusion Essential Studio&reg; license and copyright applies to this distribution.
 
