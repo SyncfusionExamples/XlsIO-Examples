@@ -1,4 +1,8 @@
-# How to create an Excel file in console application?
+# Create an Excel document using C#
+
+The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **create an Excel document** using C#.
+
+## Steps to create an Excel document programmatically
 
 Step 1: Create a new C# Console Application project.
 
@@ -7,17 +11,16 @@ Step 2: Name the project.
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 Step 4: Include the following namespaces in the **Program.cs** file.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+
+```csharp
 using System;
 using Syncfusion.XlsIO;
 using Syncfusion.Drawing;
-{% endhighlight %}
-{% endtabs %}  
+```
 
 Step 5: Include the below code snippet in **Program.cs** to create an Excel file in console application.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+
+```csharp
 //Create an instance of ExcelEngine
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -193,5 +196,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     FileStream stream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
     workbook.SaveAs(stream);
 }
-{% endhighlight %}
-{% endtabs %}
+```
+
+More information about creating an Excel document can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/create-excel-files-in-console-apps-c-sharp) section.

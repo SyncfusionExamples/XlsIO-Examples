@@ -1,4 +1,8 @@
-# How to import data from DataTable to Excel?
+# Import data from DataTable to an Excel document using C#
+
+The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **import data from DataTable to an Excel document** using C#.
+
+## Steps to import data from DataTable to an Excel document programmatically
 
 Step 1: Create a new C# Console Application project.
 
@@ -7,15 +11,12 @@ Step 2: Name the project.
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 Step 4: Include the following namespaces in the **Program.cs** file.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+```csharp
 using Syncfusion.XlsIO;
-{% endhighlight %}
-{% endtabs %}  
+``` 
 
-Step 5: Include the below code snippet in **Program.cs** to import data from DataTable to Excel.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+Step 5: Include the below code snippet in **Program.cs** to import data from DataTable to an Excel document.
+```csharp
 class Program
 {
     static void Main(string[] args)
@@ -63,5 +64,6 @@ class Program
         return table;
     }
 }
-{% endhighlight %}
-{% endtabs %}
+```
+
+More information about importing data from a data table to an Excel document can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/import-export/import-to-excel#datatable-to-excel) section.
