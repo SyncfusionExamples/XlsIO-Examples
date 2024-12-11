@@ -29,11 +29,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 	#region save as JSON
 	//Saves the workbook to a JSON filestream, as schema by default
-	FileStream outputStream = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema-default.json"), FileMode.Create, FileAccess.ReadWrite);
+	FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Excel-Workbook-To-JSON-as-schema-default.json"), FileMode.Create, FileAccess.ReadWrite);
 	workbook.SaveAsJson(outputStream);
 
 	//Saves the workbook to a JSON filestream as schema
-	FileStream stream1 = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
+	FileStream stream1 = new FileStream(Path.GetFullPath(@"Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
 	workbook.SaveAsJson(stream1, true);
 	#endregion
 
