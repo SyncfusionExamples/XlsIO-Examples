@@ -1,4 +1,8 @@
-# How to convert an Excel workbook to PDF?
+# Convert an Excel workbook to PDF using C#
+
+The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **convert an Excel workbook to PDF** using C#.
+
+## Steps to convert an Excel workbook to PDF programmatically
 
 Step 1: Create a new C# Console Application project.
 
@@ -7,18 +11,15 @@ Step 2: Name the project.
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 Step 4: Include the following namespaces in the **Program.cs** file.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+```csharp
 using System.IO;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 using Syncfusion.Pdf;
-{% endhighlight %}
-{% endtabs %}  
+```
 
 Step 5: Include the below code snippet in **Program.cs** to convert an Excel workbook to PDF.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -42,5 +43,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	outputStream.Dispose();
 	inputStream.Dispose();
 }
-{% endhighlight %}
-{% endtabs %}
+```
+
+More information about converting an Excel workbook to PDF can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/conversions/excel-to-pdf/net/excel-to-pdf-conversion#workbook-to-pdf) section.
