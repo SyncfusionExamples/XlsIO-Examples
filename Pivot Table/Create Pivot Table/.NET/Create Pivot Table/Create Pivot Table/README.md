@@ -43,7 +43,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 	#region Save
 	//Saving the workbook
-	FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotTable.xlsx"), FileMode.Create, FileAccess.Write);
+	FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/PivotTable.xlsx"), FileMode.Create, FileAccess.Write);
 	workbook.SaveAs(outputStream);
 	#endregion
 
