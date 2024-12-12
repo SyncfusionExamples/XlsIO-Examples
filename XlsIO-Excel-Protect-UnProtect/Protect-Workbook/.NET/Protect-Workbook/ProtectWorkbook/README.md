@@ -1,6 +1,6 @@
 # Protect a workbook with a password using C#
 
-The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **protect a workbook with a password** using C#.
+The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **protect a workbook with a password** using C#. After adding workbook protection, the structural changes of the workbook are disabled.
 
 ## Steps to protect a workbook with a password programmatically
 
