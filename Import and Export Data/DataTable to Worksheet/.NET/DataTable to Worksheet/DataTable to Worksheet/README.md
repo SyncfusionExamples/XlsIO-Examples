@@ -66,4 +66,4 @@ class Program
 }
 ```
 
-More information about importing data from a data table to an Excel document can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/import-export/import-to-excel#datatable-to-excel) section.
+More information about importing data to an Excel document can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/import-export/import-to-excel#datatable-to-excel) section.
