@@ -8,7 +8,7 @@ Step 1: Create a new C# Console Application project.
 
 Step 2: Name the project.
 
-Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+Step 3: Install the [Syncfusion.XlsIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 Step 4: Include the following namespaces in the **Program.cs** file.
 ```csharp

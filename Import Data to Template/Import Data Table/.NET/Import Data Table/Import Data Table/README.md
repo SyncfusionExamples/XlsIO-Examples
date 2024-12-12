@@ -1,6 +1,6 @@
 # Bind data from a data table to a template marker using C#
 
-The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **bind data from a data table to a template marker** using C#.
+The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **import data from data table to predefined Excel template** using C#.
 
 ## Steps to bind data from a data table to a template marker programmatically
 
@@ -65,4 +65,4 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-More information about binding data from a data table to a template marker can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/working-with-template-markers#bind-from-datatable) section.
+More information about binding data to a template marker can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/working-with-template-markers#bind-from-datatable) section.
