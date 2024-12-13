@@ -184,7 +184,7 @@ namespace Create_Excel
                 {
                     workbook.SaveAs(stream);
                 }
-                imageStream.Close();
+                imageStream.Dispose();
             }
         }
     }
