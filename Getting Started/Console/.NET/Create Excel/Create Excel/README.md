@@ -193,8 +193,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     worksheet.Range["A15:A23"].RowHeight = 18;  
      
     //Saving the Excel to the Stream 
-    FileStream stream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-    workbook.SaveAs(stream);
+    using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.Write))
+    {
+      workbook.SaveAs(stream);
+    }
+    imageStream.Dispose();
 }
 ```
 
