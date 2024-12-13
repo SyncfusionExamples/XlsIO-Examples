@@ -1,4 +1,4 @@
-﻿using Syncfusion.XlsIO;
+using Syncfusion.XlsIO;
 using System;
 using System.IO;
 
@@ -16,32 +16,14 @@ namespace Workbook_to_JSON_with_Schema
                 IWorkbook workbook = application.Workbooks.Open(inputStream);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                #region save as JSON
-                //Saves the workbook to a JSON filestream, as schema by default
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema-default.json"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAsJson(outputStream);
-
                 //Saves the workbook to a JSON filestream as schema
-                FileStream stream1 = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAsJson(stream1, true);
-                #endregion
+                FileStream jsonWithSchema = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAsJson(jsonWithSchema, true);
 
                 //Dispose streams
-                outputStream.Dispose();
-                stream1.Dispose();
+                jsonWithSchema.Dispose();
                 inputStream.Dispose();
-
-                #region Open JSON 
-                //Open default JSON
-
-                //Open JSON with Schema
-                #endregion
             }
         }
     }
 }
-
-
-
-
-

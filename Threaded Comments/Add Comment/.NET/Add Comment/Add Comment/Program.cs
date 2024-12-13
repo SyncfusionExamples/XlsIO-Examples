@@ -29,6 +29,7 @@ namespace Add_Comment
 
                 //Dispose streams
                 outputStream.Dispose();
+                inputStream.Dispose();
             }
         }
     }
