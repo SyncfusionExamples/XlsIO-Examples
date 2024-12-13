@@ -26,7 +26,7 @@ namespace Date_Validation
 
                 //Shows the error message
                 dateValidation.ShowErrorBox = true;
-                dateValidation.ErrorBoxText = "Enter Value between 10/5/2003 to 10/5/2004";
+                dateValidation.ErrorBoxText = "Enter a value between 10/5/2003 and 10/5/2004";
                 dateValidation.ErrorBoxTitle = "ERROR";
                 dateValidation.PromptBoxText = "Data validation for date";
                 dateValidation.ShowPromptBox = true;
