@@ -40,6 +40,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 	//Dispose streams
 	outputStream.Dispose();
+	inputStream.Dispose();
 }
 ```
 
