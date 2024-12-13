@@ -21,32 +21,19 @@ Step 5: Include the below code snippet in **Program.cs** to convert an Excel wor
 ```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
-	IApplication application = excelEngine.Excel;
-	application.DefaultVersion = ExcelVersion.Xlsx;
-	FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-	IWorkbook workbook = application.Workbooks.Open(inputStream);
-	IWorksheet worksheet = workbook.Worksheets[0];
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Xlsx;
+  FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-	#region save as JSON
-	//Saves the workbook to a JSON filestream, as schema by default
-	FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Excel-Workbook-To-JSON-as-schema-default.json"), FileMode.Create, FileAccess.ReadWrite);
-	workbook.SaveAsJson(outputStream);
+  //Saves the workbook to a JSON filestream as schema
+  FileStream jsonWithSchema = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAsJson(jsonWithSchema, true);
 
-	//Saves the workbook to a JSON filestream as schema
-	FileStream stream1 = new FileStream(Path.GetFullPath(@"Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
-	workbook.SaveAsJson(stream1, true);
-	#endregion
-
-	//Dispose streams
-	outputStream.Dispose();
-	stream1.Dispose();
-	inputStream.Dispose();
-
-	#region Open JSON 
-	//Open default JSON
-
-	//Open JSON with Schema
-	#endregion
+  //Dispose streams
+  jsonWithSchema.Dispose();
+  inputStream.Dispose();
 }
 ```
 
