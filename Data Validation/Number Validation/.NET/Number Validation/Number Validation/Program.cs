@@ -25,7 +25,7 @@ namespace Number_Validation
 
                 //Shows the error message
                 numberValidation.ShowErrorBox = true;
-                numberValidation.ErrorBoxText = "Enter Value between 0 to 10";
+                numberValidation.ErrorBoxText = "Enter a value between 0 and 10";
                 numberValidation.ErrorBoxTitle = "ERROR";
                 numberValidation.PromptBoxText = "Data validation for numbers";
                 numberValidation.ShowPromptBox = true;

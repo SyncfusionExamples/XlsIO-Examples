@@ -14,7 +14,7 @@ namespace Time_Validation
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Data Validation for Time
+                //Data validation for the time
                 IDataValidation timeValidation = worksheet.Range["B3"].DataValidation;
                 worksheet.Range["B1"].Text = "Enter the time between 10:00 and 12:00 'o Clock in B3";
                 worksheet.Range["B1"].AutofitColumns();

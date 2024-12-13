@@ -18,7 +18,7 @@ namespace Custom_Validation
 
                 // Data validation for custom data.
                 IDataValidation validation = worksheet.Range["A3"].DataValidation;
-                worksheet.Range["A1"].Text = "Enter the value greater than 10 in A1";
+                worksheet.Range["A1"].Text = "Enter a value greater than 10 in A1";
                 worksheet.Range["A2"].Text = "Enter the text in A3";
                 worksheet.Range["A1"].AutofitColumns();
                 validation.AllowType = ExcelDataType.Formula;

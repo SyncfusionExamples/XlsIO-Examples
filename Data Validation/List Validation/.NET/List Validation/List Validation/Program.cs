@@ -14,7 +14,7 @@ namespace List_Validation
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Data Validation for List
+                //Data validation for the list
                 IDataValidation listValidation = worksheet.Range["C3"].DataValidation;
                 worksheet.Range["C1"].Text = "Data Validation List in C3";
                 worksheet.Range["C1"].AutofitColumns();
