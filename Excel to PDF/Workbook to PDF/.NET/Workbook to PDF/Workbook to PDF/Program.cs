@@ -35,8 +35,3 @@ namespace Workbook_to_PDF
         }
     }
 }
-
-
-
-
-

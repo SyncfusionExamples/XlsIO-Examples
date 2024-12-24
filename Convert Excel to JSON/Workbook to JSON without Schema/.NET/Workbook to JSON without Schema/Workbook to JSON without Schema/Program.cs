@@ -33,8 +33,3 @@ namespace Workbook_to_JSON_without_Schema
         }
     }
 }
-
-
-
-
-

@@ -35,7 +35,3 @@ namespace Set_Formula
         }
     }
 }
-
-
-
-

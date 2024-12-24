@@ -32,8 +32,3 @@ namespace Create_Table
         }
     }
 }
-
-
-
-
-

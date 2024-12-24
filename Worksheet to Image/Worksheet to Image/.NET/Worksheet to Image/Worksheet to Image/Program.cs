@@ -32,8 +32,3 @@ namespace Worksheet_to_Image
         }
     }
 }
-
-
-
-
-

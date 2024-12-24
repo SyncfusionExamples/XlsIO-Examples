@@ -39,7 +39,3 @@ namespace List_Validation
         }
     }
 }
-
-
-
-

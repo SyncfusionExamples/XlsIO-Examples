@@ -57,8 +57,3 @@ namespace Create_Chart
         }
     }
 }
-
-
-
-
-
