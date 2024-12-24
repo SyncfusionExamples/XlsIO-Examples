@@ -72,7 +72,3 @@ namespace Create_Conditional_Format
         }
     }
 }
-
-
-
-

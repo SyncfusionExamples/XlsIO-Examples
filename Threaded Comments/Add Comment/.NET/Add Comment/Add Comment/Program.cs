@@ -34,7 +34,3 @@ namespace Add_Comment
         }
     }
 }
-
-
-
-
