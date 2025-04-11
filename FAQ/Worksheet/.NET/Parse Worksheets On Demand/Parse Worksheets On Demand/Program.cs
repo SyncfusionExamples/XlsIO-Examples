@@ -4,7 +4,7 @@ using Syncfusion.XlsIO;
 
 
 
-namespace Delete_Hyperlinks
+namespace Parse_Worksheets_On_Demand
 {
     class Program
     {
