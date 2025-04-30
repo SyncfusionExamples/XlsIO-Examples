@@ -32,8 +32,8 @@ namespace Hide_Unhide_Shapes
                 //Saving the workbook as stream
                 FileStream outputStream = new FileStream("Output/Output.xlsx", FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
-                workbook.Close();
-                excelEngine.Dispose();
+                outputStream.Dispose();
+                inputStream.Dispose();
             }
 
         }
