@@ -1,4 +1,4 @@
-# : How to parse worksheets on demand in Excel document?
+# How to avoid processing unnecessary worksheets when opening an Excel document using C#?
 
 Step 1: Create a New C# Console Application Project.
 
@@ -13,7 +13,7 @@ using System;
 using System.IO;
 using Syncfusion.XlsIO;
 
-Step 5: Include the below code snippet in **Program.cs** to parse worksheets on demand in Excel document.
+Step 5: Include the below code snippet in **Program.cs** to avoid processing unnecessary worksheets when opening an Excel document using C#?
 ```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
