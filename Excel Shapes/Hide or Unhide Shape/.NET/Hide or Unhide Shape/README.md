@@ -40,7 +40,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Saving the workbook as stream
     FileStream outputStream = new FileStream("Output/Output.xlsx", FileMode.Create, FileAccess.Write);
     workbook.SaveAs(outputStream);
-    workbook.Close();
-    excelEngine.Dispose();
+    outputStream.Dispose();
+    inputStream.Dispose();
 }
 ```
