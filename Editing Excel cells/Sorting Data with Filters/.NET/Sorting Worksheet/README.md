@@ -1,4 +1,4 @@
-# How to apply sorting in the worksheet Autofilter using C#?
+# Sorting Data with Filters
 
 Step 1: Create a New C# Console Application Project.
 
@@ -14,7 +14,7 @@ using System.IO;
 using Syncfusion.XlsIO;
 ```
 
-Step 5: Include the below code snippet in **Program.cs** to apply sorting in the worksheet Autofilter.
+Step 5: Include the below code snippet in **Program.cs** to sort data with filters.
 ```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
