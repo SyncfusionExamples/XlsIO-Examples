@@ -27,11 +27,10 @@ namespace Data_Bars
                 dataBar.MaxPoint.Type = ConditionValueType.HighestValue;
 
                 //Set color for Bar
-                dataBar.BarColor = Color.FromArgb(156, 208, 243);
+                dataBar.BarColor = Color.Aqua;
 
                 //Hide the values in data bar
                 dataBar.ShowValue = false;
-                dataBar.BarColor = Color.Aqua;
 
                 #region Save
                 //Saving the workbook
