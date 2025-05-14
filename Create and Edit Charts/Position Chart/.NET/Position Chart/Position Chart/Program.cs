@@ -12,12 +12,10 @@ namespace Position_Chart
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-
-                // Create a new workbook
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                // Fill sample data
+                //Add data
                 worksheet.Range["A1"].Text = "Category";
                 worksheet.Range["B1"].Text = "Value";
                 worksheet.Range["A2"].Text = "A";
@@ -27,7 +25,7 @@ namespace Position_Chart
                 worksheet.Range["B3"].Number = 20;
                 worksheet.Range["B4"].Number = 30;
 
-                // Add a chart
+                //Add a chart
                 IChartShape chart = worksheet.Charts.Add();
                 chart.DataRange = worksheet.Range["A1:B4"];
                 chart.ChartType = ExcelChartType.Column_Clustered;
