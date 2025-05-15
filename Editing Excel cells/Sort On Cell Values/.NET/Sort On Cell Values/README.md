@@ -29,7 +29,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	IDataSort sorter = workbook.CreateDataSorter();
 
 	//Range to sort
-	sorter.SortRange = worksheet.UsedRange;
+	sorter.SortRange = worksheet.Range["A1:B11"];
 
 	//Adds a sort field: sort by values in column A in ascending order
 	sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
@@ -44,7 +44,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	sorter = workbook.CreateDataSorter();
 
 	//Range to sort
-	sorter.SortRange = worksheet.UsedRange;
+	sorter.SortRange = worksheet.Range["C1:C11"];
 
 	//Adds a sort field: sort by values in column C in descending order
 	sorter.SortFields.Add(2, SortOn.Values, OrderBy.Descending);
