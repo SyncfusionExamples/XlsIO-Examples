@@ -29,10 +29,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	IDataSort sorter = workbook.CreateDataSorter();
 
 	//Range to sort
-	sorter.SortRange = worksheet.Range["A1:A11"];
+	sorter.SortRange = worksheet.Range["A1:B11"];
 
-	//Adds the sort field with the column index, sort based on and order by attribute
+	//Adds a sort field: sort by values in column A in ascending order
 	sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
+
+	//Adds a sort field: then by values in column B in descending order
+	sorter.SortFields.Add(1, SortOn.Values, OrderBy.Descending);
 
 	//Sort based on the sort Field attribute
 	sorter.Sort();
@@ -41,10 +44,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	sorter = workbook.CreateDataSorter();
 
 	//Range to sort
-	sorter.SortRange = worksheet.Range["B1:B11"];
+	sorter.SortRange = worksheet.Range["C1:C11"];
 
-	//Adds the sort field with the column index, sort based on and order by attribute
-	sorter.SortFields.Add(1, SortOn.Values, OrderBy.Descending);
+	//Adds a sort field: sort by values in column C in descending order
+	sorter.SortFields.Add(2, SortOn.Values, OrderBy.Descending);
 
 	//Sort based on the sort Field attribute
 	sorter.Sort();
