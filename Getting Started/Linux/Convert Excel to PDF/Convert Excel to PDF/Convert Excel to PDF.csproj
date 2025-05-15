@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="*" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="*" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
