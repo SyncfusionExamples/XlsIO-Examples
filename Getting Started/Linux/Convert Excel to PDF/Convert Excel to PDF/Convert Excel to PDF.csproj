@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Convert_Excel_to_PDF</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="*" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="*" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Update="Output\*">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+
+</Project>
