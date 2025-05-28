@@ -1,0 +1,55 @@
+﻿@page "/"
+
+@using Syncfusion.XlsIO
+@using Syncfusion.XlsIORenderer
+@using Syncfusion.Pdf
+@using System.IO
+
+<h3>Convert Excel to PDF</h3>
+
+<button class="btn btn-primary" @onclick="ConvertExceltoPDF">Convert Excel to PDF</button>
+
+@code {
+    private async Task ConvertExceltoPDF()
+    {
+        using ExcelEngine excelEngine = new();
+        IApplication application = excelEngine.Excel;
+        application.DefaultVersion = ExcelVersion.Xlsx;
+
+        string inputPath = Path.Combine(FileSystem.Current.AppDataDirectory, "InputTemplate.xlsx");
+
+        // Copy the Excel file from wwwroot to local app storage if it doesn't exist
+        if (!File.Exists(inputPath))
+        {
+            using Stream resourceStream = await FileSystem.OpenAppPackageFileAsync("wwwroot/data/InputTemplate.xlsx");
+            using FileStream outputStream = File.Create(inputPath);
+            await resourceStream.CopyToAsync(outputStream);
+        }
+
+        using FileStream excelStream = File.OpenRead(inputPath);
+        IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+        XlsIORenderer renderer = new XlsIORenderer();
+        PdfDocument pdf = renderer.ConvertToPDF(workbook);
+
+        using MemoryStream stream = new();
+        pdf.Save(stream);
+        pdf.Close();
+        workbook.Close();
+
+        stream.Position = 0;
+
+        // Save the generated PDF to local storage
+
+        string outputDir = Path.Combine(FileSystem.Current.AppDataDirectory, "Output");
+
+        // Create folder if it doesn't exist
+        Directory.CreateDirectory(outputDir); 
+
+        string outputPath = Path.Combine(outputDir, "Sample.pdf");
+
+        using FileStream fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);
+        stream.CopyTo(fileStream);
+        await Application.Current.MainPage.DisplayAlert("Success", $"PDF saved to:\n{outputPath}", "OK");
+    }
+}
