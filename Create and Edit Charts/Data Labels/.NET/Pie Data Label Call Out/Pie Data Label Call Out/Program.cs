@@ -3,7 +3,7 @@ using System.IO;
 using Syncfusion.Drawing;
 using Syncfusion.XlsIO;
 
-namespace Pie_Slice_Color_And_Data_Label_Call_Out
+namespace Pie_Data_Label_CallOuts
 {
     class Program
     {
@@ -47,21 +47,17 @@ namespace Pie_Slice_Color_And_Data_Label_Call_Out
                 chart.BottomRow = 20;
                 chart.RightColumn = 10;
 
-                //Customize chart series colors
-                IChartSerie series = chart.Series[0];
-                series.DataPoints[0].DataFormat.Fill.ForeColor = Color.Red;
-                series.DataPoints[1].DataFormat.Fill.ForeColor = Color.Yellow;
-                series.DataPoints[2].DataFormat.Fill.ForeColor = Color.Green;
-
                 //Customize data label for the first data point
+                IChartSerie series = chart.Series[0];                      
                 series.DataPoints[0].DataLabels.IsCategoryName = true;
                 series.DataPoints[0].DataLabels.IsValue = true;
+
+                //Enable data label callouts for the first data point
                 series.DataPoints[0].DataLabels.ShowLeaderLines = true;
 
                 //Manually resizing data label area using Manual Layout
                 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
                 chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
-
 
                 #region Save
                 //Saving the workbook

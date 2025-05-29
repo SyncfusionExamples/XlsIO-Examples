@@ -1,4 +1,4 @@
-# How to set pie slice color and pie data label call out in XlsIO?
+# How to display data label callouts in pie charts using XlsIO?
 
 Step 1: Create a New C# Console Application Project.
 
@@ -15,7 +15,7 @@ using Syncfusion.Drawing;
 using Syncfusion.XlsIO;
 ```
 
-Step 5: Include the below code snippet in **Program.cs** to set pie slice color and pie data label call out.
+Step 5: Include the below code snippet in **Program.cs** to display data label callouts in pie charts.
 ```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -55,21 +55,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     chart.BottomRow = 20;
     chart.RightColumn = 10;
 
-    //Customize chart series colors
-    IChartSerie series = chart.Series[0];
-    series.DataPoints[0].DataFormat.Fill.ForeColor = Color.Red;
-    series.DataPoints[1].DataFormat.Fill.ForeColor = Color.Yellow;
-    series.DataPoints[2].DataFormat.Fill.ForeColor = Color.Green;
-
     //Customize data label for the first data point
+    IChartSerie series = chart.Series[0];                      
     series.DataPoints[0].DataLabels.IsCategoryName = true;
     series.DataPoints[0].DataLabels.IsValue = true;
+
+    //Enable data label callouts for the first data point
     series.DataPoints[0].DataLabels.ShowLeaderLines = true;
 
     //Manually resizing data label area using Manual Layout
     chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Left = 0.09;
     chart.Series[0].DataPoints[0].DataLabels.Layout.ManualLayout.Top = 0.01;
-
 
     #region Save
     //Saving the workbook
