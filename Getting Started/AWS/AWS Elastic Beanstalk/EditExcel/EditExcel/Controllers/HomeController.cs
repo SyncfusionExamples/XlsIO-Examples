@@ -48,7 +48,7 @@ namespace Create_Excel.Controllers
                 //Set the position as '0'.
                 stream.Position = 0;
 
-                //Download Word document in the browser.
+                //Download Excel document in the browser.
                 return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Sample.xlsx");
             }
 
