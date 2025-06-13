@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36127.28 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Highlight cells with errors", "Highlight cells with errors\Highlight cells with errors.csproj", "{2640FE48-0576-497D-A510-967D9CF72201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighLightCellsWithErrors", "HighLightCellsWithErrors\HighLightCellsWithErrors.csproj", "{2640FE48-0576-497D-A510-967D9CF72201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
