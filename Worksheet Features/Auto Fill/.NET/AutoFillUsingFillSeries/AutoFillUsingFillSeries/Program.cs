@@ -1,7 +1,7 @@
 ﻿using Syncfusion.XlsIO;
-using Syncfusion.XlsIO.Implementation;
 
-namespace AutoFill_Using_ExcelAutoFillType
+
+namespace AutoFillUsingFillSeries
 {
     class Program
     {
@@ -14,28 +14,28 @@ namespace AutoFill_Using_ExcelAutoFillType
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Setting the values to the cells
-                worksheet["A1"].Number = 1;
-                worksheet["A2"].Number = 3;
-                worksheet["A3"].Number = 5;
+                //Assign values to the cells
+                worksheet["A1"].Number = 2;
+                worksheet["A2"].Number = 4;
+                worksheet["A3"].Number = 6;
 
                 //Define the source range
                 IRange source = worksheet["A1:A3"];
 
                 //Define the destination range
-                IRange destinationRange = worksheet["A4:A10"];
+                IRange destinationRange = worksheet["A4:A100"];
 
-                //Use AutoFill method to fill the values based on ExcelAutoFillType
+                //Auto fill using the series option
                 source.AutoFill(destinationRange, ExcelAutoFillType.FillSeries);
 
-                //Saving the workbook as stream
+                //Saving the workbook 
                 FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
                 workbook.SaveAs(outputStream);
 
                 //Dispose streams
                 outputStream.Dispose();
             }
-
         }
     }
 }
+
