@@ -1,4 +1,4 @@
-# How to fill a number series in a worksheet?
+# How to fill series by enabling trend in a worksheet?
 
 Step 1: Create a new C# Console Application project.
 
@@ -14,7 +14,7 @@ using System.IO;
 using Syncfusion.XlsIO;
 ```
 
-Step 5: Include the below code snippet in **Program.cs**  to fill a number series in a worksheet.
+Step 5: Include the below code snippet in **Program.cs**  to fill series by enabling trend in a worksheet.
 ```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -23,17 +23,19 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IWorkbook workbook = application.Workbooks.Create(1);
     IWorksheet worksheet = workbook.Worksheets[0];
 
-    //Setting the values to the cells
-    worksheet["A1"].Number = 1;
+    //Assign values to the cells
+    worksheet["A1"].Number = 2;
+    worksheet["A2"].Number = 4;
+    worksheet["A3"].Number = 6;
 
     //Define the range
-    IRange range = worksheet["A1:A10"];
+    IRange range = worksheet["A1:A100"];
 
-    //Use FillSeries method to fill the values based on ExcelFillSeries
-    range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Linear, 5, 100);
+    //Fill series using the linear option by enabling trend
+    range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Linear, true);
 
     //Saving the workbook 
-    FileStream outputStream = new FileStream(Path.GetFullPath("Output.xlsx"), FileMode.Create, FileAccess.Write);
+    FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
     workbook.SaveAs(outputStream);
 
     //Dispose streams

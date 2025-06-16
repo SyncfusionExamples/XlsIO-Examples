@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36127.28 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Number FillSeries", "Number FillSeries\Number FillSeries.csproj", "{C1D43A2D-9C77-4679-85D3-B258CD77F3E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.XlsIO.Portable_NET80", "..\..\..\..\..\xlsio\Portable\XlsIO.Portable\Src\Syncfusion.XlsIO.Portable_NET80.csproj", "{B1829367-CB57-24F6-0C45-DBCA10D321FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberFillSeries", "NumberFillSeries\NumberFillSeries.csproj", "{4E2A9524-0186-44CD-80D7-C54D1820DC0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.Compression.Portable_NET80", "..\..\..\..\..\compression\Portable\Compression.Portable\Src\Syncfusion.Compression.Portable_NET80.csproj", "{652B9342-F913-C1BF-A30E-31072C9225F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.XlsIO.Portable_NET80", "..\..\..\..\..\xlsio\Portable\XlsIO.Portable\Src\Syncfusion.XlsIO.Portable_NET80.csproj", "{B1829367-CB57-24F6-0C45-DBCA10D321FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1D43A2D-9C77-4679-85D3-B258CD77F3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1D43A2D-9C77-4679-85D3-B258CD77F3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1D43A2D-9C77-4679-85D3-B258CD77F3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1D43A2D-9C77-4679-85D3-B258CD77F3E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E2A9524-0186-44CD-80D7-C54D1820DC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E2A9524-0186-44CD-80D7-C54D1820DC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E2A9524-0186-44CD-80D7-C54D1820DC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E2A9524-0186-44CD-80D7-C54D1820DC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{652B9342-F913-C1BF-A30E-31072C9225F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{652B9342-F913-C1BF-A30E-31072C9225F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{652B9342-F913-C1BF-A30E-31072C9225F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{652B9342-F913-C1BF-A30E-31072C9225F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1829367-CB57-24F6-0C45-DBCA10D321FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {36555B11-AC8C-492B-8316-2E1CF380D350}
+		SolutionGuid = {30715525-6F0C-4F1F-9055-D808F3B7D5F0}
 	EndGlobalSection
 EndGlobal
