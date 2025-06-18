@@ -19,7 +19,7 @@ namespace NumberFillSeries
                 //Define the range
                 IRange range = worksheet["A1:A100"];
 
-                //Fill series using the linear option
+                //Fill series using the linear option, step value and stop value
                 range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Linear, 5, 1000);
 
                 //Saving the workbook 

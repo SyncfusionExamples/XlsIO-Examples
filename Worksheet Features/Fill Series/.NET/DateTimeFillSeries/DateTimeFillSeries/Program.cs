@@ -19,7 +19,7 @@ namespace DateTimeFillSeries
                 //Define the range
                 IRange range = worksheet["A1:A50"];
 
-                //Fill series using the years option
+                //Fill series using the years option, step value and stop value
                 range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Years, 2, new DateTime(2100, 1, 1));
 
                 //Saving the workbook 
