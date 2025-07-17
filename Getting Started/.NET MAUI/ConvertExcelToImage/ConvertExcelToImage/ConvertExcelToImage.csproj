@@ -68,7 +68,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
-		<PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="30.1.37" />
+		<PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="*" />
 	</ItemGroup>
 
 </Project>
