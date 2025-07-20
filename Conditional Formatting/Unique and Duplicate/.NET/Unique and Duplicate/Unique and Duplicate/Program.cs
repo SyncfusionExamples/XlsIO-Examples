@@ -49,23 +49,23 @@ namespace Unique_and_Duplicate
 
                 worksheet.Range["B3"].Text = "Usage";
                 worksheet.SetValue(4, 2, "88%");
-			    worksheet.SetValue(5, 2, "61%");
-			    worksheet.SetValue(6, 2, "49%");
-        	    worksheet.SetValue(7, 2, "68%");
-        	    worksheet.SetValue(8, 2, "94%");
-        	    worksheet.SetValue(9, 2, "74%");
+                worksheet.SetValue(5, 2, "61%");
+                worksheet.SetValue(6, 2, "49%");
+                worksheet.SetValue(7, 2, "68%");
+                worksheet.SetValue(8, 2, "94%");
+                worksheet.SetValue(9, 2, "74%");
                 worksheet.SetValue(10, 2, "90%");
                 worksheet.SetValue(11, 2, "77%");
-        	    worksheet.SetValue(12, 2, "49%");
+                worksheet.SetValue(12, 2, "49%");
                 worksheet.SetValue(13, 2, "27%");
-	    	    worksheet.SetValue(14, 2, "12%");
-	    	    worksheet.SetValue(15, 2, "39%");
-	    	    worksheet.SetValue(16, 2, "51%");
-        	    worksheet.SetValue(17, 2, "50%");
-	    	    worksheet.SetValue(18, 2, "58%");
-	            worksheet.SetValue(19, 2, "36%");
-        	    worksheet.SetValue(20, 2, "58%");
-        	    worksheet.SetValue(21, 2, "69%");
+                worksheet.SetValue(14, 2, "12%");
+                worksheet.SetValue(15, 2, "39%");
+                worksheet.SetValue(16, 2, "51%");
+                worksheet.SetValue(17, 2, "50%");
+                worksheet.SetValue(18, 2, "58%");
+                worksheet.SetValue(19, 2, "36%");
+                worksheet.SetValue(20, 2, "58%");
+                worksheet.SetValue(21, 2, "69%");
 
                 worksheet.SetColumnWidth(1, 23.45);
                 worksheet.SetColumnWidth(2, 8.09);
