@@ -15,8 +15,8 @@ namespace Cross_Sheet_Formula
                 IWorksheet sheet1 = workbook.Worksheets[0];
                 IWorksheet sheet2 = workbook.Worksheets[1];
 
-                sheet1.Range["A2"].Value = "20";
-                sheet2.Range["B2"].Value = "10";
+                sheet1.SetValue(2, 1, "20");
+                sheet2.SetValue(2, 2, "10");
 
                 #region Cross Sheet Formula
                 //Setting formula for the range with cross-sheet reference
