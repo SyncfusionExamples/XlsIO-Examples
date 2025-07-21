@@ -67,7 +67,7 @@ namespace Create_Excel.Controllers
                 worksheet.Range["D5"].Text = "INVOICE#";
                 worksheet.Range["E5"].Text = "DATE";
                 worksheet.Range["D6"].Number = 1028;
-                worksheet.Range["E6"].Value = "12/31/2018";
+                worksheet.SetValue(6, 5, "12/31/2018");
                 worksheet.Range["D7"].Text = "CUSTOMER ID";
                 worksheet.Range["E7"].Text = "TERMS";
                 worksheet.Range["D8"].Number = 564;

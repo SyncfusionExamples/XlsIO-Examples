@@ -17,7 +17,7 @@ namespace Refresh_Pivot_Table
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Updating a new value in the pivot data
-                worksheet.Range["C2"].Value = "250";
+                worksheet.SetValue(2, 3, "250");
 
                 //Accessing the pivot table 
                 IPivotTable pivotTable = workbook.Worksheets[1].PivotTables[0];
