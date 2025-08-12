@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesTrendWithSparklines", "SalesTrendWithSparklines\SalesTrendWithSparklines.csproj", "{65DA17F0-EE05-41AC-B641-277B8ADDC9A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65DA17F0-EE05-41AC-B641-277B8ADDC9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65DA17F0-EE05-41AC-B641-277B8ADDC9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65DA17F0-EE05-41AC-B641-277B8ADDC9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65DA17F0-EE05-41AC-B641-277B8ADDC9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {028FC0D5-08B9-4204-8E36-62B25FAD4F06}
+	EndGlobalSection
+EndGlobal
