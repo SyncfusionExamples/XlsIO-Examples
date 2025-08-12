@@ -20,7 +20,7 @@ namespace Read_Table
                 IListObject table = worksheet.ListObjects[0];
 
                 //Modifying table name
-                table.Name = "SalesTable";
+                table.DisplayName = "SalesTable";
 
                 #region Save
                 //Saving the workbook
