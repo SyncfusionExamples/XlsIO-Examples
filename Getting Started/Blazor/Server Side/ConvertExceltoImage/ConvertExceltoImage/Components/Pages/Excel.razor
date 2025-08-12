@@ -1,0 +1,23 @@
+﻿@rendermode InteractiveServer
+@page "/excel"
+@using System.IO;
+@using ConvertExceltoImage;
+@inject ConvertExceltoImage.Components.Data.ExcelService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion Excel library (Essential XlsIO)</h2>
+<p>Syncfusion Excel library (Essential XlsIO) is used to create, read, edit, and convert Excel files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertExceltoImage">Convert Excel to Image</button>
+
+@code {
+    MemoryStream excelStream;
+
+    /// <summary>
+    /// Create and download the Excel document
+    /// </summary>
+    private async Task ConvertExceltoImage()
+    {
+        excelStream = service.ExceltoImage();
+        await JS.SaveAs("Sample.jpeg", excelStream.ToArray());
+    }
+}
