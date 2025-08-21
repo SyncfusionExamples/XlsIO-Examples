@@ -27,7 +27,7 @@ namespace Advanced_Conditional_Formats
                 iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
                 iconSet.IconCriteria[1].Value = "50";
                 iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
-                iconSet.IconCriteria[2].Value = "50";
+                iconSet.IconCriteria[2].Value = "75";
                 iconSet.ShowIconOnly = true;
 
                 #region Save
