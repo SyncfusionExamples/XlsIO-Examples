@@ -20,11 +20,7 @@ namespace Data_Bars
                 IConditionalFormats conditionalFormats = worksheet.Range["C7:C46"].ConditionalFormats;
                 IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
                 conditionalFormat.FormatType = ExcelCFType.DataBar;
-                IDataBar dataBar = conditionalFormat.DataBar;
-
-                //Set the constraints
-                dataBar.MinPoint.Type = ConditionValueType.LowestValue;
-                dataBar.MaxPoint.Type = ConditionValueType.HighestValue;
+                IDataBar dataBar = conditionalFormat.DataBar;                
 
                 //Set color for Bar
                 dataBar.BarColor = Color.Aqua;
