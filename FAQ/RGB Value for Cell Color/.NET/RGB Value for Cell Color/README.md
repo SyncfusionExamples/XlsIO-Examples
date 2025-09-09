@@ -1,4 +1,4 @@
-# How to add Oval shape to Excel chart using XlsIO?
+# How to get the RGB values of the cell color using XlsIO?
 
 Step 1: Create a New C# Console Application Project.
 
