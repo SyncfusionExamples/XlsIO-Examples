@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlowChart", "ExcelFlowChart\ExcelFlowChart.csproj", "{67EB8B15-C743-4D7E-9646-A8A31FB2266C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67EB8B15-C743-4D7E-9646-A8A31FB2266C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EB8B15-C743-4D7E-9646-A8A31FB2266C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EB8B15-C743-4D7E-9646-A8A31FB2266C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EB8B15-C743-4D7E-9646-A8A31FB2266C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EF0B447-A3D4-4CBC-8489-B0847268873B}
+	EndGlobalSection
+EndGlobal
