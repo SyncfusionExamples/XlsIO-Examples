@@ -11,12 +11,8 @@ namespace Copy_Worksheet
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-
-                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook sourceWorkbook = application.Workbooks.Open(sourceStream);
-
-                FileStream destinationStream = new FileStream(Path.GetFullPath(@"Data/DestinationTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook destinationWorkbook = application.Workbooks.Open(destinationStream);
+                IWorkbook sourceWorkbook = application.Workbooks.Open(Path.GetFullPath(@"Data/SourceTemplate.xlsx"));
+                IWorkbook destinationWorkbook = application.Workbooks.Open(Path.GetFullPath(@"Data/DestinationTemplate.xlsx"));
 
                 #region Copy Worksheet
                 //Copy first worksheet from the source workbook to the destination workbook
@@ -26,14 +22,8 @@ namespace Copy_Worksheet
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CopyWorksheet.xlsx"), FileMode.Create, FileAccess.Write);
-                destinationWorkbook.SaveAs(outputStream);
+                destinationWorkbook.SaveAs(Path.GetFullPath("Output/CopyWorksheet.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                destinationStream.Dispose();
-                sourceStream.Dispose();
             }
         }
     }

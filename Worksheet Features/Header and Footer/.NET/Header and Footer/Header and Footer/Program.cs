@@ -38,10 +38,8 @@ namespace Header_and_Footer
                 //Adding the file name to the right footer with blue color formatting
                 worksheet.PageSetup.RightFooter = "&K0000FF&F";
 
-                //Saving the workbook as stream
-                FileStream stream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create);
-                workbook.SaveAs(stream);
-                stream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

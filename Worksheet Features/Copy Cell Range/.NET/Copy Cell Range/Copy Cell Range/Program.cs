@@ -10,9 +10,7 @@ namespace Copy_Cell_Range
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-
-                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(sourceStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 IWorksheet sourceWorksheet = workbook.Worksheets[0];
                 IWorksheet destinationWorksheet = workbook.Worksheets[1];
@@ -23,13 +21,8 @@ namespace Copy_Cell_Range
                 //Copy the cell range to the next sheet
                 source.CopyTo(destination);
                 
-                //Saving the workbook as stream
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
-                sourceStream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

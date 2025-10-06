@@ -11,8 +11,7 @@ namespace Access_Worksheet
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 #region  Access
                 //Accessing via index
@@ -21,9 +20,6 @@ namespace Access_Worksheet
                 //Accessing via sheet name
                 IWorksheet NamedSheet = workbook.Worksheets["Sample"];
                 #endregion
-
-                //Dispose streams
-                inputStream.Dispose();
             }
         }
     }

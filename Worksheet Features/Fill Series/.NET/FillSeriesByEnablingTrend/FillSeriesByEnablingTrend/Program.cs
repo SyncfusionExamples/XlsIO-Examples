@@ -25,11 +25,7 @@ namespace FillSeriesByEnablingTrend
                 range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Linear, true);
 
                 //Saving the workbook 
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

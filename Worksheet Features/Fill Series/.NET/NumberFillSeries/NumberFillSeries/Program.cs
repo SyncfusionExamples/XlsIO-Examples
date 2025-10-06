@@ -23,11 +23,7 @@ namespace NumberFillSeries
                 range.FillSeries(ExcelSeriesBy.Columns, ExcelFillSeries.Linear, 5, 1000);
 
                 //Saving the workbook 
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

@@ -29,11 +29,7 @@ namespace AutoFillUsingFillSeries
                 source.AutoFill(destinationRange, ExcelAutoFillType.FillSeries);
 
                 //Saving the workbook 
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }
