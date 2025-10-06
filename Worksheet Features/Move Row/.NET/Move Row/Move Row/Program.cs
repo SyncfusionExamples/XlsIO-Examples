@@ -11,8 +11,7 @@ namespace Move_Row
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(sourceStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 IWorksheet sourceWorksheet = workbook.Worksheets[0];
                 IWorksheet destinationWorksheet = workbook.Worksheets[1];
@@ -23,13 +22,8 @@ namespace Move_Row
                 //Move the Entire row to the next sheet
                 sourceRow.EntireRow.MoveTo(destinationRow);
 
-                //Saving the workbook as stream
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
-                sourceStream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

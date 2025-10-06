@@ -11,8 +11,7 @@ namespace Move_Column
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(sourceStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 IWorksheet sourceWorksheet = workbook.Worksheets[0];
                 IWorksheet destinationWorksheet = workbook.Worksheets[1];
@@ -24,11 +23,7 @@ namespace Move_Column
                 source.EntireColumn.MoveTo(destination);
 
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

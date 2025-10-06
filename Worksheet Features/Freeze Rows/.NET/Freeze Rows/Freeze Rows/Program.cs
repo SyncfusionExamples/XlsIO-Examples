@@ -11,8 +11,7 @@ namespace Freeze_Rows
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(@Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Applying freeze rows to the sheet by specifying a cell
@@ -21,13 +20,8 @@ namespace Freeze_Rows
                 //Set first visible row in the bottom pane
                 worksheet.FirstVisibleRow = 3;
 
-                //Saving the workbook as stream
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }
