@@ -1,8 +1,4 @@
-﻿using Syncfusion.Pdf;
-using Syncfusion.XlsIO;
-using Syncfusion.XlsIORenderer;
-using System;
-using static System.Net.Mime.MediaTypeNames;
+﻿using Syncfusion.XlsIO;
 
 class Program
 {
