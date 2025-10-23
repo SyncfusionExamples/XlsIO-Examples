@@ -86,6 +86,9 @@ class ExcelContentTranslator
 
         IWorkbook workbook = excelApp.Workbooks.Open(excelFilePath);
 
+        // Store translation results
+        Dictionary<string, string> translationResults = new Dictionary<string, string>();
+
         // Convert each worksheet to CSV format and append to the context
         foreach (IWorksheet worksheet in workbook.Worksheets)
         {
@@ -115,8 +118,8 @@ class ExcelContentTranslator
                 for (int col = firstCol; col <= lastCol; col++)
                 {
 
-                    // Skip formula cells
-                    if (worksheet[row, col].HasFormula)
+                    // Skip formula, number, boolean, and date time cells
+                    if (worksheet[row, col].HasBoolean || worksheet[row, col].HasDateTime || worksheet[row, col].HasFormula || worksheet[row, col].HasNumber)
                     {
                         continue;
                     }
@@ -131,12 +134,18 @@ class ExcelContentTranslator
                     }
 
                     // Prepare user prompt
-                    string userPrompt = cellValue;
+                    string userPrompt = cellValue;                    
 
                     try
                     {
-                        // Get translated text from OpenAI
-                        string translatedText = await AskOpenAIAsync(openAIApiKey, "gpt-4o-mini", systemPrompt, userPrompt);
+                        string translatedText = cellValue;
+                        
+                        if (!translationResults.TryGetValue(cellValue, out translatedText))
+                        {
+                            // Get translated text from OpenAI
+                            translatedText = await AskOpenAIAsync(openAIApiKey, "gpt-4o-mini", systemPrompt, userPrompt);
+                            translationResults.Add(cellValue, translatedText);
+                        }
                         worksheet.SetValue(row, col, translatedText);
                     }
                     catch (Exception ex)
