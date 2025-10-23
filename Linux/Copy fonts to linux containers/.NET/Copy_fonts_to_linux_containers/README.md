@@ -1,7 +1,7 @@
 Copy necessary fonts to Linux containers
 ----------------------------------------
 
-XlsIO's Excel-to-PDF conversion on Linux uses the system fonts available inside the container. By default, only a few fonts are installed. Copy the required fonts to "/usr/local/share/fonts/" and refresh the font cache so they are used during conversion.
+XlsIO's Excel-to-PDF conversion on Linux uses the system fonts available inside the container. By default, only a few fonts are installed. Copy the required fonts to "/usr/local/share/fonts/" before conversion.
 
 How to run this example
 -----------------------
