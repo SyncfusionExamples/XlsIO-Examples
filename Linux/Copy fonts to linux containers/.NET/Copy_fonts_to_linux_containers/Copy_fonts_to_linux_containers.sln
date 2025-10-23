@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Copy_fonts_to_linux_containers", "Copy_fonts_to_linux_containers\Copy_fonts_to_linux_containers.csproj", "{99A9E4D7-F051-40E7-AD6B-299EA8596F68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99A9E4D7-F051-40E7-AD6B-299EA8596F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A9E4D7-F051-40E7-AD6B-299EA8596F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A9E4D7-F051-40E7-AD6B-299EA8596F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A9E4D7-F051-40E7-AD6B-299EA8596F68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6F934CE-C083-4CAF-A048-13ACF61362E4}
+	EndGlobalSection
+EndGlobal
