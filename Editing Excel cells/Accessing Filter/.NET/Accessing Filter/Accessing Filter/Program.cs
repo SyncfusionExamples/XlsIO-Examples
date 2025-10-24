@@ -12,8 +12,7 @@ namespace Accessing_Filter
 			{
 				IApplication application = excelEngine.Excel;
 				application.DefaultVersion = ExcelVersion.Xlsx;
-				FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-				IWorkbook workbook = application.Workbooks.Open(inputStream);
+				IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 				IWorksheet worksheet = workbook.Worksheets[0];
 
                 #region Accessing Filter
@@ -61,8 +60,7 @@ namespace Accessing_Filter
 				}
 				#endregion
 
-				//Dispose streams
-				inputStream.Dispose();
+				workbook.SaveAs("Output.xlsx");
 			}
 		}
     }

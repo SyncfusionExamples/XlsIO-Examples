@@ -28,12 +28,8 @@ namespace Access_Discontinuous_Range
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/DiscontinuousRange.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/DiscontinuousRange.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }

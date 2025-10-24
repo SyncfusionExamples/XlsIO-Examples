@@ -11,8 +11,7 @@ namespace Replace
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(fileStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Replaces the given string with another string
@@ -30,11 +29,9 @@ namespace Replace
                 //Replaces the given string with Array
                 worksheet.Replace("Central", new string[] { "Central", "East" }, true);
 
-                //Saving the workbook as stream
-                FileStream stream = new FileStream(Path.GetFullPath("Output/Replace.xlsx"), FileMode.Create, FileAccess.ReadWrite);
+                //Saving the workbook 
                 workbook.Version = ExcelVersion.Xlsx;
-                workbook.SaveAs(stream);
-                stream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/Replace.xlsx"));
             }
         }
     }

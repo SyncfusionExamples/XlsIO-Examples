@@ -11,8 +11,7 @@ namespace Find
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(fileStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Searches for the given string within the text of worksheet
@@ -69,10 +68,8 @@ namespace Find
                     cell.CellStyle.Color = Syncfusion.Drawing.Color.FromArgb(255, 0, 128, 128); 
                 }
 
-                //Saving the workbook as stream
-                FileStream stream = new FileStream(Path.GetFullPath(@"Output/Find.xlsx"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(stream);
-                stream.Dispose();
+                //Saving the workbook 
+                workbook.SaveAs(Path.GetFullPath(@"Output/Find.xlsx"));
             }
         }
     }
