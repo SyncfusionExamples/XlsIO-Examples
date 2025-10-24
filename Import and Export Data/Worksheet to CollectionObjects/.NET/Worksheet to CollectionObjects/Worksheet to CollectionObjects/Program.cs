@@ -13,15 +13,11 @@ namespace Worksheet_to_CollectionObjects
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Export worksheet data into Collection Objects
                 List<Report> collectionObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
-
-                //Dispose streams
-                inputStream.Dispose();
             }
         }
         public class Report

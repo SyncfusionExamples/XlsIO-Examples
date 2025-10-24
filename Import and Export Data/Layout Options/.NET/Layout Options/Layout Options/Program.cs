@@ -45,12 +45,8 @@ namespace Layout_Options
 
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportData.xlsx"), FileMode.Create, FileAccess.Write);
-            workbook.SaveAs(outputStream);
+            workbook.SaveAs(Path.GetFullPath("Output/ImportData.xlsx"));
             #endregion
-
-            //Dispose streams
-            outputStream.Dispose();
         }
         //Helper method to load data from XML file and add them in collections. 
         private static IList<Brand> GetVehicleDetails()
@@ -58,8 +54,7 @@ namespace Layout_Options
             XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
 
             //Read data from XML file. 
-            FileStream stream = new FileStream(Path.GetFullPath(@"Data/ExportData.xml"), FileMode.Open, FileAccess.Read);
-            TextReader textReader = new StreamReader(stream);
+            TextReader textReader = new StreamReader(Path.GetFullPath(@"Data/ExportData.xml"));
             BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
 
             //Initialize parent collection to add data from XML file. 
