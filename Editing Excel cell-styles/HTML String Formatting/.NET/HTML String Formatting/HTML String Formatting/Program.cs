@@ -17,12 +17,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     #region Save
     //Saving the workbook
-    FileStream outputStream = new FileStream(Path.GetFullPath("Output/HTMLString.xlsx"), FileMode.Create, FileAccess.Write);
-    workbook.SaveAs(outputStream);
+    workbook.SaveAs(Path.GetFullPath("Output/HTMLString.xlsx"));
     #endregion
-
-    //Dispose streams
-    outputStream.Dispose();
 }
 
 
