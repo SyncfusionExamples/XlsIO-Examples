@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33103.201
+VisualStudioVersion = 17.14.36518.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditExcel", "EditExcel\EditExcel.csproj", "{4C6F4C79-3C80-434B-AD00-584EB5B08DA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditExcel", "EditExcel\EditExcel.csproj", "{D88B6439-F320-42AB-A8F9-96A628B90316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C6F4C79-3C80-434B-AD00-584EB5B08DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C6F4C79-3C80-434B-AD00-584EB5B08DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C6F4C79-3C80-434B-AD00-584EB5B08DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C6F4C79-3C80-434B-AD00-584EB5B08DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88B6439-F320-42AB-A8F9-96A628B90316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88B6439-F320-42AB-A8F9-96A628B90316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88B6439-F320-42AB-A8F9-96A628B90316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88B6439-F320-42AB-A8F9-96A628B90316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E4B2ED01-B1ED-413A-83C6-8AD15850189C}
+		SolutionGuid = {64922B5F-04CB-4850-AB68-3ED6052BBA02}
 	EndGlobalSection
 EndGlobal
