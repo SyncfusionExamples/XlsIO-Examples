@@ -12,8 +12,7 @@ namespace Worksheet_to_Nested_Class
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Map column headers in worksheet with class properties. 
@@ -26,9 +25,6 @@ namespace Worksheet_to_Nested_Class
 
                 //Export worksheet data into nested class Objects.
                 List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
-
-                //Dispose streams
-                inputStream.Dispose();
             }
         }
     }

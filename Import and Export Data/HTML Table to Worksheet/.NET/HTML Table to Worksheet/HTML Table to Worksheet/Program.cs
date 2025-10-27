@@ -20,12 +20,10 @@ namespace HTML_Table_to_Worksheet
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/HTMLTabletoWorksheet.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/HTMLTabletoWorksheet.xlsx"));
                 #endregion
 
                 //Dispose streams
-                outputStream.Dispose();
                 inputStream.Dispose();
             }
         }
