@@ -25,16 +25,12 @@ namespace Row_and_Column_Style
                 worksheet.SetDefaultRowStyle(1, 2, rowStyle);
                 //Set default column style for entire column
                 worksheet.SetDefaultColumnStyle(1, 2, columnStyle);
-				#endregion
+                #endregion
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/RowColumnStyle.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/RowColumnStyle.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }
