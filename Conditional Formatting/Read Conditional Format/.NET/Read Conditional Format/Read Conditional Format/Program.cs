@@ -11,16 +11,14 @@ namespace Read_Conditional_Format
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"), ExcelOpenType.Automatic);
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Read conditional formatting settings 
                 string formatType = worksheet.Range["A1"].ConditionalFormats[0].FormatType.ToString();
                 string cfOperator = worksheet.Range["A1"].ConditionalFormats[0].Operator.ToString();
 
-                //Dispose streams
-                inputStream.Dispose();
+                workbook.SaveAs("Output.xlsx");
             }
         }
     }
