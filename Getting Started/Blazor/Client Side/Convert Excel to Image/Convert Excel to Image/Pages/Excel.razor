@@ -1,0 +1,45 @@
+﻿@page "/xlsio"
+@using Convert_Excel_to_Image
+@using Syncfusion.XlsIO
+@using Syncfusion.Pdf
+@using Syncfusion.XlsIORenderer
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion Excel library (Essential XlsIO)</h2>
+<p>Syncfusion Excel library (Essential XlsIO)  is a Blazor Excel library used to create, read, edit, and convert Excel files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertExceltoImage">Convert Excel to Image</button>
+
+@code {
+    @functions {
+    private async Task ConvertExceltoImage()
+    {
+        using (ExcelEngine excelEngine = new ExcelEngine())
+        {
+            IApplication application = excelEngine.Excel;
+            application.DefaultVersion = ExcelVersion.Xlsx;
+
+            using (Stream excelStream = await client.GetStreamAsync("Data/InputTemplate.xlsx"))
+            {
+                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                // Initialize XlsIO renderer
+                application.XlsIORenderer = new XlsIORenderer();
+
+                // Create MemoryStream to hold the image
+                using (MemoryStream imageStream = new MemoryStream())
+                {
+                    worksheet.ConvertToImage(worksheet.UsedRange, imageStream);
+                    imageStream.Position = 0;
+
+                    // Save image to browser
+                    await JS.SaveAs("Sample.jpeg", imageStream.ToArray());
+                }
+            }
+        }
+}
+    }
+}

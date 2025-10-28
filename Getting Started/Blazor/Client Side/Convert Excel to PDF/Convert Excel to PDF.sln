@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.9.34310.174
+VisualStudioVersion = 17.14.36616.10 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert Excel to PDF", "Convert Excel to PDF\Convert Excel to PDF.csproj", "{39D64370-FF1B-4F4C-BAF0-834E88A581BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert Excel to PDF", "Convert Excel to PDF\Convert Excel to PDF.csproj", "{7B7CE9B9-CB81-4436-AD66-BB373B8FA220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39D64370-FF1B-4F4C-BAF0-834E88A581BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39D64370-FF1B-4F4C-BAF0-834E88A581BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39D64370-FF1B-4F4C-BAF0-834E88A581BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39D64370-FF1B-4F4C-BAF0-834E88A581BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7CE9B9-CB81-4436-AD66-BB373B8FA220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7CE9B9-CB81-4436-AD66-BB373B8FA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7CE9B9-CB81-4436-AD66-BB373B8FA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7CE9B9-CB81-4436-AD66-BB373B8FA220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {37730C31-8392-4B7D-B960-7377B0A6FD3C}
+		SolutionGuid = {D2409042-2246-4C4B-93C6-A23288CEE846}
 	EndGlobalSection
 EndGlobal
