@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.21" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.21" PrivateAssets="all" />
-    <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.1" />
+    <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.116.1" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="31.2.3" />
   </ItemGroup>
 
