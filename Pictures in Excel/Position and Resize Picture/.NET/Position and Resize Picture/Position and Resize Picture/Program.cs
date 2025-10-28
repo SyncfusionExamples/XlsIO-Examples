@@ -28,12 +28,10 @@ namespace Position_and_Resize_Picture
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ResizePicture.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/ResizePicture.xlsx"));
                 #endregion
 
                 //Dispose streams
-                outputStream.Dispose();
                 imageStream.Dispose();
             }
         }

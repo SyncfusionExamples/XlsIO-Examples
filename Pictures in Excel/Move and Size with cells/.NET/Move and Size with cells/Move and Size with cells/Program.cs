@@ -28,13 +28,11 @@ namespace Move_and_Size_with_cells
                 //Hide the column
                 worksheet.HideColumn(5);
 
-                //Saving the workbook as stream
-                FileStream OutputStream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(OutputStream);
+                //Saving the workbook 
+                workbook.SaveAs(Path.GetFullPath(@"Output/Output.xlsx"));
 
                 //Dispose streams
                 imageStream.Dispose();
-                OutputStream.Dispose();
             }
         }
     }
