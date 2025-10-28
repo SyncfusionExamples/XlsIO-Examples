@@ -12,8 +12,7 @@ namespace Picture_Hyperlink_in_Chart
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Adding chart in the workbook
@@ -38,13 +37,10 @@ namespace Picture_Hyperlink_in_Chart
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Chart.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/Chart.xlsx"));
                 #endregion
 
                 //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
                 imageStream.Dispose();
             }
         }
