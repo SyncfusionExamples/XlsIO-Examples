@@ -13,9 +13,7 @@ namespace Apply_Scenario
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/WhatIfAnalysisTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-                inputStream.Dispose();
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/WhatIfAnalysisTemplate.xlsx"), ExcelOpenType.Automatic);
 
                 IWorksheet worksheet = workbook.Worksheets[0];
 
@@ -33,11 +31,8 @@ namespace Apply_Scenario
 
                     newSheet.Name = scenarios[pos].Name;
 
-                    //Saving the new workbook as a stream
-                    using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/" + scenarios[pos].Name + ".xlsx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        newBook.SaveAs(stream);
-                    }
+                    //Saving the new workbook
+                    newBook.SaveAs(Path.GetFullPath(@"Output/" + scenarios[pos].Name + ".xlsx"));
 
                     //To restore the cell values from the previous scenario results
                     scenarios["Current % of Change"].Show();
