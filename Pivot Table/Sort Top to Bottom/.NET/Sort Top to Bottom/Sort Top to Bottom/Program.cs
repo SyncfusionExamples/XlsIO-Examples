@@ -11,8 +11,7 @@ namespace Sort_Top_to_Bottom
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet sheet = workbook.Worksheets[1];
                 IPivotTable pivotTable = sheet.PivotTables[0];
 
@@ -22,13 +21,8 @@ namespace Sort_Top_to_Bottom
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotSort.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/PivotSort.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }

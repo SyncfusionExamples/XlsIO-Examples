@@ -11,8 +11,7 @@ namespace Create_Pivot_Table
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/PivotData.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/PivotData.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
                 IWorksheet pivotSheet = workbook.Worksheets[1];
 
@@ -33,13 +32,8 @@ namespace Create_Pivot_Table
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PivotTable.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/PivotTable.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }
