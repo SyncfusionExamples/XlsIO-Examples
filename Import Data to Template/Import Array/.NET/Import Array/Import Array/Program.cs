@@ -13,8 +13,7 @@ namespace Import_Array
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 // Open an existing workbook.
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"), ExcelOpenType.Automatic);
 
                 // Create Template Marker Processor.
                 ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
@@ -31,12 +30,8 @@ namespace Import_Array
                 marker.ApplyMarkers();
 
                 // Saving the workbook.
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportArray.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/ImportArray.xlsx"));
 
-                //Dispose streams
-                inputStream.Dispose();
-                outputStream.Dispose();
             }
         }
     }

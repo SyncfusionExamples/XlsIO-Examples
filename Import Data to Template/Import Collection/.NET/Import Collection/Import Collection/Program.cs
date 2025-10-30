@@ -13,8 +13,7 @@ namespace Import_Collection
             application.DefaultVersion = ExcelVersion.Xlsx;
 
             // Open an existing workbook.
-            FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-            IWorkbook workbook = application.Workbooks.Open(inputStream);
+            IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
             // Create Template Marker Processor.
             ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
@@ -29,12 +28,7 @@ namespace Import_Collection
             marker.ApplyMarkers();
 
             // Saving the workbook.
-            FileStream outputStream = new FileStream(Path.GetFullPath("Output/ImportCollection.xlsx"), FileMode.Create, FileAccess.Write);
-            workbook.SaveAs(outputStream);
-
-            //Dispose streams
-            inputStream.Dispose();
-            outputStream.Dispose();
+            workbook.SaveAs(Path.GetFullPath("Output/ImportCollection.xlsx"));
         }
         // Gets a list of sales reports.
         private static List<Report> GetSalesReports()
