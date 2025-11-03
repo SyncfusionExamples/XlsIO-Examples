@@ -12,10 +12,9 @@ namespace UnProtectWorksheet
             {
                 IApplication application = excelEngine.Excel;
 				application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/ProtectedWorksheet.xlsx"), FileMode.Open, FileAccess.ReadWrite);
 
                 //Open Excel
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/ProtectedWorksheet.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //UnProtect worksheet with password
@@ -23,13 +22,8 @@ namespace UnProtectWorksheet
 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/UnProtectedSheet.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/UnProtectedSheet.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-				inputStream.Dispose();
             }
         }
     }
