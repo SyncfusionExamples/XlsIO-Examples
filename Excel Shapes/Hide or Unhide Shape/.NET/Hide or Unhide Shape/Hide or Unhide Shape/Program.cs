@@ -14,8 +14,7 @@ namespace Hide_Unhide_Shapes
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream inputStream = new FileStream("Data/Input.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Input.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 IShapes shapes = worksheet.Shapes;
@@ -29,11 +28,8 @@ namespace Hide_Unhide_Shapes
                 //Set shape2 to be visible
                 shape2.IsHidden = false;
 
-                //Saving the workbook as stream
-                FileStream outputStream = new FileStream("Output/Output.xlsx", FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-                outputStream.Dispose();
-                inputStream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs("Output/Output.xlsx");
             }
 
         }

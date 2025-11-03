@@ -45,12 +45,8 @@ namespace Combo_Box
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ComboBox.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/ComboBox.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }

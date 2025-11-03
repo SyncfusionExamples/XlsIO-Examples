@@ -35,12 +35,8 @@ namespace AutoShapes
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/AutoShapes.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/AutoShapes.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }
