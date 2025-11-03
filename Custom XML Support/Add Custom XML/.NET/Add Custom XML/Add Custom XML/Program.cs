@@ -24,20 +24,10 @@ namespace Add_Custom_XML
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/CreateCustomXML.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/CreateCustomXML.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-
                 //Open default JSON
             }
         }
     }
 }
-
-
-
-
-
