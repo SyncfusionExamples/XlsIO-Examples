@@ -14,8 +14,7 @@ namespace Hidden_Worksheet_Names
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream inputStream = new FileStream("Data/Input.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Input.xlsx"));
 
                 //Get the worksheets collection
                 WorksheetsCollection worksheets = workbook.Worksheets as WorksheetsCollection;
@@ -26,10 +25,6 @@ namespace Hidden_Worksheet_Names
                     if (worksheet.Visibility == WorksheetVisibility.Hidden)
                         Console.WriteLine(worksheet.Name);
                 }
-
-                //Dispose streams
-                inputStream.Dispose();
-
             }
         }
     }

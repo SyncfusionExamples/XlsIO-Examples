@@ -9,8 +9,7 @@ class Program
         {
             IApplication application = excelEngine.Excel;
             application.DefaultVersion = ExcelVersion.Xlsx;
-            FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.xlsx"), FileMode.Open, FileAccess.Read);
-            IWorkbook workbook = application.Workbooks.Open(inputStream);
+            IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"../../../Data/Input.xlsx"));
             IWorksheet worksheet = workbook.Worksheets[0];
 
             //Creating an AutoFilter 
@@ -23,12 +22,7 @@ class Program
             firstCondition.String = "1000.00";
 
             //Saving the workbook
-            FileStream outputStream = new FileStream(Path.GetFullPath("../../../Output/Output.xlsx"), FileMode.Create, FileAccess.Write);
-            workbook.SaveAs(outputStream);
-
-            //Dispose streams
-            outputStream.Dispose();
-            inputStream.Dispose();
+            workbook.SaveAs(Path.GetFullPath("../../../Output/Output.xlsx"));
         }
     }
 }

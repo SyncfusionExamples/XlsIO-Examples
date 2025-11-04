@@ -24,13 +24,10 @@ namespace AddBarcode
                 worksheet.Pictures.AddPicture(15, 10, barcode2);
 
                 // Save to file system
-                FileStream stream = new FileStream("Output/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                workbook.SaveAs(stream);
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
                 workbook.Close();
                 excelEngine.Dispose();
             }
-
         }
-
     }
 }
