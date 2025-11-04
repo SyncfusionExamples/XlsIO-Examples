@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px"> Working with Formulas in Excel</h2>
+    <div>
+        <button style="width: 250px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("AddFormula", "Home")'">
+            Add Formula
+        </button>
+        <button style="width: 250px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("CrossSheetReference", "Home")'">
+            Cross-Sheet Reference
+        </button>
+        <button style="width: 250px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("NamedRanges", "Home")'">
+            Named Ranges
+        </button>
+        <button style="width: 250px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("ArrayFormula", "Home")'">
+            Array Formula
+        </button>
+        <button style="width: 250px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("TableFormula", "Home")'">
+            Table Formula
+        </button>
+    </div>
+</div>
