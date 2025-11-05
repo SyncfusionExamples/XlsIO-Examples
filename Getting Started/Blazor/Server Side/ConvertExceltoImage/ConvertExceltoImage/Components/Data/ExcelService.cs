@@ -15,8 +15,7 @@ namespace ConvertExceltoImage.Components.Data
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream excelStream = new FileStream("InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx");
                 IWorksheet worksheet = workbook.Worksheets[0];
                 //Initialize XlsIO renderer.
                 application.XlsIORenderer = new XlsIORenderer();
