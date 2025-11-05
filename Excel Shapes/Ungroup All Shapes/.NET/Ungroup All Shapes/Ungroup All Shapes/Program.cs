@@ -12,8 +12,7 @@ namespace Ungroup_All_Shapes
 
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 IShapes shapes = worksheet.Shapes;
@@ -23,12 +22,8 @@ namespace Ungroup_All_Shapes
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/UngroupAllShapes.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/UngroupAllShapes.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }

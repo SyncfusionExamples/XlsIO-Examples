@@ -37,12 +37,8 @@ namespace Formatting_Comment
                 comment.Fill.ForeColorIndex = ExcelKnownColors.Red;
                 comment.Fill.BackColorIndex = ExcelKnownColors.White;
 
-                //Saving the workbook as stream
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.xlsx"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream);
-
-                //Dispose stream
-                outputStream.Dispose();
+                //Saving the workbook
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }
