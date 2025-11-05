@@ -10,16 +10,10 @@ namespace Excel_to_CSV
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
-                //Saving the workbook as streams
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Excel to CSV.csv"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream, ",");
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
+                //Saving the workbook 
+                workbook.SaveAs(Path.GetFullPath("Output/Excel to CSV.csv"), ",");
             }
         }
     }
