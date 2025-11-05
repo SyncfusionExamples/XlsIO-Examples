@@ -34,26 +34,24 @@ namespace Convert_Excel_to_PDF
 
                 //Load an existing file
                 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-                using (Stream inputStream = assembly.GetManifestResourceStream("Convert_Excel_to_PDF.InputTemplate.xlsx"))
-                {
-                    IWorkbook workbook =application.Workbooks.Open(inputStream);
+               
+                IWorkbook workbook =application.Workbooks.Open(assembly.GetManifestResourceStream("Convert_Excel_to_PDF.InputTemplate.xlsx"));
 
-                    //Initialize XlsIO renderer.
-                    XlsIORenderer renderer = new XlsIORenderer();
+                //Initialize XlsIO renderer.
+                XlsIORenderer renderer = new XlsIORenderer();
 
-                    //Convert Excel document into PDF document 
-                    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+                //Convert Excel document into PDF document 
+                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-                    //Create the MemoryStream to save the converted PDF.      
-                    MemoryStream pdfStream = new MemoryStream();
+                //Create the MemoryStream to save the converted PDF.      
+                MemoryStream pdfStream = new MemoryStream();
 
-                    //Save the converted PDF document to MemoryStream.
-                    pdfDocument.Save(pdfStream);
-                    pdfStream.Position = 0;
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
 
-                    // Save the PDF file or perform any other action with the PDF
-                    SavePDF(pdfStream);
-                }
+                // Save the PDF file or perform any other action with the PDF
+                SavePDF(pdfStream);          
             }
         }
 

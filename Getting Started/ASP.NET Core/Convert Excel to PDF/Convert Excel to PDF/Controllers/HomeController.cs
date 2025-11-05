@@ -30,8 +30,7 @@ namespace Convert_Excel_to_PDF.Controllers
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //load an existing file
-                FileStream excelStream = new FileStream("Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize XlsIO renderer.
                 XlsIORenderer renderer = new XlsIORenderer();

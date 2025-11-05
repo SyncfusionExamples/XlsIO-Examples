@@ -14,26 +14,16 @@ namespace Excel_to_PDF_Mac
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load existing Excel file
-                FileStream inputStream = new FileStream("Data/Sample.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Sample.xlsx"));
 
                 //Convert to PDF
                 XlsIORenderer renderer = new XlsIORenderer();
                 PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-                //Create the MemoryStream to save the converted PDF.      
-                MemoryStream pdfStream = new MemoryStream();
-
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Sample.pdf"), FileMode.Create, FileAccess.Write);
-                pdfDocument.Save(outputStream);
+                pdfDocument.Save(Path.GetFullPath("Output/Sample.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
-
             }
         }
     }

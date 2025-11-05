@@ -18,8 +18,7 @@ namespace Convert_Excel_to_PDF
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load an existing file
-                FileStream excelStream = new FileStream(Server.MapPath("~/App_Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorkbook workbook = application.Workbooks.Open(Server.MapPath("~/App_Data/InputTemplate.xlsx"));
 
                 //Initialize ExcelToPdfConverter
                 ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
