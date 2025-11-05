@@ -12,21 +12,11 @@ namespace TSV_to_Excel
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Open the TSV file
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.tsv"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, "\t");
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.tsv"), "\t");
 
                 //Save the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/TSV to Excel.xlsx"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
+                workbook.SaveAs(Path.GetFullPath("Output/TSV to Excel.xlsx"));
             }
         }
     }
 }
-
-
-
-
