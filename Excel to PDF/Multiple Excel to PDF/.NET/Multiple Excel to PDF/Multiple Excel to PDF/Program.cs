@@ -13,11 +13,9 @@ namespace Multiple_Excel_to_PDF
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream1 = new FileStream(Path.GetFullPath(@"Data/Template1.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook1 = application.Workbooks.Open(inputStream1);
+                IWorkbook workbook1 = application.Workbooks.Open(Path.GetFullPath(@"Data/Template1.xlsx"));
 
-                FileStream inputStream2 = new FileStream(Path.GetFullPath(@"Data/Template2.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook2 = application.Workbooks.Open(inputStream2);
+                IWorkbook workbook2 = application.Workbooks.Open(Path.GetFullPath(@"Data/Template2.xlsx"));
 
                 //Initialize XlsIORenderer
                 XlsIORenderer renderer = new XlsIORenderer();
@@ -36,20 +34,9 @@ namespace Multiple_Excel_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/MultipleExcelToPDF.pdf"), FileMode.Create, FileAccess.Write);
-                newDocument.Save(outputStream);
+                newDocument.Save(Path.GetFullPath("Output/MultipleExcelToPDF.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream1.Dispose();
-                inputStream2.Dispose();
             }
         }
     }
 }
-
-
-
-
-

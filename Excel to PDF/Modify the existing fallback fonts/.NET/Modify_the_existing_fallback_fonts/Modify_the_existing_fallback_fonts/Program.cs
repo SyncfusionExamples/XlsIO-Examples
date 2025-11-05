@@ -14,8 +14,7 @@ namespace Fallback_fonts_based_in_scripttype
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(fileStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize XlsIORenderer
                 application.XlsIORenderer = new XlsIORenderer();
@@ -37,13 +36,11 @@ namespace Fallback_fonts_based_in_scripttype
                 //Convert Excel document into PDF document 
                 PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-                //Save the PDF document to stream
-                FileStream stream = new FileStream("Sample.pdf", FileMode.Create, FileAccess.ReadWrite);
-                pdfDocument.Save(stream);
+                //Save the PDF document 
+                pdfDocument.Save("Sample.pdf");
 
                 //Close and Dispose
                 workbook.Close();
-                stream.Dispose();
             }
         }
     }

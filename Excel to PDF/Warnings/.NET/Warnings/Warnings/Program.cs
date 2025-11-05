@@ -14,8 +14,7 @@ namespace Warnings
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 //Open the Excel document to convert.
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize warning class to capture warnings during the conversion.
                 Warning warning = new Warning();
@@ -37,14 +36,9 @@ namespace Warnings
                 {
                     #region Save
                     //Saving the workbook
-                    FileStream outputStream = new FileStream(Path.GetFullPath("Output/ExceltoPDF.pdf"), FileMode.Create, FileAccess.Write);
-                    pdfDocument.Save(outputStream);
+                    pdfDocument.Save(Path.GetFullPath("Output/ExceltoPDF.pdf"));
                     #endregion
-
-                    //Dispose streams
-                    outputStream.Dispose();
                 }
-                inputStream.Dispose();
             }
         }
     }
@@ -61,8 +55,3 @@ namespace Warnings
         public bool Cancel { get; set; }
     }
 }
-
-
-
-
-
