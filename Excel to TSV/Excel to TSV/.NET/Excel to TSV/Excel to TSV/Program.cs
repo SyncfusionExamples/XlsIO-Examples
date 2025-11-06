@@ -11,17 +11,11 @@ namespace Excel_to_TSV
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Save the workbook in CSV format with tab(\t) as delimiter
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Excel to TSV.tsv"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(outputStream, "\t");
+                workbook.SaveAs(Path.GetFullPath("Output/Excel to TSV.tsv"), "\t");
             }
         }
     }
 }
-
-
-
-
