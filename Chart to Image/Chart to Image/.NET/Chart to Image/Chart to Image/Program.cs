@@ -27,8 +27,7 @@ namespace Chart_to_Image
                 application.XlsIORenderer.ChartRenderingOptions.ScalingMode = ScalingMode.Best;
 
                 //Open existing workbook with chart
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Access the chart from the worksheet
@@ -42,13 +41,7 @@ namespace Chart_to_Image
 
                 //Dispose streams
                 outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }
 }
-
-
-
-
-
