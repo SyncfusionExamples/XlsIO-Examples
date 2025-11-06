@@ -12,19 +12,13 @@ namespace Workbook_to_JSON_without_Schema
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 #region save as JSON
-                //Saves the workbook to a JSON file without schema
-                FileStream outputStream = new FileStream("Output/Workbook-To-JSON-without-schema.json", FileMode.Create);
-                workbook.SaveAsJson(outputStream,false);
+                //Saves the workbook to JSON file without schema
+                workbook.SaveAsJson(Path.GetFullPath(@"Output/Workbook-To-JSON-without-schema.json"),false);
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
 
                 #region Open JSON 
                 //Open default JSON

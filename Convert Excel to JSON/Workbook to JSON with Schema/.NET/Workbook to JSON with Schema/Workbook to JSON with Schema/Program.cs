@@ -12,17 +12,11 @@ namespace Workbook_to_JSON_with_Schema
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Saves the workbook to a JSON filestream as schema
-                FileStream jsonWithSchema = new FileStream(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAsJson(jsonWithSchema, true);
-
-                //Dispose streams
-                jsonWithSchema.Dispose();
-                inputStream.Dispose();
+                //Saves the workbook to JSON as schema
+                workbook.SaveAsJson(Path.GetFullPath("Output/Excel-Workbook-To-JSON-as-schema.json"), true);
             }
         }
     }

@@ -24,12 +24,8 @@ namespace Excel_to_HTML
 
                 #region Save as HTML
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.html"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAsHtml(outputStream, saveOptions);
+                workbook.SaveAsHtml(Path.GetFullPath("Output/Output.html"), saveOptions);
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
             }
         }
     }
