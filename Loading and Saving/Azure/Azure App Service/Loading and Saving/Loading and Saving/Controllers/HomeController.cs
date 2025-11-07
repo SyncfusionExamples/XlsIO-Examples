@@ -27,8 +27,7 @@ namespace Loading_and_Saving.Controllers
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load an existing Excel document
-                FileStream inputStream = new FileStream("Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open("Data/InputTemplate.xlsx");
 
                 //Access first worksheet from the workbook.
                 IWorksheet worksheet = workbook.Worksheets[0];
