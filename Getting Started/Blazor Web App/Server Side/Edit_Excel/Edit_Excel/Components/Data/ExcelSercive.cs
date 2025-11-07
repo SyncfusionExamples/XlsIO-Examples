@@ -20,8 +20,7 @@ namespace Edit_Excel.Components.Data
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load the existing Excel workbook into IWorkbook
-                FileStream inputStream = new FileStream("InputTemplate.xlsx", FileMode.Open);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open("InputTemplate.xlsx");
 
                 //Get the first worksheet in the workbook into IWorksheet
                 IWorksheet worksheet = workbook.Worksheets[0];
