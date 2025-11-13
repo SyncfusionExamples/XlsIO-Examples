@@ -179,11 +179,8 @@ namespace Create_Excel
                 worksheet.Range["A9:A14"].RowHeight = 15;
                 worksheet.Range["A15:A23"].RowHeight = 18;
 
-                //Saving the Excel to the Stream 
-                using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/Output.xlsx"), FileMode.Create, FileAccess.Write))
-                {
-                    workbook.SaveAs(stream);
-                }
+                //Saving the Excel 
+                workbook.SaveAs(Path.GetFullPath(@"Output/Output.xlsx"));               
                 imageStream.Dispose();
             }
         }
