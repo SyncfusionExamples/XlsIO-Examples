@@ -12,8 +12,7 @@ namespace Read_and_Edit_Excel
 
             #region Open
             //Loads or open an existing workbook through Open method of IWorkbook
-            FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Open(inputStream);
+            IWorkbook workbook = excelEngine.Excel.Workbooks.Open(@"Data/InputTemplate.xlsx");
             #endregion
 
             //Set the version of the workbook
@@ -26,18 +25,13 @@ namespace Read_and_Edit_Excel
 
             #region Save
             //Saving the workbook
-            FileStream outputStream = new FileStream(Path.GetFullPath("Output/ReadandEditExcel.xlsx"), FileMode.Create, FileAccess.Write);
-            workbook.SaveAs(outputStream);            
+            workbook.SaveAs("Output/ReadandEditExcel.xlsx");            
             #endregion
 
             #region Close
             //Close the instance of IWorkbook
             workbook.Close();
             #endregion
-
-            //Dispose streams
-            outputStream.Dispose();
-            inputStream.Dispose();
 
             //Dispose the instance of ExcelEngine
             excelEngine.Dispose();
