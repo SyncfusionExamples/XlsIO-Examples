@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Copy_fonts_to_linux_containers": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
