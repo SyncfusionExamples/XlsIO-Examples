@@ -13,8 +13,7 @@ namespace Remove_Macro_with_Index
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xls"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xls"), ExcelOpenType.Automatic);
                 IWorksheet sheet = workbook.Worksheets[0];
 
                 //Accessing Vba project
@@ -33,7 +32,6 @@ namespace Remove_Macro_with_Index
                 #endregion
 
                 //Dispose streams
-                inputStream.Dispose();
                 outputStream.Dispose();
             }
         }

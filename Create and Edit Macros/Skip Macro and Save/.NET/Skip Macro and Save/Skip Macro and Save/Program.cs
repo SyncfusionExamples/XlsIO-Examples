@@ -14,8 +14,7 @@ namespace Skip_Macro_and_Save
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xls"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xls"), ExcelOpenType.Automatic);
                 IWorksheet sheet = workbook.Worksheets[0];
 
                 //Skip Macros while saving
@@ -28,7 +27,6 @@ namespace Skip_Macro_and_Save
                 #endregion
 
                 //Dispose streams
-                inputStream.Dispose();
                 outputStream.Dispose();
             }
         }
