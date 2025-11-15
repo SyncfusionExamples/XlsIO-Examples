@@ -12,10 +12,9 @@ namespace ProtectWorksheet
             {
                 IApplication application = excelEngine.Excel;
 				application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputData.xlsx"), FileMode.Open, FileAccess.ReadWrite);
 
                 //Open Excel
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputData.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Protect worksheet with multiple options
@@ -23,13 +22,8 @@ namespace ProtectWorksheet
                 				
 				#region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ProtectedSheet.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/ProtectedSheet.xlsx"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-				inputStream.Dispose();
             }
         }
     }
