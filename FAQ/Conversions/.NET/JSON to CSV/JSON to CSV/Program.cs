@@ -25,11 +25,7 @@ class Program
             sheet.ImportDataTable(dataTable, true, 1, 1);
 
             //Saving the workbook as CSV
-            FileStream outputStream = new FileStream(Path.GetFullPath("Output/Sample.csv"), FileMode.Create, FileAccess.ReadWrite);
-            workbook.SaveAs(outputStream, ",");
-
-            //Dispose streams
-            outputStream.Dispose();
+            workbook.SaveAs(Path.GetFullPath("Output/Sample.csv"), ",");
         }
     }
 }

@@ -54,13 +54,9 @@ namespace Traffic_Light
                 iconSet.IconSet = ExcelIconSetType.ThreeTrafficLights1;
 
                 //Saving the workbook
-                FileStream outputStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-                outputStream.Dispose();
+                workbook.SaveAs("Output.xlsx");
             }
-
         }
-
     }
 }
 

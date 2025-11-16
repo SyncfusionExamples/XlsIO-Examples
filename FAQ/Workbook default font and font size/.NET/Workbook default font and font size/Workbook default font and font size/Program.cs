@@ -23,12 +23,7 @@ namespace WorkbookDefaultFontAndFontSize
                 sheet.Range["A1"].Text = "This is default font and size";
 
                 //Save to file
-                FileStream outputStream = new FileStream("Output/Output.xlsx", FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
-
-                //Dispose streams
-                outputStream.Dispose();
-
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
             }
         }
     }

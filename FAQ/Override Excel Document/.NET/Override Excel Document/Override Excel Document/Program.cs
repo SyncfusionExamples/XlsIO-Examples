@@ -13,9 +13,8 @@ namespace Override_Excel_Document
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
-                //Open an existing Excel file as stream
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                //Open an existing Excel file 
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Sample.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 //Modify the data
@@ -26,12 +25,8 @@ namespace Override_Excel_Document
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/Sample.xlsx"), FileMode.Create, FileAccess.Write);
-                workbook.SaveAs(outputStream);
+                workbook.SaveAs(Path.GetFullPath("Output/Sample.xlsx"));
                 #endregion
-
-                //Dispose output stream
-                outputStream.Dispose();
             }
         }
     }

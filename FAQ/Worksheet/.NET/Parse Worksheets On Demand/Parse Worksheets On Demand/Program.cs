@@ -14,8 +14,7 @@ namespace Parse_Worksheets_On_Demand
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("Data/Input.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Input.xlsx"), ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
 
                 // Access the first worksheet (triggers parsing)
                 IWorksheet worksheet = workbook.Worksheets[0];
@@ -24,13 +23,10 @@ namespace Parse_Worksheets_On_Demand
                 string value = worksheet.Range["A1"].Text;
 
                 // Save to file system
-                FileStream stream = new FileStream("Output/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                workbook.SaveAs(stream);
+                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
                 workbook.Close();
                 excelEngine.Dispose();
             }
-
         }
-
     }
 }
