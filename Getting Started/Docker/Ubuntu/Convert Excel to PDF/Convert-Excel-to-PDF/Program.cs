@@ -15,8 +15,7 @@ namespace Convert_Excel_to_PDF
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream excelStream = new FileStream("Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize XlsIO renderer.
                 XlsIORenderer renderer = new XlsIORenderer();
@@ -24,14 +23,9 @@ namespace Convert_Excel_to_PDF
                 //Convert Excel document into PDF document 
                 PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-                //Create the FileStream to save the converted PDF.
-                FileStream pdfStream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
-                pdfDocument.Save(pdfStream);
+                //Save the converted PDF.
+                pdfDocument.Save("Output.pdf");
             }
         }
     }
 }
-
-
-
-

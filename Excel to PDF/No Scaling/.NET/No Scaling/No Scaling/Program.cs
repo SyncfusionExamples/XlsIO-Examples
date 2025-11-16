@@ -13,8 +13,7 @@ namespace No_Scaling
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize XlsIORendererSettings
                 XlsIORendererSettings settings = new XlsIORendererSettings();
@@ -30,13 +29,8 @@ namespace No_Scaling
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/NoScaling.pdf"), FileMode.Create, FileAccess.Write);
-                pdfDocument.Save(outputStream);
+                pdfDocument.Save(Path.GetFullPath("Output/NoScaling.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }

@@ -13,8 +13,7 @@ namespace PDF_Conformance
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Initialize XlsIO renderer.
                 XlsIORenderer renderer = new XlsIORenderer();
@@ -30,19 +29,9 @@ namespace PDF_Conformance
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/PDFConformance.pdf"), FileMode.Create, FileAccess.Write);
-                pdfDocument.Save(outputStream);
+                pdfDocument.Save(Path.GetFullPath("Output/PDFConformance.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }
 }
-
-
-
-
-

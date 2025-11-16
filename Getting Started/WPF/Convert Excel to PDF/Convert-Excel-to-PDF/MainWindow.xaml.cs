@@ -25,8 +25,7 @@ namespace Convert_Excel_to_PDF
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Load an existing file
-                FileStream excelStream = new FileStream("../../Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(excelStream);
+                IWorkbook workbook = application.Workbooks.Open("../../Data/InputTemplate.xlsx");
 
                 //Initialize ExcelToPdfConverter
                 ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
@@ -39,7 +38,6 @@ namespace Convert_Excel_to_PDF
 
                 //Save the converted PDF document
                 pdfDocument.Save("Sample.pdf");
-
             }
             //Launch the PDF file
             System.Diagnostics.Process.Start("Sample.pdf");

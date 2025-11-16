@@ -15,8 +15,7 @@ namespace Selected_Worksheets_to_PDF
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
                 //Open an Excel document
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
 
                 //Get the first worksheet
                 IWorksheet worksheet1 = workbook.Worksheets[0];
@@ -41,19 +40,9 @@ namespace Selected_Worksheets_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/SelectedSheetsToPDF.pdf"), FileMode.Create, FileAccess.Write);
-                newDocument.Save(outputStream);
+                newDocument.Save(Path.GetFullPath("Output/SelectedSheetsToPDF.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }
 }
-
-
-
-
-

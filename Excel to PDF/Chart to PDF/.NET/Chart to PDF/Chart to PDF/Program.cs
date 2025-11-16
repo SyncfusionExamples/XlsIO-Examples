@@ -13,8 +13,7 @@ namespace Chart_to_PDF
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
                 IChart chart = worksheet.Charts[0];
@@ -27,13 +26,8 @@ namespace Chart_to_PDF
 
                 #region Save
                 //Saving the workbook
-                FileStream outputStream = new FileStream(Path.GetFullPath("Output/ChartToPDF.pdf"), FileMode.Create, FileAccess.Write);
-                pdfDocument.Save(outputStream);
+                pdfDocument.Save(Path.GetFullPath("Output/ChartToPDF.pdf"));
                 #endregion
-
-                //Dispose streams
-                outputStream.Dispose();
-                inputStream.Dispose();
             }
         }
     }
