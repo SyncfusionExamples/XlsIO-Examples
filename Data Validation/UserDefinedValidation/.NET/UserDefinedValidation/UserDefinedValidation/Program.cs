@@ -14,7 +14,7 @@ namespace UserDefinedValidation
                 IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/InputTemplate.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Data validation for the user-defined list
+                //Data validation for the user-defined range
                 IDataValidation validation = worksheet.Range["C3"].DataValidation;
                 validation.AllowType = ExcelDataType.User;
                 validation.FirstFormula = "=Sheet1!$B$1:$B$3";
