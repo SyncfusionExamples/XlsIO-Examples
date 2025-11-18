@@ -2,21 +2,20 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>Paper_Size</RootNamespace>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
-	<None Update="Data\*">
+	<None Update="Output\*">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
-	<None Update="Output\*">
+	<None Update="Data\*">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
   </ItemGroup>
