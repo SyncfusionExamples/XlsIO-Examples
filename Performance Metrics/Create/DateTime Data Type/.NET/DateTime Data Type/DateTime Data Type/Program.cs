@@ -14,14 +14,23 @@ namespace DateTime_Data_Type
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet sheet = workbook.Worksheets[0];
 
-                //Fill 150 rows × 10,000 columns with date
-                for (int row = 1; row <= 150; row++)
+                DateTime dateTime = new DateTime(1900, 1, 1);
+
+                //Fill 10,000 rows × 50 columns with date
+                for (int row = 1; row <= 100000; row++)
                 {
-                    for (int col = 1; col <= 10000; col++)
+                    for (int column = 1; column <= 50; column++)
                     {
-                        sheet[row, col].DateTime = new DateTime(2025, 1, 1).AddDays(col);
+
+                        //Date Time set method
+                        sheet.SetValue(row, column, dateTime.ToString(), "mm/dd/yyyy");
+
                     }
+                    dateTime = dateTime.AddDays(1);
                 }
+
+
+                workbook.SaveAs(@"../../../Output/Output.xlsx");
             }
         }
     }
