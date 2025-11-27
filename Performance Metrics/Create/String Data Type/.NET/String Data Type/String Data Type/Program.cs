@@ -16,7 +16,7 @@ namespace String_Data_Type
                 IWorksheet sheet = workbook.Worksheets[0];
                                
                 int count = 0;
-                // Fill 10,000 rows × 50 columns with string
+                // Fill 100,000 rows × 50 columns with string
                 for (int row = 1; row <= 100000; row++)
                 {
                     for (int column = 1; column <= 50; column++)

@@ -16,7 +16,7 @@ namespace DateTime_Data_Type
 
                 DateTime dateTime = new DateTime(1900, 1, 1);
 
-                //Fill 10,000 rows × 50 columns with date
+                //Fill 100,000 rows × 50 columns with date
                 for (int row = 1; row <= 100000; row++)
                 {
                     for (int column = 1; column <= 50; column++)

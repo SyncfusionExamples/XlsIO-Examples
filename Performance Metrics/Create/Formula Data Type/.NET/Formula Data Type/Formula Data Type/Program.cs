@@ -14,12 +14,11 @@ namespace Formula_Data_Type
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet sheet = workbook.Worksheets[0];
 
-                //Fill 10,000 rows × 50 columns with formula
+                //Fill 100,000 rows × 50 columns with formula
                 for (int row = 2; row <= 100000; row++)
                 {
                     for (int column = 1; column <= 50; column++)
                     {
-                        //Fill 10,000 rows × 150 columns with formula
                         sheet.SetFormula(row, column, "IF(A1>10,SUM(A1,10),10)");
                     }
                 }

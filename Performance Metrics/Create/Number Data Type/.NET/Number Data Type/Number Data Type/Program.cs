@@ -18,7 +18,7 @@ namespace Number_Data_Type
 
                 int count = 0;
 
-                //Fill 10,000 rows × 50 columns with number
+                //Fill 100,000 rows × 50 columns with number
                 for (int row = 1; row <= 100000; row++)
                 {
                     for (int column = 1; column <= 50; column++)
