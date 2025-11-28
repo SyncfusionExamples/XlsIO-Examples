@@ -12,16 +12,25 @@ namespace Number_Data_Type
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 IWorkbook workbook = application.Workbooks.Create(1);
+
+                //Access the first worksheet which contains data
                 IWorksheet sheet = workbook.Worksheets[0];
 
-                //Fill 150 rows × 10,000 columns with number
-                for (int row = 1; row <= 150; row++)
+                int count = 0;
+
+                //Fill 100,000 rows × 50 columns with number
+                for (int row = 1; row <= 100000; row++)
                 {
-                    for (int col = 1; col <= 10000; col++)
+                    for (int column = 1; column <= 50; column++)
                     {
-                        sheet[row, col].Number = row * col;
+                        //Number set method
+                        sheet.SetNumber(row, column, count);
+
+                        count++;
                     }
                 }
+
+                workbook.SaveAs(@"../../../Output/Output.xlsx");
             }
         }
     }

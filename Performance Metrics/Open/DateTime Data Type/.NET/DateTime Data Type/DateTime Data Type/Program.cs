@@ -12,12 +12,24 @@ namespace DateTime_Data_Type
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
 
+                IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"../../../Data/Input.xlsx"));
 
-                FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.xlsx"), FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(fileStream);
+                //Access the first worksheet which contains data
+                IWorksheet sheet = workbook.Worksheets[0];
 
-                //Dispose streams
-                fileStream.Dispose();
+                IRange usedRange = sheet.UsedRange;
+
+                int firstRow = usedRange.Row;
+                int lastRow = usedRange.LastRow;
+                int firstcolumn = usedRange.Column;
+                int lastcolumn = usedRange.LastColumn;
+                for (int row = firstRow; row <= lastRow; row++)
+                {
+                    for (int column = firstcolumn; column <= lastcolumn; column++)
+                    {
+                        var value = sheet.GetCellValue(row, column, false);
+                    }
+                }
             }
         }
     }
