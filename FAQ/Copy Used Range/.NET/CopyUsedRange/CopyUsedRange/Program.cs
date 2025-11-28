@@ -10,8 +10,8 @@ namespace CopyUsedRange
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                IWorkbook sourceWorkbook = excelEngine.Excel.Workbooks.Open(Path.GetFullPath(@"Data/Source.xlsx"));
-                IWorkbook destinationWorkbook = excelEngine.Excel.Workbooks.Open(Path.GetFullPath(@"Data/Destination.xlsx"));
+                IWorkbook sourceWorkbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Source.xlsx"));
+                IWorkbook destinationWorkbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Destination.xlsx"));
 
                 IWorksheet sourceWorksheet = sourceWorkbook.Worksheets["Sheet1"];
                 IWorksheet destinationWorksheet = destinationWorkbook.Worksheets["Sheet1"];
