@@ -23,7 +23,7 @@ namespace CopyUsedRange
                 sourceRange.CopyTo(destinationWorksheet.Range[sourceRange.Row, sourceRange.Column]);
 
                 //Save the destination workbook
-                destinationWorkbook.SaveAs(Path.GetFullPath(@"../../../Output/Output.xlsx"));
+                destinationWorkbook.SaveAs(Path.GetFullPath(@"Output/Output.xlsx"));
             }
         }
     }
