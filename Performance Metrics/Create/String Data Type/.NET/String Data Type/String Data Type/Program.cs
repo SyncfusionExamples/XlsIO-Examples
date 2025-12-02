@@ -1,5 +1,6 @@
-﻿using System.IO;
-using Syncfusion.XlsIO;
+﻿using Syncfusion.XlsIO;
+using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace String_Data_Type
 {
@@ -13,15 +14,20 @@ namespace String_Data_Type
                 application.DefaultVersion = ExcelVersion.Xlsx;
                 IWorkbook workbook = application.Workbooks.Create(1);
                 IWorksheet sheet = workbook.Worksheets[0];
-
-                //Fill 150 rows × 10,000 columns with string 
-                for (int row = 1; row <= 150; row++)
+                               
+                int count = 0;
+                // Fill 100,000 rows × 50 columns with string
+                for (int row = 1; row <= 100000; row++)
                 {
-                    for (int col = 1; col <= 10000; col++)
+                    for (int column = 1; column <= 50; column++)
                     {
-                        sheet[row, col].Text = $"R{row}C{col}";
+
+                        sheet.SetText(row, column, "One" + count);
+
+                        count++;
                     }
                 }
+                workbook.SaveAs(@"../../../Output/Output.xlsx");
             }
         }
     }
