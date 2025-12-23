@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px"> Working with Pivot Table in Excel</h2>
+    <div>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("AddPivotTable", "Home")'">
+            Add Pivot Table
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("EditPivotTable", "Home")'">
+            Edit Pivot Table
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("RemovePivotTable", "Home")'">
+            Remove Pivot Table
+        </button>
+    </div>
+</div>
