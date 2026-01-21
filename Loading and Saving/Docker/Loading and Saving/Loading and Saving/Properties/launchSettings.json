@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Loading and Saving": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
