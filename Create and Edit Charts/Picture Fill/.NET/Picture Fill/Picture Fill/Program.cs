@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Syncfusion.Drawing;
 using Syncfusion.XlsIO;
+using Syncfusion.XlsIO.Implementation.Shapes;
 
 namespace Picture_Fill
 {
@@ -29,8 +30,16 @@ namespace Picture_Fill
                 //Set picture fill to chart area
                 chart.ChartArea.Fill.UserPicture(image1, "Image");
 
+                //Setting offset to chart area fill picture
+                Rectangle chartarea = Rectangle.FromLTRB(5000, 6000, 7000, 8000);
+                (chart.ChartArea.Fill as ShapeFillImpl).FillRect = chartarea;
+
                 //Set picture fill to plot area
                 chart.PlotArea.Fill.UserPicture(image1, "Image");
+
+                //Setting offset to plot area fill picture
+                Rectangle plotarea = Rectangle.FromLTRB(5000, 6000, 7000, 8000);
+                (chart.PlotArea.Fill as ShapeFillImpl).FillRect = plotarea;
 
                 //Set picture fill to series
                 serie1.SerieFormat.Fill.UserPicture(image2, "Image");
