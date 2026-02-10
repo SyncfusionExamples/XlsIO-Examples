@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px"> Export Excel Chart to Image </h2>
+    <div>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("ChartToPNG", "Home")'">
+            Chart to PNG
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("ChartToJPEG", "Home")'">
+            Chart to JPEG
+        </button>
+    </div>
+</div>
