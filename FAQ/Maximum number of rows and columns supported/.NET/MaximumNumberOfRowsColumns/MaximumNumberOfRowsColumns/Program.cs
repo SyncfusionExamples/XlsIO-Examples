@@ -1,6 +1,6 @@
 ﻿using Syncfusion.XlsIO;
 
-namespace ChartNameInWorksheet
+namespace MaximumNumberOfRowsColumns
 {
     class Program
     {
@@ -13,14 +13,14 @@ namespace ChartNameInWorksheet
                 IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Input.xlsx"));
                 IWorksheet worksheet = workbook.Worksheets[0];
 
-                //Get the chart name 
-                string chartName = worksheet.Charts[0].Name;
-                //Display the chart name 
-                Console.WriteLine("The name of the chart is: " + chartName);
+                //For getting maximum supported rows and columns  
+                int maxRow = workbook.MaxRowCount;
+                int maxColumns = workbook.MaxColumnCount;
 
-                //Saving the workbook
-                workbook.SaveAs(Path.GetFullPath(@"Output/Output.xlsx"));
+                //Display maximum number of rows and columns supported
+                Console.WriteLine("Maximum number of rows supported: " + maxRow.ToString());
+                Console.WriteLine("Maximum number of columns supported: " + maxColumns.ToString());
             }
         }
-    }
+        }
 }
