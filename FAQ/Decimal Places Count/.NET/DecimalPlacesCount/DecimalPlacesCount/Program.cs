@@ -37,8 +37,3 @@ namespace DecimalPlacesCount
         }
     }
 }
-
-
-
-
-
