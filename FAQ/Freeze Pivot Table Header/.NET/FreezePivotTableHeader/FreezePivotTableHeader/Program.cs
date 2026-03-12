@@ -2,7 +2,7 @@
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIO.Implementation.PivotTables;
 
-namespace Edit_Pivot_Table
+namespace FreezePivotTableHeader
 {
     class Program
     {
