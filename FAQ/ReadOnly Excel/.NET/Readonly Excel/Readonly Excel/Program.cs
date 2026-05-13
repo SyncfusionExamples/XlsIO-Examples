@@ -21,8 +21,8 @@ class Program
             // Adding text to a cell
             worksheet.Range["A1"].Text = "Hello World";
 
-            // Protect the worksheet
-            worksheet.Protect("syncfusion", ExcelSheetProtection.All);
+            // Set the workbook to be read-only recommended
+            workbook.ReadOnlyRecommended = true;
 
             // Save the workbook to disk in XLSX format
             workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
