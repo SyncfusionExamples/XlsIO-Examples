@@ -11,23 +11,11 @@
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Data\arial.ttf" />
-    <None Remove="Data\calibri.ttf" />
     <None Remove="Data\InputTemplate.xlsx" />
-    <None Remove="Data\times.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\arial.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Data\calibri.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Data\InputTemplate.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Data\times.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +23,6 @@
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.3.1" />
     <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="7.3.0" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="23.1.42" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="23.1.43" />
   </ItemGroup>
 </Project>
