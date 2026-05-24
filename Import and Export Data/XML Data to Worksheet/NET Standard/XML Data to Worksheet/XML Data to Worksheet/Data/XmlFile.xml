@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<record>
+		<LastName>Smith</LastName>
+		<Sales>16753</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 3</Quarter>
+	</record>
+	<record>
+		<LastName>Johnson</LastName>
+		<Sales>14808</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 4</Quarter>
+	</record>
+	<record>
+		<LastName>Williams</LastName>
+		<Sales>10644</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 2</Quarter>
+	</record>
+	<record>
+		<LastName>Jones</LastName>
+		<Sales>1390</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 3</Quarter>
+	</record>
+	<record>
+		<LastName>Brown</LastName>
+		<Sales>4865</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 4</Quarter>
+	</record>
+	<record>
+		<LastName>Williams</LastName>
+		<Sales>12438</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 1</Quarter>
+	</record>
+	<record>
+		<LastName>Johnson</LastName>
+		<Sales>9339</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 2</Quarter>
+	</record>
+	<record>
+		<LastName>Smith</LastName>
+		<Sales>18919</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 3</Quarter>
+	</record>
+	<record>
+		<LastName>Jones</LastName>
+		<Sales>9213</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 4</Quarter>
+	</record>
+	<record>
+		<LastName>Jones</LastName>
+		<Sales>7433</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 1</Quarter>
+	</record>
+	<record>
+		<LastName>Brown</LastName>
+		<Sales>3255</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 2</Quarter>
+	</record>
+	<record>
+		<LastName>Williams</LastName>
+		<Sales>14867</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 3</Quarter>
+	</record>
+	<record>
+		<LastName>Williams</LastName>
+		<Sales>19302</Sales>
+		<Country>UK</Country>
+		<Quarter>Qtr 4</Quarter>
+	</record>
+	<record>
+		<LastName>Smith</LastName>
+		<Sales>9698</Sales>
+		<Country>USA</Country>
+		<Quarter>Qtr 1</Quarter>
+	</record>
+</data-set>
