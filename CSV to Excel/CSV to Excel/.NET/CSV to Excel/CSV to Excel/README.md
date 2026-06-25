@@ -1,6 +1,6 @@
 # Convert a CSV to an Excel document using C#
 
-The Syncfusion&reg; [.NET Excel Library](https://www.syncfusion.com/document-processing/excel-framework/net/excel-library) (XlsIO) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **convert a CSV to an Excel document** using C#.
+The [.NET Excel Library](https://www.syncfusion.com/document-sdk/net-excel-library) enables you to create, read, and edit Excel documents programmatically without Microsoft Excel or interop dependencies. Using this library, you can **convert a CSV to an Excel document** using C#.
 
 ## Steps to convert a CSV to an Excel document programmatically
 
