@@ -14,22 +14,52 @@ namespace Set_Cell_Values
                 IWorkbook workbook = application.Workbooks.Open(Path.GetFullPath(@"Data/Input.xlsx"));
                 IWorksheet sheet = workbook.Worksheets[0];
 
-                sheet.Range["A4"].Text = "Gamma";
-                sheet.Range["B4"].Number = 3200;
-                sheet.Range["C4"].DateTime = new DateTime(2026, 7, 25);
-                sheet.Range["D4"].Boolean = true;
+                sheet.Range["D1"].Text = "In Stock";
+                sheet.Range["E1"].Text = "Total Price";
+                sheet.Range["F1"].Text = "Discount (10%)";
+                sheet.Range["G1"].Text = "Final Price";
 
-                sheet.Range["A5"].Text = "Delta";
-                sheet.Range["B5"].Number = 4500;
-                sheet.Range["C5"].DateTime = new DateTime(2026, 8, 1);
-                sheet.Range["D5"].Boolean = false;
+                sheet.Range["D2"].Boolean = true;   
+                sheet.Range["D3"].Boolean = true;   
 
-                sheet.Range["B6"].Formula = "SUM(B2:B5)";
+                sheet.Range["A4"].Text = "Bag";
+                sheet.Range["B4"].Number = 500;
+                sheet.Range["C4"].Number = 5;
+                sheet.Range["D4"].Boolean = false;
 
-                sheet.Range["A1:D1"].CellStyle.Font.Bold = true;
-                sheet.Range["A1:D6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                sheet.Range["A5"].Text = "Bottle";
+                sheet.Range["B5"].Number = 100;
+                sheet.Range["C5"].Number = 10;
+                sheet.Range["D5"].Boolean = true;
 
-                workbook.SaveAs(Path.GetFullPath("Output/Output.xlsx"));
+                sheet.Range["E2"].Formula = "B2*C2";   
+                sheet.Range["F2"].Formula = "E2*0.1";  
+                sheet.Range["G2"].Formula = "E2-F2";   
+
+                sheet.Range["E3"].Formula = "B3*C3";   
+                sheet.Range["F3"].Formula = "E3*0.1";  
+                sheet.Range["G3"].Formula = "E3-F3";   
+
+                sheet.Range["E4"].Formula = "B4*C4";   
+                sheet.Range["F4"].Formula = "E4*0.1";  
+                sheet.Range["G4"].Formula = "E4-F4";  
+
+                sheet.Range["E5"].Formula = "B5*C5";  
+                sheet.Range["F5"].Formula = "E5*0.1";  
+                sheet.Range["G5"].Formula = "E5-F5";  
+
+                sheet.Range["A6"].Text = "Totals";
+                sheet.Range["E6"].Formula = "SUM(E2:E5)";
+                sheet.Range["F6"].Formula = "SUM(F2:F5)";
+                sheet.Range["G6"].Formula = "SUM(G2:G5)";
+
+                sheet.Range["A1:G1"].CellStyle.Font.Bold = true;
+                sheet.Range["A1:G6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+
+                IListObject table = sheet.ListObjects.Create("SalesTable", sheet.Range["A1:G6"]);
+                table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium23;
+
+                workbook.SaveAs(Path.GetFullPath(@"Output/Output.xlsx"));
                 workbook.Close();
             }
         }
