@@ -11,7 +11,7 @@ namespace Form_Controls
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Excel2016;
+                application.DefaultVersion = ExcelVersion.Xlsx;
 
                 // Create workbook with 2 worksheets
                 IWorkbook workbook = application.Workbooks.Create(2);
