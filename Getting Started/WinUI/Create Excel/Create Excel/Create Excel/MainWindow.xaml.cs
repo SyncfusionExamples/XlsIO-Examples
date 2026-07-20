@@ -215,7 +215,7 @@ namespace Create_Excel
                 Save(stream, "CreateExcel");
             }
         }
-        async void Save(MemoryStream stream, string filename)
+        async Task Save(MemoryStream stream, string filename)
         {
 
             StorageFile stFile;

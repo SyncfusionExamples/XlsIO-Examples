@@ -44,6 +44,8 @@ namespace Create_Excel.Controllers
                 FileStream imageStream = new FileStream("AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read);
                 IPictureShape shape = worksheet.Pictures.AddPicture(1, 1, imageStream, 20, 20);
 
+                imageStream.Dispose();
+
                 //Disable gridlines in the worksheet
                 worksheet.IsGridLinesVisible = false;
 
