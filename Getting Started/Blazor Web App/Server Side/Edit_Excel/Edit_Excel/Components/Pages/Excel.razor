@@ -15,7 +15,7 @@
     /// <summary>
     /// Edit and download the Excel document
     /// </summary>
-    protected async void EditDocument()
+    protected async Task EditDocument()
     {
         excelStream = service.EditExcel();
         await JS.SaveAs("Sample.xlsx", excelStream.ToArray());

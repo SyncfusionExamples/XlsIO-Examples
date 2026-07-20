@@ -14,7 +14,7 @@
     /// <summary>
     /// Create and download the Excel document
     /// </summary>
-    protected async void CreateExcel()
+    protected async Task CreateExcel()
     {
         excelStream = service.CreateDocument();
         await JS.SaveAs("CreateExcel.xlsx", excelStream.ToArray());
