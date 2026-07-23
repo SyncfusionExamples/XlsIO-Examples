@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Output\.gitkeep" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Output\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <EmbeddedResource Include="Data\*">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
