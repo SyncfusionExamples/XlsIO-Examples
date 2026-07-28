@@ -15,5 +15,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the data as JSON file
     string json = JsonConvert.SerializeObject(sheetData, Formatting.Indented);
 
-    File.WriteAllText(@"Output/Output.json", json);
+    File.WriteAllText(Path.GetFullPath(@"Output/Output.json"), json);
 }
