@@ -7,15 +7,12 @@ Step 2: Name the project.
 Step 3: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 Step 4: Include the following namespaces in the **Program.cs** file.
-{% tabs %}  
-{% highlight c# tabtitle="C#" %}
+```csharp
 using Syncfusion.XlsIO;
-{% endhighlight %}
-{% endtabs %}  
+``` 
 
 Step 5: Include the below code snippet in **Program.cs** to replace all occurrences of text with different data.
-{% tabs %}
-{% highlight c# tabtitle="C#" %}
+```csharp
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
 	IApplication application = excelEngine.Excel;
@@ -45,5 +42,4 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	workbook.SaveAs(stream);
 	stream.Dispose();
 }
-{% endhighlight %}
-{% endtabs %} 
+```
