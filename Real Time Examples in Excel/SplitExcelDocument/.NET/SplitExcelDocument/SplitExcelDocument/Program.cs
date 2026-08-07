@@ -13,7 +13,7 @@ namespace SplitExcel
             string fileName = "Report.xlsx";
 
             //Split the Excel document
-            SplitExcelDocument(inputPath + fileName);
+            SplitExcelDocument(Path.GetFullPath(inputPath + fileName));
         }
         /// <summary>
         /// Split the Excel document from the given path
@@ -21,13 +21,11 @@ namespace SplitExcel
         /// <param name="filePath">Excel file path</param>
         private static void SplitExcelDocument(string filePath)
         {
-            FileStream inputData = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
-
             using (ExcelEngine excelEngine = new ExcelEngine())
             {
                 IApplication application = excelEngine.Excel;
                 application.DefaultVersion = ExcelVersion.Xlsx;
-                IWorkbook workbook = application.Workbooks.Open(inputData);
+                IWorkbook workbook = application.Workbooks.Open(filePath);
                 IWorksheets worksheets = workbook.Worksheets;
 
                 workbook.Version = ExcelVersion.Xlsx;
@@ -38,9 +36,7 @@ namespace SplitExcel
                     IWorkbook newBook = application.Workbooks.Create(0);
                     newBook.Worksheets.AddCopy(worksheet);
 
-                    FileStream outputData = new FileStream(outputPath + worksheet.Name + ".xlsx", FileMode.Create, FileAccess.ReadWrite);
-                    newBook.SaveAs(outputData);
-                    outputData.Close();
+                    newBook.SaveAs(Path.GetFullPath(outputPath + worksheet.Name + ".xlsx"));
                 }
             }
         }

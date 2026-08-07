@@ -23,7 +23,7 @@ namespace MergeExcel
 
             Stream mergedStream = MergeExcelDocuments(streams);
 
-            FileStream fileStream = new FileStream(outputPath + "MergedExcel.xlsx", FileMode.Create, FileAccess.Write);
+            FileStream fileStream = new FileStream(Path.GetFullPath(outputPath + "MergedExcel.xlsx"), FileMode.Create, FileAccess.Write);
             mergedStream.Position = 0;
             mergedStream.CopyTo(fileStream);
             fileStream.Close();
