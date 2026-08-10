@@ -5,9 +5,9 @@ namespace SplitExcel
 {
     class Program
     {
-        private static string inputPath = @"../../../Data/";
+        private static string inputPath = Path.GetFullPath("Data/");
 
-        private static string outputPath = @"../../../Output/";
+        private static string outputPath = Path.GetFullPath("Output/");
         static void Main(string[] args)
         {
             string fileName = "Report.xlsx";
@@ -42,9 +42,3 @@ namespace SplitExcel
         }
     }
 }
-
-
-
-
-
-
