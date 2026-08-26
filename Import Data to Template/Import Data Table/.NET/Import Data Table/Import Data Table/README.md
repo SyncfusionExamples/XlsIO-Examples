@@ -62,7 +62,5 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     inputStream.Dispose();
 }
 ```
-{% endhighlight %}
-{% endtabs %}
 
 More information about binding data to a template marker can be found in this [documentation](https://help.syncfusion.com/document-processing/excel/excel-library/net/working-with-template-markers#bind-from-datatable) section.
