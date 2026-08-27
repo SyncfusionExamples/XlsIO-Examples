@@ -27,7 +27,7 @@ namespace Convert_Excel_to_PDF
                 //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-                FileStream excelStream = new FileStream(@"Data/InputTemplate.xlsx", FileMode.Open, FileAccess.Read);
+                FileStream excelStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.xlsx"), FileMode.Open, FileAccess.Read);
                 IWorkbook workbook = application.Workbooks.Open(excelStream);
 
                 //Initialize XlsIO renderer.

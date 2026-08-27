@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A03293DA-FDB4-457D-BF6E-BA8919F2DC3A}</ProjectGuid>
+    <ProjectGuid>{48AD20DB-800E-4D01-BD63-D994E85A6917}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Convert_Excel_to_PDF</RootNamespace>
-    <AssemblyName>Convert-Excel-to-PDF</AssemblyName>
+    <RootNamespace>Convert_Excel_to_Image</RootNamespace>
+    <AssemblyName>Convert-Excel-to-Image</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,7 +37,7 @@
       <HintPath>..\packages\AWSSDK.Core.3.7.204.12\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Lambda.3.7.202.7\lib\net45\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Lambda.3.7.202.10\lib\net45\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -60,8 +60,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.202.7\analyzers\dotnet\cs\AWSSDK.Lambda.CodeAnalysis.dll" />
-    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.202.7\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
+    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.202.10\analyzers\dotnet\cs\AWSSDK.Lambda.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.202.10\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
