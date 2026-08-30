@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="../../../../../../Source Branch/compression/Portable/Compression.Portable/Src/Syncfusion.Compression.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/exceltopdfconverter/Portable/XlsIORenderer.Portable/Src/Syncfusion.XlsIORenderer.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/markdown/Portable/Markdown.Portable/Src/Syncfusion.Markdown.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/metafile-renderer/Portable/MetafileRenderer.NET/Src/Syncfusion.MetafileRenderer.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/pdf-imaging/Portable/Pdf.Imaging.Portable/Src/Syncfusion.Pdf.Imaging.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/pdf/Portable/PDF.Portable/Src/Syncfusion.Pdf.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/skiasharphelper/Portable/SkiaSharpHelper.Portable/Src/Syncfusion.SkiaSharpHelper.Portable.csproj" />
+  <Project Path="../../../../../../Source Branch/telemetry/Base/Telemetry.Base/Src/Syncfusion.Telemetry.Base.csproj" />
+  <Project Path="../../../../../../Source Branch/xlsio/Portable/XlsIO.Portable/Src/Syncfusion.XlsIO.Portable.csproj" />
+  <Project Path="Custom Font/Custom Font.csproj" />
+</Solution>
