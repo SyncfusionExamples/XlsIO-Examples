@@ -1,11 +1,3 @@
 <Solution>
-  <Project Path="../../../../../../Source Branch/compression/Portable/Compression.Portable/Src/Syncfusion.Compression.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/exceltopdfconverter/Portable/XlsIORenderer.Portable/Src/Syncfusion.XlsIORenderer.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/markdown/Portable/Markdown.Portable/Src/Syncfusion.Markdown.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/pdf-imaging/Portable/Pdf.Imaging.Portable/Src/Syncfusion.Pdf.Imaging.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/pdf/Portable/PDF.Portable/Src/Syncfusion.Pdf.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/skiasharphelper/Portable/SkiaSharpHelper.Portable/Src/Syncfusion.SkiaSharpHelper.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/telemetry/Portable/Telemetry.Portable/Src/Syncfusion.Telemetry.Portable.csproj" />
-  <Project Path="../../../../../../Source Branch/xlsio/Portable/XlsIO.Portable/Src/Syncfusion.XlsIO.Portable.csproj" />
   <Project Path="Excel-to-Markdown-Shapes/Excel-to-Markdown-Shapes.csproj" />
 </Solution>
