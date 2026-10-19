@@ -53,6 +53,14 @@
             --chat-width: minmax(380px, 40%);
         }
 
+        .app.chat-only {
+            grid-template-columns: 1fr;
+        }
+
+        .app.chat-only .viewer-pane {
+            display: none;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html, body {
@@ -839,6 +847,24 @@
             display: none;
         }
 
+        .close-viewer-btn {
+            border: 1px solid var(--line-strong);
+            background: #fff;
+            color: var(--ink-soft);
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            min-height: 32px;
+        }
+
+        .close-viewer-btn:hover {
+            border-color: #c7d2fe;
+            color: var(--primary-deep);
+            background: var(--primary-soft);
+        }
+
         .viewer-host {
             flex: 1;
             position: relative;
@@ -949,9 +975,14 @@
                 gap: 8px;
             }
 
-            .app {
+            .app:not(.chat-only) {
                 grid-template-columns: 1fr;
-                grid-template-rows: 46vh 1fr;
+                grid-template-rows: minmax(280px, 46vh) 1fr;
+            }
+
+            .app.chat-only {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
             }
 
             .viewer-title {
@@ -964,8 +995,8 @@
                 padding: 10px 12px;
             }
 
-            .app {
-                grid-template-rows: 50vh 1fr;
+            .app:not(.chat-only) {
+                grid-template-rows: minmax(240px, 50vh) 1fr;
             }
 
             .pane-header {
@@ -1013,7 +1044,7 @@
             </div>
         </header>
 
-        <div class="app">
+        <div class="app chat-only" id="workspace">
             <section class="chat-pane" aria-label="RAG chat">
                 <div class="pane-header">
                     <div>
@@ -1054,7 +1085,7 @@
                         <div class="welcome-steps">
                             <div class="welcome-step"><span class="step-num">1</span><span>Choose PDF, Word, or Excel files and upload to index.</span></div>
                             <div class="welcome-step"><span class="step-num">2</span><span>Ask a question in the box below when the status turns ready.</span></div>
-                            <div class="welcome-step"><span class="step-num">3</span><span>Use <strong>Click here</strong> on a citation to open the viewer on the right.</span></div>
+                            <div class="welcome-step"><span class="step-num">3</span><span>Read the answer first. Use <strong>Click here</strong> only when you want the document viewer beside the chat.</span></div>
                         </div>
                     </div>
                 </div>
@@ -1079,6 +1110,7 @@
                     </div>
                     <div class="viewer-toolbar">
                         <span id="viewerTitle" class="viewer-title"></span>
+                        <button id="closeViewerButton" class="close-viewer-btn" type="button">Close viewer</button>
                     </div>
                 </div>
 
@@ -1614,13 +1646,6 @@
                 const bestCitation = pickBestCitation(payload.citations || []);
                 const citations = bestCitation ? [bestCitation] : [];
                 addMessage(answer || "No answer received.", "assistant", citations);
-
-                // Auto-open the cited place in the right-hand viewer (navigate only, no highlight).
-                if (bestCitation) {
-                    openCitation(bestCitation).catch(function (e) {
-                        console.warn("Auto-open citation failed", e);
-                    });
-                }
             } catch (error) {
                 removeLoading();
                 addMessage("Error: " + (error.message || String(error)), "assistant");
@@ -1650,7 +1675,42 @@
             };
         }
 
+        function revealViewerPane() {
+            const workspace = document.getElementById("workspace");
+            if (!workspace || !workspace.classList.contains("chat-only")) {
+                resizeActiveViewer();
+                return;
+            }
+
+            workspace.classList.remove("chat-only");
+            window.setTimeout(resizeActiveViewer, 60);
+            window.setTimeout(resizeActiveViewer, 280);
+        }
+
+        function hideViewerPane() {
+            const workspace = document.getElementById("workspace");
+            if (workspace) {
+                workspace.classList.add("chat-only");
+            }
+        }
+
+        function resizeActiveViewer() {
+            const active = document.querySelector(".viewer-panel.active");
+            if (!active) return;
+            const type = active.id === "pdfPanel" ? "pdf" : active.id === "wordPanel" ? "word" : "excel";
+            if (type === "word" && wordContainer && typeof wordContainer.resize === "function") {
+                wordContainer.resize();
+            }
+            if (type === "excel" && spreadsheet && typeof spreadsheet.resize === "function") {
+                spreadsheet.resize();
+            }
+            if (type === "pdf" && pdfViewer && typeof pdfViewer.updateViewerContainer === "function") {
+                pdfViewer.updateViewerContainer();
+            }
+        }
+
         async function openCitation(rawCitation) {
+            revealViewerPane();
             initViewers();
 
             const citation = normalizeCitation(rawCitation);
@@ -2449,6 +2509,7 @@
             document.getElementById("fileInput").addEventListener("change", displaySelectedFiles);
             document.getElementById("uploadButton").addEventListener("click", uploadFiles);
             document.getElementById("sendButton").addEventListener("click", sendQuestion);
+            document.getElementById("closeViewerButton").addEventListener("click", hideViewerPane);
             document.getElementById("questionInput").addEventListener("keydown", function (event) {
                 if (event.key === "Enter" && !event.shiftKey) {
                     event.preventDefault();
