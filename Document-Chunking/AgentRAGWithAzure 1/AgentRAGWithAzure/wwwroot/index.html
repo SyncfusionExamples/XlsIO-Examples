@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent RAG · Smart Document Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- EJ2 34.2.x — must match the major version your Syncfusion license key was issued for. -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/34.2.7/material.css" />
+    <script src="https://cdn.syncfusion.com/ej2/34.2.7/dist/ej2.min.js"></script>
+    <script>
+        // Client-side EJ2 license (must run before any control is created).
+        if (typeof ej !== "undefined" && ej.base && ej.base.registerLicense) {
+            ej.base.registerLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cXGhAd1p/WGJbYl1xZFdFallYTnNWSV9jS3hTc0RmWHlaeXVQQWdYUE91Vw==");
+        }
+    </script>
+    <style>
+        :root {
+            --font: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+            --bg: #eef2f7;
+            --bg-glow-a: #dbeafe;
+            --bg-glow-b: #e0e7ff;
+            --surface: #ffffff;
+            --surface-soft: #f8fafc;
+            --surface-muted: #f1f5f9;
+            --ink: #0f172a;
+            --ink-soft: #334155;
+            --muted: #64748b;
+            --faint: #94a3b8;
+            --line: #e2e8f0;
+            --line-strong: #cbd5e1;
+            --primary: #4f46e5;
+            --primary-deep: #4338ca;
+            --primary-soft: #eef2ff;
+            --primary-glow: rgba(79, 70, 229, 0.18);
+            --accent: #0d9488;
+            --accent-soft: #ccfbf1;
+            --success: #059669;
+            --success-soft: #ecfdf5;
+            --danger: #dc2626;
+            --danger-soft: #fef2f2;
+            --info: #2563eb;
+            --info-soft: #eff6ff;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 18px 48px rgba(15, 23, 42, 0.12);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --chat-width: minmax(380px, 40%);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 600px at 8% -10%, var(--bg-glow-a), transparent 55%),
+                radial-gradient(900px 500px at 100% 0%, var(--bg-glow-b), transparent 50%),
+                linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        button, input, label {
+            font-family: inherit;
+        }
+
+        .shell {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            padding: 14px;
+            gap: 12px;
+        }
+
+        /* —— Top app bar —— */
+        .app-bar {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background:
+                linear-gradient(145deg, #6366f1 0%, #4f46e5 45%, #0d9488 130%);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-mark svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .brand-copy {
+            min-width: 0;
+        }
+
+        .brand-copy h1 {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .brand-copy p {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .app-bar-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            background: var(--surface-muted);
+            color: var(--ink-soft);
+            border: 1px solid var(--line);
+        }
+
+        .pill .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--faint);
+            box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25);
+        }
+
+        .pill.ready {
+            background: var(--success-soft);
+            color: #047857;
+            border-color: #a7f3d0;
+        }
+
+        .pill.ready .dot {
+            background: var(--success);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+        }
+
+        .format-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            padding: 5px 9px;
+            border-radius: 8px;
+            background: var(--primary-soft);
+            color: var(--primary-deep);
+            border: 1px solid #c7d2fe;
+        }
+
+        .chip.pdf { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+        .chip.word { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+        .chip.excel { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+
+        /* —— Main split —— */
+        .app {
+            flex: 1;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: var(--chat-width) 1fr;
+            gap: 12px;
+        }
+
+        .chat-pane,
+        .viewer-pane {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 0;
+            background: var(--surface);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .pane-header {
+            padding: 16px 18px 14px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .pane-kicker {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .pane-header h2 {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pane-header .sub {
+            font-size: 12.5px;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.45;
+            max-width: 42ch;
+        }
+
+        .badge {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--faint);
+            box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.22);
+        }
+
+        .badge.ready {
+            background: var(--success);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+        }
+
+        /* —— Upload zone —— */
+        .upload-bar {
+            padding: 14px 16px 12px;
+            border-bottom: 1px solid var(--line);
+            background:
+                linear-gradient(180deg, rgba(238, 242, 255, 0.65) 0%, rgba(248, 250, 252, 0.9) 100%);
+            flex-shrink: 0;
+        }
+
+        .upload-card {
+            border: 1.5px dashed #c7d2fe;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .upload-card:hover {
+            border-color: #a5b4fc;
+            background: #fff;
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+
+        .upload-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .file-btn,
+        .action-btn,
+        .send-btn,
+        .open-btn {
+            border: none;
+            border-radius: 11px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 14px;
+            transition: transform .15s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+        }
+
+        .file-btn:active,
+        .action-btn:active,
+        .send-btn:active:not(:disabled),
+        .open-btn:active {
+            transform: translateY(1px);
+        }
+
+        .file-btn {
+            background: #fff;
+            color: var(--primary-deep);
+            border: 1px solid #c7d2fe;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .file-btn:hover {
+            background: var(--primary-soft);
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(79, 70, 229, 0.28);
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            color: #fff;
+            padding: 12px 18px;
+            box-shadow: 0 10px 22px rgba(79, 70, 229, 0.28);
+            min-width: 96px;
+            justify-content: center;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+        }
+
+        .open-btn {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            color: #fff;
+            font-size: 12px;
+            padding: 9px 12px;
+            box-shadow: 0 6px 14px rgba(13, 148, 136, 0.25);
+            width: fit-content;
+        }
+
+        .open-btn:hover {
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+        }
+
+        .file-btn:disabled,
+        .action-btn:disabled,
+        .send-btn:disabled,
+        .send-btn:disabled:hover {
+            background: #e2e8f0 !important;
+            color: #94a3b8 !important;
+            box-shadow: none !important;
+            cursor: not-allowed;
+            border-color: transparent;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        #questionInput:disabled {
+            background: #f8fafc;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        input[type="file"] { display: none; }
+
+        .formats {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 10px;
+            line-height: 1.45;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .formats-label {
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+
+        #selectedLabel {
+            font-size: 12px;
+            color: var(--ink-soft);
+            font-weight: 600;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #uploadStatus {
+            font-size: 12.5px;
+            margin-top: 10px;
+            min-height: 18px;
+            font-weight: 500;
+        }
+
+        #uploadStatus.status-error,
+        #uploadStatus.status-ok,
+        #uploadStatus.status-info {
+            border-radius: 10px;
+            padding: 8px 10px;
+            display: inline-block;
+            border: 1px solid transparent;
+        }
+
+        #uploadStatus.status-error {
+            color: var(--danger);
+            background: var(--danger-soft);
+            border-color: #fecaca;
+        }
+
+        #uploadStatus.status-ok {
+            color: #047857;
+            background: var(--success-soft);
+            border-color: #a7f3d0;
+        }
+
+        #uploadStatus.status-info {
+            color: #1d4ed8;
+            background: var(--info-soft);
+            border-color: #bfdbfe;
+        }
+
+        #viewerStatus.status-error { color: var(--danger); font-weight: 600; }
+        #viewerStatus.status-ok { color: #047857; font-weight: 600; }
+        #viewerStatus.status-info { color: #1d4ed8; font-weight: 600; }
+
+        /* —— Chat (Copilot-style fixed pane) —— */
+        .chat-pane {
+            /* Keep header + upload + input fixed; only the message list scrolls. */
+            position: relative;
+        }
+
+        .chat-window {
+            flex: 1 1 auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 18px 16px 20px;
+            background:
+                radial-gradient(circle at top right, rgba(238, 242, 255, 0.7), transparent 40%),
+                linear-gradient(180deg, #fcfcff 0%, #ffffff 100%);
+            min-height: 0;
+            max-height: 100%;
+            scroll-behavior: smooth;
+            overscroll-behavior: contain;
+        }
+
+        .chat-window::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-window::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .msg.assistant .bubble p {
+            margin: 0 0 0.55em;
+        }
+
+        .msg.assistant .bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .msg.assistant .bubble ul,
+        .msg.assistant .bubble ol {
+            margin: 0.35em 0 0.55em 1.15em;
+            padding: 0;
+        }
+
+        .msg.assistant .bubble li {
+            margin: 0.2em 0;
+        }
+
+        .msg.assistant .bubble strong {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .welcome-card {
+            border: 1px solid var(--line);
+            background: linear-gradient(160deg, #ffffff 0%, #f8fafc 55%, #eef2ff 140%);
+            border-radius: var(--radius-lg);
+            padding: 20px 18px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 8px;
+        }
+
+        .welcome-card h3 {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .welcome-card p {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        .welcome-steps {
+            display: grid;
+            gap: 8px;
+        }
+
+        .welcome-step {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 13px;
+            color: var(--ink-soft);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 12px;
+        }
+
+        .step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 8px;
+            background: var(--primary-soft);
+            color: var(--primary-deep);
+            font-size: 12px;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .msg {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            animation: rise .28s ease;
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg.user { justify-content: flex-end; }
+        .msg.assistant { justify-content: flex-start; }
+
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .msg.user .avatar {
+            background: linear-gradient(145deg, #6366f1, #4338ca);
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+        }
+
+        .msg.assistant .avatar {
+            background: linear-gradient(145deg, #14b8a6, #0d9488);
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(13, 148, 136, 0.28);
+        }
+
+        .bubble-wrap {
+            max-width: min(92%, 560px);
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            min-width: 0;
+        }
+
+        .msg.user .bubble-wrap { align-items: flex-end; }
+
+        .bubble {
+            padding: 12px 15px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.55;
+            word-break: break-word;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .msg.user .bubble {
+            background: linear-gradient(145deg, #6366f1 0%, #4f46e5 100%);
+            color: #fff;
+            border-bottom-right-radius: 6px;
+        }
+
+        .msg.assistant .bubble {
+            background: #fff;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-bottom-left-radius: 6px;
+            /* Copilot-like article answer (not a single pre/monospaced wall). */
+            white-space: normal;
+            font-size: 14.25px;
+            line-height: 1.62;
+            letter-spacing: -0.01em;
+            max-width: 100%;
+        }
+
+        .msg.assistant .bubble-wrap {
+            max-width: min(96%, 620px);
+        }
+
+        .time {
+            font-size: 11px;
+            color: var(--faint);
+            font-weight: 500;
+            padding: 0 4px;
+        }
+
+        .citations {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        .citations-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: -2px;
+        }
+
+        .citation-card {
+            border: 1px solid #c7d2fe;
+            background: linear-gradient(180deg, #ffffff 0%, #eef2ff 120%);
+            border-left: 4px solid var(--primary);
+            border-radius: 14px;
+            padding: 12px 13px;
+            font-size: 12.5px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .15s ease, box-shadow .2s ease;
+            max-width: 100%;
+        }
+
+        .citation-card:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .citation-card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--ink);
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .citation-meta {
+            color: var(--ink-soft);
+            margin-bottom: 7px;
+            line-height: 1.45;
+            font-weight: 500;
+        }
+
+        .citation-snippet {
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.45;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .citation-place {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            background: #fff;
+            border: 1px solid #c7d2fe;
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .chat-input {
+            border-top: 1px solid var(--line);
+            padding: 14px 16px 16px;
+            display: flex;
+            gap: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            flex-shrink: 0;
+            /* Composer stays pinned like Copilot — never pushed down by long answers. */
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.04);
+            align-items: center;
+        }
+
+        .input-shell {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-input input {
+            width: 100%;
+            border: 1.5px solid var(--line-strong);
+            border-radius: 14px;
+            padding: 13px 16px;
+            font-size: 14px;
+            background: #fff;
+            color: var(--ink);
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .chat-input input::placeholder {
+            color: var(--faint);
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: #818cf8;
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+
+        /* Loading dots */
+        .typing {
+            display: inline-flex;
+            gap: 5px;
+            align-items: center;
+            padding: 4px 2px;
+        }
+
+        .typing span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #94a3b8;
+            animation: bounce 1.2s infinite ease-in-out;
+        }
+
+        .typing span:nth-child(2) { animation-delay: .15s; }
+        .typing span:nth-child(3) { animation-delay: .3s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); opacity: .45; }
+            40% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        /* —— Viewer —— */
+        .viewer-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .viewer-title {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            font-weight: 600;
+            max-width: min(420px, 48vw);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background: var(--surface-muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 7px 12px;
+            min-height: 32px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .viewer-title:empty {
+            display: none;
+        }
+
+        .viewer-host {
+            flex: 1;
+            position: relative;
+            min-height: 0;
+            background:
+                linear-gradient(180deg, #eef2ff 0%, #e2e8f0 100%);
+            margin: 0;
+        }
+
+        .viewer-panel {
+            position: absolute;
+            inset: 10px;
+            display: none;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-md);
+        }
+
+        .viewer-panel.active { display: block; }
+
+        .viewer-empty {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--muted);
+            padding: 28px;
+        }
+
+        .viewer-empty.hidden { display: none; }
+
+        .empty-card {
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-xl);
+            padding: 28px 26px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
+        }
+
+        .empty-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(145deg, #eef2ff, #e0e7ff);
+            color: var(--primary);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .empty-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .viewer-empty h2 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .viewer-empty p {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--muted);
+        }
+
+        .viewer-empty .hint {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            background: var(--primary-soft);
+            border: 1px solid #c7d2fe;
+            border-radius: 999px;
+            padding: 7px 12px;
+        }
+
+        #pdfViewer, #wordViewer, #excelViewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .e-de-ctn, .e-spreadsheet, .e-pv-viewer-container {
+            height: 100% !important;
+        }
+
+        @media (max-width: 1100px) {
+            .format-chips { display: none; }
+            .brand-copy p { display: none; }
+        }
+
+        @media (max-width: 980px) {
+            .shell {
+                padding: 8px;
+                gap: 8px;
+            }
+
+            .app {
+                grid-template-columns: 1fr;
+                grid-template-rows: 46vh 1fr;
+            }
+
+            .viewer-title {
+                max-width: 55vw;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .app-bar {
+                padding: 10px 12px;
+            }
+
+            .app {
+                grid-template-rows: 50vh 1fr;
+            }
+
+            .pane-header {
+                padding: 12px 14px;
+            }
+
+            .chat-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .send-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header class="app-bar">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path>
+                        <path d="M12 12l8-4.5"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="M12 12L4 7.5"></path>
+                    </svg>
+                </div>
+                <div class="brand-copy">
+                    <h1>Agent RAG Workspace</h1>
+                    <p>Ask questions · open sources · jump to the exact place</p>
+                </div>
+            </div>
+            <div class="app-bar-meta">
+                <div class="format-chips" aria-label="Supported formats">
+                    <span class="chip pdf">PDF</span>
+                    <span class="chip word">Word</span>
+                    <span class="chip excel">Excel</span>
+                </div>
+                <div id="readyPill" class="pill" title="Index ready state">
+                    <span id="readyBadge" class="dot"></span>
+                    <span id="readyPillText">Waiting for documents</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="app">
+            <section class="chat-pane" aria-label="RAG chat">
+                <div class="pane-header">
+                    <div>
+                        <div class="pane-kicker">Conversation</div>
+                        <h2>RAG Chat</h2>
+                        <div class="sub" id="chatStatus">Upload PDF, Word, or Excel files, then ask a question.</div>
+                    </div>
+                </div>
+
+                <div class="upload-bar">
+                    <div class="upload-card">
+                        <div class="upload-row">
+                            <label class="file-btn" for="fileInput">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                Choose files
+                            </label>
+                            <input id="fileInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" />
+                            <button id="uploadButton" class="action-btn" type="button">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 20h16"/></svg>
+                                Upload & index
+                            </button>
+                            <span id="selectedLabel"></span>
+                        </div>
+                        <div class="formats">
+                            <span class="formats-label">Supported</span>
+                            <span class="chip pdf">.pdf</span>
+                            <span class="chip word">.doc / .docx</span>
+                            <span class="chip excel">.xls / .xlsx</span>
+                        </div>
+                        <div id="uploadStatus"></div>
+                    </div>
+                </div>
+
+                <div id="chatWindow" class="chat-window">
+                    <div class="welcome-card" id="welcomeCard">
+                        <h3>Welcome — let’s explore your documents</h3>
+                        <p>Index a few files, ask in plain language, then open any citation to land on the right page, heading, or cell.</p>
+                        <div class="welcome-steps">
+                            <div class="welcome-step"><span class="step-num">1</span><span>Choose PDF, Word, or Excel files and upload to index.</span></div>
+                            <div class="welcome-step"><span class="step-num">2</span><span>Ask a question in the box below when the status turns ready.</span></div>
+                            <div class="welcome-step"><span class="step-num">3</span><span>Use <strong>Click here</strong> on a citation to open the viewer on the right.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <div class="input-shell">
+                        <input id="questionInput" type="text" placeholder="Ask anything about your indexed documents…" autocomplete="off" />
+                    </div>
+                    <button id="sendButton" class="send-btn" type="button" disabled>
+                        Send
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="viewer-pane" aria-label="Document viewer">
+                <div class="pane-header">
+                    <div>
+                        <div class="pane-kicker">Sources</div>
+                        <h2>Document viewer</h2>
+                        <div class="sub" id="viewerStatus">Open a citation with <strong>Click here</strong> to load and navigate.</div>
+                    </div>
+                    <div class="viewer-toolbar">
+                        <span id="viewerTitle" class="viewer-title"></span>
+                    </div>
+                </div>
+
+                <div class="viewer-host">
+                    <div id="viewerEmpty" class="viewer-empty">
+                        <div class="empty-card">
+                            <div class="empty-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <path d="M14 2v6h6"></path>
+                                    <path d="M8 13h8"></path>
+                                    <path d="M8 17h5"></path>
+                                </svg>
+                            </div>
+                            <h2>No document open yet</h2>
+                            <p>After you get an answer, use <strong>Click here</strong> on a citation to open the matching PDF, Word, or Excel viewer with navigation.</p>
+                            <div class="hint">Chat on the left · Viewer on the right</div>
+                        </div>
+                    </div>
+
+                    <div id="pdfPanel" class="viewer-panel">
+                        <div id="pdfViewer"></div>
+                    </div>
+                    <div id="wordPanel" class="viewer-panel">
+                        <div id="wordViewer"></div>
+                    </div>
+                    <div id="excelPanel" class="viewer-panel">
+                        <div id="excelViewer"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const SUPPORTED = new Set([".pdf", ".doc", ".docx", ".xls", ".xlsx"]);
+        let hasIndexedFiles = false;
+        let pdfViewer = null;
+        let wordContainer = null;
+        let spreadsheet = null;
+        let viewersReady = false;
+
+        function setStatus(el, message, kind) {
+            if (!el) return;
+            el.textContent = message || "";
+            const keep = [];
+            if (el.id === "viewerStatus" || el.id === "chatStatus") {
+                keep.push("sub");
+            }
+            if (kind) {
+                keep.push("status-" + kind);
+            }
+            el.className = keep.join(" ");
+        }
+
+        function extensionOf(name) {
+            const i = (name || "").lastIndexOf(".");
+            return i >= 0 ? name.slice(i).toLowerCase() : "";
+        }
+
+        function escapeHtml(text) {
+            return String(text || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function markdownLite(text) {
+            let html = escapeHtml(text);
+            html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+            html = html.replace(/\n/g, "<br>");
+            return html;
+        }
+
+        function nowTime() {
+            return new Date().toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true
+            });
+        }
+
+        function initViewers() {
+            if (viewersReady) {
+                return;
+            }
+
+            if (typeof ej === "undefined") {
+                console.warn("Syncfusion EJ2 is not loaded yet.");
+                return;
+            }
+
+            try {
+                // Server-backed PDF Viewer (Syncfusion.EJ2.PdfViewer.AspNet.Core via /api/PdfViewer).
+                if (ej.pdfviewer && ej.pdfviewer.PdfViewer) {
+                    const pdfServiceUrl = (window.location && window.location.origin
+                        ? window.location.origin
+                        : "") + "/api/PdfViewer";
+                    pdfViewer = new ej.pdfviewer.PdfViewer({
+                        enableToolbar: true,
+                        enableNavigationToolbar: true,
+                        serviceUrl: pdfServiceUrl,
+                        ajaxRequestSettings: {
+                            withCredentials: false
+                        }
+                    });
+                    pdfViewer.ajaxRequestFailure = function (args) {
+                        console.error("PDF Viewer ajaxRequestFailure", args);
+                    };
+                    // Surface load failures without leaving a stuck gray canvas + invalid-file dialog alone.
+                    pdfViewer.documentLoadFailed = function (args) {
+                        console.error("PDF Viewer documentLoadFailed", args);
+                    };
+                    pdfViewer.appendTo("#pdfViewer");
+                }
+
+                // Word DocumentEditor — selection + search modules are required for citation jump.
+                if (ej.documenteditor && ej.documenteditor.DocumentEditorContainer) {
+                    wordContainer = new ej.documenteditor.DocumentEditorContainer({
+                        enableToolbar: true,
+                        height: "100%",
+                        restrictedEditing: false
+                    });
+                    wordContainer.appendTo("#wordViewer");
+                    if (wordContainer.documentEditor) {
+                        const de = wordContainer.documentEditor;
+                        de.isReadOnly = false;
+                        // Official find/replace sample requires these flags.
+                        de.enableSelection = true;
+                        de.enableSearch = true;
+                        de.enableEditor = true;
+                        de.enableOptionsPane = true;
+                    }
+                }
+
+                // Spreadsheet viewer — openUrl is required so open({ file }) can convert XLSX server-side.
+                if (ej.spreadsheet && ej.spreadsheet.Spreadsheet) {
+                    spreadsheet = new ej.spreadsheet.Spreadsheet({
+                        openUrl: "/api/spreadsheet/open",
+                        allowOpen: true,
+                        showRibbon: true,
+                        showFormulaBar: true,
+                        height: "100%"
+                    });
+                    spreadsheet.appendTo("#excelViewer");
+                }
+
+                viewersReady = true;
+            } catch (e) {
+                console.error("Viewer initialization failed", e);
+            }
+        }
+
+        function showViewer(type) {
+            document.getElementById("viewerEmpty").classList.add("hidden");
+            ["pdfPanel", "wordPanel", "excelPanel"].forEach(function (id) {
+                document.getElementById(id).classList.remove("active");
+            });
+
+            if (type === "pdf") {
+                document.getElementById("pdfPanel").classList.add("active");
+            } else if (type === "word") {
+                document.getElementById("wordPanel").classList.add("active");
+            } else if (type === "excel") {
+                document.getElementById("excelPanel").classList.add("active");
+            }
+
+            // Force EJ2 layout after becoming visible.
+            setTimeout(function () {
+                try {
+                    if (type === "pdf" && pdfViewer) {
+                        pdfViewer.updateViewerContainer();
+                    }
+                    if (type === "word" && wordContainer && wordContainer.resize) {
+                        wordContainer.resize();
+                    }
+                    if (type === "excel" && spreadsheet && spreadsheet.resize) {
+                        spreadsheet.resize();
+                    }
+                } catch (e) {
+                    console.warn(e);
+                }
+            }, 50);
+        }
+
+        function setChatEnabled(isReady) {
+            const sendButton = document.getElementById("sendButton");
+            const questionInput = document.getElementById("questionInput");
+
+            hasIndexedFiles = !!isReady;
+
+            if (sendButton) {
+                sendButton.disabled = !hasIndexedFiles;
+                sendButton.setAttribute("aria-disabled", hasIndexedFiles ? "false" : "true");
+            }
+
+            if (questionInput) {
+                questionInput.disabled = !hasIndexedFiles;
+                questionInput.placeholder = hasIndexedFiles
+                    ? "Ask anything about your indexed documents…"
+                    : "Upload and index files before asking…";
+            }
+        }
+
+        function setReadyUi(isReady, fileCount) {
+            const badge = document.getElementById("readyBadge");
+            const pill = document.getElementById("readyPill");
+            const pillText = document.getElementById("readyPillText");
+            const chatStatus = document.getElementById("chatStatus");
+            const welcomeCard = document.getElementById("welcomeCard");
+            const count = Number(fileCount) || 0;
+            const countLabel = count + " file" + (count === 1 ? "" : "s") + " indexed";
+
+            if (badge) {
+                badge.classList.toggle("ready", isReady);
+            }
+            if (pill) {
+                pill.classList.toggle("ready", isReady);
+            }
+            if (pillText) {
+                pillText.textContent = isReady ? countLabel : "Waiting for documents";
+            }
+            if (chatStatus) {
+                chatStatus.textContent = isReady
+                    ? ("Ready · " + countLabel + ". You can ask a question.")
+                    : "Upload PDF, Word, or Excel files, then ask a question.";
+            }
+            if (welcomeCard && isReady) {
+                const title = welcomeCard.querySelector("h3");
+                const body = welcomeCard.querySelector("p");
+                if (title) {
+                    title.textContent = "Documents already indexed";
+                }
+                if (body) {
+                    body.textContent = countLabel + ". Ask a question below, then open any citation with Click here.";
+                }
+            }
+        }
+
+        async function refreshReadyState() {
+            // Default locked until /api/files confirms indexed content.
+            setChatEnabled(false);
+            setReadyUi(false, 0);
+
+            try {
+                const response = await fetch("/api/files", { cache: "no-store" });
+                if (!response.ok) {
+                    return;
+                }
+
+                const data = await response.json();
+                const files = Array.isArray(data.files) ? data.files : [];
+                const count = files.length;
+                const isReady = count > 0;
+
+                setChatEnabled(isReady);
+                setReadyUi(isReady, count);
+            } catch (e) {
+                console.warn(e);
+                setChatEnabled(false);
+                setReadyUi(false, 0);
+            }
+        }
+
+        function displaySelectedFiles() {
+            const input = document.getElementById("fileInput");
+            const label = document.getElementById("selectedLabel");
+            if (!input.files || input.files.length === 0) {
+                label.textContent = "";
+                return;
+            }
+
+            const names = Array.from(input.files).map(function (f) { return f.name; });
+            label.textContent = names.length + " selected: " + names.join(", ");
+        }
+
+        async function uploadFiles() {
+            const fileInput = document.getElementById("fileInput");
+            const uploadButton = document.getElementById("uploadButton");
+            const uploadStatus = document.getElementById("uploadStatus");
+
+            if (!fileInput.files || fileInput.files.length === 0) {
+                setStatus(uploadStatus, "Please select at least one supported file.", "error");
+                return;
+            }
+
+            const formData = new FormData();
+            let accepted = 0;
+
+            Array.from(fileInput.files).forEach(function (file) {
+                if (SUPPORTED.has(extensionOf(file.name))) {
+                    formData.append("files", file);
+                    accepted += 1;
+                }
+            });
+
+            if (accepted === 0) {
+                setStatus(uploadStatus, "No supported files selected (.pdf, .doc, .docx, .xls, .xlsx).", "error");
+                return;
+            }
+
+            uploadButton.disabled = true;
+            setStatus(uploadStatus, "Uploading and indexing…", "info");
+
+            try {
+                const response = await fetch("/api/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const payload = await response.json().catch(function () { return {}; });
+
+                if (!response.ok) {
+                    throw new Error(payload.error || "Upload failed.");
+                }
+
+                const files = payload.files || [];
+                setStatus(uploadStatus, "Indexed: " + files.join(", "), "ok");
+                fileInput.value = "";
+                displaySelectedFiles();
+                await refreshReadyState();
+            } catch (error) {
+                setStatus(uploadStatus, error.message || String(error), "error");
+            } finally {
+                uploadButton.disabled = false;
+            }
+        }
+
+        function dismissWelcome() {
+            const welcome = document.getElementById("welcomeCard");
+            if (welcome) {
+                welcome.remove();
+            }
+        }
+
+        function pickBestCitation(citations) {
+            if (!Array.isArray(citations) || citations.length === 0) {
+                return null;
+            }
+
+            let best = null;
+            let bestScore = Number.NEGATIVE_INFINITY;
+
+            citations.forEach(function (raw) {
+                const c = normalizeCitation(raw);
+                const score = typeof c.score === "number" ? c.score : 0;
+                if (!best || score > bestScore) {
+                    best = c;
+                    bestScore = score;
+                }
+            });
+
+            return best;
+        }
+
+        function formatCitationPlace(citation) {
+            if (!citation) return "";
+
+            if (citation.pageNumber) {
+                return "Page " + citation.pageNumber;
+            }
+
+            if (citation.sheetName || citation.cellAddress) {
+                if (citation.sheetName && citation.cellAddress) {
+                    return citation.sheetName + "!" + citation.cellAddress;
+                }
+                return citation.sheetName || citation.cellAddress || "";
+            }
+
+            if (citation.headingPath) {
+                return citation.headingPath;
+            }
+
+            if (citation.citationDisplay && citation.sourceName &&
+                citation.citationDisplay !== citation.sourceName) {
+                return citation.citationDisplay;
+            }
+
+            return "Exact location";
+        }
+
+        function scrollChatToBottom() {
+            const chatWindow = document.getElementById("chatWindow");
+            if (!chatWindow) return;
+            requestAnimationFrame(function () {
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            });
+        }
+
+        function addMessage(text, sender, citations) {
+            dismissWelcome();
+            const chatWindow = document.getElementById("chatWindow");
+            const row = document.createElement("div");
+            row.className = "msg " + sender;
+
+            const avatar = document.createElement("div");
+            avatar.className = "avatar";
+            avatar.textContent = sender === "user" ? "You" : "AI";
+
+            const wrap = document.createElement("div");
+            wrap.className = "bubble-wrap";
+
+            const bubble = document.createElement("div");
+            bubble.className = "bubble";
+            bubble.innerHTML = sender === "assistant" ? markdownLite(text) : escapeHtml(text);
+            wrap.appendChild(bubble);
+
+            const time = document.createElement("div");
+            time.className = "time";
+            const now = new Date();
+            time.textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            wrap.appendChild(time);
+
+            if (sender === "assistant" && Array.isArray(citations) && citations.length > 0) {
+                // Exactly one best citation — precise place + single Click here.
+                const citation = pickBestCitation(citations);
+                if (citation) {
+                    const list = document.createElement("div");
+                    list.className = "citations";
+
+                    const label = document.createElement("div");
+                    label.className = "citations-label";
+                    label.textContent = "Source";
+                    list.appendChild(label);
+
+                    const card = document.createElement("div");
+                    card.className = "citation-card";
+
+                    const title = document.createElement("strong");
+                    title.textContent = citation.sourceName || citation.citationDisplay || "Source document";
+                    card.appendChild(title);
+
+                    const placeText = formatCitationPlace(citation);
+                    if (placeText) {
+                        const place = document.createElement("div");
+                        place.className = "citation-place";
+                        place.textContent = placeText;
+                        card.appendChild(place);
+                    }
+
+                    const meta = document.createElement("div");
+                    meta.className = "citation-meta";
+                    meta.textContent = citation.citationDisplay || placeText || "Open exact location in the viewer";
+                    card.appendChild(meta);
+
+                    if (citation.contentSnippet) {
+                        const snip = document.createElement("div");
+                        snip.className = "citation-snippet";
+                        snip.textContent = citation.contentSnippet;
+                        card.appendChild(snip);
+                    }
+
+                    const openBtn = document.createElement("button");
+                    openBtn.type = "button";
+                    openBtn.className = "open-btn";
+                    openBtn.innerHTML = 'Click here <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+                    openBtn.addEventListener("click", function () {
+                        openCitation(citation);
+                    });
+                    card.appendChild(openBtn);
+
+                    list.appendChild(card);
+                    wrap.appendChild(list);
+                }
+            }
+
+            if (sender === "user") {
+                row.appendChild(wrap);
+                row.appendChild(avatar);
+            } else {
+                row.appendChild(avatar);
+                row.appendChild(wrap);
+            }
+
+            chatWindow.appendChild(row);
+            scrollChatToBottom();
+        }
+
+        function addLoading() {
+            dismissWelcome();
+            const chatWindow = document.getElementById("chatWindow");
+            const row = document.createElement("div");
+            row.className = "msg assistant loading-row";
+            row.innerHTML =
+                '<div class="avatar">AI</div>' +
+                '<div class="bubble-wrap"><div class="bubble"><div class="typing" aria-label="Thinking"><span></span><span></span><span></span></div></div>' +
+                '<div class="time">Finding sources…</div></div>';
+            chatWindow.appendChild(row);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loading = document.querySelector(".loading-row");
+            if (loading) loading.remove();
+        }
+
+        async function sendQuestion() {
+            const input = document.getElementById("questionInput");
+            const sendButton = document.getElementById("sendButton");
+            const question = (input.value || "").trim();
+
+            if (!hasIndexedFiles || (sendButton && sendButton.disabled)) {
+                document.getElementById("chatStatus").textContent = "Upload and index files before asking.";
+                return;
+            }
+
+            if (!question) {
+                return;
+            }
+
+            addMessage(question, "user");
+            input.value = "";
+            sendButton.disabled = true;
+            addLoading();
+
+            try {
+                const response = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: question })
+                });
+
+                removeLoading();
+
+                const payload = await response.json().catch(function () { return {}; });
+                if (!response.ok) {
+                    throw new Error(payload.error || "Chat request failed.");
+                }
+
+                // ASP.NET default JSON is camelCase. Keep only the single best citation.
+                const answer = payload.answer || "";
+                const bestCitation = pickBestCitation(payload.citations || []);
+                const citations = bestCitation ? [bestCitation] : [];
+                addMessage(answer || "No answer received.", "assistant", citations);
+
+                // Auto-open the cited place in the right-hand viewer (navigate only, no highlight).
+                if (bestCitation) {
+                    openCitation(bestCitation).catch(function (e) {
+                        console.warn("Auto-open citation failed", e);
+                    });
+                }
+            } catch (error) {
+                removeLoading();
+                addMessage("Error: " + (error.message || String(error)), "assistant");
+            } finally {
+                setChatEnabled(hasIndexedFiles);
+                if (hasIndexedFiles) {
+                    input.focus();
+                }
+            }
+        }
+
+        function normalizeCitation(citation) {
+            // Accept camelCase (default) and PascalCase payloads.
+            return {
+                sourceName: citation.sourceName || citation.SourceName || "",
+                fileExtension: citation.fileExtension || citation.FileExtension || "",
+                viewerType: (citation.viewerType || citation.ViewerType || "").toLowerCase(),
+                chunkIndex: citation.chunkIndex ?? citation.ChunkIndex ?? 0,
+                citationDisplay: citation.citationDisplay || citation.CitationDisplay || "",
+                contentSnippet: citation.contentSnippet || citation.ContentSnippet || "",
+                score: citation.score ?? citation.Score ?? 0,
+                pageNumber: citation.pageNumber ?? citation.PageNumber ?? null,
+                sheetName: citation.sheetName || citation.SheetName || null,
+                cellAddress: citation.cellAddress || citation.CellAddress || null,
+                headingPath: citation.headingPath || citation.HeadingPath || null,
+                searchText: citation.searchText || citation.SearchText || null
+            };
+        }
+
+        async function openCitation(rawCitation) {
+            initViewers();
+
+            const citation = normalizeCitation(rawCitation);
+            const status = document.getElementById("viewerStatus");
+            const title = document.getElementById("viewerTitle");
+            const fileName = citation.sourceName;
+
+            if (!fileName) {
+                setStatus(status, "Citation is missing a source file name.", "error");
+                return;
+            }
+
+            let viewerType = citation.viewerType;
+            if (!viewerType || viewerType === "unknown") {
+                const ext = (citation.fileExtension || extensionOf(fileName)).toLowerCase();
+                if (ext === ".pdf") viewerType = "pdf";
+                else if (ext === ".doc" || ext === ".docx") viewerType = "word";
+                else if (ext === ".xls" || ext === ".xlsx") viewerType = "excel";
+            }
+
+            title.textContent = fileName + (citation.citationDisplay ? " · " + citation.citationDisplay : "");
+            setStatus(status, "Opening " + fileName + "…", "info");
+
+            try {
+                if (viewerType === "pdf") {
+                    await openPdf(fileName, citation);
+                } else if (viewerType === "word") {
+                    await openWord(fileName, citation);
+                } else if (viewerType === "excel") {
+                    await openExcel(fileName, citation);
+                } else {
+                    throw new Error("Unsupported viewer type for this citation.");
+                }
+
+                setStatus(status, "Opened " + fileName, "ok");
+            } catch (error) {
+                console.error(error);
+                setStatus(status, error.message || String(error), "error");
+            }
+        }
+
+        function cleanCitationText(value) {
+            if (!value) return "";
+            return String(value)
+                // RAG chunks often use | as a field separator — not present in PDF text.
+                .replace(/\|+/g, " ")
+                .replace(/[\/\\]+/g, " ")
+                .replace(/\s*[-–—]+\s*/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function buildSearchTerm(citation, maxWords) {
+            const raw = cleanCitationText(
+                (citation && (citation.searchText || citation.headingPath || citation.contentSnippet)) ||
+                ""
+            );
+            if (!raw) return "";
+
+            // Prefer distinctive tokens (skip very short/stop-ish words) for PDF text search.
+            const words = raw
+                .split(" ")
+                .map(function (w) { return w.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, ""); })
+                .filter(function (w) {
+                    if (!w || w.length < 3) return false;
+                    if (/^(the|and|for|with|from|this|that|was|are|has|had|you|your)$/i.test(w)) {
+                        return false;
+                    }
+                    return true;
+                });
+
+            if (!words.length) {
+                const fallback = raw.split(" ").filter(Boolean);
+                const takeFb = Math.max(2, Math.min(maxWords || 8, fallback.length));
+                return fallback.slice(0, takeFb).join(" ");
+            }
+
+            const take = Math.max(2, Math.min(maxWords || 8, words.length));
+            return words.slice(0, take).join(" ");
+        }
+
+        function navigatePdfPlace(citation) {
+            if (!pdfViewer || !citation) return;
+
+            const page = citation.pageNumber ? Number(citation.pageNumber) : null;
+            // Short phrases used only to resolve a page when pageNumber is missing — never paint search highlights.
+            const candidates = [
+                buildSearchTerm(citation, 6),
+                buildSearchTerm(citation, 4),
+                buildSearchTerm(citation, 2)
+            ].filter(function (t, i, arr) {
+                return t && arr.indexOf(t) === i;
+            });
+
+            let cancelled = false;
+            let done = false;
+
+            function goPage(targetPage) {
+                const p = targetPage || page;
+                if (p && p > 0 && pdfViewer.navigation) {
+                    try {
+                        pdfViewer.navigation.goToPage(p);
+                    } catch (e) {
+                        console.warn("PDF goToPage failed", e);
+                    }
+                }
+            }
+
+            // Resolve page via silent find only when needed. Do NOT call searchText (yellow hits).
+            async function tryResolvePage(term) {
+                if (!term || done || cancelled) return false;
+                if (!(pdfViewer.textSearchModule &&
+                    typeof pdfViewer.textSearchModule.findTextAsync === "function")) {
+                    return false;
+                }
+
+                try {
+                    const results = await pdfViewer.textSearchModule.findTextAsync(term, false);
+                    if (Array.isArray(results) && results.length > 0) {
+                        let match = results[0];
+                        if (page) {
+                            const pageMatch = results.find(function (r) {
+                                return (r.pageIndex + 1) === page;
+                            });
+                            if (pageMatch) match = pageMatch;
+                        }
+                        if (match && pdfViewer.navigation) {
+                            goPage(match.pageIndex + 1);
+                        }
+                        // Clear any search UI state so matches are not left painted.
+                        try {
+                            if (pdfViewer.textSearch &&
+                                typeof pdfViewer.textSearch.cancelTextSearch === "function") {
+                                pdfViewer.textSearch.cancelTextSearch();
+                            }
+                        } catch (_) { /* ignore */ }
+                        done = true;
+                        return true;
+                    }
+                } catch (e) {
+                    console.warn("PDF findTextAsync failed", e);
+                }
+                return false;
+            }
+
+            goPage();
+
+            // If citation already has a page, navigation alone is enough.
+            if (page && page > 0) {
+                const delays = [300, 900];
+                delays.forEach(function (delay) {
+                    setTimeout(function () {
+                        if (cancelled) return;
+                        goPage();
+                    }, delay);
+                });
+            } else if (candidates.length) {
+                const delays = [400, 1000, 2000];
+                delays.forEach(function (delay, attempt) {
+                    setTimeout(async function () {
+                        if (cancelled || done) return;
+                        const term = candidates[Math.min(attempt, candidates.length - 1)];
+                        await tryResolvePage(term);
+                    }, delay);
+                });
+            }
+
+            navigatePdfPlace._cancel = function () {
+                cancelled = true;
+            };
+        }
+
+        function softCleanWordText(value) {
+            if (!value) return "";
+            return String(value)
+                .replace(/\u00a0/g, " ")
+                .replace(/[\u2018\u2019]/g, "'")
+                .replace(/[\u201C\u201D]/g, "\"")
+                .replace(/[\u2013\u2014]/g, "-")
+                .replace(/[•·▪◦]/g, " ")
+                .replace(/\|+/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function buildWordSearchCandidates(citation) {
+            // Prefer body/snippet over searchText — keep contiguous DOCX phrases.
+            const rawSources = [
+                citation && citation.contentSnippet,
+                citation && citation.searchText,
+                citation && citation.headingPath
+            ].filter(Boolean);
+
+            const candidates = [];
+            const seen = new Set();
+
+            function pushTerm(term) {
+                if (!term) return;
+                // Prefer light cleaning so DOCX body text still matches.
+                const variants = [
+                    softCleanWordText(term),
+                    cleanCitationText(term)
+                ];
+                variants.forEach(function (t) {
+                    if (!t || t.length < 2) return;
+                    // Drop trailing ellipsis from snippets.
+                    t = t.replace(/[….]{1,3}$/g, "").trim();
+                    if (!t || t.length < 2) return;
+                    const key = t.toLowerCase();
+                    if (seen.has(key)) return;
+                    seen.add(key);
+                    candidates.push(t);
+                });
+            }
+
+            function pushWordWindows(src) {
+                const cleaned = softCleanWordText(src);
+                if (!cleaned) return;
+                const words = cleaned
+                    .split(" ")
+                    .map(function (w) {
+                        return w.replace(/^[^A-Za-z0-9'’-]+|[^A-Za-z0-9'’-]+$/g, "");
+                    })
+                    .filter(Boolean);
+
+                if (!words.length) return;
+
+                // Contiguous sliding windows — stopword-stripped phrases do NOT exist in DOCX.
+                const sizes = [12, 10, 8, 6, 5, 4, 3, 2];
+                sizes.forEach(function (size) {
+                    if (words.length < size && size > 1) return;
+                    const take = Math.min(size, words.length);
+                    // Prefer later words too (chunk text often starts with labels).
+                    pushTerm(words.slice(0, take).join(" "));
+                    if (words.length > take + 2) {
+                        pushTerm(words.slice(2, 2 + take).join(" "));
+                    }
+                    if (words.length > take + 5) {
+                        pushTerm(words.slice(5, 5 + take).join(" "));
+                    }
+                    // Mid-chunk window for longer citations.
+                    if (words.length > take + 10) {
+                        const mid = Math.floor((words.length - take) / 2);
+                        pushTerm(words.slice(mid, mid + take).join(" "));
+                    }
+                });
+
+                // Long distinctive tokens (survive split runs better) — last resort.
+                words
+                    .filter(function (w) { return w.length >= 6; })
+                    .sort(function (a, b) { return b.length - a.length; })
+                    .slice(0, 6)
+                    .forEach(pushTerm);
+            }
+
+            rawSources.forEach(function (src) {
+                pushTerm(src);
+                pushWordWindows(src);
+            });
+
+            return candidates;
+        }
+
+        function isWordDocumentStillLoading(editor) {
+            try {
+                const helper = editor && editor.documentHelper;
+                if (helper && helper.isDocumentLoadAsynchronously === true) {
+                    return true;
+                }
+            } catch (_) { /* ignore */ }
+            return false;
+        }
+
+        function getWordSearchApi(editor) {
+            if (!editor) return null;
+            try {
+                // Accessing .search while enableSearch is true injects the Search module.
+                if (editor.enableSearch !== true) {
+                    editor.enableSearch = true;
+                }
+            } catch (_) { /* ignore */ }
+
+            // Prefer public search facade; fall back to searchModule used in Syncfusion samples.
+            try {
+                if (editor.search && typeof editor.search.findAll === "function") {
+                    return editor.search;
+                }
+            } catch (e) {
+                console.warn("Word editor.search access failed", e);
+            }
+            try {
+                if (editor.searchModule && typeof editor.searchModule.findAll === "function") {
+                    return editor.searchModule;
+                }
+            } catch (_) { /* ignore */ }
+            return null;
+        }
+
+        function tryWordFind(editor, term) {
+            if (!editor || !term) {
+                return false;
+            }
+
+            // EJ2 Search.findAll is a no-op while async SFDT layout is still running.
+            if (isWordDocumentStillLoading(editor)) {
+                return false;
+            }
+
+            const searchApi = getWordSearchApi(editor);
+            if (!searchApi) {
+                return false;
+            }
+
+            // FindOption: None | WholeWord | CaseSensitive | CaseSensitiveWholeWord
+            const findOption = "None";
+
+            try {
+                // Clear previous highlights so length reflects this findAll only.
+                try {
+                    const prior = searchApi.searchResults;
+                    if (prior && typeof prior.clear === "function") {
+                        prior.clear();
+                    }
+                } catch (_) { /* ignore */ }
+
+                // findAll: EJ2 internally navigate()s + highlight()s the first hit when length > 0.
+                // find() returns void — never treat undefined as a hit.
+                if (typeof searchApi.findAll !== "function") {
+                    return false;
+                }
+
+                searchApi.findAll(term, findOption);
+
+                // Re-read after findAll; some builds expose a fresh SearchResults wrapper.
+                const results = searchApi.searchResults;
+                const count = results && typeof results.length === "number"
+                    ? results.length
+                    : 0;
+
+                if (count <= 0) {
+                    return false;
+                }
+
+                // Public API: setting index jumps to that match (docs). findAll already did index 0.
+                try {
+                    if (results && "index" in results) {
+                        results.index = 0;
+                    }
+                } catch (idxErr) {
+                    console.warn("Word searchResults.index failed", idxErr);
+                }
+
+                // Scroll into view, then drop yellow search highlights (navigate only).
+                try {
+                    if (editor.selection &&
+                        typeof editor.selection.scrollToPosition === "function" &&
+                        editor.selection.start &&
+                        editor.selection.end) {
+                        editor.selection.scrollToPosition(
+                            editor.selection.start,
+                            editor.selection.end);
+                    }
+                    if (typeof editor.focusIn === "function") {
+                        editor.focusIn();
+                    }
+                } catch (scrollErr) {
+                    console.warn("Word scroll-to-match best-effort failed", scrollErr);
+                }
+
+                // Navigate only — clear search-result paint so content is not left highlighted.
+                try {
+                    const after = searchApi.searchResults;
+                    if (after && typeof after.clear === "function") {
+                        after.clear();
+                    }
+                } catch (_) { /* ignore */ }
+
+                return true;
+            } catch (e) {
+                console.warn("Word find failed for term:", term, e);
+                return false;
+            }
+        }
+
+        function ensureWordSearchEnabled(editor) {
+            if (!editor) return;
+            try {
+                editor.isReadOnly = false;
+                editor.enableSelection = true;
+                editor.enableSearch = true;
+                editor.enableEditor = true;
+                // Touch .search so EJ2 injects the Search module before findAll.
+                try { void editor.search; } catch (_) { /* ignore */ }
+            } catch (_) { /* ignore */ }
+        }
+
+        function waitForWordSearchReady(editor, timeoutMs) {
+            return new Promise(function (resolve) {
+                const started = Date.now();
+                const ms = typeof timeoutMs === "number" ? timeoutMs : 8000;
+
+                function check() {
+                    if (!editor) {
+                        resolve(false);
+                        return;
+                    }
+                    ensureWordSearchEnabled(editor);
+                    const stillLoading = isWordDocumentStillLoading(editor);
+                    const searchApi = getWordSearchApi(editor);
+                    if (!stillLoading && searchApi) {
+                        resolve(true);
+                        return;
+                    }
+                    if (Date.now() - started >= ms) {
+                        resolve(!stillLoading && !!searchApi);
+                        return;
+                    }
+                    setTimeout(check, 100);
+                }
+
+                check();
+            });
+        }
+
+        function navigateWordPlace(editor, citation) {
+            if (!editor || !citation) return;
+
+            // Cancel any prior Word navigate sequence when opening a new citation.
+            if (typeof navigateWordPlace._cancel === "function") {
+                try { navigateWordPlace._cancel(); } catch (_) { /* ignore */ }
+            }
+
+            const candidates = buildWordSearchCandidates(citation);
+            if (!candidates.length) {
+                console.warn("Word citation has no usable search text.", citation);
+                return;
+            }
+
+            console.debug("Word citation navigate candidates:", candidates.slice(0, 12));
+
+            let cancelled = false;
+            let done = false;
+            const timers = [];
+
+            navigateWordPlace._cancel = function () {
+                cancelled = true;
+                timers.forEach(function (id) { clearTimeout(id); });
+            };
+
+            function attemptRound(round) {
+                if (cancelled || done || !editor) return;
+
+                ensureWordSearchEnabled(editor);
+
+                if (isWordDocumentStillLoading(editor)) {
+                    console.debug("Word navigate waiting: document still loading asynchronously (round " + round + ")");
+                    return;
+                }
+
+                const searchApi = getWordSearchApi(editor);
+                if (!searchApi) {
+                    console.warn("Word search API unavailable (enableSearch/selection may be off).");
+                    return;
+                }
+
+                // Re-scan full candidate list each round. find is used only to jump; highlights are cleared.
+                for (let i = 0; i < candidates.length; i++) {
+                    const term = candidates[i];
+                    if (tryWordFind(editor, term)) {
+                        done = true;
+                        console.info("Word citation navigated to term:", term);
+                        return;
+                    }
+                }
+
+                if (round >= 5) {
+                    console.warn(
+                        "Word citation: no navigate match for any candidate.",
+                        { tried: candidates.length, citation: citation });
+                }
+            }
+
+            // Document opens while the panel was hidden — layout/search need retries.
+            const delays = [150, 400, 900, 1600, 2800, 4500];
+            delays.forEach(function (delay, round) {
+                timers.push(setTimeout(function () {
+                    if (cancelled || done) return;
+                    try {
+                        if (wordContainer && typeof wordContainer.resize === "function") {
+                            wordContainer.resize();
+                        }
+                    } catch (_) { /* ignore */ }
+                    attemptRound(round);
+                }, delay));
+            });
+        }
+
+        function navigateExcelPlace(citation) {
+            if (!spreadsheet || !citation) return;
+
+            const sheet = (citation.sheetName || "").trim();
+            const cell = (citation.cellAddress || "").trim();
+            let address = "";
+            if (sheet && cell) address = sheet + "!" + cell;
+            else if (cell) address = cell;
+            else if (sheet) address = sheet + "!A1";
+            if (!address) return;
+
+            const delays = [500, 1200, 2000];
+            delays.forEach(function (delay) {
+                setTimeout(function () {
+                    try {
+                        // Jump only — no yellow cell formatting.
+                        if (typeof spreadsheet.goTo === "function") {
+                            spreadsheet.goTo(address);
+                        }
+                        if (cell && typeof spreadsheet.selectRange === "function") {
+                            spreadsheet.selectRange(cell);
+                        }
+                    } catch (e) {
+                        console.warn("Excel goTo best-effort failed", e);
+                    }
+                }, delay);
+            });
+        }
+
+        function waitForPdfDocumentLoad(timeoutMs) {
+            return new Promise(function (resolve, reject) {
+                if (!pdfViewer) {
+                    reject(new Error("PDF viewer is not initialized."));
+                    return;
+                }
+
+                let settled = false;
+                const ms = typeof timeoutMs === "number" ? timeoutMs : 20000;
+
+                function cleanup() {
+                    try { pdfViewer.documentLoad = previousLoad; } catch (_) { /* ignore */ }
+                    try { pdfViewer.documentLoadFailed = previousFail; } catch (_) { /* ignore */ }
+                    if (timer) clearTimeout(timer);
+                }
+
+                const previousLoad = pdfViewer.documentLoad;
+                const previousFail = pdfViewer.documentLoadFailed;
+
+                const timer = setTimeout(function () {
+                    if (settled) return;
+                    settled = true;
+                    cleanup();
+                    // If toolbar already shows pageCount, treat as success even without the event.
+                    if (pdfViewer.pageCount && pdfViewer.pageCount > 0) {
+                        resolve({ timedOutWithPages: true, pageCount: pdfViewer.pageCount });
+                    } else {
+                        reject(new Error("PDF document load timed out."));
+                    }
+                }, ms);
+
+                pdfViewer.documentLoad = function (args) {
+                    if (typeof previousLoad === "function") {
+                        try { previousLoad.call(pdfViewer, args); } catch (_) { /* ignore */ }
+                    }
+                    if (settled) return;
+                    settled = true;
+                    cleanup();
+                    resolve(args || {});
+                };
+
+                pdfViewer.documentLoadFailed = function (args) {
+                    if (typeof previousFail === "function") {
+                        try { previousFail.call(pdfViewer, args); } catch (_) { /* ignore */ }
+                    }
+                    if (settled) return;
+                    settled = true;
+                    cleanup();
+                    const msg = (args && (args.errorMessage || args.message)) || "PDF document load failed.";
+                    reject(new Error(msg));
+                };
+            });
+        }
+
+        async function loadPdfAsBase64(fileName) {
+            const response = await fetch(
+                "/api/documents/" + encodeURIComponent(fileName) + "/base64",
+                { cache: "no-store" });
+            if (!response.ok) {
+                const payload = await response.json().catch(function () { return {}; });
+                throw new Error(payload.error || ("Failed to fetch PDF base64 for " + fileName));
+            }
+
+            const payload = await response.json();
+            if (!payload || !payload.base64) {
+                throw new Error("PDF base64 payload was empty.");
+            }
+
+            // EJ2 accepts raw base64 (isFileName=false) for client-side document bytes.
+            pdfViewer.load(payload.base64, null);
+        }
+
+        async function openPdf(fileName, citation) {
+            showViewer("pdf");
+
+            if (!pdfViewer) {
+                throw new Error("PDF viewer is not initialized.");
+            }
+
+            // Cancel any pending navigate timers from a previous citation.
+            if (typeof navigatePdfPlace._cancel === "function") {
+                try { navigatePdfPlace._cancel(); } catch (_) { /* ignore */ }
+            }
+
+            // Server-backed load: document name is resolved by PdfViewerController + RagService.
+            const pdfServiceUrl = (window.location && window.location.origin
+                ? window.location.origin
+                : "") + "/api/PdfViewer";
+            pdfViewer.serviceUrl = pdfServiceUrl;
+
+            try {
+                if (typeof pdfViewer.updateViewerContainer === "function") {
+                    pdfViewer.updateViewerContainer();
+                }
+            } catch (e) {
+                console.warn("updateViewerContainer failed", e);
+            }
+
+            // Prefer a fresh document session id per open to avoid stale server cache collisions
+            // ("Document stream does not exist in the cache") when reopening the same file.
+            try {
+                const sessionId = "pdf_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 8);
+                if ("documentId" in pdfViewer) {
+                    pdfViewer.documentId = sessionId;
+                }
+            } catch (e) {
+                console.warn("Could not set PDF documentId", e);
+            }
+
+            let opened = false;
+            let lastError = null;
+
+            // Path 1: filename via serviceUrl Load (isFileName=true on server).
+            try {
+                const loadWait = waitForPdfDocumentLoad(18000);
+                pdfViewer.load(fileName, null);
+                await loadWait;
+                opened = true;
+            } catch (e) {
+                lastError = e;
+                console.warn("PDF filename load failed, trying base64 fallback", e);
+            }
+
+            // Path 2: fetch bytes and load as base64 (same approach as NetCoreLatest demo).
+            if (!opened) {
+                try {
+                    const loadWait = waitForPdfDocumentLoad(20000);
+                    await loadPdfAsBase64(fileName);
+                    await loadWait;
+                    opened = true;
+                } catch (e) {
+                    lastError = e;
+                    console.error("PDF base64 load failed", e);
+                }
+            }
+
+            if (!opened) {
+                const message = (lastError && lastError.message) || ("Could not open PDF: " + fileName);
+                throw new Error(message);
+            }
+
+            // Navigate to the cited page only (no text highlight).
+            navigatePdfPlace(citation);
+        }
+
+        async function openWord(fileName, citation) {
+            showViewer("word");
+
+            if (!wordContainer || !wordContainer.documentEditor) {
+                throw new Error("Word viewer is not initialized.");
+            }
+
+            // Cancel in-flight navigate from a previous Word citation.
+            if (typeof navigateWordPlace._cancel === "function") {
+                try { navigateWordPlace._cancel(); } catch (_) { /* ignore */ }
+            }
+
+            const response = await fetch(
+                "/api/documents/" + encodeURIComponent(fileName) + "/sfdt",
+                { cache: "no-store" });
+            if (!response.ok) {
+                const payload = await response.json().catch(function () { return {}; });
+                throw new Error(payload.error || payload.title || "Failed to convert Word document.");
+            }
+
+            const sfdt = await response.text();
+            if (!sfdt || !String(sfdt).trim()) {
+                throw new Error("Word SFDT payload was empty.");
+            }
+
+            const editor = wordContainer.documentEditor;
+            ensureWordSearchEnabled(editor);
+
+            try {
+                if (typeof wordContainer.resize === "function") {
+                    wordContainer.resize();
+                }
+            } catch (e) {
+                console.warn("Word pre-open setup failed", e);
+            }
+
+            // Wait for DocumentEditor to finish applying SFDT before searching.
+            // EJ2 findAll no-ops while documentHelper.isDocumentLoadAsynchronously is true.
+            await new Promise(function (resolve) {
+                let settled = false;
+                const previousChange = editor.documentChange;
+
+                function finish() {
+                    if (settled) return;
+                    settled = true;
+                    try { editor.documentChange = previousChange; } catch (_) { /* ignore */ }
+                    resolve();
+                }
+
+                try {
+                    editor.documentChange = function () {
+                        if (typeof previousChange === "function") {
+                            try { previousChange.apply(editor, arguments); } catch (_) { /* ignore */ }
+                        }
+                        // Layout + search index need a beat after SFDT apply.
+                        setTimeout(finish, 250);
+                    };
+                } catch (_) {
+                    /* fall through to timeout open */
+                }
+
+                try {
+                    // open() accepts optimized {"sfdt":"<zip base64>"} or expanded SFDT JSON.
+                    editor.open(sfdt);
+                } catch (openErr) {
+                    finish();
+                    throw openErr;
+                }
+
+                // Fallback if documentChange never fires for this build.
+                setTimeout(finish, 2500);
+            });
+
+            // Extra gate: findAll is a silent no-op until async layout completes.
+            await waitForWordSearchReady(editor, 8000);
+
+            try {
+                if (typeof wordContainer.resize === "function") {
+                    wordContainer.resize();
+                }
+                if (typeof editor.focusIn === "function") {
+                    editor.focusIn();
+                }
+            } catch (_) { /* ignore */ }
+
+            ensureWordSearchEnabled(editor);
+            navigateWordPlace(editor, citation);
+        }
+
+        async function openExcel(fileName, citation) {
+            showViewer("excel");
+
+            // Server converts XLS/XLSX → EJ2 workbook JSON (same path openUrl uses).
+            const response = await fetch(
+                "/api/documents/" + encodeURIComponent(fileName) + "/workbook");
+            if (!response.ok) {
+                const payload = await response.json().catch(function () { return {}; });
+                throw new Error(
+                    payload.error ||
+                    payload.title ||
+                    payload.detail ||
+                    "Failed to convert spreadsheet.");
+            }
+
+            const workbookJson = await response.json();
+            if (typeof spreadsheet.openFromJson !== "function") {
+                throw new Error("Spreadsheet openFromJson is not available.");
+            }
+
+            spreadsheet.openFromJson({ file: workbookJson });
+            // Jump to sheet/cell only — no yellow cell format.
+            navigateExcelPlace(citation);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Chat readiness must not depend on viewer init succeeding.
+            refreshReadyState();
+
+            try {
+                initViewers();
+            } catch (e) {
+                console.error(e);
+            }
+
+            document.getElementById("fileInput").addEventListener("change", displaySelectedFiles);
+            document.getElementById("uploadButton").addEventListener("click", uploadFiles);
+            document.getElementById("sendButton").addEventListener("click", sendQuestion);
+            document.getElementById("questionInput").addEventListener("keydown", function (event) {
+                if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    if (!hasIndexedFiles) {
+                        return;
+                    }
+                    sendQuestion();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
