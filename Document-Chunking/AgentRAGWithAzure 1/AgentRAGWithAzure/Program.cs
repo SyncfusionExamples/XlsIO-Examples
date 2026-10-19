@@ -709,6 +709,54 @@ public sealed class RagService
         return true;
     }
 
+    public async Task<bool> DeleteDocumentAsync(string fileName)
+    {
+        if (string.IsNullOrWhiteSpace(fileName))
+        {
+            return false;
+        }
+
+        string safeName = Path.GetFileName(fileName);
+        if (string.IsNullOrWhiteSpace(safeName) ||
+            safeName.Contains("..", StringComparison.Ordinal))
+        {
+            return false;
+        }
+
+        string extension = Path.GetExtension(safeName).ToLowerInvariant();
+        if (!SupportedExtensions.Contains(extension))
+        {
+            return false;
+        }
+
+        string fullPath = Path.GetFullPath(Path.Combine(_uploadFolder, safeName));
+        string uploadRoot = Path.GetFullPath(_uploadFolder)
+            .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+            + Path.DirectorySeparatorChar;
+        if (!fullPath.StartsWith(uploadRoot, StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+
+        await using NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
+        await using NpgsqlCommand command = new(
+            """
+            DELETE FROM rag_chunks
+            WHERE lower(source_name) = lower($1);
+            """,
+            connection);
+        command.Parameters.AddWithValue(safeName);
+        int deletedChunks = await command.ExecuteNonQueryAsync();
+
+        bool fileExisted = File.Exists(fullPath);
+        if (fileExisted)
+        {
+            File.Delete(fullPath);
+        }
+
+        return deletedChunks > 0 || fileExisted;
+    }
+
     // ------------------------------------------------------------------------
     // Save, chunk, embed and store an uploaded document
     // ------------------------------------------------------------------------
