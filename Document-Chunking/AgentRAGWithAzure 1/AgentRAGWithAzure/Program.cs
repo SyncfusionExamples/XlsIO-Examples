@@ -106,6 +106,19 @@ app.MapGet(
         });
     });
 
+app.MapDelete(
+    "/api/documents/{fileName}",
+    async (string fileName, RagService ragService) =>
+    {
+        bool removed = await ragService.DeleteDocumentAsync(fileName);
+        if (!removed)
+        {
+            return Results.NotFound(new { error = "Document not found." });
+        }
+
+        return Results.Ok(new { deleted = fileName });
+    });
+
 // ------------------------------------------------------------
 // Upload and index documents
 // ------------------------------------------------------------

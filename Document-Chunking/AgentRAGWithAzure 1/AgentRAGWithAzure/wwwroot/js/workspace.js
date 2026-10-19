@@ -137,9 +137,13 @@ function renderReadyDocs(names) {
     names.forEach(function (name) {
         const li = document.createElement("li");
         li.className = "file-row";
-        li.innerHTML = '<div><div class="file-name"></div><div class="file-meta"></div></div><span class="file-status ok">Ready</span>';
+        li.innerHTML = '<div><div class="file-name"></div><div class="file-meta"></div></div><div class="file-actions"><a class="text-btn doc-link">Download</a><button type="button" class="text-btn danger-btn">Delete</button></div>';
         li.querySelector(".file-name").textContent = name;
         li.querySelector(".file-meta").textContent = typeLabel(name);
+        const link = li.querySelector(".doc-link");
+        link.href = "/api/documents/" + encodeURIComponent(name) + "/stream";
+        link.setAttribute("download", name);
+        li.querySelector(".danger-btn").addEventListener("click", function () { deleteDocument(name); });
         list.appendChild(li);
     });
 }
@@ -985,14 +989,7 @@ function resizeActiveViewer() {
                 // Scroll into view, then drop yellow search highlights (navigate only).
                 try {
                     if (editor.selection &&
-                        typeof editor.selection.scrollToPosition === "function" &&
-                        editor.selection.start &&
-                        editor.selection.end) {
-                        editor.selection.scrollToPosition(
-                            editor.selection.start,
-                            editor.selection.end);
-                    }
-                    if (typeof editor.focusIn === "function") {
+                    itor.focusIn === "function") {
                         editor.focusIn();
                     }
                 } catch (scrollErr) {
@@ -1443,5 +1440,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     document.getElementById("clearChatButton").addEventListener("click", clearConversation);
+    document.getElementById("addDocsButton").addEventListener("click", showUpload);
     document.getElementById("closeViewerButton").addEventListener("click", hideViewerPane);
 });
