@@ -568,6 +568,24 @@ function showViewer(type) {
     setTimeout(resizeActiveViewer, 50);
 }
 
+function normalizeCitation(citation) {
+    citation = citation || {};
+    return {
+        sourceName: citation.sourceName || citation.SourceName || "",
+        fileExtension: citation.fileExtension || citation.FileExtension || "",
+        viewerType: (citation.viewerType || citation.ViewerType || "").toLowerCase(),
+        chunkIndex: citation.chunkIndex ?? citation.ChunkIndex ?? 0,
+        citationDisplay: citation.citationDisplay || citation.CitationDisplay || "",
+        contentSnippet: citation.contentSnippet || citation.ContentSnippet || "",
+        score: citation.score ?? citation.Score ?? 0,
+        pageNumber: citation.pageNumber ?? citation.PageNumber ?? null,
+        sheetName: citation.sheetName || citation.SheetName || null,
+        cellAddress: citation.cellAddress || citation.CellAddress || null,
+        headingPath: citation.headingPath || citation.HeadingPath || null,
+        searchText: citation.searchText || citation.SearchText || null
+    };
+}
+
 function revealViewerPane() {
     const workspace = document.getElementById("workspace");
     const pane = document.getElementById("viewerPane");
