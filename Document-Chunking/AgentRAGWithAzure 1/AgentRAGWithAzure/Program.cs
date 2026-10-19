@@ -199,16 +199,25 @@ app.MapPost(
                 });
         }
 
-        ChatAnswerResult result =
-            await ragService.AskQuestionAsync(
-                request.Question);
+        try
+        {
+            ChatAnswerResult result =
+                await ragService.AskQuestionAsync(
+                    request.Question);
 
-        return Results.Ok(
-            new ChatResponse
-            {
-                Answer = result.Answer,
-                Citations = result.Citations
-            });
+            return Results.Ok(
+                new ChatResponse
+                {
+                    Answer = result.Answer,
+                    Citations = result.Citations
+                });
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(
+                detail: ex.Message,
+                title: "Could not answer that question.");
+        }
     });
 
 // ------------------------------------------------------------
