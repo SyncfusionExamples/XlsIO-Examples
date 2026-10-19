@@ -340,6 +340,20 @@ function renderMarkdown(src) {
     return '<div class="answer">' + (html || "<p></p>") + "</div>";
 }
 
+function formatCitationPlace(citation) {
+    if (!citation) return "";
+    if (citation.pageNumber) return "Page " + citation.pageNumber;
+    if (citation.sheetName || citation.cellAddress) {
+        if (citation.sheetName && citation.cellAddress) return citation.sheetName + "!" + citation.cellAddress;
+        return citation.sheetName || citation.cellAddress || "";
+    }
+    if (citation.headingPath) return citation.headingPath;
+    if (citation.citationDisplay && citation.sourceName && citation.citationDisplay !== citation.sourceName) {
+        return citation.citationDisplay;
+    }
+    return "";
+}
+
 function addMessage(text, sender, citations, noSource) {
     dismissWelcome();
     const chatWindow = document.getElementById("chatWindow");
