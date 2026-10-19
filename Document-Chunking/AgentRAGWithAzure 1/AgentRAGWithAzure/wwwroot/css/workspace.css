@@ -147,7 +147,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, .drop-zone:focus-
 .file-status.bad { color: var(--danger); }
 .file-status.ok { color: var(--success); }
 .icon-btn { min-width: 40px; }
-.progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; color: var(--info); font-size: 13px; font-weight: 700; }
+.progress { display: none; align-items: center; gap: 10px; margin-top: 10px; color: var(--info); font-size: 13px; font-weight: 700; }
+.progress.is-active { display: flex; }
 .progress-bar { width: 120px; height: 6px; border-radius: 99px; background: linear-gradient(90deg, #c7d2fe, #4338ca, #c7d2fe); background-size: 200% 100%; animation: slide 1.2s linear infinite; }
 @keyframes slide { to { background-position: -200% 0; } }
 .status-line { margin-top: 8px; font-size: 13px; font-weight: 600; min-height: 1.2em; }

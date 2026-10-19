@@ -143,7 +143,8 @@ function renderReadyDocs(names) {
         const link = li.querySelector(".doc-link");
         link.href = "/api/documents/" + encodeURIComponent(name) + "/stream";
         link.setAttribute("download", name);
-        li.querySelector(".danger-btn").addEventListener("click", function () { deleteDocument(name); });
+        const remove = li.querySelector(".danger-btn");
+        remove.setAttribute("data-name", name);
         list.appendChild(li);
     });
 }
@@ -191,6 +192,8 @@ async function refreshReadyState() {
         preparedFiles = Array.isArray(data.files) ? data.files : [];
         setChatEnabled(preparedFiles.length > 0);
         setReadyUi(preparedFiles.length > 0, preparedFiles, false);
+        const ask = document.getElementById("askDocsButton");
+        if (ask) ask.disabled = preparedFiles.length === 0;
     } catch (e) {
         setChatEnabled(false);
         setReadyUi(false, [], true);
@@ -230,7 +233,7 @@ async function uploadFiles() {
     const formData = new FormData();
     accepted.forEach(function (file) { formData.append("files", file); });
     uploadButton.disabled = true;
-    progress.hidden = false;
+    progress.classList.add("is-active");
     setLive(status, "", "");
     try {
         const response = await fetch("/api/upload", { method: "POST", body: formData });
@@ -253,7 +256,7 @@ async function uploadFiles() {
         setLive(status, friendlyError(error, "Could not prepare these documents. Try adding them again."), "error");
         uploadButton.disabled = accepted.length === 0;
     } finally {
-        progress.hidden = true;
+        progress.classList.remove("is-active");
     }
 }
 
@@ -498,7 +501,36 @@ async function sendQuestion() {
 function clearConversation() {
     document.querySelectorAll("#chatWindow .msg").forEach(function (node) { node.remove(); });
     showWelcomeIfEmpty();
-    document.getElementById("questionInput").focus();
+    const input = document.getElementById("questionInput");
+    if (input) input.focus();
+}
+function showLibrary() {
+    const library = document.getElementById("libraryView");
+    const chat = document.getElementById("conversationView");
+    if (library) library.hidden = false;
+    if (chat) chat.hidden = true;
+}
+function showConversation() {
+    const library = document.getElementById("libraryView");
+    const chat = document.getElementById("conversationView");
+    if (library) library.hidden = true;
+    if (chat) chat.hidden = false;
+    const input = document.getElementById("questionInput");
+    if (input && !input.disabled) input.focus();
+}
+async function deleteDocument(name) {
+    if (!name) return;
+    if (!window.confirm("Delete " + name + "? Its prepared content will also be removed.")) return;
+    const status = document.getElementById("uploadStatus");
+    try {
+        const response = await fetch("/api/documents/" + encodeURIComponent(name), { method: "DELETE" });
+        const payload = await response.json().catch(function () { return {}; });
+        if (!response.ok) throw new Error(payload.error || "Could not delete that document.");
+        setLive(status, name + " was deleted.", "ok");
+        await refreshReadyState();
+    } catch (error) {
+        setLive(status, error.message || "Could not delete that document.", "error");
+    }
 }
 
         function initViewers() {
