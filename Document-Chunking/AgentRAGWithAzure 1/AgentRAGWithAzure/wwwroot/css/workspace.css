@@ -173,7 +173,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, .drop-zone:focus-
 .msg.user { justify-content: flex-end; }
 .avatar { width: 36px; height: 36px; border-radius: 10px; background: #e2e8f0; display: grid; place-items: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
 .msg.user .avatar { background: var(--primary); color: #fff; }
-.bubble-wrap { max-width: min(720px, 100%); min-width: 0; }
+.bubble-wrap { max-width: 100%; min-width: 0; }
 .bubble { background: #f8fafc; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; line-height: 1.55; overflow-wrap: anywhere; }
 .msg.user .bubble { background: #eef2ff; border-color: #c7d2fe; white-space: pre-wrap; }
 .answer h1, .answer h2, .answer h3 { margin: 0.6em 0 0.3em; font-size: 1.05em; }
