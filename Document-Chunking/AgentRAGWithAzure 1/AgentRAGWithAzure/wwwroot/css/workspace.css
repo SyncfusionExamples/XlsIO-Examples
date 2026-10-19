@@ -91,6 +91,9 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, .drop-zone:focus-
 .app.chat-only { grid-template-columns: minmax(0, 920px); justify-content: center; }
 .app.chat-only .viewer-pane { display: none; }
 .chat-pane, .viewer-pane { display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; }
+.chat-pane { position: relative; z-index: 2; }
+.viewer-pane { position: relative; z-index: 1; }
+.e-de-ctn, .e-spreadsheet, .e-pv-viewer-container { max-width: 100%; }
 .pane-header {
     display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;
     padding: 14px 16px; border-bottom: 1px solid var(--line);

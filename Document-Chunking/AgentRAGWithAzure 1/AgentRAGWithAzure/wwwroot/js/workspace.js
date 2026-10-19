@@ -619,9 +619,9 @@ function hideViewerPane() {
     const workspace = document.getElementById("workspace");
     const pane = document.getElementById("viewerPane");
     if (workspace) workspace.classList.add("chat-only");
-    if (pane && window.matchMedia("(max-width: 768px)").matches) pane.hidden = true;
+    if (pane) pane.hidden = true;
     document.body.classList.remove("source-open");
-    if (lastOpenButton) lastOpenButton.focus();
+    if (lastOpenButton && document.contains(lastOpenButton)) lastOpenButton.focus();
 }
 function resizeActiveViewer() {
     const active = document.querySelector(".viewer-panel.active");
@@ -1413,33 +1413,53 @@ function resizeActiveViewer() {
         }
 
 
+document.addEventListener("click", function (event) {
+    const close = event.target.closest("#closeViewerButton");
+    if (close) {
+        event.preventDefault();
+        hideViewerPane();
+        return;
+    }
+    const add = event.target.closest("#addDocsButton");
+    if (add) {
+        event.preventDefault();
+        showUpload();
+        return;
+    }
+    const reset = event.target.closest("#clearChatButton");
+    if (reset) {
+        event.preventDefault();
+        clearConversation();
+    }
+});
 document.addEventListener("DOMContentLoaded", function () {
     refreshReadyState();
-    try { initViewers(); } catch (e) { console.error(e); }
     const input = document.getElementById("fileInput");
     const drop = document.getElementById("dropZone");
-    input.addEventListener("change", function () { assignFiles(input.files); });
-    ["dragenter", "dragover"].forEach(function (name) {
-        drop.addEventListener(name, function (event) { event.preventDefault(); drop.classList.add("dragover"); });
-    });
-    ["dragleave", "drop"].forEach(function (name) {
-        drop.addEventListener(name, function (event) { event.preventDefault(); drop.classList.remove("dragover"); });
-    });
-    drop.addEventListener("drop", function (event) {
-        assignFiles(event.dataTransfer.files);
-    });
-    document.getElementById("uploadButton").addEventListener("click", uploadFiles);
-    document.getElementById("questionForm").addEventListener("submit", function (event) {
+    if (input) input.addEventListener("change", function () { assignFiles(input.files); });
+    if (drop) {
+        ["dragenter", "dragover"].forEach(function (name) {
+            drop.addEventListener(name, function (event) { event.preventDefault(); drop.classList.add("dragover"); });
+        });
+        ["dragleave", "drop"].forEach(function (name) {
+            drop.addEventListener(name, function (event) { event.preventDefault(); drop.classList.remove("dragover"); });
+        });
+        drop.addEventListener("drop", function (event) {
+            assignFiles(event.dataTransfer.files);
+        });
+    }
+    const uploadButton = document.getElementById("uploadButton");
+    const questionForm = document.getElementById("questionForm");
+    const questionInput = document.getElementById("questionInput");
+    if (uploadButton) uploadButton.addEventListener("click", uploadFiles);
+    if (questionForm) questionForm.addEventListener("submit", function (event) {
         event.preventDefault();
         sendQuestion();
     });
-    document.getElementById("questionInput").addEventListener("keydown", function (event) {
+    if (questionInput) questionInput.addEventListener("keydown", function (event) {
         if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
             sendQuestion();
         }
     });
-    document.getElementById("clearChatButton").addEventListener("click", clearConversation);
-    document.getElementById("addDocsButton").addEventListener("click", showUpload);
-    document.getElementById("closeViewerButton").addEventListener("click", hideViewerPane);
 });
