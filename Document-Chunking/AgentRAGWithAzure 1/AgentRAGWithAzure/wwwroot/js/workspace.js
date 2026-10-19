@@ -460,7 +460,7 @@ async function sendQuestion() {
         const payload = await response.json().catch(function () { return {}; });
         removeLoading();
         if (!response.ok) {
-            const err = new Error("chat");
+            const err = new Error(payload.error || payload.detail || payload.title || "Could not answer that question. Try again.");
             err.status = response.status;
             throw err;
         }
@@ -470,7 +470,7 @@ async function sendQuestion() {
         else addMessage(answer, "assistant", citations, citations.length === 0);
     } catch (error) {
         removeLoading();
-        addMessage(friendlyError(error, "Could not answer that question. Try again."), "assistant");
+        addMessage(friendlyError(error, error && error.message ? error.message : "Could not answer that question. Try again."), "assistant");
     } finally {
         busy = false;
         setChatEnabled(hasIndexedFiles);
