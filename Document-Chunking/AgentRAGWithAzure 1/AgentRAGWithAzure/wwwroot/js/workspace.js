@@ -145,6 +145,11 @@ function renderReadyDocs(names) {
         link.setAttribute("download", name);
         const remove = li.querySelector(".danger-btn");
         remove.setAttribute("data-name", name);
+        remove.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            deleteDocument(name);
+        });
         list.appendChild(li);
     });
 }
@@ -1455,13 +1460,20 @@ document.addEventListener("click", function (event) {
     const add = event.target.closest("#addDocsButton");
     if (add) {
         event.preventDefault();
-        showUpload();
+        showLibrary();
         return;
     }
-    const reset = event.target.closest("#clearChatButton");
-    if (reset) {
+    const ask = event.target.closest("#askDocsButton, #clearChatButton");
+    if (ask) {
         event.preventDefault();
-        clearConversation();
+        if (ask.id === "clearChatButton") clearConversation();
+        showConversation();
+        return;
+    }
+    const remove = event.target.closest(".danger-btn");
+    if (remove) {
+        event.preventDefault();
+        deleteDocument(remove.getAttribute("data-name"));
     }
 });
 document.addEventListener("DOMContentLoaded", function () {
