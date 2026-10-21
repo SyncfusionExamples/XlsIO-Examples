@@ -67,7 +67,12 @@ sealed class SyncfusionEngine : IExcelEngine
                 using FileStream input = File.OpenRead(sourcePath);
                 IWorkbook workbook = application.Workbooks.Open(input);
                 IWorksheet sheet = workbook.Worksheets[0];
-                JsonExport.Write(outputStem + ".json", sheet.UsedRange.LastRow, sheet.UsedRange.LastColumn, (r, c) => sheet.Range[r, c].DisplayText);
+                IMigrantRange migrantRange = sheet.MigrantRange;
+                JsonExport.Write(outputStem + ".json", sheet.UsedRange.LastRow, sheet.UsedRange.LastColumn, (r, c) =>
+                {
+                    migrantRange.ResetRowColumn(r, c);
+                    return migrantRange.DisplayText;
+                });
                 workbook.Close();
                 break;
             }
