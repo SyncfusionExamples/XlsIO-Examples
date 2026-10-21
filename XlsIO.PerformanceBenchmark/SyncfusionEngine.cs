@@ -1,4 +1,5 @@
 using System.Data;
+using System.Globalization;
 using Syncfusion.XlsIO;
 
 sealed class SyncfusionEngine : IExcelEngine
@@ -25,8 +26,7 @@ sealed class SyncfusionEngine : IExcelEngine
             case "Create and Save":
             {
                 IWorkbook workbook = application.Workbooks.Create(1);
-                IWorksheet sheet = workbook.Worksheets[0];
-                WriteGrid(sheet, table);
+                WriteGrid(workbook.Worksheets[0], table);
                 using FileStream output = File.Create(outputStem + ".xlsx");
                 workbook.SaveAs(output);
                 workbook.Close();
@@ -79,23 +79,20 @@ sealed class SyncfusionEngine : IExcelEngine
         }
     }
 
+    // https://help.syncfusion.com/document-processing/excel/excel-library/net/improving-performance#write
     static void WriteGrid(IWorksheet sheet, DataTable table)
     {
-        var values = new object[table.Rows.Count + 1, table.Columns.Count];
         for (int c = 0; c < table.Columns.Count; c++)
         {
-            values[0, c] = table.Columns[c].ColumnName;
+            sheet.SetValue(1, c + 1, table.Columns[c].ColumnName);
         }
 
         for (int r = 0; r < table.Rows.Count; r++)
         {
             for (int c = 0; c < table.Columns.Count; c++)
             {
-                values[r + 1, c] = table.Rows[r][c];
+                sheet.SetValue(r + 2, c + 1, Convert.ToString(table.Rows[r][c], CultureInfo.InvariantCulture) ?? string.Empty);
             }
         }
-
-        sheet.ImportArray(values, 1, 1);
     }
 }
-

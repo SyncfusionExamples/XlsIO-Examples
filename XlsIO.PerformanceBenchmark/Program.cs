@@ -40,6 +40,12 @@ var engines = new IExcelEngine[]
     new GemBoxEngine(),
 };
 
+string? engineFilter = Environment.GetEnvironmentVariable("BENCH_ENGINE");
+if (!string.IsNullOrWhiteSpace(engineFilter))
+{
+    engines = engines.Where(engine => engine.Name.Contains(engineFilter, StringComparison.OrdinalIgnoreCase)).ToArray();
+}
+
 string[] scenarios = string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("BENCH_ONLY"))
     ? [
         "Open and Save",
