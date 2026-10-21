@@ -1,0 +1,88 @@
+{
+  "generatedUtc": "2026-10-21T03:53:03.2387946Z",
+  "runtime": ".NET 9.0.21",
+  "os": "Debian GNU/Linux 13 (trixie)",
+  "processorCount": 4,
+  "rows": 100000,
+  "columns": 50,
+  "warmupIterations": 0,
+  "measuredIterations": 1,
+  "sourceWorkbookBytes": 47305075,
+  "packages": {
+    "Syncfusion.XlsIO.Net.Core": "35.1.41",
+    "Aspose.Cells": "26.10.0",
+    "DevExpress.Document.Processor": "26.1.5",
+    "IronXL.Excel": "2026.10.5",
+    "GemBox.Spreadsheet": "2026.10.116"
+  },
+  "notes": [
+    "Median of measured iterations after one warmup. Each iteration is a fresh process-level GC collect before the timed region.",
+    "PeakWorkingSetMb is the process peak working set observed during the timed region (includes other loaded libraries).",
+    "DeltaWorkingSetMb is peak working set minus working set sampled immediately before the timed region.",
+    "AllocatedMb is GC.GetTotalAllocatedBytes delta during the timed region (managed allocations, not peak heap).",
+    "Aspose.Cells, DevExpress, IronXL, and GemBox run in evaluation/trial mode. Trial restrictions (watermarks, row limits, or disabled features) are reported as errors rather than fabricated timings.",
+    "Excel to JSON writes a JSON array of row objects using each library\u0027s cell reader. It is not a vendor-specific JSON converter."
+  ],
+  "results": [
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Open and Save",
+      "Status": "ok",
+      "MedianMs": 16800.3107,
+      "PeakWorkingSetMb": 1049.6328125,
+      "DeltaWorkingSetMb": 880.59375,
+      "AllocatedMb": 3051.0284881591797,
+      "Error": null
+    },
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Create and Save",
+      "Status": "ok",
+      "MedianMs": 25907.7063,
+      "PeakWorkingSetMb": 772.06640625,
+      "DeltaWorkingSetMb": 529.9375,
+      "AllocatedMb": 11715.364181518555,
+      "Error": null
+    },
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Import DataTable",
+      "Status": "ok",
+      "MedianMs": 12170.395,
+      "PeakWorkingSetMb": 776.9375,
+      "DeltaWorkingSetMb": 528.39453125,
+      "AllocatedMb": 8763.415740966797,
+      "Error": null
+    },
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Export DataTable",
+      "Status": "ok",
+      "MedianMs": 7549.1844,
+      "PeakWorkingSetMb": 1024.625,
+      "DeltaWorkingSetMb": 772.0078125,
+      "AllocatedMb": 2337.8597412109375,
+      "Error": null
+    },
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Excel to CSV",
+      "Status": "ok",
+      "MedianMs": 5388.5077,
+      "PeakWorkingSetMb": 852.25,
+      "DeltaWorkingSetMb": 586.8828125,
+      "AllocatedMb": 1817.963035583496,
+      "Error": null
+    },
+    {
+      "Library": "Syncfusion XlsIO",
+      "Scenario": "Excel to JSON",
+      "Status": "ok",
+      "MedianMs": 17137.6626,
+      "PeakWorkingSetMb": 861.859375,
+      "DeltaWorkingSetMb": 596.28515625,
+      "AllocatedMb": 0,
+      "Error": null
+    }
+  ]
+}
