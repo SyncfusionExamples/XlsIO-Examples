@@ -1,0 +1,12 @@
+{
+  "Library": "XlsIO",
+  "Method": "ExcelToPdf",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 133518.6458,
+  "PeakWorkingSetMb": 2231.05859375,
+  "DeltaWorkingSetMb": 1909.46875,
+  "AllocatedMb": 67635.1833190918,
+  "Error": null
+}

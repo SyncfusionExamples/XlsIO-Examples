@@ -1,0 +1,12 @@
+{
+  "Library": "GemBox",
+  "Method": "ImportDataTable",
+  "Rows": 149,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 230.5371,
+  "PeakWorkingSetMb": 71.234375,
+  "DeltaWorkingSetMb": 24.640625,
+  "AllocatedMb": 7.680870056152344,
+  "Error": null
+}

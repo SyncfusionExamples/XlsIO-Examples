@@ -1,0 +1,12 @@
+{
+  "Library": "GemBox",
+  "Method": "CreateAndSave",
+  "Rows": 149,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 235.5498,
+  "PeakWorkingSetMb": 71.19921875,
+  "DeltaWorkingSetMb": 24.5859375,
+  "AllocatedMb": 7.680763244628906,
+  "Error": null
+}

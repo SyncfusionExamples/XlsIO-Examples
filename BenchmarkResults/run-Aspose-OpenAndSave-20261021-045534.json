@@ -1,0 +1,12 @@
+{
+  "Library": "Aspose",
+  "Method": "OpenAndSave",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 9171.8098,
+  "PeakWorkingSetMb": 1097.01171875,
+  "DeltaWorkingSetMb": 773.0078125,
+  "AllocatedMb": 920.7283935546875,
+  "Error": null
+}

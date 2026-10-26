@@ -1,0 +1,12 @@
+{
+  "Library": "GemBox",
+  "Method": "ImportDataTable",
+  "Rows": 150,
+  "Columns": 50,
+  "Status": "error",
+  "ElapsedMs": 150.1274,
+  "PeakWorkingSetMb": 68.8125,
+  "DeltaWorkingSetMb": 22.15234375,
+  "AllocatedMb": 4.046379089355469,
+  "Error": "FreeLimitReachedException: Free version limitation has been exceeded (Free version is limited to 150 rows and 5 sheets). To control what happens when your application reaches free version limit use SpreadsheetInfo.FreeLimitReached event. For more information about evaluation, see: https://www.gemboxsoftware.com/spreadsheet/examples/free-trial-professional/1001."
+}

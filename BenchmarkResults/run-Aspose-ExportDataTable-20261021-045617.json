@@ -1,0 +1,12 @@
+{
+  "Library": "Aspose",
+  "Method": "ExportDataTable",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 12239.6773,
+  "PeakWorkingSetMb": 1473.2578125,
+  "DeltaWorkingSetMb": 1148.6875,
+  "AllocatedMb": 2018.7795333862305,
+  "Error": null
+}

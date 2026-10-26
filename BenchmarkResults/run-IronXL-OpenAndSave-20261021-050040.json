@@ -1,0 +1,12 @@
+{
+  "Library": "IronXL",
+  "Method": "OpenAndSave",
+  "Rows": 148,
+  "Columns": 50,
+  "Status": "error",
+  "ElapsedMs": 57560.9869,
+  "PeakWorkingSetMb": 1556.99609375,
+  "DeltaWorkingSetMb": 1510.3515625,
+  "AllocatedMb": 25977.3578414917,
+  "Error": "LicensingException: Production License Required\n\nIronXL is running in production without a license.\n\n* Development use: Free for 7 days\n* Production use: Requires a license\n\nPlease add a license key before deploying to production:\n\n-\u003E Get a license: https://ironsoftware.com/csharp/excel/licensing/?utm_source=product\u0026utm_medium=errormsg\u0026utm_campaign=during-7-day-grace#trial-license\n-\u003E Installation guide: https://ironsoftware.com/csharp/excel/docs/?utm_source=product\u0026utm_medium=errormsg\u0026utm_campaign=purchased-key-deploy-link"
+}

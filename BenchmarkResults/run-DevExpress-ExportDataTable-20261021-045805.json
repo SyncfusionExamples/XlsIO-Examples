@@ -1,0 +1,12 @@
+{
+  "Library": "DevExpress",
+  "Method": "ExportDataTable",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "error",
+  "ElapsedMs": 8372.5387,
+  "PeakWorkingSetMb": 1103.703125,
+  "DeltaWorkingSetMb": 781.0234375,
+  "AllocatedMb": 1177.2042236328125,
+  "Error": "InvalidOperationException: Unexpected row count 100002; expected 100000."
+}

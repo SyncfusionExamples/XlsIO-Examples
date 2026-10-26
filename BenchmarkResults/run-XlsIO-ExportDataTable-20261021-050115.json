@@ -1,0 +1,12 @@
+{
+  "Library": "XlsIO",
+  "Method": "ExportDataTable",
+  "Rows": 148,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 2000.8795,
+  "PeakWorkingSetMb": 104.59765625,
+  "DeltaWorkingSetMb": 57.86328125,
+  "AllocatedMb": 8.407859802246094,
+  "Error": null
+}

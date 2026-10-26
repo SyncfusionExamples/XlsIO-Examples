@@ -1,0 +1,12 @@
+{
+  "Library": "DevExpress",
+  "Method": "CreateAndSave",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 24644.4844,
+  "PeakWorkingSetMb": 1432.81640625,
+  "DeltaWorkingSetMb": 1110.4296875,
+  "AllocatedMb": 3488.2302856445312,
+  "Error": null
+}

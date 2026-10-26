@@ -1,0 +1,12 @@
+{
+  "Library": "Aspose",
+  "Method": "ExcelToPdf",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 181195.3771,
+  "PeakWorkingSetMb": 1113.15234375,
+  "DeltaWorkingSetMb": 794.375,
+  "AllocatedMb": 101526.10961914062,
+  "Error": null
+}

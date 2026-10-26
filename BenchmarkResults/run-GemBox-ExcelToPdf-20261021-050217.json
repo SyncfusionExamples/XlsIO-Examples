@@ -1,0 +1,12 @@
+{
+  "Library": "GemBox",
+  "Method": "ExcelToPdf",
+  "Rows": 148,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 44.8919,
+  "PeakWorkingSetMb": 113.1328125,
+  "DeltaWorkingSetMb": 0.84375,
+  "AllocatedMb": 6.5778656005859375,
+  "Error": null
+}

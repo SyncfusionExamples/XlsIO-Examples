@@ -1,0 +1,12 @@
+{
+  "Library": "DevExpress",
+  "Method": "ExcelToPdf",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 180204.3762,
+  "PeakWorkingSetMb": 3067.6328125,
+  "DeltaWorkingSetMb": 2741.90234375,
+  "AllocatedMb": 54725.55017852783,
+  "Error": null
+}

@@ -1,0 +1,12 @@
+{
+  "Library": "XlsIO",
+  "Method": "OpenAndSave",
+  "Rows": 148,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 99.0663,
+  "PeakWorkingSetMb": 117.41015625,
+  "DeltaWorkingSetMb": 3.953125,
+  "AllocatedMb": 8.218955993652344,
+  "Error": null
+}

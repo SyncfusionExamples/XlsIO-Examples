@@ -1,0 +1,12 @@
+{
+  "Library": "Aspose",
+  "Method": "ExcelToJson",
+  "Rows": 100000,
+  "Columns": 50,
+  "Status": "ok",
+  "ElapsedMs": 6466.458,
+  "PeakWorkingSetMb": 1014.08984375,
+  "DeltaWorkingSetMb": 692.1328125,
+  "AllocatedMb": 1843.490707397461,
+  "Error": null
+}
