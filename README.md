@@ -3,21 +3,20 @@ This repository contains examples of creating, reading, editing, and converting 
 
 ## Performance benchmark
 
-`XlsIO.PerformanceBenchmark` is a .NET 9 console app that measures elapsed time and memory for 100,000 rows by 50 columns:
+`XlsIO.PerformanceBenchmark` is a .NET 9 console app that measures the elapsed time of Syncfusion XlsIO operations on a workbook with 100,000 rows by 50 columns. Each run executes one method:
 
-- Open and Save
-- Create and Save
-- Import DataTable
-- Export DataTable
-- Excel to CSV
-- Excel to JSON
-
-Libraries: Syncfusion XlsIO, Aspose.Cells, DevExpress Spreadsheet, IronXL, and GemBox.Spreadsheet (latest NuGet versions).
+- `OpenAndSave`
+- `CreateAndSave`
+- `ImportDataTable`
+- `ExportDataTable`
+- `ExcelToCsv`
+- `ExcelToJson`
+- `ExcelToPdf`
 
 ```bash
-dotnet run --project XlsIO.PerformanceBenchmark -c Release
+dotnet run --project XlsIO.PerformanceBenchmark -c Release -- ExcelToCsv
 ```
 
-Optional: `BENCH_ONLY="Open and Save,Excel to CSV"` runs a subset. `IRONXL_LICENSE_KEY` supplies an IronXL trial or production key. Results are written to `BenchmarkResults/`.
+Generated files are written to the `Output` folder next to the built application.
 
-The measured comparison from this environment is in [BenchmarkResults/BENCHMARK.md](BenchmarkResults/BENCHMARK.md). IronXL and GemBox.Spreadsheet cannot process 100,000 rows under their public NuGet trial limits, so those rows are recorded as errors rather than timings.
+NuGet packages: `Syncfusion.XlsIO.Net.Core`, `Syncfusion.XlsIORenderer.Net.Core`, and `Syncfusion.Pdf.Net.Core` (35.1.41).
