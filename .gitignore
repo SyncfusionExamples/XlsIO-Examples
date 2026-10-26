@@ -1,0 +1,7 @@
+bin/
+obj/
+BenchmarkData/
+*.xlsx
+*.csv
+*.json
+!BenchmarkResults/*.json
