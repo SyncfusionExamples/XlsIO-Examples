@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Large sparkle (center-left) -->
+  <path d="M30 10 C30 10 32 24 40 26 C32 28 30 42 30 42 C30 42 28 28 20 26 C28 24 30 10 30 10Z" fill="#4A90E2"/>
+  <!-- Small sparkle (top-right) -->
+  <path d="M56 8 C56 8 57.2 15.8 62 17 C57.2 18.2 56 26 56 26 C56 26 54.8 18.2 50 17 C54.8 15.8 56 8 56 8Z" fill="#4A90E2"/>
+  <!-- Small sparkle (bottom-right) -->
+  <path d="M58 44 C58 44 59.2 51.8 64 53 C59.2 54.2 58 62 58 62 C58 62 56.8 54.2 52 53 C56.8 51.8 58 44 58 44Z" fill="#4A90E2"/>
+</svg>

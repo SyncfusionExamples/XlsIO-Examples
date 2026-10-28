@@ -1,0 +1,40 @@
+{
+  "NewHires": [
+    {
+      "EmployeeID": "ATPL-2026-041",
+      "FullName": "Karthik Ramesh",
+      "JobTitle": "Software Engineer",
+      "Department": "Product Engineering",
+      "WorkLocation": "Chennai",
+      "Manager": "S. Praveen Kumar",
+      "StartDate": "06 April 2026",
+      "EmploymentType": "Full-Time",
+      "ReportingTime": "9:30 AM",
+      "OfferDate": "25 March 2026"
+    },
+    {
+      "EmployeeID": "ATPL-2026-042",
+      "FullName": "Ananya Iyer",
+      "JobTitle": "Business Analyst",
+      "Department": "Enterprise Solutions",
+      "WorkLocation": "Bengaluru",
+      "Manager": "R. Mahalakshmi",
+      "StartDate": "08 April 2026",
+      "EmploymentType": "Full-Time",
+      "ReportingTime": "10:00 AM",
+      "OfferDate": "26 March 2026"
+    },
+    {
+      "EmployeeID": "ATPL-2026-043",
+      "FullName": "Mohammed Faizal",
+      "JobTitle": "Cloud Operations Engineer",
+      "Department": "IT Operations",
+      "WorkLocation": "Hyderabad",
+      "Manager": "V. Srinivasan",
+      "StartDate": "10 April 2026",
+      "EmploymentType": "Full-Time",
+      "ReportingTime": "9:00 AM",
+      "OfferDate": "27 March 2026"
+    }
+  ]
+}
