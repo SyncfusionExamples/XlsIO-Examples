@@ -28,7 +28,9 @@ builder.Services.AddSingleton<NpgsqlDataSource>(_ =>
     return dataSourceBuilder.Build();
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<RagService>();
+builder.Services.AddHostedService<DocumentCleanupService>();
 builder.Services.AddSingleton<UploadQuotaService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers();

@@ -228,6 +228,7 @@ function getUserCode() {
     for (let i = 0; i < parts.length; i++) { hash = ((hash << 5) - hash + parts.charCodeAt(i)) | 0; }
     return "u" + Math.abs(hash).toString(36) + "-" + parts.length;
 }
+document.cookie = "rag_user=" + encodeURIComponent(getUserCode()) + "; path=/; max-age=31536000; SameSite=Lax";
 function applyUploadLimit(data) {
     const uploadButton = document.getElementById("uploadButton");
     const input = document.getElementById("fileInput");

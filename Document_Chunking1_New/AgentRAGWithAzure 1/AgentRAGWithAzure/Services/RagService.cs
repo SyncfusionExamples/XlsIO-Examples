@@ -40,6 +40,10 @@ public sealed class RagService
 
     private readonly NpgsqlDataSource _dataSource;
 
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public const string OwnerCookieName = "rag_user";
+
     private static readonly HashSet<string> SupportedExtensions =
         new(StringComparer.OrdinalIgnoreCase)
         {
@@ -53,9 +57,11 @@ public sealed class RagService
     public RagService(
         IConfiguration configuration,
         IWebHostEnvironment environment,
-        NpgsqlDataSource dataSource)
+        NpgsqlDataSource dataSource,
+        IHttpContextAccessor httpContextAccessor)
     {
         _dataSource = dataSource;
+        _httpContextAccessor = httpContextAccessor;
 
         string geminiApiKey =
             configuration["Gemini:ApiKey"]
@@ -112,6 +118,74 @@ public sealed class RagService
         Directory.CreateDirectory(_uploadFolder);
     }
 
+    // ------------------------------------------------------------------------
+    // Per-user ownership: every document belongs to the user who uploaded it
+    // ------------------------------------------------------------------------
+
+    public string? CurrentOwner =>
+        UploadQuotaService.IsValidUserCode(
+            _httpContextAccessor.HttpContext?.Request.Cookies[OwnerCookieName])
+            ? _httpContextAccessor.HttpContext!.Request.Cookies[OwnerCookieName]
+            : null;
+
+    private string OwnerFolder(string owner) =>
+        Path.Combine(_uploadFolder, owner);
+
+    public async Task EnsureSchemaAsync()
+    {
+        await using NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
+        await using NpgsqlCommand command = new(
+            """
+            ALTER TABLE rag_chunks ADD COLUMN IF NOT EXISTS owner_id text NOT NULL DEFAULT '';
+            CREATE INDEX IF NOT EXISTS rag_chunks_owner_idx ON rag_chunks (owner_id);
+            """,
+            connection);
+        await command.ExecuteNonQueryAsync();
+    }
+
+    /// <summary>Deletes documents (database rows and files) older than the retention period.</summary>
+    public async Task DeleteExpiredDocumentsAsync(TimeSpan retention)
+    {
+        var expired = new List<(string Owner, string Source)>();
+
+        await using NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
+        await using (NpgsqlCommand select = new(
+            """
+            SELECT owner_id, source_name
+            FROM rag_chunks
+            GROUP BY owner_id, source_name
+            HAVING max(updated_at) < now() - ($1 * interval '1 second');
+            """,
+            connection))
+        {
+            select.Parameters.AddWithValue(retention.TotalSeconds);
+            await using NpgsqlDataReader reader = await select.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                expired.Add((reader.GetString(0), reader.GetString(1)));
+            }
+        }
+
+        foreach ((string owner, string source) in expired)
+        {
+            await using NpgsqlCommand delete = new(
+                "DELETE FROM rag_chunks WHERE owner_id = $1 AND source_name = $2;",
+                connection);
+            delete.Parameters.AddWithValue(owner);
+            delete.Parameters.AddWithValue(source);
+            await delete.ExecuteNonQueryAsync();
+
+            if (UploadQuotaService.IsValidUserCode(owner))
+            {
+                string path = Path.Combine(OwnerFolder(owner), Path.GetFileName(source));
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+        }
+    }
+
     public bool IsSupportedFile(string fileName)
     {
         string extension =
@@ -130,7 +204,8 @@ public sealed class RagService
         safeName = string.Empty;
         extension = string.Empty;
 
-        if (string.IsNullOrWhiteSpace(fileName))
+        string? owner = CurrentOwner;
+        if (owner is null || string.IsNullOrWhiteSpace(fileName))
         {
             return false;
         }
@@ -151,9 +226,9 @@ public sealed class RagService
         }
 
         fullPath = Path.GetFullPath(
-            Path.Combine(_uploadFolder, safeName));
+            Path.Combine(OwnerFolder(owner), safeName));
 
-        string uploadRoot = Path.GetFullPath(_uploadFolder)
+        string uploadRoot = Path.GetFullPath(OwnerFolder(owner))
             .TrimEnd(
                 Path.DirectorySeparatorChar,
                 Path.AltDirectorySeparatorChar)
@@ -170,7 +245,8 @@ public sealed class RagService
 
     public async Task<bool> DeleteDocumentAsync(string fileName)
     {
-        if (string.IsNullOrWhiteSpace(fileName))
+        string? owner = CurrentOwner;
+        if (owner is null || string.IsNullOrWhiteSpace(fileName))
         {
             return false;
         }
@@ -188,8 +264,8 @@ public sealed class RagService
             return false;
         }
 
-        string fullPath = Path.GetFullPath(Path.Combine(_uploadFolder, safeName));
-        string uploadRoot = Path.GetFullPath(_uploadFolder)
+        string fullPath = Path.GetFullPath(Path.Combine(OwnerFolder(owner), safeName));
+        string uploadRoot = Path.GetFullPath(OwnerFolder(owner))
             .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
             + Path.DirectorySeparatorChar;
         if (!fullPath.StartsWith(uploadRoot, StringComparison.OrdinalIgnoreCase))
@@ -201,10 +277,11 @@ public sealed class RagService
         await using NpgsqlCommand command = new(
             """
             DELETE FROM rag_chunks
-            WHERE lower(source_name) = lower($1);
+            WHERE lower(source_name) = lower($1) AND owner_id = $2;
             """,
             connection);
         command.Parameters.AddWithValue(safeName);
+        command.Parameters.AddWithValue(owner);
         int deletedChunks = await command.ExecuteNonQueryAsync();
 
         bool fileExisted = File.Exists(fullPath);
@@ -224,9 +301,14 @@ public sealed class RagService
         IFormFile file,
         string safeFileName)
     {
+        string owner = CurrentOwner
+            ?? throw new InvalidOperationException("Missing user identity.");
+
+        Directory.CreateDirectory(OwnerFolder(owner));
+
         string filePath =
             Path.Combine(
-                _uploadFolder,
+                OwnerFolder(owner),
                 safeFileName);
 
         // Save the uploaded source file locally.
@@ -309,7 +391,8 @@ public sealed class RagService
         // Replace previous chunks for the same source file.
         await UpsertChunksAsync(
             records,
-            safeFileName);
+            safeFileName,
+            owner);
 
         Console.WriteLine(
             $"Stored {records.Count} chunks for '{safeFileName}'.");
@@ -529,7 +612,8 @@ public sealed class RagService
 
     private async Task UpsertChunksAsync(
         IReadOnlyCollection<LocalChunkRecord> records,
-        string sourceName)
+        string sourceName,
+        string owner)
     {
         await using NpgsqlConnection connection =
             await _dataSource.OpenConnectionAsync();
@@ -551,7 +635,7 @@ public sealed class RagService
             const string deleteSql =
                 """
                 DELETE FROM rag_chunks
-                WHERE lower(source_name) = lower($1);
+                WHERE lower(source_name) = lower($1) AND owner_id = $2;
                 """;
 
             await using (NpgsqlCommand deleteCommand = new(
@@ -561,6 +645,9 @@ public sealed class RagService
             {
                 deleteCommand.Parameters.AddWithValue(
                     sourceName);
+
+                deleteCommand.Parameters.AddWithValue(
+                    owner);
 
                 await deleteCommand.ExecuteNonQueryAsync();
             }
@@ -577,7 +664,8 @@ public sealed class RagService
                     embedding,
                     metadata_attributes,
                     citation_display,
-                    citation_details
+                    citation_details,
+                    owner_id
                 )
                 VALUES
                 (
@@ -589,7 +677,8 @@ public sealed class RagService
                     $6,
                     $7,
                     $8,
-                    $9
+                    $9,
+                    $10
                 )
                 ON CONFLICT (id)
                 DO UPDATE SET
@@ -679,14 +768,17 @@ public sealed class RagService
                             citationDetailsJson
                     });
 
+                insertCommand.Parameters.AddWithValue(owner);
+
                 await insertCommand.ExecuteNonQueryAsync();
             }
 
             await using NpgsqlCommand countCommand = new(
-                "SELECT count(*) FROM rag_chunks WHERE lower(source_name) = lower($1);",
+                "SELECT count(*) FROM rag_chunks WHERE lower(source_name) = lower($1) AND owner_id = $2;",
                 connection,
                 transaction);
             countCommand.Parameters.AddWithValue(sourceName);
+            countCommand.Parameters.AddWithValue(owner);
             long stored = Convert.ToInt64(await countCommand.ExecuteScalarAsync());
             Console.WriteLine($"rag_chunks now holds {stored} rows for '{sourceName}'.");
 
@@ -717,12 +809,18 @@ public sealed class RagService
             """
             SELECT DISTINCT source_name
             FROM rag_chunks
-            WHERE source_name <> ''
+            WHERE source_name <> '' AND owner_id = $1
             ORDER BY source_name;
             """;
 
         var files =
             new List<string>();
+
+        string? owner = CurrentOwner;
+        if (owner is null)
+        {
+            return files;
+        }
 
         await using NpgsqlConnection connection =
             await _dataSource.OpenConnectionAsync();
@@ -731,6 +829,8 @@ public sealed class RagService
             new(
                 sql,
                 connection);
+
+        command.Parameters.AddWithValue(owner);
 
         await using NpgsqlDataReader reader =
             await command.ExecuteReaderAsync();
@@ -755,7 +855,8 @@ public sealed class RagService
             double similarityThreshold =
                 DefaultSimilarityThreshold)
     {
-        if (topK <= 0)
+        string? owner = CurrentOwner;
+        if (topK <= 0 || owner is null)
         {
             return new List<LocalChunkRecord>();
         }
@@ -801,6 +902,7 @@ public sealed class RagService
                     citation_details,
                     embedding <=> $1 AS distance
                 FROM rag_chunks
+                WHERE owner_id = $5
                 ORDER BY embedding <=> $1
                 LIMIT $2
             )
@@ -866,6 +968,9 @@ public sealed class RagService
 
             command.Parameters.AddWithValue(
                 topK);
+
+            command.Parameters.AddWithValue(
+                owner);
 
             await using NpgsqlDataReader reader =
                 await command.ExecuteReaderAsync();
