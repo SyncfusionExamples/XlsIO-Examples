@@ -68,8 +68,11 @@ endpoints.MapPost(
     async (
         HttpRequest request,
         RagService ragService,
-        UploadQuotaService quota) =>
+        UploadQuotaService quota,
+        ILogger<RagService> logger) =>
     {
+      try
+      {
         if (!request.HasFormContentType)
         {
             return Results.BadRequest(
@@ -173,6 +176,14 @@ endpoints.MapPost(
             {
                 Files = uploadedFiles
             });
+      }
+      catch (Exception ex)
+      {
+        logger.LogError(ex, "Upload failed.");
+        return Results.Json(
+            new UploadErrorResponse { Error = ex.GetType().Name + ": " + ex.Message },
+            statusCode: StatusCodes.Status500InternalServerError);
+      }
     });
 
 // ------------------------------------------------------------
