@@ -29,6 +29,7 @@ builder.Services.AddSingleton<NpgsqlDataSource>(_ =>
 });
 
 builder.Services.AddSingleton<RagService>();
+builder.Services.AddSingleton<UploadQuotaService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 

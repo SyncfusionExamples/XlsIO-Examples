@@ -184,7 +184,7 @@ function renderSelected(files) {
         li.append(info, status, remove);
         list.appendChild(li);
     });
-    upload.disabled = accepted.length === 0;
+    upload.disabled = uploadLimitReached || accepted.length === 0;
 }
 
 async function refreshReadyState() {
@@ -219,6 +219,37 @@ function assignFiles(fileList) {
     }
 }
 
+function getUserCode() {
+    const parts = [
+        navigator.userAgent, navigator.language, screen.width + "x" + screen.height,
+        screen.colorDepth, new Date().getTimezoneOffset(), navigator.hardwareConcurrency || 0
+    ].join("|");
+    let hash = 0;
+    for (let i = 0; i < parts.length; i++) { hash = ((hash << 5) - hash + parts.charCodeAt(i)) | 0; }
+    return "u" + Math.abs(hash).toString(36) + "-" + parts.length;
+}
+function applyUploadLimit(data) {
+    const uploadButton = document.getElementById("uploadButton");
+    const input = document.getElementById("fileInput");
+    const status = document.getElementById("uploadStatus");
+    uploadLimitReached = !!(data && data.limitReached);
+    if (uploadLimitReached) {
+        const when = data.resetAtUtc ? new Date(data.resetAtUtc).toLocaleString() : "";
+        setLive(status, "You can upload only one document per day. You can upload again after " + when + ".", "error");
+        if (uploadButton) uploadButton.disabled = true;
+        if (input) input.disabled = true;
+    } else if (input) {
+        input.disabled = false;
+    }
+}
+async function checkUploadLimit() {
+    try {
+        const res = await fetch("/api/upload-quota/" + encodeURIComponent(getUserCode()));
+        if (res.ok) applyUploadLimit(await res.json());
+    } catch (e) { /* quota check is best-effort; the server enforces it */ }
+}
+let uploadLimitReached = false;
+
 async function uploadFiles() {
     const input = document.getElementById("fileInput");
     const uploadButton = document.getElementById("uploadButton");
@@ -235,7 +266,13 @@ async function uploadFiles() {
         setLive(status, rejected.map(function (f) { return f.name + " is not supported. Use PDF, Word, or Excel."; }).join(" "), "error");
         return;
     }
+    if (uploadLimitReached) return;
+    if (accepted.length > 1) {
+        setLive(status, "Only one document can be uploaded per day. Please select a single file.", "error");
+        return;
+    }
     const formData = new FormData();
+    formData.append("userCode", getUserCode());
     accepted.forEach(function (file) { formData.append("files", file); });
     uploadButton.disabled = true;
     progress.classList.add("is-active");
@@ -247,6 +284,7 @@ async function uploadFiles() {
             const err = new Error("upload");
             err.status = response.status;
             err.detail = payload && payload.error;
+            if (response.status === 429) applyUploadLimit({ limitReached: true, resetAtUtc: payload.resetAtUtc });
             throw err;
         }
         const added = payload.files || accepted.map(function (f) { return f.name; });
@@ -258,10 +296,11 @@ async function uploadFiles() {
         input.value = "";
         renderSelected([]);
         await refreshReadyState();
+        await checkUploadLimit();
     } catch (error) {
         const fallback = friendlyError(error, "Could not prepare these documents. Try adding them again.");
         setLive(status, error && error.detail ? fallback + " " + error.detail : fallback, "error");
-        uploadButton.disabled = accepted.length === 0;
+        uploadButton.disabled = uploadLimitReached || accepted.length === 0;
     } finally {
         progress.classList.remove("is-active");
     }
@@ -1480,6 +1519,7 @@ document.addEventListener("click", function (event) {
 });
 document.addEventListener("DOMContentLoaded", function () {
     refreshReadyState();
+    checkUploadLimit();
     const input = document.getElementById("fileInput");
     const drop = document.getElementById("dropZone");
     if (input) input.addEventListener("change", function () { assignFiles(input.files); });

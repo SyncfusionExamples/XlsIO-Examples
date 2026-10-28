@@ -42,11 +42,33 @@ endpoints.MapDelete(
 // Upload and index documents
 // ------------------------------------------------------------
 
+endpoints.MapGet(
+    "/api/upload-quota/{userCode}",
+    async (string userCode, UploadQuotaService quota) =>
+    {
+        if (!UploadQuotaService.IsValidUserCode(userCode))
+        {
+            return Results.BadRequest(new UploadErrorResponse { Error = "Invalid user." });
+        }
+
+        DateTime? resetAt = await quota.GetBlockedUntilAsync(userCode);
+        return Results.Ok(new
+        {
+            limitReached = resetAt.HasValue,
+            resetAtUtc = resetAt,
+            message = resetAt.HasValue
+                ? "You can upload only one document per day. You can upload again after " +
+                  resetAt.Value.ToString("u") + "."
+                : null
+        });
+    });
+
 endpoints.MapPost(
     "/api/upload",
     async (
         HttpRequest request,
-        RagService ragService) =>
+        RagService ragService,
+        UploadQuotaService quota) =>
     {
         if (!request.HasFormContentType)
         {
@@ -70,6 +92,34 @@ endpoints.MapPost(
                 {
                     Error =
                         "Please upload at least one supported file."
+                });
+        }
+
+        string? userCode = form["userCode"].ToString();
+        if (!UploadQuotaService.IsValidUserCode(userCode))
+        {
+            return Results.BadRequest(new UploadErrorResponse { Error = "Invalid user." });
+        }
+
+        DateTime? resetAt = await quota.GetBlockedUntilAsync(userCode);
+        if (resetAt.HasValue)
+        {
+            return Results.Json(
+                new
+                {
+                    error = "You can upload only one document per day. You can upload again after " +
+                            resetAt.Value.ToString("u") + ".",
+                    resetAtUtc = resetAt
+                },
+                statusCode: StatusCodes.Status429TooManyRequests);
+        }
+
+        if (files.Count > 1)
+        {
+            return Results.BadRequest(
+                new UploadErrorResponse
+                {
+                    Error = "Only one document can be uploaded per day. Please select a single file."
                 });
         }
 
@@ -102,6 +152,7 @@ endpoints.MapPost(
                     statusCode: StatusCodes.Status500InternalServerError);
             }
 
+            await quota.RecordUploadAsync(userCode);
             uploadedFiles.Add(safeFileName);
         }
 
