@@ -280,7 +280,9 @@ public sealed class RagService
             records.Add(
                 new LocalChunkRecord
                 {
-                    Id = chunk.ChunkId,
+                    // The chunker's ChunkId may repeat across documents, which made
+                    // ON CONFLICT (id) overwrite other rows. Make it unique per file.
+                    Id = $"{Guid.NewGuid():N}",
 
                     // Use the filename consistently for delete and insert.
                     SourceName = safeFileName,
@@ -678,6 +680,20 @@ public sealed class RagService
                     });
 
                 await insertCommand.ExecuteNonQueryAsync();
+            }
+
+            await using NpgsqlCommand countCommand = new(
+                "SELECT count(*) FROM rag_chunks WHERE lower(source_name) = lower($1);",
+                connection,
+                transaction);
+            countCommand.Parameters.AddWithValue(sourceName);
+            long stored = Convert.ToInt64(await countCommand.ExecuteScalarAsync());
+            Console.WriteLine($"rag_chunks now holds {stored} rows for '{sourceName}'.");
+
+            if (stored != records.Count)
+            {
+                throw new InvalidOperationException(
+                    $"Expected {records.Count} chunks in the database for '{sourceName}' but found {stored}.");
             }
 
             await transaction.CommitAsync();
