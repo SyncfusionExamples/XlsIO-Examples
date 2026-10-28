@@ -246,6 +246,7 @@ async function uploadFiles() {
         if (!response.ok) {
             const err = new Error("upload");
             err.status = response.status;
+            err.detail = payload && payload.error;
             throw err;
         }
         const added = payload.files || accepted.map(function (f) { return f.name; });
@@ -258,7 +259,8 @@ async function uploadFiles() {
         renderSelected([]);
         await refreshReadyState();
     } catch (error) {
-        setLive(status, friendlyError(error, "Could not prepare these documents. Try adding them again."), "error");
+        const fallback = friendlyError(error, "Could not prepare these documents. Try adding them again.");
+        setLive(status, error && error.detail ? fallback + " " + error.detail : fallback, "error");
         uploadButton.disabled = accepted.length === 0;
     } finally {
         progress.classList.remove("is-active");
