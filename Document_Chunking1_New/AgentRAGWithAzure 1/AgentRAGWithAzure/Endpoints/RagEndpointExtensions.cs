@@ -86,9 +86,21 @@ endpoints.MapPost(
             string safeFileName =
                 Path.GetFileName(file.FileName);
 
-            await ragService.IndexUploadedFileAsync(
-                file,
-                safeFileName);
+            try
+            {
+                await ragService.IndexUploadedFileAsync(
+                    file,
+                    safeFileName);
+            }
+            catch (Exception ex)
+            {
+                return Results.Json(
+                    new UploadErrorResponse
+                    {
+                        Error = $"Could not index {safeFileName}: {ex.Message}"
+                    },
+                    statusCode: StatusCodes.Status500InternalServerError);
+            }
 
             uploadedFiles.Add(safeFileName);
         }

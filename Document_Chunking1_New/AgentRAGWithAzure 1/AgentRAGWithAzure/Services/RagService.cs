@@ -243,6 +243,21 @@ public sealed class RagService
         IReadOnlyList<IChunk> chunks =
             ChunkDocument(filePath);
 
+        // Never report success when nothing was produced to store.
+        chunks = chunks
+            .Where(c => !string.IsNullOrWhiteSpace(c.Content))
+            .ToList();
+
+        if (chunks.Count == 0)
+        {
+            throw new InvalidOperationException(
+                $"No text chunks could be extracted from '{safeFileName}', " +
+                "so nothing was saved to the database.");
+        }
+
+        Console.WriteLine(
+            $"Chunked '{safeFileName}' into {chunks.Count} chunks.");
+
         var records =
             new List<LocalChunkRecord>();
 
@@ -293,6 +308,9 @@ public sealed class RagService
         await UpsertChunksAsync(
             records,
             safeFileName);
+
+        Console.WriteLine(
+            $"Stored {records.Count} chunks for '{safeFileName}'.");
     }
 
     // ------------------------------------------------------------------------
