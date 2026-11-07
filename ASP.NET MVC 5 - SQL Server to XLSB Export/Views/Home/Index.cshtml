@@ -1,0 +1,249 @@
+@{
+    ViewBag.Title = "SQL Server to XLSB Export";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .info-box p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .features {
+            list-style: none;
+            margin: 15px 0;
+            padding-left: 0;
+        }
+
+        .features li {
+            color: #666;
+            font-size: 13px;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .alert {
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #1976d2;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .alert-error {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            color: #c62828;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            color: #333;
+        }
+
+        .details {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .details h3 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .details p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SQL Server to XLSB Export</h1>
+        <p class="subtitle">ASP.NET MVC 5 + Syncfusion XlsIO Demo</p>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-error">
+                @ViewBag.Message
+            </div>
+        }
+
+        <div class="info-box">
+            <p><strong>Workflow:</strong></p>
+            <ul class="features">
+                <li>Read data from SQL Server using ADO.NET</li>
+                <li>Load data into a DataTable</li>
+                <li>Import DataTable into Excel worksheet</li>
+                <li>Export and download as XLSB format</li>
+            </ul>
+        </div>
+
+        <div class="button-group">
+            @using (Html.BeginForm("ExportToXlsb", "Home", FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-primary">
+                    <span>📊</span>
+                    <span>Export to XLSB</span>
+                </button>
+            }
+        </div>
+
+        <div class="details">
+            <h3>How it Works</h3>
+            <p>
+                When you click the "Export to XLSB" button:
+            </p>
+            <ul class="features">
+                <li><strong>SQL Query:</strong> Fetches product data from the Products table</li>
+                <li><strong>DataTable:</strong> Results are loaded into a DataTable structure</li>
+                <li><strong>XlsIO:</strong> DataTable is imported directly into an Excel worksheet</li>
+                <li><strong>XLSB Export:</strong> Workbook is saved using Syncfusion's native XLSB save API</li>
+                <li><strong>Download:</strong> File is sent to your browser as ProductsExport.xlsb</li>
+            </ul>
+
+            <h3 style="margin-top: 20px;">Technical Details</h3>
+            <ul class="features">
+                <li><strong>Framework:</strong> ASP.NET MVC 5</li>
+                <li><strong>.NET Target:</strong> Framework 4.6.2</li>
+                <li><strong>Data Access:</strong> ADO.NET with SqlConnection and SqlCommand</li>
+                <li><strong>Excel Library:</strong> Syncfusion.XlsIO.AspNet v21.1.35</li>
+                <li><strong>Format:</strong> XLSB (Binary Excel format, not XLSX renamed)</li>
+            </ul>
+
+            <h3 style="margin-top: 20px;">Requirements</h3>
+            <p>
+                <strong>Database Setup:</strong> Ensure the Products table exists in your SQL Server database.
+                See README.md for database creation script.
+            </p>
+            <p style="margin-top: 10px;">
+                <strong>Connection String:</strong> Update Web.config with your SQL Server instance details if using a non-default LocalDB.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
