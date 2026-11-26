@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)system.clientmodel\1.15.0\buildTransitive\net10.0\System.ClientModel.targets" Condition="Exists('$(NuGetPackageRoot)system.clientmodel\1.15.0\buildTransitive\net10.0\System.ClientModel.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.pdf.ocr.net\35.1.42\build\net10.0\Syncfusion.Pdf.OCR.NET.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.pdf.ocr.net\35.1.42\build\net10.0\Syncfusion.Pdf.OCR.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime.managed\1.18.0\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime.managed\1.18.0\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.18.0\build\netstandard2.1\Microsoft.ML.OnnxRuntime.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.18.0\build\netstandard2.1\Microsoft.ML.OnnxRuntime.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.smarttableextractor.net\35.1.42\build\net10.0\Syncfusion.SmartTableExtractor.NET.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.smarttableextractor.net\35.1.42\build\net10.0\Syncfusion.SmartTableExtractor.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.smartformrecognizer.net\35.1.42\build\net10.0\Syncfusion.SmartFormRecognizer.Net.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.smartformrecognizer.net\35.1.42\build\net10.0\Syncfusion.SmartFormRecognizer.Net.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.smartdataextractor.net\35.1.42\build\net10.0\Syncfusion.SmartDataExtractor.NET.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.smartdataextractor.net\35.1.42\build\net10.0\Syncfusion.SmartDataExtractor.NET.targets')" />
+    <Import Project="$(NuGetPackageRoot)openai\2.14.0\buildTransitive\netstandard2.0\OpenAI.targets" Condition="Exists('$(NuGetPackageRoot)openai\2.14.0\buildTransitive\netstandard2.0\OpenAI.targets')" />
+  </ImportGroup>
+</Project>

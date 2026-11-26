@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rag Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/34.2.7/material.css" />
+    <script src="https://cdn.syncfusion.com/ej2/34.2.7/dist/ej2.min.js"></script>
+    <script>
+        if (typeof ej !== "undefined" && ej.base && ej.base.registerLicense) {
+            ej.base.registerLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cXGhAd1p/WGJbYl1xZFdFallYTnNWSV9jS3hTc0RmWHlaeXVQQWdYUE91Vw==");
+        }
+    </script>
+    <link rel="stylesheet" href="css/workspace.css" />
+</head>
+<body>
+    <div class="shell">
+        <header class="app-bar">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path>
+                        <path d="M12 12l8-4.5"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="M12 12L4 7.5"></path>
+                    </svg>
+                </div>
+                <div class="brand-copy">
+                    <h1>Rag Chat</h1>
+                    <p>Add a PDF, Word, or Excel file, then ask questions and review the exact source used for each answer.</p>
+                    <p class="tech-caption">Powered by Syncfusion Document Chunking</p>
+                </div>
+            </div>
+            <div class="app-bar-meta">
+                <div class="format-chips" aria-label="Supported formats">
+                    <span class="chip pdf">PDF</span>
+                    <span class="chip word">Word</span>
+                    <span class="chip excel">Excel</span>
+                </div>
+                <div id="readyPill" class="pill" role="status">
+                    <span id="readyBadge" class="dot" aria-hidden="true"></span>
+                    <span id="readyPillText">Add a document to start</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="app chat-only" id="workspace">
+            <section class="chat-pane" aria-labelledby="chatHeading">
+                <div class="pane-header">
+                    <div>
+                        <div class="pane-kicker">Conversation</div>
+                        <h2 id="chatHeading">Ask your documents</h2>
+                        <p class="sub" id="chatStatus">Add a PDF, Word, or Excel file, then ask a question.</p>
+                    </div>
+                    <div class="pane-actions">
+                        <button id="addDocsButton" class="text-btn" type="button">Documents</button>
+                        <button id="clearChatButton" class="text-btn" type="button">Start new conversation</button>
+                    </div>
+                </div>
+
+                <div id="libraryView">
+                <div class="upload-bar">
+                    <div class="upload-card">
+                        <div id="dropZone" class="drop-zone" tabindex="0">
+                            <div class="drop-copy">
+                                <strong>Add documents</strong>
+                                <span>Drag PDF, Word, or Excel files here, or choose them from your device.</span>
+                            </div>
+                            <div class="upload-actions">
+                                <label class="file-btn" for="fileInput">Choose documents</label>
+                                <input id="fileInput" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" />
+                                <button id="uploadButton" class="action-btn" type="button" disabled>Add documents</button>
+                            </div>
+                        </div>
+                        <div class="formats" aria-label="Supported formats">
+                            <span class="formats-label">Supported</span>
+                            <span class="chip pdf">PDF</span>
+                            <span class="chip word">Word</span>
+                            <span class="chip excel">Excel</span>
+                        </div>
+                        <ul id="selectedList" class="file-list" aria-label="Documents ready to add"></ul>
+                        <div id="uploadProgress" class="progress">
+                            <span class="progress-bar" aria-hidden="true"></span>
+                            <span>Preparing your documents…</span>
+                        </div>
+                        <div id="uploadStatus" class="status-line" role="status" aria-live="polite"></div>
+                        <div class="library-note">Syncfusion Document Chunking prepares each file so answers can point back to a page, heading, or cell.</div>
+                    </div>
+                </div>
+
+                <div id="readyDocs" class="ready-docs" hidden>
+                    <h3>Documents ready</h3>
+                    <ul id="readyDocsList" class="file-list"></ul>
+                    <button id="askDocsButton" class="action-btn ask-btn" type="button">Go to conversation</button>
+                </div>
+                </div>
+
+                <div id="conversationView" hidden>
+                <div id="chatWindow" class="chat-window" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation">
+                    <div class="welcome-card" id="welcomeCard">
+                        <h3 id="welcomeTitle">Start with a document</h3>
+                        <p id="welcomeBody">Add a document, ask in plain language, then open the source to verify the answer.</p>
+                        <ol class="welcome-steps" id="welcomeSteps">
+                            <li><span class="step-num">1</span><span>Add a PDF, Word, or Excel document.</span></li>
+                            <li><span class="step-num">2</span><span>Wait until the document is ready.</span></li>
+                            <li><span class="step-num">3</span><span>Ask a question and open the source to verify the answer.</span></li>
+                        </ol>
+                        <div id="sampleQuestions" class="sample-questions" hidden></div>
+                    </div>
+                </div>
+
+                <form class="chat-input" id="questionForm">
+                    <label class="question-label" for="questionInput">Question</label>
+                    <div class="composer">
+                        <textarea id="questionInput" rows="2" placeholder="Ask a question about your documents." disabled></textarea>
+                        <button id="sendButton" class="send-btn" type="submit" disabled>Send</button>
+                    </div>
+                    <p id="composerHint" class="composer-hint">Add a document before asking a question.</p>
+                    <p class="trust-note">Answers are generated by AI and may be incomplete. Review the source before relying on an answer. Documents you add are processed with Gemini to answer questions in this sample.</p>
+                </form>
+                </div>
+            </section>
+
+            <section class="viewer-pane" id="viewerPane" aria-labelledby="viewerHeading" hidden>
+                <div class="pane-header">
+                    <div>
+                        <div class="pane-kicker">Source</div>
+                        <h2 id="viewerHeading">Source document</h2>
+                        <p class="sub" id="viewerStatus">Open a source to review the matching location in the document.</p>
+                    </div>
+                    <div class="viewer-toolbar">
+                        <span id="viewerTitle" class="viewer-title"></span>
+                        <button id="closeViewerButton" class="close-viewer-btn" type="button">Close source</button>
+                    </div>
+                </div>
+                <div class="viewer-host">
+                    <div id="viewerEmpty" class="viewer-empty">
+                        <div class="empty-card">
+                            <h3>No document open</h3>
+                            <p>After an answer, choose <strong>Open source</strong> to review the matching PDF, Word, or Excel location.</p>
+                        </div>
+                    </div>
+                    <div id="pdfPanel" class="viewer-panel"><div id="pdfViewer"></div></div>
+                    <div id="wordPanel" class="viewer-panel"><div id="wordViewer"></div></div>
+                    <div id="excelPanel" class="viewer-panel"><div id="excelViewer"></div></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="js/workspace.js"></script>
+</body>
+</html>
+js"></script>
+</body>
+</html>

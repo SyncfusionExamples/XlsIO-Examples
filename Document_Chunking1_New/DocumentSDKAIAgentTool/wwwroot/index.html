@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Agent tools</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <script>
+        // Automatically detect base path based on current URL
+        // If hosted in a subdirectory, extract it; otherwise use empty string
+        (function() {
+            const path = window.location.pathname;
+            // Check if we're in the showcase subdirectory
+            if (path.startsWith('/showcase/ai-agent-tools')) {
+                window.APP_BASE_PATH = '/showcase/ai-agent-tools';
+            } else {
+                window.APP_BASE_PATH = '';
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="toast" class="toast hidden"></div>
+    <div class="app-shell">
+
+        <!-- ══════════════════════════════════════════
+             HEADER
+        ══════════════════════════════════════════ -->
+        <header class="app-header">
+            <button id="mobileMenuBtn" class="mobile-menu-btn" title="Toggle menu">
+                ☰
+            </button>
+            <h1 class="app-title">Document Processing Agent Application</h1>
+        </header>
+
+        <!-- ══════════════════════════════════════════
+             MAIN BODY  (sidebar + chat)
+        ══════════════════════════════════════════ -->
+        <div class="app-body">
+
+            <!-- Overlay backdrop for mobile sidebar -->
+            <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+            <!-- ─────────────────────────────────────
+                 LEFT SIDEBAR
+            ───────────────────────────────────── -->
+            <aside id="sidebar" class="sidebar">
+
+                <!-- Tab bar -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active" data-tab="documents">Documents</button>
+                    <button class="tab-btn" data-tab="exports">Exports</button>
+                </div>
+
+                <!-- ── Documents tab ── -->
+                <div class="tab-pane active" id="documents-tab">
+                    <div class="file-scroll">
+                        <ul id="documentsList" class="file-list">
+                            <li class="empty-msg">Loading documents…</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-footer">
+                        <button id="uploadDocumentsBtn" class="upload-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            Upload documents
+                        </button>
+                        <input type="file" id="uploadDocumentsInput" multiple hidden
+                               accept=".docx,.doc,.rtf,.html,.pptx,.xlsx,.xls,.xlsm,.csv,.pdf,.json,.md,.txt,.png,.jpg,.jpeg" />
+                    </div>
+                </div>
+
+                <!-- ── Exports tab ── -->
+                <div class="tab-pane" id="exports-tab">
+                    <div class="file-scroll">
+                        <ul id="exportsList" class="file-list">
+                            <li class="empty-msg">Loading exports…</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-footer">
+                        <button id="uploadExportsBtn" class="upload-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            Upload documents
+                        </button>
+                        <input type="file" id="uploadExportsInput" multiple hidden
+                               accept=".docx,.doc,.rtf,.html,.pptx,.ppt,.xlsx,.xls,.xlsm,.csv,.pdf,.json,.md,.txt,.png,.jpg,.jpeg,.gif,.bmp,.tiff,.webp" />
+                    </div>
+                </div>
+
+            </aside><!-- /sidebar -->
+            <!-- ─────────────────────────────────────
+                 CHAT PANEL
+            ───────────────────────────────────── -->
+            <section class="chat-panel">
+
+                <!-- Chat top-bar with "AI Assist" label + refresh -->
+                <div class="chat-topbar">
+                    <span class="chat-topbar-title">
+                        <p>Chat</p>
+                    </span>
+                    <button id="chatRefreshBtn" class="chat-refresh-btn" title="Refresh chat" onclick="window.location.reload()">
+                        <img id="refreshIcon" src="" alt="Refresh" style="width:16px;height:16px;" />
+                    </button>
+                </div>
+
+                <!-- Message feed (scrollable) -->
+                <div class="chat-feed" id="chatFeed">
+
+                    <!-- Welcome banner (shown when no messages) -->
+                    <div class="welcome-banner" id="welcomeBanner">
+                        <div class="welcome-robot">
+                            <svg class="sparkles-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Large centre sparkle -->
+                                <path d="M38 8 C38.6 20 42 26 52 27 C42 28 38.6 34 38 46 C37.4 34 34 28 24 27 C34 26 37.4 20 38 8Z"
+                                      fill="#3B82F6" />
+                                <!-- Small top-right sparkle -->
+                                <path d="M57 10 C57.4 16 59.6 19 65 19.4 C59.6 19.8 57.4 23 57 29 C56.6 23 54.4 19.8 49 19.4 C54.4 19 56.6 16 57 10Z"
+                                      fill="#60A5FA" />
+                                <!-- Tiny bottom-right sparkle -->
+                                <path d="M62 38 C62.3 42 63.8 44 67 44.2 C63.8 44.4 62.3 46.4 62 50 C61.7 46.4 60.2 44.4 57 44.2 C60.2 44 61.7 42 62 38Z"
+                                      fill="#93C5FD" />
+                            </svg>
+                        </div>
+                        <h2>Hello!</h2>
+                        <p>I can help you with your documents.<br>Ask me anything about Word, Excel, PDF, PowerPoint or Markdown.</p>
+
+                        <!-- Prompt suggestions -->
+                        <div class="suggestions-wrap">
+                            <p class="suggestions-label">Here are some prompt suggestions</p>
+                            <div class="suggestions-list" id="suggestionsList">
+                                <button class="suggestion-chip" data-prompt="Load ‘Report.md’ and convert it into .docx and save file">
+                                    Load ‘Report.md’ and convert it into .docx and save file
+                                </button>
+                                <button class="suggestion-chip" data-prompt="Load ‘Invoice.pdf’ and redact invoice number ‘2058557939’ save the file.">
+                                    Load ‘Invoice.pdf’ and redact invoice number ‘2058557939’ save the file.
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /chat-feed -->
+                <!-- Prompt input bar (always visible at bottom) -->
+                <div class="chat-input-bar">
+                    <textarea id="promptInput"
+                              class="prompt-textarea"
+                              placeholder="Ask me to process your document…"
+                              rows="1"></textarea>
+                    <button id="sendBtn" class="send-btn" title="Send">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </button>
+                </div>
+
+            </section><!-- /chat-panel -->
+
+        </div><!-- /app-body -->
+    </div><!-- /app-shell -->
+
+    <script src="js/app.js"></script>
+</body>
+</html>
